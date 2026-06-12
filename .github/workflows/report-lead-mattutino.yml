@@ -1,0 +1,91 @@
+name: Report lead mattutino
+
+on:
+  schedule:
+    # GitHub usa l'orario UTC: 06:45 UTC = 08:45 in Italia con ora legale (CEST),
+    # 07:45 UTC = 08:45 in Italia con ora solare (CET). Il passo "Verifica orario"
+    # fa proseguire solo l'esecuzione che corrisponde alle 08:45 italiane.
+    - cron: '45 6 * * *'
+    - cron: '45 7 * * *'
+  workflow_dispatch:
+    inputs:
+      processa_tutti:
+        description: 'Rianalizza tutti i lead del foglio (non solo i nuovi)'
+        type: boolean
+        default: false
+
+permissions:
+  contents: write
+
+concurrency:
+  group: report-lead-mattutino
+  cancel-in-progress: false
+
+jobs:
+  report:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Verifica orario (solo 08:45 italiane)
+        id: orario
+        run: |
+          ORA_ITALIA=$(TZ=Europe/Rome date +%H)
+          if [ "${{ github.event_name }}" != "schedule" ] || [ "$ORA_ITALIA" = "08" ]; then
+            echo "procedi=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "procedi=false" >> "$GITHUB_OUTPUT"
+            echo "Esecuzione saltata: in Italia sono le $ORA_ITALIA, non le 08."
+          fi
+
+      - name: Checkout
+        if: steps.orario.outputs.procedi == 'true'
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        if: steps.orario.outputs.procedi == 'true'
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Installa dipendenze
+        if: steps.orario.outputs.procedi == 'true'
+        run: pip install gspread google-auth requests
+
+      - name: Leggi i lead dal foglio Google
+        if: steps.orario.outputs.procedi == 'true'
+        id: leads
+        env:
+          SHEET_ID: 1qB9nTJmDseVhhxfTptxkeUAAfeLSA6hgLo0OltmZH9Q
+          GOOGLE_SERVICE_ACCOUNT_JSON: ${{ secrets.GOOGLE_SERVICE_ACCOUNT_JSON }}
+          GOOGLE_SHEET_CSV_URL: ${{ secrets.GOOGLE_SHEET_CSV_URL }}
+          PROCESSA_TUTTI: ${{ github.event.inputs.processa_tutti }}
+        run: python scripts/leggi_leads.py
+
+      - name: Analizza i lead e cerca gli immobili sul mercato
+        if: steps.orario.outputs.procedi == 'true' && steps.leads.outputs.nuovi_lead != '0'
+        uses: anthropics/claude-code-action@v1
+        with:
+          anthropic_api_key: ${{ secrets.ANTHROPIC_API_KEY }}
+          prompt: /report-lead
+          claude_args: |
+            --allowedTools "WebSearch,WebFetch,Read,Write,Glob,Grep,Bash(ls:*),Bash(cat:*)"
+            --max-turns 200
+
+      - name: Invia i report su WhatsApp
+        if: steps.orario.outputs.procedi == 'true'
+        env:
+          WHATSAPP_PHONE: ${{ secrets.WHATSAPP_PHONE }}
+          CALLMEBOT_APIKEY: ${{ secrets.CALLMEBOT_APIKEY }}
+          TWILIO_ACCOUNT_SID: ${{ secrets.TWILIO_ACCOUNT_SID }}
+          TWILIO_AUTH_TOKEN: ${{ secrets.TWILIO_AUTH_TOKEN }}
+          TWILIO_WHATSAPP_FROM: ${{ secrets.TWILIO_WHATSAPP_FROM }}
+          NUOVI_LEAD: ${{ steps.leads.outputs.nuovi_lead }}
+        run: python scripts/invia_whatsapp.py
+
+      - name: Salva lo stato dei lead processati
+        if: steps.orario.outputs.procedi == 'true' && steps.leads.outputs.nuovi_lead != '0'
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add data/leads_processati.json
+          git diff --cached --quiet || git commit -m "Aggiorna lead processati ($(TZ=Europe/Rome date +%Y-%m-%d))"
+          git push
