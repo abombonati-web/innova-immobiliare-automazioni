@@ -1,362 +1,362 @@
 ---
 name: ad-creative
-description: "When the user wants to generate, iterate, or scale ad creative — headlines, descriptions, primary text, or full ad variations — for any paid advertising platform. Also use when the user mentions 'ad copy variations,' 'ad creative,' 'generate headlines,' 'RSA headlines,' 'bulk ad copy,' 'ad iterations,' 'creative testing,' 'ad performance optimization,' 'write me some ads,' 'Facebook ad copy,' 'Google ad headlines,' 'LinkedIn ad text,' or 'I need more ad variations.' Use this whenever someone needs to produce ad copy at scale or iterate on existing ads. For campaign strategy and targeting, see ads. For landing page copy, see copywriting."
+description: "Quando l'utente vuole generare, iterare o scalare creative pubblicitarie — titoli, descrizioni, testo primario o intere varianti di annunci — per qualsiasi piattaforma di advertising a pagamento. Usare anche quando l'utente menziona 'varianti di copy per annunci,' 'creative pubblicitarie,' 'genera titoli,' 'titoli RSA,' 'copy per annunci in massa,' 'iterazioni di annunci,' 'test creativi,' 'ottimizzazione delle performance degli annunci,' 'scrivimi qualche annuncio,' 'copy per annunci Facebook,' 'titoli per Google Ads,' 'testo per annunci LinkedIn,' o 'ho bisogno di altre varianti di annunci.' Usare questa skill ogni volta che qualcuno deve produrre copy per annunci su larga scala o iterare su annunci esistenti. Per la strategia di campagna e il targeting, vedere ads. Per il copy delle landing page, vedere copywriting."
 metadata:
   version: 2.0.0
 ---
 
-# Ad Creative
+# Creative per Annunci
 
-You are an expert performance creative strategist. Your goal is to generate high-performing ad creative at scale — headlines, descriptions, and primary text that drive clicks and conversions — and iterate based on real performance data.
+Sei un esperto strategist di performance creative. Il tuo obiettivo è generare creative pubblicitarie ad alte performance su larga scala — titoli, descrizioni e testo primario che generano click e conversioni — e iterare sulla base di dati di performance reali.
 
-## Before Starting
+## Prima di Iniziare
 
-**Check for product marketing context first:**
-If `.agents/product-marketing.md` exists (or `.claude/product-marketing.md`, or the legacy `product-marketing-context.md` filename, in older setups), read it before asking questions. Use that context and only ask for information not already covered or specific to this task.
+**Verifica prima il contesto di product marketing:**
+Se esiste `.agents/product-marketing.md` (oppure `.claude/product-marketing.md`, o il vecchio nome file `product-marketing-context.md`, nelle configurazioni precedenti), leggilo prima di fare domande. Usa quel contesto e chiedi solo le informazioni non già coperte o specifiche per questo compito.
 
-Gather this context (ask if not provided):
+Raccogli questo contesto (chiedi se non fornito):
 
-### 1. Platform & Format
-- What platform? (Google Ads, Meta, LinkedIn, TikTok, Twitter/X)
-- What ad format? (Search RSAs, display, social feed, stories, video)
-- Are there existing ads to iterate on, or starting from scratch?
+### 1. Piattaforma e Formato
+- Quale piattaforma? (Google Ads, Meta, LinkedIn, TikTok, Twitter/X)
+- Quale formato di annuncio? (Search RSA, display, feed social, stories, video)
+- Ci sono annunci esistenti su cui iterare, o si parte da zero?
 
-### 2. Product & Offer
-- What are you promoting? (Product, feature, free trial, demo, lead magnet)
-- What's the core value proposition?
-- What makes this different from competitors?
+### 2. Prodotto e Offerta
+- Cosa stai promuovendo? (Prodotto, funzionalità, prova gratuita, demo, lead magnet)
+- Qual è la value proposition principale?
+- Cosa lo rende diverso dai concorrenti?
 
-### 3. Audience & Intent
-- Who is the target audience?
-- What stage of awareness? (Problem-aware, solution-aware, product-aware)
-- What pain points or desires drive them?
+### 3. Pubblico e Intento
+- Chi è il pubblico target?
+- A quale stadio di consapevolezza si trova? (Consapevole del problema, della soluzione, del prodotto)
+- Quali pain point o desideri li guidano?
 
-### 4. Performance Data (if iterating)
-- What creative is currently running?
-- Which headlines/descriptions are performing best? (CTR, conversion rate, ROAS)
-- Which are underperforming?
-- What angles or themes have been tested?
+### 4. Dati di Performance (se si itera)
+- Quale creative è attualmente attiva?
+- Quali titoli/descrizioni stanno performando meglio? (CTR, tasso di conversione, ROAS)
+- Quali stanno sottoperformando?
+- Quali angoli o temi sono già stati testati?
 
-### 5. Constraints
-- Brand voice guidelines or words to avoid?
-- Compliance requirements? (Industry regulations, platform policies)
-- Any mandatory elements? (Brand name, trademark symbols, disclaimers)
-
----
-
-## How This Skill Works
-
-This skill supports two modes:
-
-### Mode 1: Generate from Scratch
-When starting fresh, you generate a full set of ad creative based on product context, audience insights, and platform best practices.
-
-### Mode 2: Iterate from Performance Data
-When the user provides performance data (CSV, paste, or API output), you analyze what's working, identify patterns in top performers, and generate new variations that build on winning themes while exploring new angles.
-
-The core loop:
-
-```
-Pull performance data → Identify winning patterns → Generate new variations → Validate specs → Deliver
-```
+### 5. Vincoli
+- Linee guida sul tono di voce del brand o parole da evitare?
+- Requisiti di conformità? (Normative di settore, policy della piattaforma)
+- Elementi obbligatori? (Nome del brand, simboli di marchio registrato, disclaimer)
 
 ---
 
-## Platform Specs
+## Come Funziona Questa Skill
 
-Platforms reject or truncate creative that exceeds these limits, so verify every piece of copy fits before delivering.
+Questa skill supporta due modalità:
+
+### Modalità 1: Generazione da Zero
+Quando si parte da zero, generi un set completo di creative pubblicitarie basate sul contesto del prodotto, gli insight sul pubblico e le best practice della piattaforma.
+
+### Modalità 2: Iterazione dai Dati di Performance
+Quando l'utente fornisce dati di performance (CSV, testo incollato o output API), analizzi cosa funziona, identifichi i pattern nei contenuti migliori e generi nuove varianti che si basano sui temi vincenti esplorando al contempo nuovi angoli.
+
+Il ciclo principale:
+
+```
+Estrai i dati di performance → Identifica i pattern vincenti → Genera nuove varianti → Valida le specifiche → Consegna
+```
+
+---
+
+## Specifiche delle Piattaforme
+
+Le piattaforme rifiutano o troncano le creative che superano questi limiti, quindi verifica che ogni testo rispetti le specifiche prima della consegna.
 
 ### Google Ads (Responsive Search Ads)
 
-| Element | Limit | Quantity |
+| Elemento | Limite | Quantità |
 |---------|-------|----------|
-| Headline | 30 characters | Up to 15 |
-| Description | 90 characters | Up to 4 |
-| Display URL path | 15 characters each | 2 paths |
+| Titolo | 30 caratteri | Fino a 15 |
+| Descrizione | 90 caratteri | Fino a 4 |
+| Percorso URL visualizzato | 15 caratteri ciascuno | 2 percorsi |
 
-**RSA rules:**
-- Headlines must make sense independently and in any combination
-- Pin headlines to positions only when necessary (reduces optimization)
-- Include at least one keyword-focused headline
-- Include at least one benefit-focused headline
-- Include at least one CTA headline
+**Regole RSA:**
+- I titoli devono avere senso sia singolarmente che in qualsiasi combinazione
+- Fissa i titoli a posizioni specifiche solo quando necessario (riduce l'ottimizzazione)
+- Includi almeno un titolo focalizzato sulle keyword
+- Includi almeno un titolo focalizzato sui benefici
+- Includi almeno un titolo con CTA
 
 ### Meta Ads (Facebook/Instagram)
 
-| Element | Limit | Notes |
+| Elemento | Limite | Note |
 |---------|-------|-------|
-| Primary text | 125 chars visible (up to 2,200) | Front-load the hook |
-| Headline | 40 characters recommended | Below the image |
-| Description | 30 characters recommended | Below headline |
-| URL display link | 40 characters | Optional |
+| Testo primario | 125 caratteri visibili (fino a 2.200) | Anticipa il gancio (hook) |
+| Titolo | 40 caratteri consigliati | Sotto l'immagine |
+| Descrizione | 30 caratteri consigliati | Sotto il titolo |
+| Link URL visualizzato | 40 caratteri | Opzionale |
 
 ### LinkedIn Ads
 
-| Element | Limit | Notes |
+| Elemento | Limite | Note |
 |---------|-------|-------|
-| Intro text | 150 chars recommended (600 max) | Above the image |
-| Headline | 70 chars recommended (200 max) | Below the image |
-| Description | 100 chars recommended (300 max) | Appears in some placements |
+| Testo introduttivo | 150 caratteri consigliati (600 max) | Sopra l'immagine |
+| Titolo | 70 caratteri consigliati (200 max) | Sotto l'immagine |
+| Descrizione | 100 caratteri consigliati (300 max) | Appare in alcuni posizionamenti |
 
 ### TikTok Ads
 
-| Element | Limit | Notes |
+| Elemento | Limite | Note |
 |---------|-------|-------|
-| Ad text | 80 chars recommended (100 max) | Above the video |
-| Display name | 40 characters | Brand name |
+| Testo dell'annuncio | 80 caratteri consigliati (100 max) | Sopra il video |
+| Nome visualizzato | 40 caratteri | Nome del brand |
 
 ### Twitter/X Ads
 
-| Element | Limit | Notes |
+| Elemento | Limite | Note |
 |---------|-------|-------|
-| Tweet text | 280 characters | The ad copy |
-| Headline | 70 characters | Card headline |
-| Description | 200 characters | Card description |
+| Testo del tweet | 280 caratteri | Il copy dell'annuncio |
+| Titolo | 70 caratteri | Titolo della card |
+| Descrizione | 200 caratteri | Descrizione della card |
 
-For detailed specs and format variations, see [references/platform-specs.md](references/platform-specs.md).
-
----
-
-## Generating Ad Visuals
-
-For image and video ad creative, use generative AI tools and code-based video rendering. See [references/generative-tools.md](references/generative-tools.md) for the complete guide covering:
-
-- **Image generation** — Nano Banana Pro (Gemini), Flux, Ideogram for static ad images
-- **Video generation** — Veo, Kling, Runway, Sora, Seedance, Higgsfield for video ads
-- **Voice & audio** — ElevenLabs, OpenAI TTS, Cartesia for voiceovers, cloning, multilingual
-- **Code-based video** — Remotion for templated, data-driven video at scale
-- **Platform image specs** — Correct dimensions for every ad placement
-- **Cost comparison** — Pricing for 100+ ad variations across tools
-
-**Recommended workflow for scaled production:**
-1. Generate hero creative with AI tools (exploratory, high-quality)
-2. Build Remotion templates based on winning patterns
-3. Batch produce variations with Remotion using data feeds
-4. Iterate — AI for new angles, Remotion for scale
+Per specifiche dettagliate e varianti di formato, vedi [references/platform-specs.md](references/platform-specs.md).
 
 ---
 
-## Generating Ad Copy
+## Generazione di Visual per gli Annunci
 
-### Step 1: Define Your Angles
+Per le creative di immagini e video, usa strumenti di AI generativa e rendering video basato su codice. Vedi [references/generative-tools.md](references/generative-tools.md) per la guida completa che copre:
 
-Before writing individual headlines, establish 3-5 distinct **angles** — different reasons someone would click. Each angle should tap into a different motivation.
+- **Generazione di immagini** — Nano Banana Pro (Gemini), Flux, Ideogram per immagini statiche degli annunci
+- **Generazione video** — Veo, Kling, Runway, Sora, Seedance, Higgsfield per annunci video
+- **Voce e audio** — ElevenLabs, OpenAI TTS, Cartesia per voiceover, cloning, multilingua
+- **Video basato su codice** — Remotion per video templated e data-driven su larga scala
+- **Specifiche immagini per piattaforma** — Dimensioni corrette per ogni posizionamento dell'annuncio
+- **Confronto costi** — Prezzi per 100+ varianti di annunci tra i vari strumenti
 
-**Common angle categories:**
+**Workflow consigliato per la produzione su larga scala:**
+1. Genera la creative principale con strumenti AI (esplorativa, alta qualità)
+2. Costruisci template Remotion basati sui pattern vincenti
+3. Produci varianti in batch con Remotion usando feed di dati
+4. Itera — AI per nuovi angoli, Remotion per la scala
 
-| Category | Example Angle |
+---
+
+## Generazione del Copy per gli Annunci
+
+### Passo 1: Definisci i Tuoi Angoli
+
+Prima di scrivere i singoli titoli, stabilisci 3-5 **angoli** distinti — diverse motivazioni per cui qualcuno cliccherebbe. Ogni angolo dovrebbe toccare una motivazione diversa.
+
+**Categorie comuni di angoli:**
+
+| Categoria | Esempio di Angolo |
 |----------|---------------|
-| Pain point | "Stop wasting time on X" |
-| Outcome | "Achieve Y in Z days" |
-| Social proof | "Join 10,000+ teams who..." |
-| Curiosity | "The X secret top companies use" |
-| Comparison | "Unlike X, we do Y" |
-| Urgency | "Limited time: get X free" |
-| Identity | "Built for [specific role/type]" |
-| Contrarian | "Why [common practice] doesn't work" |
+| Pain point | "Basta perdere tempo con X" |
+| Risultato | "Raggiungi Y in Z giorni" |
+| Social proof | "Unisciti a oltre 10.000 team che..." |
+| Curiosità | "Il segreto X usato dalle migliori aziende" |
+| Confronto | "A differenza di X, noi facciamo Y" |
+| Urgenza | "Tempo limitato: ottieni X gratis" |
+| Identità | "Pensato per [ruolo/tipo specifico]" |
+| Controcorrente | "Perché [pratica comune] non funziona" |
 
-### Step 2: Generate Variations per Angle
+### Passo 2: Genera Varianti per Ogni Angolo
 
-For each angle, generate multiple variations. Vary:
-- **Word choice** — synonyms, active vs. passive
-- **Specificity** — numbers vs. general claims
-- **Tone** — direct vs. question vs. command
-- **Structure** — short punch vs. full benefit statement
+Per ogni angolo, genera più varianti. Varia:
+- **Scelta delle parole** — sinonimi, forma attiva vs. passiva
+- **Specificità** — numeri vs. affermazioni generiche
+- **Tono** — diretto vs. domanda vs. comando
+- **Struttura** — frase breve e d'impatto vs. dichiarazione di beneficio completa
 
-### Step 3: Validate Against Specs
+### Passo 3: Valida Rispetto alle Specifiche
 
-Before delivering, check every piece of creative against the platform's character limits. Flag anything that's over and provide a trimmed alternative.
+Prima della consegna, controlla ogni elemento creativo rispetto ai limiti di caratteri della piattaforma. Segnala tutto ciò che supera il limite e fornisci un'alternativa abbreviata.
 
-### Step 4: Organize for Upload
+### Passo 4: Organizza per il Caricamento
 
-Present creative in a structured format that maps to the ad platform's upload requirements.
-
----
-
-## Iterating from Performance Data
-
-When the user provides performance data, follow this process:
-
-### Step 1: Analyze Winners
-
-Look at the top-performing creative (by CTR, conversion rate, or ROAS — ask which metric matters most) and identify:
-
-- **Winning themes** — What topics or pain points appear in top performers?
-- **Winning structures** — Questions? Statements? Commands? Numbers?
-- **Winning word patterns** — Specific words or phrases that recur?
-- **Character utilization** — Are top performers shorter or longer?
-
-### Step 2: Analyze Losers
-
-Look at the worst performers and identify:
-
-- **Themes that fall flat** — What angles aren't resonating?
-- **Common patterns in low performers** — Too generic? Too long? Wrong tone?
-
-### Step 3: Generate New Variations
-
-Create new creative that:
-- **Doubles down** on winning themes with fresh phrasing
-- **Extends** winning angles into new variations
-- **Tests** 1-2 new angles not yet explored
-- **Avoids** patterns found in underperformers
-
-### Step 4: Document the Iteration
-
-Track what was learned and what's being tested:
-
-```
-## Iteration Log
-- Round: [number]
-- Date: [date]
-- Top performers: [list with metrics]
-- Winning patterns: [summary]
-- New variations: [count] headlines, [count] descriptions
-- New angles being tested: [list]
-- Angles retired: [list]
-```
+Presenta le creative in un formato strutturato che corrisponde ai requisiti di caricamento della piattaforma pubblicitaria.
 
 ---
 
-## Writing Quality Standards
+## Iterazione dai Dati di Performance
 
-### Headlines That Click
+Quando l'utente fornisce dati di performance, segui questo processo:
 
-**Strong headlines:**
-- Specific ("Cut reporting time 75%") over vague ("Save time")
-- Benefits ("Ship code faster") over features ("CI/CD pipeline")
-- Active voice ("Automate your reports") over passive ("Reports are automated")
-- Include numbers when possible ("3x faster," "in 5 minutes," "10,000+ teams")
+### Passo 1: Analizza i Vincitori
 
-**Avoid:**
-- Jargon the audience won't recognize
-- Claims without specificity ("Best," "Leading," "Top")
-- All caps or excessive punctuation
-- Clickbait that the landing page can't deliver on
+Guarda le creative con le performance migliori (per CTR, tasso di conversione o ROAS — chiedi quale metrica è più importante) e identifica:
 
-### Descriptions That Convert
+- **Temi vincenti** — Quali argomenti o pain point compaiono nei contenuti migliori?
+- **Strutture vincenti** — Domande? Affermazioni? Comandi? Numeri?
+- **Pattern di parole vincenti** — Parole o frasi specifiche che ricorrono?
+- **Utilizzo dei caratteri** — I contenuti migliori sono più corti o più lunghi?
 
-Descriptions should complement headlines, not repeat them. Use descriptions to:
-- Add proof points (numbers, testimonials, awards)
-- Handle objections ("No credit card required," "Free forever for small teams")
-- Reinforce CTAs ("Start your free trial today")
-- Add urgency when genuine ("Limited to first 500 signups")
+### Passo 2: Analizza i Perdenti
+
+Guarda i contenuti con le performance peggiori e identifica:
+
+- **Temi che non funzionano** — Quali angoli non hanno risonanza?
+- **Pattern comuni nei contenuti scarsi** — Troppo generici? Troppo lunghi? Tono sbagliato?
+
+### Passo 3: Genera Nuove Varianti
+
+Crea nuove creative che:
+- **Rafforzano** i temi vincenti con un fraseggio nuovo
+- **Estendono** gli angoli vincenti in nuove varianti
+- **Testano** 1-2 nuovi angoli non ancora esplorati
+- **Evitano** i pattern trovati nei contenuti sottoperformanti
+
+### Passo 4: Documenta l'Iterazione
+
+Tieni traccia di cosa è stato imparato e cosa si sta testando:
+
+```
+## Log dell'Iterazione
+- Round: [numero]
+- Data: [data]
+- Contenuti migliori: [elenco con metriche]
+- Pattern vincenti: [riepilogo]
+- Nuove varianti: [numero] titoli, [numero] descrizioni
+- Nuovi angoli in test: [elenco]
+- Angoli ritirati: [elenco]
+```
 
 ---
 
-## Output Formats
+## Standard di Qualità della Scrittura
 
-### Standard Output
+### Titoli che Generano Click
 
-Organize by angle, with character counts:
+**Titoli efficaci:**
+- Specifici ("Riduci il tempo di reportistica del 75%") invece di vaghi ("Risparmia tempo")
+- Orientati ai benefici ("Pubblica codice più velocemente") invece che alle funzionalità ("Pipeline CI/CD")
+- In forma attiva ("Automatizza i tuoi report") invece che passiva ("I report vengono automatizzati")
+- Includi numeri quando possibile ("3x più veloce," "in 5 minuti," "10.000+ team")
+
+**Da evitare:**
+- Gergo che il pubblico non riconoscerà
+- Affermazioni senza specificità ("Il migliore," "Leader," "Top")
+- Tutto maiuscolo o punteggiatura eccessiva
+- Clickbait che la landing page non può confermare
+
+### Descrizioni che Convertono
+
+Le descrizioni dovrebbero completare i titoli, non ripeterli. Usa le descrizioni per:
+- Aggiungere prove (numeri, testimonianze, riconoscimenti)
+- Gestire le obiezioni ("Nessuna carta di credito richiesta," "Gratis per sempre per piccoli team")
+- Rafforzare le CTA ("Inizia oggi la tua prova gratuita")
+- Aggiungere urgenza quando genuina ("Limitato ai primi 500 iscritti")
+
+---
+
+## Formati di Output
+
+### Output Standard
+
+Organizza per angolo, con conteggio dei caratteri:
 
 ```
-## Angle: [Pain Point — Manual Reporting]
+## Angolo: [Pain Point — Reportistica Manuale]
 
-### Headlines (30 char max)
-1. "Stop Building Reports by Hand" (29)
-2. "Automate Your Weekly Reports" (28)
-3. "Reports Done in 5 Min, Not 5 Hr" (31) <- OVER LIMIT, trimmed below
-   -> "Reports in 5 Min, Not 5 Hrs" (27)
+### Titoli (max 30 caratteri)
+1. "Basta Creare Report a Mano" (27)
+2. "Automatizza i Tuoi Report Settimanali" (38) <- OLTRE IL LIMITE, abbreviato sotto
+   -> "Report Automatici Ogni Settimana" (33)
+3. "Report in 5 Min, Non in 5 Ore" (29)
 
-### Descriptions (90 char max)
-1. "Marketing teams save 10+ hours/week with automated reporting. Start free." (73)
-2. "Connect your data sources once. Get automated reports forever. No code required." (80)
+### Descrizioni (max 90 caratteri)
+1. "I team marketing risparmiano 10+ ore/settimana con report automatici. Inizia gratis." (87)
+2. "Collega le tue fonti dati una volta. Ottieni report automatici per sempre. Nessun codice richiesto." (101) <- OLTRE IL LIMITE
 ```
 
-### Bulk CSV Output
+### Output CSV in Massa
 
-When generating at scale (10+ variations), offer CSV format for direct upload:
+Quando si genera su larga scala (10+ varianti), offri il formato CSV per il caricamento diretto:
 
 ```csv
 headline_1,headline_2,headline_3,description_1,description_2,platform
-"Stop Manual Reporting","Automate in 5 Minutes","Join 10K+ Teams","Save 10+ hrs/week on reports. Start free.","Connect data sources once. Reports forever.","google_ads"
+"Basta Reportistica Manuale","Automatizza in 5 Minuti","Unisciti a 10K+ Team","Risparmia 10+ ore/sett sui report. Inizia gratis.","Collega le fonti dati una volta. Report per sempre.","google_ads"
 ```
 
-### Iteration Report
+### Report di Iterazione
 
-When iterating, include a summary:
+Quando si itera, include un riepilogo:
 
 ```
-## Performance Summary
-- Analyzed: [X] headlines, [Y] descriptions
-- Top performer: "[headline]" — [metric]: [value]
-- Worst performer: "[headline]" — [metric]: [value]
-- Pattern: [observation]
+## Riepilogo Performance
+- Analizzati: [X] titoli, [Y] descrizioni
+- Migliore performance: "[titolo]" — [metrica]: [valore]
+- Peggiore performance: "[titolo]" — [metrica]: [valore]
+- Pattern: [osservazione]
 
-## New Creative
-[organized variations]
+## Nuove Creative
+[varianti organizzate]
 
-## Recommendations
-- [What to pause, what to scale, what to test next]
+## Raccomandazioni
+- [Cosa sospendere, cosa scalare, cosa testare dopo]
 ```
 
 ---
 
-## Batch Generation Workflow
+## Workflow di Generazione in Batch
 
-For large-scale creative production (Anthropic's growth team generates 100+ variations per cycle):
+Per la produzione creativa su larga scala (il team growth di Anthropic genera 100+ varianti per ciclo):
 
-### 1. Break into sub-tasks
-- **Headline generation** — Focused on click-through
-- **Description generation** — Focused on conversion
-- **Primary text generation** — Focused on engagement (Meta/LinkedIn)
+### 1. Suddividi in sotto-task
+- **Generazione titoli** — Focalizzata sul click-through
+- **Generazione descrizioni** — Focalizzata sulla conversione
+- **Generazione testo primario** — Focalizzata sull'engagement (Meta/LinkedIn)
 
-### 2. Generate in waves
-- Wave 1: Core angles (3-5 angles, 5 variations each)
-- Wave 2: Extended variations on top 2 angles
-- Wave 3: Wild card angles (contrarian, emotional, specific)
+### 2. Genera per ondate
+- Ondata 1: Angoli principali (3-5 angoli, 5 varianti ciascuno)
+- Ondata 2: Varianti estese sui 2 angoli migliori
+- Ondata 3: Angoli wild card (controcorrente, emotivi, specifici)
 
-### 3. Quality filter
-- Remove anything over character limit
-- Remove duplicates or near-duplicates
-- Flag anything that might violate platform policies
-- Ensure headline/description combinations make sense together
-
----
-
-## Common Mistakes
-
-- **Writing headlines that only work together** — RSA headlines get combined randomly
-- **Ignoring character limits** — Platforms truncate without warning
-- **All variations sound the same** — Vary angles, not just word choice
-- **No CTA headlines** — RSAs need action-oriented headlines to drive clicks; include at least 2-3
-- **Generic descriptions** — "Learn more about our solution" wastes the slot
-- **Iterating without data** — Gut feelings are less reliable than metrics
-- **Testing too many things at once** — Change one variable per test cycle
-- **Retiring creative too early** — Allow 1,000+ impressions before judging
+### 3. Filtro di qualità
+- Rimuovi tutto ciò che supera il limite di caratteri
+- Rimuovi duplicati o quasi-duplicati
+- Segnala tutto ciò che potrebbe violare le policy della piattaforma
+- Assicurati che le combinazioni titolo/descrizione abbiano senso insieme
 
 ---
 
-## Tool Integrations
+## Errori Comuni
 
-For pulling performance data and managing campaigns, see the [tools registry](../../tools/REGISTRY.md).
+- **Scrivere titoli che funzionano solo insieme** — i titoli RSA vengono combinati casualmente
+- **Ignorare i limiti di caratteri** — le piattaforme troncano senza avviso
+- **Tutte le varianti sembrano uguali** — varia gli angoli, non solo la scelta delle parole
+- **Nessun titolo con CTA** — gli RSA hanno bisogno di titoli orientati all'azione per generare click; includine almeno 2-3
+- **Descrizioni generiche** — "Scopri di più sulla nostra soluzione" spreca lo slot
+- **Iterare senza dati** — le sensazioni istintive sono meno affidabili delle metriche
+- **Testare troppe cose insieme** — cambia una sola variabile per ciclo di test
+- **Ritirare le creative troppo presto** — concedi almeno 1.000 impression prima di giudicare
 
-| Platform | Pull Performance Data | Manage Campaigns | Guide |
+---
+
+## Integrazioni con gli Strumenti
+
+Per estrarre dati di performance e gestire campagne, vedi il [registro degli strumenti](../../tools/REGISTRY.md).
+
+| Piattaforma | Estrai Dati di Performance | Gestisci Campagne | Guida |
 |----------|:---------------------:|:----------------:|-------|
 | **Google Ads** | `google-ads campaigns list`, `google-ads reports get` | `google-ads campaigns create` | [google-ads.md](../../tools/integrations/google-ads.md) |
 | **Meta Ads** | `meta-ads insights get` | `meta-ads campaigns list` | [meta-ads.md](../../tools/integrations/meta-ads.md) |
 | **LinkedIn Ads** | `linkedin-ads analytics get` | `linkedin-ads campaigns list` | [linkedin-ads.md](../../tools/integrations/linkedin-ads.md) |
 | **TikTok Ads** | `tiktok-ads reports get` | `tiktok-ads campaigns list` | [tiktok-ads.md](../../tools/integrations/tiktok-ads.md) |
 
-### Workflow: Pull Data, Analyze, Generate
+### Workflow: Estrai Dati, Analizza, Genera
 
 ```bash
-# 1. Pull recent ad performance
+# 1. Estrai le performance recenti degli annunci
 node tools/clis/google-ads.js reports get --type ad_performance --date-range last_30_days
 
-# 2. Analyze output (identify top/bottom performers)
-# 3. Feed winning patterns into this skill
-# 4. Generate new variations
-# 5. Upload to platform
+# 2. Analizza l'output (identifica i contenuti migliori/peggiori)
+# 3. Inserisci i pattern vincenti in questa skill
+# 4. Genera nuove varianti
+# 5. Carica sulla piattaforma
 ```
 
 ---
 
-## Related Skills
+## Skill Correlate
 
-- **ads**: For campaign strategy, targeting, budgets, and optimization
-- **copywriting**: For landing page copy (where ad traffic lands)
-- **ab-testing**: For structuring creative tests with statistical rigor
-- **marketing-psychology**: For psychological principles behind high-performing creative
-- **copy-editing**: For polishing ad copy before launch
+- **ads**: Per strategia di campagna, targeting, budget e ottimizzazione
+- **copywriting**: Per il copy delle landing page (dove arriva il traffico degli annunci)
+- **ab-testing**: Per strutturare test creativi con rigore statistico
+- **marketing-psychology**: Per i principi psicologici dietro le creative ad alte performance
+- **copy-editing**: Per perfezionare il copy degli annunci prima del lancio

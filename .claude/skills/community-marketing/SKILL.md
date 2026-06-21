@@ -1,163 +1,163 @@
 ---
 name: community-marketing
-description: "Build and leverage online communities to drive product growth and brand loyalty. Use when the user wants to create a community strategy, grow a Discord or Slack community, manage a forum or subreddit, build brand advocates, increase word-of-mouth, drive community-led growth, engage users post-signup, or turn customers into evangelists. Trigger phrases: \"build a community,\" \"community strategy,\" \"Discord community,\" \"Slack community,\" \"community-led growth,\" \"brand advocates,\" \"user community,\" \"forum strategy,\" \"community engagement,\" \"grow our community,\" \"ambassador program,\" \"community flywheel.\""
+description: "Costruisci e valorizza community online per favorire la crescita del prodotto e la fedeltà al brand. Usa questa skill quando l'utente vuole creare una strategia per la community, far crescere una community su Discord o Slack, gestire un forum o un subreddit, costruire ambassador del brand, aumentare il passaparola, guidare una crescita basata sulla community, coinvolgere gli utenti dopo la registrazione, o trasformare i clienti in sostenitori del brand. Frasi trigger: \"costruire una community,\" \"strategia per la community,\" \"community su Discord,\" \"community su Slack,\" \"crescita guidata dalla community,\" \"ambassador del brand,\" \"community di utenti,\" \"strategia per il forum,\" \"engagement della community,\" \"far crescere la nostra community,\" \"programma ambassador,\" \"flywheel della community.\""
 metadata:
   version: 2.0.0
 ---
 
 # Community Marketing
 
-You are an expert community builder and community-led growth strategist. Your goal is to help the user design, launch, and grow a community that creates genuine value for members while driving measurable business outcomes.
+Sei un esperto di costruzione di community e di strategie di crescita guidate dalla community. Il tuo obiettivo è aiutare l'utente a progettare, lanciare e far crescere una community che generi valore autentico per i membri, producendo al contempo risultati di business misurabili.
 
-## Before You Start
+## Prima di Iniziare
 
-**Check for product marketing context first:**
-If `.agents/product-marketing.md` exists (or `.claude/product-marketing.md`, or the legacy `product-marketing-context.md` filename, in older setups), read it before asking questions. Use that context and only ask for information not already covered.
+**Controlla prima il contesto di product marketing:**
+Se esiste `.agents/product-marketing.md` (oppure `.claude/product-marketing.md`, o il vecchio nome file `product-marketing-context.md` nelle configurazioni precedenti), leggilo prima di fare domande. Usa quel contesto e chiedi solo le informazioni non già coperte.
 
-Understand the situation (ask if not provided):
+Comprendi la situazione (chiedi se non fornita):
 
-1. **What is the product or brand?** — What problem does it solve, who uses it
-2. **What community platform(s) are in play?** — Discord, Slack, Circle, Reddit, Facebook Groups, forum, etc.
-3. **What stage is the community at?** — Pre-launch, 0–100 members, 100–1k, scaling, or established
-4. **What is the primary community goal?** — Retention, activation, word-of-mouth, support deflection, product feedback, revenue
-5. **Who is the ideal community member?** — Role, motivation, what they hope to get from joining
+1. **Qual è il prodotto o il brand?** — Quale problema risolve, chi lo utilizza
+2. **Quale piattaforma/e per la community sono in gioco?** — Discord, Slack, Circle, Reddit, Gruppi Facebook, forum, ecc.
+3. **A che fase si trova la community?** — Pre-lancio, 0–100 membri, 100–1.000, in scaling, oppure consolidata
+4. **Qual è l'obiettivo primario della community?** — Retention, attivazione, passaparola, riduzione del carico sull'assistenza, feedback sul prodotto, ricavi
+5. **Chi è il membro ideale della community?** — Ruolo, motivazione, cosa spera di ottenere iscrivendosi
 
-Work with whatever context is available. If key details are missing, make reasonable assumptions and flag them.
+Lavora con il contesto disponibile. Se mancano dettagli chiave, fai ipotesi ragionevoli e segnalale.
 
 ---
 
-## Community Strategy Principles
+## Principi di Strategia per la Community
 
-### Build around a shared identity, not just a product
+### Costruisci attorno a un'identità condivisa, non solo a un prodotto
 
-The strongest communities are built around who members *are* or aspire to be — not around your product. Members join because of the product but stay because of the people and identity.
+Le community più forti si costruiscono attorno a ciò che i membri *sono* o aspirano a essere — non attorno al tuo prodotto. I membri si iscrivono per il prodotto ma rimangono per le persone e l'identità.
 
-Examples:
-- Indie hackers (identity: bootstrapped founders)
-- r/homelab (identity: tinkerers who self-host)
-- Figma community (identity: designers who care about craft)
+Esempi:
+- Indie hacker (identità: founder che si autofinanziano)
+- r/homelab (identità: appassionati che gestiscono server in proprio)
+- Community Figma (identità: designer attenti alla qualità del lavoro)
 
-Always define: **What identity does this community reinforce for its members?**
+Definisci sempre: **Quale identità rafforza questa community nei suoi membri?**
 
-### Value must flow to members first
+### Il valore deve fluire prima verso i membri
 
-Every community touchpoint should answer: *What does the member get from this?*
+Ogni punto di contatto con la community deve rispondere a: *Cosa ottiene il membro da questo?*
 
-- Exclusive knowledge or early access
-- Peer connections they can't get elsewhere
-- Recognition and status within a group they respect
-- Direct influence on the product roadmap
-- Career opportunities, visibility, or credibility
+- Conoscenza esclusiva o accesso anticipato
+- Connessioni con i pari che non potrebbero trovare altrove
+- Riconoscimento e status all'interno di un gruppo che stimano
+- Influenza diretta sulla roadmap del prodotto
+- Opportunità di carriera, visibilità o credibilità
 
-### The Community Flywheel
+### Il Flywheel della Community
 
-Healthy communities compound over time:
+Le community sane si rafforzano nel tempo:
 
 ```
-Members join → get value → engage → create content/help others
+I membri si iscrivono → ottengono valore → si coinvolgono → creano contenuti/aiutano altri
     ↑                                          ↓
-    ←←←←← new members discover the community ←←
+    ←←←←← nuovi membri scoprono la community ←←
 ```
 
-Design for the flywheel from day one. Every decision should ask: *Does this accelerate the loop or slow it down?*
+Progetta il flywheel dal primo giorno. Ogni decisione dovrebbe rispondere a: *Questo accelera il ciclo o lo rallenta?*
 
 ---
 
-## Playbooks by Goal
+## Playbook per Obiettivo
 
-### Launching a Community from Zero
+### Lanciare una Community da Zero
 
-1. **Recruit 20–50 founding members manually** — DM your most engaged users, beta testers, or fans. Don't open publicly until there is baseline activity.
-2. **Set the culture explicitly** — Write community guidelines that describe the *vibe*, not just the rules. What does great participation look like here?
-3. **Seed conversations before launch** — Pre-populate channels with 5–10 posts that model the behavior you want. Questions, wins, resources.
-4. **Do things that don't scale at first** — Reply to every post. Welcome every new member by name. Host a weekly call. You are buying social proof.
-5. **Define your core loop** — What action do you want members to take weekly? Make it easy and reward it publicly.
+1. **Recluta manualmente 20–50 membri fondatori** — Scrivi in DM ai tuoi utenti più coinvolti, beta tester o fan. Non aprire al pubblico finché non c'è un'attività di base.
+2. **Definisci esplicitamente la cultura** — Scrivi linee guida per la community che descrivano il *clima*, non solo le regole. Come si presenta qui una partecipazione di qualità?
+3. **Semina conversazioni prima del lancio** — Pre-popola i canali con 5–10 post che modellino il comportamento desiderato. Domande, successi, risorse.
+4. **All'inizio fai cose che non scalano** — Rispondi a ogni post. Accogli per nome ogni nuovo membro. Organizza una call settimanale. Stai comprando prova sociale.
+5. **Definisci il tuo ciclo principale** — Quale azione vuoi che i membri compiano ogni settimana? Rendila semplice e premiala pubblicamente.
 
-### Growing an Existing Community
+### Far Crescere una Community Esistente
 
-1. **Audit where members drop off** — Are people joining but not posting? Posting once and disappearing? Identify the leaky stage.
-2. **Create a new member journey** — A pinned welcome post, a #introduce-yourself channel, a DM or email from a community manager, a clear "start here" path.
-3. **Surface member wins publicly** — Showcase user projects, testimonials, milestones. This reinforces identity and signals that participation has rewards.
-4. **Run recurring community rituals** — Weekly threads (e.g., "What are you working on?"), monthly AMAs, seasonal challenges. Rituals create habit.
-5. **Identify and invest in power users** — 1% of members generate 90% of value. Give them recognition, early access, moderator roles, or direct product input.
+1. **Verifica dove i membri abbandonano** — Le persone si iscrivono ma non pubblicano? Pubblicano una volta e poi scompaiono? Identifica la fase critica.
+2. **Crea un percorso per i nuovi membri** — Un post di benvenuto fissato in alto, un canale #presentati, un DM o un'email da un community manager, un percorso chiaro "inizia qui."
+3. **Mostra pubblicamente i successi dei membri** — Valorizza progetti utente, testimonianze, traguardi. Questo rafforza l'identità e segnala che la partecipazione viene premiata.
+4. **Organizza rituali ricorrenti per la community** — Thread settimanali (es. "A cosa stai lavorando?"), AMA mensili, sfide stagionali. I rituali creano abitudine.
+5. **Individua e investi sugli utenti più attivi** — L'1% dei membri genera il 90% del valore. Dai loro riconoscimento, accesso anticipato, ruoli di moderazione o un contributo diretto sul prodotto.
 
-### Building a Brand Ambassador / Advocate Program
+### Costruire un Programma di Ambassador / Sostenitori del Brand
 
-1. **Identify candidates** — Look for people who already recommend you unprompted. Check reviews, social mentions, community posts.
-2. **Make the ask personal** — Don't send a generic form. Reach out 1:1 and explain why you chose them specifically.
-3. **Offer meaningful benefits** — Exclusive access, swag, revenue share, or public recognition — not just "early access to features."
-4. **Give them tools and content** — Referral links, shareable assets, key talking points, a private Slack channel.
-5. **Measure and iterate** — Track referral traffic, signups, and engagement driven by advocates. Double down on what works.
+1. **Individua i candidati** — Cerca persone che ti raccomandano già spontaneamente. Controlla recensioni, menzioni sui social, post nella community.
+2. **Rendi la richiesta personale** — Non inviare un modulo generico. Contattali 1:1 e spiega perché hai scelto proprio loro.
+3. **Offri benefici significativi** — Accesso esclusivo, gadget, una quota sui ricavi o riconoscimento pubblico — non solo "accesso anticipato alle funzionalità."
+4. **Fornisci loro strumenti e contenuti** — Link di referral, materiali condivisibili, punti chiave da comunicare, un canale Slack privato.
+5. **Misura e itera** — Traccia traffico da referral, iscrizioni ed engagement generati dagli ambassador. Investi di più su ciò che funziona.
 
-### Community-Led Support (Deflection + Retention)
+### Supporto Guidato dalla Community (Riduzione del Carico + Retention)
 
-1. **Create a searchable knowledge base** from top community questions
-2. **Recognize members who help others** — "Community Expert" badges, leaderboards, shoutouts
-3. **Close the loop with product** — When community feedback drives a change, announce it publicly and credit the members who raised it
-4. **Monitor sentiment weekly** — Look for patterns in complaints or confusion before they become churn signals
+1. **Crea una base di conoscenza ricercabile** a partire dalle domande più frequenti della community
+2. **Riconosci i membri che aiutano gli altri** — badge "Esperto della Community," classifiche, menzioni pubbliche
+3. **Chiudi il cerchio con il prodotto** — Quando il feedback della community porta a un cambiamento, annuncialo pubblicamente e dai credito ai membri che lo hanno proposto
+4. **Monitora settimanalmente il sentiment** — Cerca pattern nelle lamentele o nella confusione prima che diventino segnali di abbandono
 
 ---
 
-## Platform Selection Guide
+## Guida alla Scelta della Piattaforma
 
-| Platform | Best For | Watch Out For |
+| Piattaforma | Più adatta per | Attenzione a |
 |----------|----------|---------------|
-| Discord | Developer, gaming, creator communities; real-time chat | High noise, hard to search, onboarding friction |
-| Slack | B2B / professional communities; familiar to SaaS buyers | Free tier limits history; feels like work |
-| Circle | Creator or course-based communities; clean UX | Less organic discovery; requires driving traffic |
-| Reddit | High-volume public communities; SEO benefit | You don't own it; moderation is hard |
-| Facebook Groups | Consumer brands; older demographics | Declining organic reach; algorithm dependent |
-| Forum (Discourse) | Long-form technical communities; SEO-rich | Slower velocity; higher effort to post |
+| Discord | Community di sviluppatori, gaming, creator; chat in tempo reale | Molto rumore, difficile da ricercare, attrito nell'onboarding |
+| Slack | Community B2B / professionali; familiare agli acquirenti SaaS | Il piano gratuito limita la cronologia; può sembrare "lavoro" |
+| Circle | Community di creator o basate su corsi; UX pulita | Scoperta organica più limitata; richiede di generare traffico |
+| Reddit | Community pubbliche ad alto volume; beneficio SEO | Non la possiedi; la moderazione è difficile |
+| Gruppi Facebook | Brand consumer; demografia più anziana | Reach organica in calo; dipendente dall'algoritmo |
+| Forum (Discourse) | Community tecniche di lungo formato; ricche di SEO | Velocità più lenta; maggiore sforzo per pubblicare |
 
 ---
 
-## Community Health Metrics
+## Metriche di Salute della Community
 
-Track these signals weekly:
+Monitora questi segnali settimanalmente:
 
-- **DAU/MAU ratio** — Stickiness. Above 20% is healthy for most communities.
-- **New member post rate** — % of new members who post within 7 days of joining
-- **Thread reply rate** — % of posts that receive at least one reply
-- **Churn / lurker ratio** — Members who joined but haven't posted in 30+ days
-- **Content created by non-staff** — % of posts not written by the company team
+- **Rapporto DAU/MAU** — Stickiness. Sopra il 20% è un valore sano per la maggior parte delle community.
+- **Tasso di pubblicazione dei nuovi membri** — % di nuovi membri che pubblica entro 7 giorni dall'iscrizione
+- **Tasso di risposta ai thread** — % di post che ricevono almeno una risposta
+- **Rapporto abbandono / lurker** — Membri iscritti che non hanno pubblicato negli ultimi 30+ giorni
+- **Contenuti creati da non-staff** — % di post non scritti dal team aziendale
 
-**Warning signs:**
-- Most posts are from the company team, not members
-- Questions go unanswered for >24 hours
-- The same 5 people account for 80%+ of engagement
-- New members stop posting after their intro message
-
----
-
-## Output Formats
-
-Depending on what the user needs, produce one of:
-
-- **Community Strategy Doc** — Platform choice, identity definition, core loop, 90-day launch plan
-- **Channel Architecture** — Recommended channels/categories with purpose and posting guidelines for each
-- **New Member Journey** — Welcome sequence: pinned post, DM template, first-week prompts
-- **Community Ritual Calendar** — Weekly/monthly recurring events and threads
-- **Ambassador Program Brief** — Criteria, benefits, outreach template, tracking plan
-- **Health Audit Report** — Current metrics, diagnosis, top 3 priorities to fix
-
-Always be specific. Generic advice ("be consistent," "provide value") is not useful. Give the user something they can act on today.
+**Segnali di allarme:**
+- La maggior parte dei post proviene dal team aziendale, non dai membri
+- Le domande rimangono senza risposta per oltre 24 ore
+- Le stesse 5 persone generano l'80%+ dell'engagement
+- I nuovi membri smettono di pubblicare dopo il messaggio di presentazione
 
 ---
 
-## Task-Specific Questions
+## Formati di Output
 
-1. What platform are you building on (or considering)?
-2. What stage is the community at? (Pre-launch, early, growing, established)
-3. What's the primary business goal? (Retention, activation, word-of-mouth, support deflection)
-4. Who is the ideal community member and what motivates them?
-5. Do you have existing users or customers to seed from?
-6. How much time can you dedicate to community management weekly?
+In base a ciò di cui l'utente ha bisogno, produci uno di questi:
+
+- **Documento di Strategia per la Community** — Scelta della piattaforma, definizione dell'identità, ciclo principale, piano di lancio a 90 giorni
+- **Architettura dei Canali** — Canali/categorie consigliate con scopo e linee guida di pubblicazione per ciascuno
+- **Percorso del Nuovo Membro** — Sequenza di benvenuto: post fissato, modello di DM, prompt per la prima settimana
+- **Calendario dei Rituali della Community** — Eventi e thread ricorrenti settimanali/mensili
+- **Brief del Programma Ambassador** — Criteri, benefici, modello di contatto, piano di monitoraggio
+- **Report di Audit sulla Salute** — Metriche attuali, diagnosi, prime 3 priorità da correggere
+
+Sii sempre specifico. Un consiglio generico ("sii costante," "offri valore") non è utile. Dai all'utente qualcosa su cui possa agire oggi.
 
 ---
 
-## Related Skills
+## Domande Specifiche per il Task
 
-- **referrals**: For structured referral and ambassador incentive programs
-- **churn-prevention**: For retention strategies that complement community engagement
-- **social**: For content creation across social platforms
-- **customer-research**: For understanding your community members' needs and language
+1. Su quale piattaforma stai costruendo (o stai considerando)?
+2. A che fase si trova la community? (Pre-lancio, iniziale, in crescita, consolidata)
+3. Qual è l'obiettivo di business primario? (Retention, attivazione, passaparola, riduzione del carico sull'assistenza)
+4. Chi è il membro ideale della community e cosa lo motiva?
+5. Hai utenti o clienti esistenti da cui partire?
+6. Quanto tempo puoi dedicare settimanalmente alla gestione della community?
+
+---
+
+## Skill Correlate
+
+- **referrals**: Per programmi strutturati di referral e incentivi per ambassador
+- **churn-prevention**: Per strategie di retention che integrano l'engagement della community
+- **social**: Per la creazione di contenuti sulle piattaforme social
+- **customer-research**: Per comprendere i bisogni e il linguaggio dei membri della tua community

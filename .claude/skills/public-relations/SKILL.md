@@ -1,131 +1,131 @@
 ---
 name: public-relations
-description: "When the user wants help with public relations, earned media, press coverage, journalist outreach, or media strategy (not pull requests). Also use when the user mentions 'PR,' 'public relations,' 'press,' 'press release,' 'press coverage,' 'media outreach,' 'pitch a journalist,' 'get featured,' 'media list,' 'media kit,' 'press kit,' 'newsjacking,' 'news hijack,' 'HARO,' 'Qwoted,' 'Featured,' 'Help A Reporter,' 'reporter request,' 'tech press,' 'TechCrunch,' 'earned media,' 'thought leadership placement,' 'op-ed,' 'guest article,' 'press contacts,' or 'how do I get press.' Use this for earned media work — finding journalists, pitching stories, newsjacking, and responding to press requests. For startup/SaaS/AI directory submissions, see directory-submissions. For product launches, see launch. For social-media engagement, see social. For cold-email outreach to prospects, see cold-email."
+description: "Quando l'utente vuole aiuto con le pubbliche relazioni, earned media, copertura stampa, outreach verso i giornalisti o strategia media (non le pull request). Usa anche quando l'utente menziona 'PR,' 'pubbliche relazioni,' 'stampa,' 'comunicato stampa,' 'copertura stampa,' 'media outreach,' 'fare il pitch a un giornalista,' 'farsi menzionare,' 'media list,' 'media kit,' 'press kit,' 'newsjacking,' 'HARO,' 'Qwoted,' 'Featured,' 'Help A Reporter,' 'richiesta di un reporter,' 'stampa di settore,' 'TechCrunch,' 'earned media,' 'posizionamento di thought leadership,' 'op-ed,' 'articolo come ospite,' 'contatti stampa,' o 'come ottengo visibilità sulla stampa.' Usa questo per il lavoro di earned media — trovare giornalisti, fare il pitch di storie, newsjacking e rispondere alle richieste della stampa. Per le candidature a directory di startup/SaaS/AI, vedi directory-submissions. Per i lanci di prodotto, vedi launch. Per l'engagement sui social media, vedi social. Per l'outreach via cold-email verso i prospect, vedi cold-email."
 metadata:
   version: 1.0.0
 ---
 
-# Public Relations & Earned Media
+# Pubbliche Relazioni & Earned Media
 
-You are an expert in earned media for software products. Your goal is to help the user get covered by journalists, podcasts, and newsletters — efficiently, with respect for the people on the other end of the pitch.
+Sei un esperto di earned media per prodotti software. Il tuo obiettivo è aiutare l'utente a ottenere copertura da giornalisti, podcast e newsletter — in modo efficiente, con rispetto per le persone dall'altra parte del pitch.
 
-## Before Starting
+## Prima di Iniziare
 
-**Check for product marketing context first:**
-If `.agents/product-marketing.md` exists (or `.claude/product-marketing.md`, or the legacy `product-marketing-context.md` filename, in older setups), read it before asking questions. Use that context and only ask for information not already covered or specific to this task.
-
----
-
-## Core Philosophy
-
-PR is not a substitute for distribution. It's a multiplier for it.
-
-- **Earned media doesn't drive direct conversions.** A TechCrunch hit will not give you 1,000 paying customers. It will give you backlinks, brand legitimacy, AI-citation surface area, and ammo for sales conversations.
-- **Pitch journalists like you'd pitch a customer:** specific, useful, fast, and never about you.
-- **The story is not your product. The story is the trend, the data, the conflict, or the human.** Your product is the evidence.
-- **Speed beats polish on reactive PR.** A B+ pitch in the first hour of a story beats an A+ pitch on day three.
-
-### When PR is worth it
-
-- You have **a real story** — proprietary data, a strong opinion, a milestone, a customer with a sharp before/after, or a fresh angle on a trending topic
-- You have **founder/exec time** — journalists want quotes from people with skin in the game, not from a PR rep
-- You have **a destination** — a press page, blog post, or product launch that converts attention into something useful
-
-### When to skip PR (for now)
-
-- Pre-launch with no story beyond "we exist"
-- No one on the team can sustain pitching for 4–6 weeks (PR is a momentum game)
-- You don't have a clear ICP — journalists ask "who reads my piece because of this?" and if you can't answer, neither can they
+**Verifica prima il contesto di product marketing:**
+Se esiste `.agents/product-marketing.md` (oppure `.claude/product-marketing.md`, o il vecchio nome file `product-marketing-context.md`, in setup più datati), leggilo prima di fare domande. Usa quel contesto e chiedi solo le informazioni non già coperte o specifiche per questo task.
 
 ---
 
-## The PR Mix
+## Filosofia di Base
 
-Four modes. Most teams over-index on one. Run at least three.
+Le PR non sono un sostituto della distribuzione. Sono un moltiplicatore.
 
-| Mode | What it is | Effort | Speed to coverage |
+- **L'earned media non genera conversioni dirette.** Una menzione su TechCrunch non ti darà 1.000 clienti paganti. Ti darà backlink, legittimità del brand, superficie di citazione per l'AI e argomenti per le conversazioni di vendita.
+- **Fai il pitch ai giornalisti come lo faresti a un cliente:** specifico, utile, veloce e mai incentrato su di te.
+- **La storia non è il tuo prodotto. La storia è il trend, il dato, il conflitto o la persona. Il tuo prodotto è la prova.**
+- **La velocità batte la rifinitura nelle PR reattive.** Un pitch B+ nella prima ora di una notizia batte un pitch A+ al terzo giorno.
+
+### Quando le PR valgono l'investimento
+
+- Hai **una storia vera** — dati proprietari, un'opinione forte, un traguardo, un cliente con un prima/dopo netto, o un angolo fresco su un argomento di tendenza
+- Hai **tempo del founder/dirigente** — i giornalisti vogliono citazioni da persone con interessi in gioco, non da un addetto alle PR
+- Hai **una destinazione** — una pagina stampa, un post sul blog o un lancio prodotto che trasforma l'attenzione in qualcosa di utile
+
+### Quando evitare le PR (per ora)
+
+- Pre-lancio senza nessuna storia oltre a "esistiamo"
+- Nessuno nel team può sostenere il pitching per 4-6 settimane (le PR sono un gioco di costanza)
+- Non hai un ICP chiaro — i giornalisti si chiedono "chi legge il mio articolo grazie a questo?" e se non puoi rispondere tu, non possono nemmeno loro
+
+---
+
+## Il Mix di PR
+
+Quattro modalità. La maggior parte dei team si concentra eccessivamente su una sola. Eseguine almeno tre.
+
+| Modalità | Cos'è | Sforzo | Velocità di copertura |
 |------|------------|--------|-------------------|
-| **Reactive (newsjacking)** | Inject your POV into trending news | Low–medium | Hours to days |
-| **Proactive (pitching)** | Build a media list, pitch original stories | High | 2–8 weeks |
-| **Inbound (press requests)** | Respond to journalist queries on HARO/Qwoted/Featured | Low | Days to weeks |
-| **Owned (press page + media kit)** | Make it easy for journalists to find you | One-time setup | N/A |
+| **Reattiva (newsjacking)** | Inserire il tuo punto di vista in notizie di tendenza | Basso–medio | Da ore a giorni |
+| **Proattiva (pitching)** | Costruire una media list, proporre storie originali | Alto | 2-8 settimane |
+| **Inbound (richieste stampa)** | Rispondere alle query dei giornalisti su HARO/Qwoted/Featured | Basso | Da giorni a settimane |
+| **Owned (pagina stampa + media kit)** | Rendere facile ai giornalisti trovarti | Setup una tantum | N/A |
 
-**For the reactive newsjacking workflow** — see [references/newsjacking.md](references/newsjacking.md)
+**Per il workflow di newsjacking reattivo** — vedi [references/newsjacking.md](references/newsjacking.md)
 
-**For proactive journalist pitching** — see [references/journalist-pitching.md](references/journalist-pitching.md)
+**Per il pitching proattivo ai giornalisti** — vedi [references/journalist-pitching.md](references/journalist-pitching.md)
 
-**For inbound press-request platforms (HARO, Qwoted, etc.)** — see [references/press-platforms.md](references/press-platforms.md)
+**Per le piattaforme di richieste stampa inbound (HARO, Qwoted, ecc.)** — vedi [references/press-platforms.md](references/press-platforms.md)
 
-**For where to pitch (media outlets, podcasts, newsletters)** — see [references/media-outlets.md](references/media-outlets.md). For startup/SaaS/AI directories, use the separate `directory-submissions` skill — different intent, different list.
-
----
-
-## Owned: Press Page + Media Kit
-
-Set this up once. It's the cheapest PR investment with the highest ROI on every future story.
-
-**Press page (`/press` or `/newsroom`) should include:**
-- One-paragraph company description (copy/paste ready)
-- Founder bios with headshots (high-res, downloadable)
-- Logo pack (SVG + PNG, light + dark, with usage guidelines)
-- Product screenshots (high-res)
-- Recent coverage list (social proof for the next journalist)
-- Founding date, employee count, funding (if disclosed)
-- Press contact email (not a form — journalists hate forms)
-- Recent press releases / announcements
-
-**One sentence at the top:** "For interview requests or assets, email press@yourcompany.com — we respond within 24 hours."
-
-Then *actually* respond within 24 hours.
+**Per dove fare il pitch (testate, podcast, newsletter)** — vedi [references/media-outlets.md](references/media-outlets.md). Per le directory di startup/SaaS/AI, usa la skill separata `directory-submissions` — intento diverso, lista diversa.
 
 ---
 
-## Quick Reference: Pitch Quality Bar
+## Owned: Pagina Stampa + Media Kit
 
-Before sending any pitch, the answer to all of these should be yes:
+Configurala una volta. È l'investimento PR più economico con il ROI più alto su ogni storia futura.
 
-- [ ] Does this journalist cover this beat? (Check their last 5 articles.)
-- [ ] Is there a clear news hook — something that just happened or is about to?
-- [ ] Could this journalist write a complete story from this email alone? (Data, quotes, customer name, contact.)
-- [ ] Is the subject line specific enough to predict the article's headline?
-- [ ] Is the pitch under 150 words?
-- [ ] Did you avoid the words "revolutionary," "game-changing," "disruptive," and "synergy"?
-- [ ] Is the ask clear? (Interview? Embargo? Exclusive? Quote?)
+**La pagina stampa (`/press` o `/newsroom`) dovrebbe includere:**
+- Descrizione dell'azienda in un paragrafo (pronta da copiare/incollare)
+- Bio dei founder con foto (alta risoluzione, scaricabili)
+- Pacchetto loghi (SVG + PNG, chiaro + scuro, con linee guida d'uso)
+- Screenshot del prodotto (alta risoluzione)
+- Lista delle copertura recenti (social proof per il prossimo giornalista)
+- Data di fondazione, numero di dipendenti, funding (se divulgato)
+- Email di contatto stampa (non un form — i giornalisti odiano i form)
+- Comunicati stampa / annunci recenti
 
-If any answer is no, don't send.
+**Una frase in alto:** "Per richieste di intervista o materiali, scrivi a press@tuaazienda.it — rispondiamo entro 24 ore."
+
+E poi rispondere *davvero* entro 24 ore.
 
 ---
 
-## Measurement
+## Riferimento Rapido: Asticella di Qualità del Pitch
 
-What to track:
+Prima di inviare qualsiasi pitch, la risposta a tutte queste domande dovrebbe essere sì:
 
-| Metric | Why |
+- [ ] Questo giornalista segue questo beat? (Controlla i suoi ultimi 5 articoli.)
+- [ ] C'è un chiaro aggancio di notizia — qualcosa che è appena successo o sta per succedere?
+- [ ] Questo giornalista potrebbe scrivere una storia completa solo da questa email? (Dati, citazioni, nome del cliente, contatto.)
+- [ ] L'oggetto è abbastanza specifico da far prevedere il titolo dell'articolo?
+- [ ] Il pitch è sotto le 150 parole?
+- [ ] Hai evitato le parole "rivoluzionario," "game-changing," "dirompente," e "sinergia"?
+- [ ] La richiesta è chiara? (Intervista? Embargo? Esclusiva? Citazione?)
+
+Se una sola risposta è no, non inviarlo.
+
+---
+
+## Misurazione
+
+Cosa monitorare:
+
+| Metrica | Perché |
 |--------|-----|
-| **Coverage count** (placements / month) | Activity baseline |
-| **Domain rating of placements** | Backlink value |
-| **Referral traffic from coverage** | Did anyone actually click? |
-| **Brand search lift** | Did people search you after reading? |
-| **AI citation rate** (ChatGPT, Perplexity quote your brand?) | The new measurement that matters |
-| **Sales conversations citing the article** | The only one that matters for revenue |
+| **Numero di copertura** (posizionamenti / mese) | Baseline di attività |
+| **Domain rating dei posizionamenti** | Valore del backlink |
+| **Traffico di referral dalla copertura** | Qualcuno ha davvero cliccato? |
+| **Aumento delle ricerche del brand** | Le persone ti hanno cercato dopo aver letto? |
+| **Tasso di citazione AI** (ChatGPT, Perplexity citano il tuo brand?) | La nuova metrica che conta |
+| **Conversazioni di vendita che citano l'articolo** | L'unica che conta davvero per il fatturato |
 
-What not to obsess over: AVE (advertising value equivalency) — it's a vanity metric PR firms invented.
+Cosa non ossessionarsi a misurare: AVE (advertising value equivalency) — è una metrica di vanità inventata dalle agenzie PR.
 
 ---
 
-## Common Workflows
+## Workflow Comuni
 
-### "Help me newsjack [trending story]"
-Go to [newsjacking.md](references/newsjacking.md), run the scoring rubric, draft 2–3 angles, pick the best, draft the pitch.
+### "Aiutami a fare newsjacking su [storia di tendenza]"
+Vai su [newsjacking.md](references/newsjacking.md), esegui la griglia di valutazione, abbozza 2-3 angoli, scegli il migliore, scrivi il pitch.
 
-### "Find journalists who cover [beat]"
-Go to [journalist-pitching.md](references/journalist-pitching.md), use the discovery checklist + dev-browser to research recent articles, build a scored list.
+### "Trova giornalisti che seguono [beat]"
+Vai su [journalist-pitching.md](references/journalist-pitching.md), usa la checklist di discovery + dev-browser per ricercare gli articoli recenti, costruisci una lista valutata.
 
-### "What's worth pitching this week?"
-Combine: recent product milestones + active news cycles + any data you've collected. Score each potential story by the quality bar above.
+### "Cosa vale la pena proporre questa settimana?"
+Combina: traguardi di prodotto recenti + ciclo di notizie attivo + qualsiasi dato raccolto. Valuta ogni potenziale storia con l'asticella di qualità sopra.
 
-### "Respond to this HARO query"
-Go to [press-platforms.md](references/press-platforms.md), use the response template, keep it under 200 words.
+### "Rispondi a questa query HARO"
+Vai su [press-platforms.md](references/press-platforms.md), usa il template di risposta, resta sotto le 200 parole.
 
-### "Build my press page"
-Use the checklist above. Most companies do this in an afternoon and forget about it for a year — that's fine.
+### "Costruisci la mia pagina stampa"
+Usa la checklist sopra. La maggior parte delle aziende lo fa in un pomeriggio e poi se ne dimentica per un anno — va bene così.

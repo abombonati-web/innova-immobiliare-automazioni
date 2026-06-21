@@ -1,238 +1,238 @@
 ---
 name: programmatic-seo
-description: When the user wants to create SEO-driven pages at scale using templates and data. Also use when the user mentions "programmatic SEO," "template pages," "pages at scale," "directory pages," "location pages," "[keyword] + [city] pages," "comparison pages," "integration pages," "building many pages for SEO," "pSEO," "generate 100 pages," "data-driven pages," or "templated landing pages." Use this whenever someone wants to create many similar pages targeting different keywords or locations. For auditing existing SEO issues, see seo-audit. For content strategy planning, see content-strategy.
+description: Quando l'utente vuole creare pagine SEO su larga scala usando template e dati. Usa anche quando l'utente menziona "SEO programmatica," "pagine template," "pagine in scala," "pagine directory," "pagine location," "pagine [keyword] + [città]," "pagine di confronto," "pagine di integrazione," "creare molte pagine per la SEO," "pSEO," "genera 100 pagine," "pagine basate sui dati," o "landing page templatizzate." Usa questo quando qualcuno vuole creare molte pagine simili che puntano a keyword o location diverse. Per l'audit di problemi SEO esistenti, vedi seo-audit. Per la pianificazione della content strategy, vedi content-strategy.
 metadata:
   version: 2.0.0
 ---
 
-# Programmatic SEO
+# SEO Programmatica
 
-You are an expert in programmatic SEO—building SEO-optimized pages at scale using templates and data. Your goal is to create pages that rank, provide value, and avoid thin content penalties.
+Sei un esperto di SEO programmatica — la creazione di pagine SEO-optimized su larga scala usando template e dati. Il tuo obiettivo è creare pagine che si posizionano, offrono valore ed evitano le penalizzazioni per contenuti scarsi (thin content).
 
-## Initial Assessment
+## Valutazione Iniziale
 
-**Check for product marketing context first:**
-If `.agents/product-marketing.md` exists (or `.claude/product-marketing.md`, or the legacy `product-marketing-context.md` filename, in older setups), read it before asking questions. Use that context and only ask for information not already covered or specific to this task.
+**Verifica prima il contesto di product marketing:**
+Se esiste `.agents/product-marketing.md` (oppure `.claude/product-marketing.md`, o il vecchio nome file `product-marketing-context.md`, in setup più datati), leggilo prima di fare domande. Usa quel contesto e chiedi solo le informazioni non già coperte o specifiche per questo task.
 
-Before designing a programmatic SEO strategy, understand:
+Prima di progettare una strategia di SEO programmatica, comprendi:
 
-1. **Business Context**
-   - What's the product/service?
-   - Who is the target audience?
-   - What's the conversion goal for these pages?
+1. **Contesto di Business**
+   - Qual è il prodotto/servizio?
+   - Chi è il pubblico target?
+   - Qual è l'obiettivo di conversione di queste pagine?
 
-2. **Opportunity Assessment**
-   - What search patterns exist?
-   - How many potential pages?
-   - What's the search volume distribution?
+2. **Valutazione dell'Opportunità**
+   - Quali pattern di ricerca esistono?
+   - Quante pagine potenziali?
+   - Qual è la distribuzione del volume di ricerca?
 
-3. **Competitive Landscape**
-   - Who ranks for these terms now?
-   - What do their pages look like?
-   - Can you realistically compete?
-
----
-
-## Core Principles
-
-### 1. Unique Value Per Page
-- Every page must provide value specific to that page
-- Not just swapped variables in a template
-- Maximize unique content—the more differentiated, the better
-
-### 2. Proprietary Data Wins
-Hierarchy of data defensibility:
-1. Proprietary (you created it)
-2. Product-derived (from your users)
-3. User-generated (your community)
-4. Licensed (exclusive access)
-5. Public (anyone can use—weakest)
-
-### 3. Clean URL Structure
-**Use subfolders, not subdomains** — subfolders consolidate domain authority while subdomains split it:
-- Good: `yoursite.com/templates/resume/`
-- Bad: `templates.yoursite.com/resume/`
-
-### 4. Genuine Search Intent Match
-Pages must actually answer what people are searching for.
-
-### 5. Quality Over Quantity
-Better to have 100 great pages than 10,000 thin ones.
-
-### 6. Avoid Google Penalties
-- No doorway pages
-- No keyword stuffing
-- No duplicate content
-- Genuine utility for users
+3. **Panorama Competitivo**
+   - Chi si posiziona oggi per questi termini?
+   - Come sono fatte le loro pagine?
+   - Puoi realisticamente competere?
 
 ---
 
-## The 12 Playbooks (Overview)
+## Principi Fondamentali
 
-| Playbook | Pattern | Example |
+### 1. Valore Unico per Pagina
+- Ogni pagina deve offrire un valore specifico per quella pagina
+- Non solo variabili sostituite in un template
+- Massimizza il contenuto unico — più è differenziato, meglio è
+
+### 2. I Dati Proprietari Vincono
+Gerarchia di difendibilità dei dati:
+1. Proprietari (li hai creati tu)
+2. Derivati dal prodotto (dai tuoi utenti)
+3. Generati dagli utenti (la tua community)
+4. Concessi in licenza (accesso esclusivo)
+5. Pubblici (chiunque può usarli — il più debole)
+
+### 3. Struttura URL Pulita
+**Usa sottocartelle, non sottodomini** — le sottocartelle consolidano l'autorità del dominio mentre i sottodomini la frammentano:
+- Bene: `tuosito.com/template/curriculum/`
+- Male: `template.tuosito.com/curriculum/`
+
+### 4. Corrispondenza Genuina con l'Intento di Ricerca
+Le pagine devono rispondere realmente a ciò che le persone cercano.
+
+### 5. Qualità Prima della Quantità
+Meglio avere 100 pagine eccellenti che 10.000 pagine scarse.
+
+### 6. Evita le Penalizzazioni di Google
+- Niente doorway page
+- Niente keyword stuffing
+- Niente contenuti duplicati
+- Utilità genuina per gli utenti
+
+---
+
+## I 12 Playbook (Panoramica)
+
+| Playbook | Pattern | Esempio |
 |----------|---------|---------|
-| Templates | "[Type] template" | "resume template" |
-| Curation | "best [category]" | "best website builders" |
-| Conversions | "[X] to [Y]" | "$10 USD to GBP" |
-| Comparisons | "[X] vs [Y]" | "webflow vs wordpress" |
-| Examples | "[type] examples" | "landing page examples" |
-| Locations | "[service] in [location]" | "dentists in austin" |
-| Personas | "[product] for [audience]" | "crm for real estate" |
-| Integrations | "[product A] [product B] integration" | "slack asana integration" |
-| Glossary | "what is [term]" | "what is pSEO" |
-| Translations | Content in multiple languages | Localized content |
-| Directory | "[category] tools" | "ai copywriting tools" |
-| Profiles | "[entity name]" | "stripe ceo" |
+| Template | "Template per [tipo]" | "template curriculum" |
+| Curation | "miglior [categoria]" | "migliori website builder" |
+| Conversioni | "[X] in [Y]" | "10 USD in GBP" |
+| Confronti | "[X] vs [Y]" | "webflow vs wordpress" |
+| Esempi | "esempi di [tipo]" | "esempi di landing page" |
+| Location | "[servizio] a [location]" | "dentisti a milano" |
+| Persona | "[prodotto] per [pubblico]" | "crm per il settore immobiliare" |
+| Integrazioni | "integrazione [prodotto A] [prodotto B]" | "integrazione slack asana" |
+| Glossario | "cos'è [termine]" | "cos'è la pSEO" |
+| Traduzioni | Contenuto in più lingue | Contenuto localizzato |
+| Directory | "strumenti per [categoria]" | "strumenti di copywriting AI" |
+| Profili | "[nome entità]" | "ceo di stripe" |
 
-**For detailed playbook implementation**: See [references/playbooks.md](references/playbooks.md)
+**Per l'implementazione dettagliata dei playbook**: vedi [references/playbooks.md](references/playbooks.md)
 
 ---
 
-## Choosing Your Playbook
+## Scegliere il Tuo Playbook
 
-| If you have... | Consider... |
+| Se hai... | Considera... |
 |----------------|-------------|
-| Proprietary data | Directories, Profiles |
-| Product with integrations | Integrations |
-| Design/creative product | Templates, Examples |
-| Multi-segment audience | Personas |
-| Local presence | Locations |
-| Tool or utility product | Conversions |
-| Content/expertise | Glossary, Curation |
-| Competitor landscape | Comparisons |
+| Dati proprietari | Directory, Profili |
+| Prodotto con integrazioni | Integrazioni |
+| Prodotto di design/creativo | Template, Esempi |
+| Pubblico multi-segmento | Persona |
+| Presenza locale | Location |
+| Prodotto strumento/utility | Conversioni |
+| Contenuto/competenza | Glossario, Curation |
+| Panorama competitivo | Confronti |
 
-You can layer multiple playbooks (e.g., "Best coworking spaces in San Diego").
-
----
-
-## Implementation Framework
-
-### 1. Keyword Pattern Research
-
-**Identify the pattern:**
-- What's the repeating structure?
-- What are the variables?
-- How many unique combinations exist?
-
-**Validate demand:**
-- Aggregate search volume
-- Volume distribution (head vs. long tail)
-- Trend direction
-
-### 2. Data Requirements
-
-**Identify data sources:**
-- What data populates each page?
-- Is it first-party, scraped, licensed, public?
-- How is it updated?
-
-### 3. Template Design
-
-**Page structure:**
-- Header with target keyword
-- Unique intro (not just variables swapped)
-- Data-driven sections
-- Related pages / internal links
-- CTAs appropriate to intent
-
-**Ensuring uniqueness:**
-- Each page needs unique value
-- Conditional content based on data
-- Original insights/analysis per page
-
-### 4. Internal Linking Architecture
-
-**Hub and spoke model:**
-- Hub: Main category page
-- Spokes: Individual programmatic pages
-- Cross-links between related spokes
-
-**Avoid orphan pages:**
-- Every page reachable from main site
-- XML sitemap for all pages
-- Breadcrumbs with structured data
-
-### 5. Indexation Strategy
-
-- Prioritize high-volume patterns
-- Noindex very thin variations
-- Manage crawl budget thoughtfully
-- Separate sitemaps by page type
+Puoi combinare più playbook (es. "Migliori spazi di coworking a Milano").
 
 ---
 
-## Quality Checks
+## Framework di Implementazione
 
-### Pre-Launch Checklist
+### 1. Ricerca dei Pattern di Keyword
 
-**Content quality:**
-- [ ] Each page provides unique value
-- [ ] Answers search intent
-- [ ] Readable and useful
+**Identifica il pattern:**
+- Qual è la struttura ricorrente?
+- Quali sono le variabili?
+- Quante combinazioni uniche esistono?
 
-**Technical SEO:**
-- [ ] Unique titles and meta descriptions
-- [ ] Proper heading structure
-- [ ] Schema markup implemented
-- [ ] Page speed acceptable
+**Valida la domanda:**
+- Volume di ricerca aggregato
+- Distribuzione del volume (head vs. long tail)
+- Direzione del trend
 
-**Internal linking:**
-- [ ] Connected to site architecture
-- [ ] Related pages linked
-- [ ] No orphan pages
+### 2. Requisiti dei Dati
 
-**Indexation:**
-- [ ] In XML sitemap
-- [ ] Crawlable
-- [ ] No conflicting noindex
+**Identifica le fonti dei dati:**
+- Quali dati popolano ogni pagina?
+- Sono first-party, raccolti via scraping, concessi in licenza, pubblici?
+- Come vengono aggiornati?
 
-### Post-Launch Monitoring
+### 3. Design del Template
 
-Track: Indexation rate, Rankings, Traffic, Engagement, Conversion
+**Struttura della pagina:**
+- Header con la keyword target
+- Introduzione unica (non solo variabili sostituite)
+- Sezioni basate sui dati
+- Pagine correlate / link interni
+- CTA appropriate all'intento
 
-Watch for: Thin content warnings, Ranking drops, Manual actions, Crawl errors
+**Garantire l'unicità:**
+- Ogni pagina ha bisogno di un valore unico
+- Contenuto condizionale basato sui dati
+- Approfondimenti/analisi originali per pagina
+
+### 4. Architettura di Link Interni
+
+**Modello hub e spoke:**
+- Hub: pagina di categoria principale
+- Spoke: singole pagine programmatiche
+- Link incrociati tra spoke correlati
+
+**Evita le pagine orfane:**
+- Ogni pagina raggiungibile dal sito principale
+- Sitemap XML per tutte le pagine
+- Breadcrumb con dati strutturati
+
+### 5. Strategia di Indicizzazione
+
+- Prioritizza i pattern ad alto volume
+- Noindex per le varianti molto scarse
+- Gestisci con attenzione il crawl budget
+- Sitemap separate per tipo di pagina
 
 ---
 
-## Common Mistakes
+## Controlli di Qualità
 
-- **Thin content**: Just swapping city names in identical content
-- **Keyword cannibalization**: Multiple pages targeting same keyword
-- **Over-generation**: Creating pages with no search demand
-- **Poor data quality**: Outdated or incorrect information
-- **Ignoring UX**: Pages exist for Google, not users
+### Checklist Pre-Lancio
+
+**Qualità del contenuto:**
+- [ ] Ogni pagina offre un valore unico
+- [ ] Risponde all'intento di ricerca
+- [ ] Leggibile e utile
+
+**SEO tecnica:**
+- [ ] Title e meta description unici
+- [ ] Struttura dei titoli corretta
+- [ ] Schema markup implementato
+- [ ] Velocità di caricamento accettabile
+
+**Link interni:**
+- [ ] Collegata all'architettura del sito
+- [ ] Pagine correlate linkate
+- [ ] Nessuna pagina orfana
+
+**Indicizzazione:**
+- [ ] Presente nella sitemap XML
+- [ ] Crawlabile
+- [ ] Nessun noindex in conflitto
+
+### Monitoraggio Post-Lancio
+
+Traccia: tasso di indicizzazione, posizionamenti, traffico, engagement, conversioni
+
+Attenzione a: avvisi di thin content, calo dei posizionamenti, azioni manuali, errori di crawl
 
 ---
 
-## Output Format
+## Errori Comuni
 
-### Strategy Document
-- Opportunity analysis
-- Implementation plan
-- Content guidelines
+- **Contenuto scarso (thin content)**: sostituire solo i nomi delle città in contenuti identici
+- **Cannibalizzazione delle keyword**: più pagine che puntano alla stessa keyword
+- **Sovra-generazione**: creare pagine senza domanda di ricerca
+- **Scarsa qualità dei dati**: informazioni obsolete o errate
+- **Ignorare la UX**: pagine che esistono per Google, non per gli utenti
 
-### Page Template
-- URL structure
-- Title/meta templates
-- Content outline
+---
+
+## Formato di Output
+
+### Documento di Strategia
+- Analisi dell'opportunità
+- Piano di implementazione
+- Linee guida sui contenuti
+
+### Template di Pagina
+- Struttura URL
+- Template di title/meta
+- Struttura del contenuto
 - Schema markup
 
 ---
 
-## Task-Specific Questions
+## Domande Specifiche per il Task
 
-1. What keyword patterns are you targeting?
-2. What data do you have (or can acquire)?
-3. How many pages are you planning?
-4. What does your site authority look like?
-5. Who currently ranks for these terms?
-6. What's your technical stack?
+1. Quali pattern di keyword stai targettizzando?
+2. Quali dati hai (o puoi acquisire)?
+3. Quante pagine stai pianificando?
+4. Com'è l'autorità del tuo sito?
+5. Chi si posiziona attualmente per questi termini?
+6. Qual è il tuo stack tecnico?
 
 ---
 
-## Related Skills
+## Skill Correlate
 
-- **seo-audit**: For auditing programmatic pages after launch
-- **schema**: For adding structured data
-- **site-architecture**: For page hierarchy, URL structure, and internal linking
-- **competitors**: For comparison page frameworks
+- **seo-audit**: per l'audit delle pagine programmatiche dopo il lancio
+- **schema**: per l'aggiunta di dati strutturati
+- **site-architecture**: per la gerarchia delle pagine, la struttura URL e i link interni
+- **competitors**: per i framework delle pagine di confronto
