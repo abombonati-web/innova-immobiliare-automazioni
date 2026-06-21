@@ -1,241 +1,241 @@
 ---
 name: product-marketing
-description: "When the user wants to create or update their product marketing context document. Also use when the user mentions 'product context,' 'marketing context,' 'set up context,' 'positioning,' 'who is my target audience,' 'describe my product,' 'ICP,' 'ideal customer profile,' or wants to avoid repeating foundational information across marketing tasks. Use this at the start of any new project before using other marketing skills — it creates `.agents/product-marketing.md` that all other skills reference for product, audience, and positioning context."
+description: "Quando l'utente vuole creare o aggiornare il proprio documento di contesto di product marketing. Da usare anche quando l'utente menziona 'contesto del prodotto,' 'contesto di marketing,' 'impostare il contesto,' 'positioning,' 'qual è il mio pubblico target,' 'descrivi il mio prodotto,' 'ICP,' 'ideal customer profile,' o vuole evitare di ripetere informazioni fondamentali tra i vari task di marketing. Usa questa skill all'inizio di ogni nuovo progetto prima di usare altre skill di marketing — crea `.agents/product-marketing.md` che tutte le altre skill consultano per il contesto di prodotto, pubblico, e positioning."
 metadata:
   version: 2.0.0
 ---
 
-# Product Marketing Context
+# Contesto di Product Marketing
 
-You help users create and maintain a product marketing context document. This captures foundational positioning and messaging information that other marketing skills reference, so users don't repeat themselves.
+Aiuti gli utenti a creare e mantenere un documento di contesto di product marketing. Questo cattura le informazioni fondamentali di positioning e messaggistica che le altre skill di marketing consultano, così gli utenti non devono ripetersi.
 
-The document is stored at `.agents/product-marketing.md`.
+Il documento è salvato in `.agents/product-marketing.md`.
 
 ## Workflow
 
-### Step 1: Check for Existing Context
+### Passo 1: Controlla il Contesto Esistente
 
-First, check if `.agents/product-marketing.md` already exists. Also check `.claude/product-marketing.md` and the legacy filename `product-marketing-context.md` (in either `.agents/` or `.claude/`) for older setups — if found anywhere other than `.agents/product-marketing.md`, offer to move it to the canonical location.
+Per prima cosa, controlla se `.agents/product-marketing.md` esiste già. Controlla anche `.claude/product-marketing.md` e il vecchio nome file `product-marketing-context.md` (in `.agents/` o `.claude/`) per setup più datati — se trovato in un posto diverso dalla posizione canonica `.agents/product-marketing.md`, offri di spostarlo lì.
 
-**If it exists:**
-- Read it and summarize what's captured
-- Ask which sections they want to update
-- Only gather info for those sections
+**Se esiste:**
+- Leggilo e riassumi cosa è stato catturato
+- Chiedi quali sezioni vogliono aggiornare
+- Raccogli informazioni solo per quelle sezioni
 
-**If it doesn't exist, offer two options:**
+**Se non esiste, offri due opzioni:**
 
-1. **Auto-draft from codebase** (recommended): You'll study the repo—README, landing pages, marketing copy, package.json, etc.—and draft a V1 of the context document. The user then reviews, corrects, and fills gaps. This is faster than starting from scratch.
+1. **Bozza automatica dal codebase** (consigliata): Studierai il repository — README, landing page, copy di marketing, package.json, ecc. — e redigerai una V1 del documento di contesto. L'utente poi rivede, corregge, e completa le lacune. È più rapido che iniziare da zero.
 
-2. **Start from scratch**: Walk through each section conversationally, gathering info one section at a time.
+2. **Inizia da zero**: Percorri ogni sezione in modo conversazionale, raccogliendo informazioni una sezione alla volta.
 
-Most users prefer option 1. After presenting the draft, ask: "What needs correcting? What's missing?"
+La maggior parte degli utenti preferisce l'opzione 1. Dopo aver presentato la bozza, chiedi: "Cosa va corretto? Cosa manca?"
 
-### Step 2: Gather Information
+### Passo 2: Raccogli le Informazioni
 
-**If auto-drafting:**
-1. Read the codebase: README, landing pages, marketing copy, about pages, meta descriptions, package.json, any existing docs
-2. Draft all sections based on what you find
-3. Present the draft and ask what needs correcting or is missing
-4. Iterate until the user is satisfied
+**Se redigi automaticamente:**
+1. Leggi il codebase: README, landing page, copy di marketing, pagine about, meta description, package.json, qualsiasi documentazione esistente
+2. Redigi tutte le sezioni in base a ciò che trovi
+3. Presenta la bozza e chiedi cosa va corretto o manca
+4. Itera finché l'utente non è soddisfatto
 
-**If starting from scratch:**
-Walk through each section below conversationally, one at a time. Don't dump all questions at once.
+**Se inizi da zero:**
+Percorri ogni sezione di seguito in modo conversazionale, una alla volta. Non scaricare tutte le domande in una volta.
 
-For each section:
-1. Briefly explain what you're capturing
-2. Ask relevant questions
-3. Confirm accuracy
-4. Move to the next
+Per ogni sezione:
+1. Spiega brevemente cosa stai catturando
+2. Fai le domande rilevanti
+3. Conferma l'accuratezza
+4. Passa alla successiva
 
-Push for verbatim customer language — exact phrases are more valuable than polished descriptions because they reflect how customers actually think and speak, which makes copy more resonant.
-
----
-
-## Sections to Capture
-
-### 1. Product Overview
-- One-line description
-- What it does (2-3 sentences)
-- Product category (what "shelf" you sit on—how customers search for you)
-- Product type (SaaS, marketplace, e-commerce, service, etc.)
-- Business model and pricing
-
-### 2. Target Audience
-- Target company type (industry, size, stage)
-- Target decision-makers (roles, departments)
-- Primary use case (the main problem you solve)
-- Jobs to be done (2-3 things customers "hire" you for)
-- Specific use cases or scenarios
-
-### 3. Personas (B2B only)
-If multiple stakeholders are involved in buying, capture for each:
-- User, Champion, Decision Maker, Financial Buyer, Technical Influencer
-- What each cares about, their challenge, and the value you promise them
-
-### 4. Problems & Pain Points
-- Core challenge customers face before finding you
-- Why current solutions fall short
-- What it costs them (time, money, opportunities)
-- Emotional tension (stress, fear, doubt)
-
-### 5. Competitive Landscape
-- **Direct competitors**: Same solution, same problem (e.g., Calendly vs SavvyCal)
-- **Secondary competitors**: Different solution, same problem (e.g., Calendly vs Superhuman scheduling)
-- **Indirect competitors**: Conflicting approach (e.g., Calendly vs personal assistant)
-- How each falls short for customers
-
-### 6. Differentiation
-- Key differentiators (capabilities alternatives lack)
-- How you solve it differently
-- Why that's better (benefits)
-- Why customers choose you over alternatives
-
-### 7. Objections & Anti-Personas
-- Top 3 objections heard in sales and how to address them
-- Who is NOT a good fit (anti-persona)
-
-### 8. Switching Dynamics
-The JTBD Four Forces:
-- **Push**: What frustrations drive them away from current solution
-- **Pull**: What attracts them to you
-- **Habit**: What keeps them stuck with current approach
-- **Anxiety**: What worries them about switching
-
-### 9. Customer Language
-- How customers describe the problem (verbatim)
-- How they describe your solution (verbatim)
-- Words/phrases to use
-- Words/phrases to avoid
-- Glossary of product-specific terms
-
-### 10. Brand Voice
-- Tone (professional, casual, playful, etc.)
-- Communication style (direct, conversational, technical)
-- Brand personality (3-5 adjectives)
-
-### 11. Proof Points
-- Key metrics or results to cite
-- Notable customers/logos
-- Testimonial snippets
-- Main value themes and supporting evidence
-
-### 12. Goals
-- Primary business goal
-- Key conversion action (what you want people to do)
-- Current metrics (if known)
+Spingi per ottenere il linguaggio verbatim del cliente — le frasi esatte sono più valoroso delle descrizioni levigate perché rispecchiano come i clienti pensano e parlano davvero, il che rende il copy più risonante.
 
 ---
 
-## Step 3: Create the Document
+## Sezioni da Catturare
 
-After gathering information, create `.agents/product-marketing.md` with this structure:
+### 1. Panoramica del Prodotto
+- Descrizione in una riga
+- Cosa fa (2-3 frasi)
+- Categoria di prodotto (su quale "scaffale" ti posizioni — come i clienti ti cercano)
+- Tipo di prodotto (SaaS, marketplace, e-commerce, servizio, ecc.)
+- Modello di business e pricing
+
+### 2. Pubblico Target
+- Tipo di azienda target (settore, dimensione, fase)
+- Decision-maker target (ruoli, dipartimenti)
+- Caso d'uso primario (il problema principale che risolvi)
+- Jobs to be done (2-3 cose per cui i clienti ti "assumono")
+- Casi d'uso o scenari specifici
+
+### 3. Persona (solo B2B)
+Se più stakeholder sono coinvolti nell'acquisto, cattura per ciascuno:
+- Utente, Champion, Decision Maker, Buyer Finanziario, Influencer Tecnico
+- Cosa interessa a ciascuno, la loro sfida, e il valore che prometti loro
+
+### 4. Problemi e Punti di Dolore
+- Sfida principale che i clienti affrontano prima di trovarti
+- Perché le soluzioni attuali non bastano
+- Cosa costa loro (tempo, denaro, opportunità)
+- Tensione emotiva (stress, paura, dubbio)
+
+### 5. Panorama Competitivo
+- **Concorrenti diretti**: Stessa soluzione, stesso problema (es. Calendly vs SavvyCal)
+- **Concorrenti secondari**: Soluzione diversa, stesso problema (es. Calendly vs la pianificazione di Superhuman)
+- **Concorrenti indiretti**: Approccio in conflitto (es. Calendly vs assistente personale)
+- Come ciascuno non basta per i clienti
+
+### 6. Differenziazione
+- Differenziatori chiave (capacità che le alternative non hanno)
+- Come lo risolvi in modo diverso
+- Perché è meglio (benefici)
+- Perché i clienti ti scelgono rispetto alle alternative
+
+### 7. Obiezioni e Anti-Persona
+- Le 3 obiezioni principali sentite in fase di vendita e come affrontarle
+- Chi NON è un buon fit (anti-persona)
+
+### 8. Dinamiche di Switching
+Le Quattro Forze del JTBD:
+- **Push**: Quali frustrazioni li spingono via dalla soluzione attuale
+- **Pull**: Cosa li attira verso di te
+- **Habit**: Cosa li tiene bloccati con l'approccio attuale
+- **Anxiety**: Cosa li preoccupa nel cambiare
+
+### 9. Linguaggio del Cliente
+- Come i clienti descrivono il problema (verbatim)
+- Come descrivono la tua soluzione (verbatim)
+- Parole/frasi da usare
+- Parole/frasi da evitare
+- Glossario dei termini specifici del prodotto
+
+### 10. Voce del Brand
+- Tono (professionale, casual, giocoso, ecc.)
+- Stile di comunicazione (diretto, conversazionale, tecnico)
+- Personalità del brand (3-5 aggettivi)
+
+### 11. Elementi di Prova
+- Metriche o risultati chiave da citare
+- Clienti/loghi rilevanti
+- Estratti di testimonianze
+- Temi di valore principali e prove a supporto
+
+### 12. Obiettivi
+- Obiettivo di business primario
+- Azione di conversione chiave (cosa vuoi che le persone facciano)
+- Metriche attuali (se note)
+
+---
+
+## Passo 3: Crea il Documento
+
+Dopo aver raccolto le informazioni, crea `.agents/product-marketing.md` con questa struttura:
 
 ```markdown
-# Product Marketing Context
+# Contesto di Product Marketing
 
-*Last updated: [date]*
+*Ultimo aggiornamento: [data]*
 
-## Product Overview
-**One-liner:**
-**What it does:**
-**Product category:**
-**Product type:**
-**Business model:**
+## Panoramica del Prodotto
+**Descrizione in una riga:**
+**Cosa fa:**
+**Categoria di prodotto:**
+**Tipo di prodotto:**
+**Modello di business:**
 
-## Target Audience
-**Target companies:**
-**Decision-makers:**
-**Primary use case:**
+## Pubblico Target
+**Aziende target:**
+**Decision-maker:**
+**Caso d'uso primario:**
 **Jobs to be done:**
 -
-**Use cases:**
+**Casi d'uso:**
 -
 
-## Personas
-| Persona | Cares about | Challenge | Value we promise |
+## Persona
+| Persona | Cosa gli interessa | Sfida | Valore che promettiamo |
 |---------|-------------|-----------|------------------|
 | | | | |
 
-## Problems & Pain Points
-**Core problem:**
-**Why alternatives fall short:**
+## Problemi e Punti di Dolore
+**Problema principale:**
+**Perché le alternative non bastano:**
 -
-**What it costs them:**
-**Emotional tension:**
+**Cosa costa loro:**
+**Tensione emotiva:**
 
-## Competitive Landscape
-**Direct:** [Competitor] — falls short because...
-**Secondary:** [Approach] — falls short because...
-**Indirect:** [Alternative] — falls short because...
+## Panorama Competitivo
+**Diretto:** [Concorrente] — non basta perché...
+**Secondario:** [Approccio] — non basta perché...
+**Indiretto:** [Alternativa] — non basta perché...
 
-## Differentiation
-**Key differentiators:**
+## Differenziazione
+**Differenziatori chiave:**
 -
-**How we do it differently:**
-**Why that's better:**
-**Why customers choose us:**
+**Come lo facciamo in modo diverso:**
+**Perché è meglio:**
+**Perché i clienti ci scelgono:**
 
-## Objections
-| Objection | Response |
+## Obiezioni
+| Obiezione | Risposta |
 |-----------|----------|
 | | |
 
 **Anti-persona:**
 
-## Switching Dynamics
+## Dinamiche di Switching
 **Push:**
 **Pull:**
 **Habit:**
 **Anxiety:**
 
-## Customer Language
-**How they describe the problem:**
+## Linguaggio del Cliente
+**Come descrivono il problema:**
 - "[verbatim]"
-**How they describe us:**
+**Come ci descrivono:**
 - "[verbatim]"
-**Words to use:**
-**Words to avoid:**
-**Glossary:**
-| Term | Meaning |
+**Parole da usare:**
+**Parole da evitare:**
+**Glossario:**
+| Termine | Significato |
 |------|---------|
 | | |
 
-## Brand Voice
-**Tone:**
-**Style:**
-**Personality:**
+## Voce del Brand
+**Tono:**
+**Stile:**
+**Personalità:**
 
-## Proof Points
-**Metrics:**
-**Customers:**
-**Testimonials:**
-> "[quote]" — [who]
-**Value themes:**
-| Theme | Proof |
+## Elementi di Prova
+**Metriche:**
+**Clienti:**
+**Testimonianze:**
+> "[citazione]" — [chi]
+**Temi di valore:**
+| Tema | Prova |
 |-------|-------|
 | | |
 
-## Goals
-**Business goal:**
-**Conversion action:**
-**Current metrics:**
+## Obiettivi
+**Obiettivo di business:**
+**Azione di conversione:**
+**Metriche attuali:**
 ```
 
 ---
 
-## Step 4: Confirm and Save
+## Passo 4: Conferma e Salva
 
-- Show the completed document
-- Ask if anything needs adjustment
-- Save to `.agents/product-marketing.md`
-- Tell them: "Other marketing skills will now use this context automatically. Run `/product-marketing` anytime to update it."
+- Mostra il documento completato
+- Chiedi se qualcosa necessita di aggiustamenti
+- Salva in `.agents/product-marketing.md`
+- Comunica: "Le altre skill di marketing useranno ora questo contesto automaticamente. Esegui `/product-marketing` in qualsiasi momento per aggiornarlo."
 
 ---
 
-## Tips
+## Consigli
 
-- **Be specific**: Ask "What's the #1 frustration that brings them to you?" not "What problem do they solve?"
-- **Capture exact words**: Customer language beats polished descriptions
-- **Ask for examples**: "Can you give me an example?" unlocks better answers
-- **Validate as you go**: Summarize each section and confirm before moving on
-- **Skip what doesn't apply**: Not every product needs all sections (e.g., Personas for B2C)
+- **Sii specifico**: Chiedi "Qual è la frustrazione numero 1 che li porta da te?" non "Quale problema risolvono?"
+- **Cattura le parole esatte**: Il linguaggio del cliente batte le descrizioni levigate
+- **Chiedi esempi**: "Puoi darmi un esempio?" sblocca risposte migliori
+- **Valida man mano che procedi**: Riassumi ogni sezione e conferma prima di passare alla successiva
+- **Salta ciò che non si applica**: Non ogni prodotto ha bisogno di tutte le sezioni (es. Persona per il B2C)

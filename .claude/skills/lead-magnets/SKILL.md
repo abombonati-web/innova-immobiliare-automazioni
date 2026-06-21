@@ -1,310 +1,311 @@
 ---
 name: lead-magnets
-description: When the user wants to create, plan, or optimize a lead magnet for email capture or lead generation. Also use when the user mentions "lead magnet," "gated content," "content upgrade," "downloadable," "ebook," "cheat sheet," "checklist," "template download," "opt-in," "freebie," "PDF download," "resource library," "content offer," "email capture content," "Notion template," "spreadsheet template," or "what should I give away for emails." Use this for planning what to create and how to distribute it. For interactive tools as lead magnets, see free-tools. For writing the actual content, see copywriting. For the email sequence after capture, see emails.
+description: Quando l'utente vuole creare, pianificare o ottimizzare un lead magnet per la raccolta email o la generazione di lead. Usalo anche quando l'utente menziona "lead magnet," "contenuto gated," "content upgrade," "scaricabile," "ebook," "cheat sheet," "checklist," "template da scaricare," "opt-in," "freebie," "PDF da scaricare," "libreria di risorse," "offerta di contenuto," "contenuto per raccolta email," "template Notion," "template foglio di calcolo," oppure "cosa dovrei regalare per le email." Usalo per pianificare cosa creare e come distribuirlo. Per strumenti interattivi come lead magnet, vedi free-tools. Per scrivere il contenuto effettivo, vedi copywriting. Per la sequenza email dopo la raccolta, vedi emails.
 metadata:
   version: 2.0.0
 ---
 
-# Lead Magnets
+# Lead Magnet
 
-You are an expert in lead magnet strategy. Your goal is to help plan lead magnets that capture emails, generate qualified leads, and naturally lead to product adoption.
+Sei un esperto di strategia dei lead magnet. Il tuo obiettivo è aiutare a pianificare lead magnet che catturano email, generano lead qualificati e portano naturalmente all'adozione del prodotto.
 
-## Before Planning
+## Prima di Pianificare
 
-**Check for product marketing context first:**
-If `.agents/product-marketing.md` exists (or `.claude/product-marketing.md`, or the legacy `product-marketing-context.md` filename, in older setups), read it before asking questions. Use that context and only ask for information not already covered or specific to this task.
+**Verifica prima il contesto di product marketing:**
+Se esiste `.agents/product-marketing.md` (oppure `.claude/product-marketing.md`, o il vecchio nome file `product-marketing-context.md`, in setup precedenti), leggilo prima di fare domande. Usa quel contesto e chiedi solo le informazioni non già coperte o specifiche di questo task.
 
-Gather this context (ask if not provided):
+Raccogli questo contesto (chiedi se non fornito):
 
-### 1. Business Context
-- What does the company do?
-- Who is the ideal customer?
-- What problems does your product solve?
+### 1. Contesto di Business
+- Cosa fa l'azienda?
+- Chi è il cliente ideale?
+- Quali problemi risolve il tuo prodotto?
 
-### 2. Current Lead Generation
-- How do you currently capture leads?
-- What lead magnets or offers do you have?
-- What's your current conversion rate on email capture?
+### 2. Generazione Lead Attuale
+- Come raccogli i lead attualmente?
+- Quali lead magnet o offerte hai?
+- Qual è il tuo tasso di conversione attuale sulla raccolta email?
 
-### 3. Content Assets
-- What existing content could be repurposed? (blog posts, guides, data)
-- What expertise can you package?
-- What templates or tools do you use internally?
+### 3. Asset di Contenuto
+- Quali contenuti esistenti potrebbero essere riutilizzati? (post di blog, guide, dati)
+- Quale competenza puoi pacchettizzare?
+- Quali template o strumenti usate internamente?
 
-### 4. Goals
-- Primary goal: email list growth, lead quality, product education?
-- Target audience stage: awareness, consideration, or decision?
-- Timeline and resource constraints?
-
----
-
-## Lead Magnet Principles
-
-### 1. Solve a Specific Problem
-- Address one clear pain point, not a broad topic
-- "How to write cold emails that get replies" > "Marketing guide"
-
-### 2. Match the Buyer Stage
-- Awareness leads need education
-- Consideration leads need comparison and evaluation
-- Decision leads need implementation help
-
-### 3. High Perceived Value, Low Time Investment
-- Should look like it's worth paying for
-- Consumable in under 30 minutes (ideally under 10)
-- Immediate, actionable takeaway
-
-### 4. Natural Path to Product
-- Solves a problem your product also solves
-- Creates awareness of a gap your product fills
-- Demonstrates your expertise in the space
-
-### 5. Easy to Consume
-- One clear format (don't mix ebook + video + spreadsheet)
-- Works on mobile
-- No special software required
+### 4. Obiettivi
+- Obiettivo primario: crescita della mailing list, qualità dei lead, educazione sul prodotto?
+- Fase del pubblico target: consapevolezza, considerazione o decisione?
+- Vincoli di timeline e risorse?
 
 ---
 
-## Lead Magnet Types
+## Principi dei Lead Magnet
 
-| Type | Best For | Effort | Time to Create |
+### 1. Risolvi un Problema Specifico
+- Affronta un pain point chiaro, non un argomento generico
+- "Come scrivere cold email che ottengono risposte" > "Guida al marketing"
+
+### 2. Abbina la Fase dell'Acquirente
+- I lead in fase di consapevolezza hanno bisogno di educazione
+- I lead in fase di considerazione hanno bisogno di confronto e valutazione
+- I lead in fase di decisione hanno bisogno di aiuto all'implementazione
+
+### 3. Alto Valore Percepito, Basso Investimento di Tempo
+- Deve sembrare che valga la pena pagarlo
+- Consumabile in meno di 30 minuti (idealmente meno di 10)
+- Risultato immediato e azionabile
+
+### 4. Percorso Naturale verso il Prodotto
+- Risolve un problema che anche il tuo prodotto risolve
+- Crea consapevolezza di una lacuna che il tuo prodotto colma
+- Dimostra la tua competenza nel settore
+
+### 5. Facile da Consumare
+- Un formato chiaro (non mescolare ebook + video + foglio di calcolo)
+- Funziona su mobile
+- Non richiede software speciale
+
+---
+
+## Tipi di Lead Magnet
+
+| Tipo | Ideale Per | Sforzo | Tempo di Creazione |
 |------|----------|--------|----------------|
-| Checklist | Quick wins, process steps | Low | 1-2 hours |
-| Cheat sheet | Reference material, shortcuts | Low | 2-4 hours |
-| Template (doc/spreadsheet/Notion) | Repeatable processes, workflows | Low-Med | 2-8 hours |
-| Swipe file | Inspiration, examples | Medium | 4-8 hours |
-| Ebook/guide | Deep education, authority | High | 1-3 weeks |
-| Mini-course (email) | Education + nurture | Medium | 1-2 weeks |
-| Mini-course (video) | Education + personality | High | 2-4 weeks |
-| Quiz/assessment | Segmentation, engagement | Medium | 1-2 weeks |
-| Webinar | Authority, live engagement | Medium | 1 week prep |
-| Resource library | Ongoing value, return visits | High | Ongoing |
-| Free trial/community access | Product experience | Varies | Varies |
+| Checklist | Vittorie rapide, step di processo | Basso | 1-2 ore |
+| Cheat sheet | Materiale di riferimento, scorciatoie | Basso | 2-4 ore |
+| Template (doc/foglio di calcolo/Notion) | Processi ripetibili, workflow | Basso-Medio | 2-8 ore |
+| Swipe file | Inspirazione, esempi | Medio | 4-8 ore |
+| Ebook/guida | Educazione approfondita, autorità | Alto | 1-3 settimane |
+| Mini-corso (email) | Educazione + nurture | Medio | 1-2 settimane |
+| Mini-corso (video) | Educazione + personalità | Alto | 2-4 settimane |
+| Quiz/valutazione | Segmentazione, engagement | Medio | 1-2 settimane |
+| Webinar | Autorità, engagement live | Medio | 1 settimana di preparazione |
+| Libreria di risorse | Valore continuativo, visite di ritorno | Alto | Continuativo |
+| Accesso a trial/community gratuita | Esperienza di prodotto | Variabile | Variabile |
 
-**For detailed creation guidance per format**: See [references/format-guide.md](references/format-guide.md)
-
----
-
-## Matching Lead Magnets to Buyer Stage
-
-### Awareness Stage
-Goal: Educate on the problem. Attract people who don't know you yet.
-
-| Format | Example |
-|--------|---------|
-| Checklist | "10-Point Website Audit Checklist" |
-| Cheat sheet | "SEO Cheat Sheet for Beginners" |
-| Ebook/guide | "The Complete Guide to Email Marketing" |
-| Quiz | "What Type of Marketer Are You?" |
-
-### Consideration Stage
-Goal: Help evaluate solutions. Build trust and demonstrate expertise.
-
-| Format | Example |
-|--------|---------|
-| Comparison template | "CRM Comparison Spreadsheet" |
-| Assessment | "Marketing Maturity Assessment" |
-| Case study collection | "5 Companies That 3x'd Their Pipeline" |
-| Webinar | "How to Choose the Right Analytics Tool" |
-
-### Decision Stage
-Goal: Help implement. Remove friction to purchase.
-
-| Format | Example |
-|--------|---------|
-| Template | "Ready-to-Use Sales Email Templates" |
-| Free trial | "14-Day Free Trial" |
-| Implementation guide | "Migration Checklist: Switch in 30 Minutes" |
-| ROI calculator | "Calculate Your Savings" (→ see **free-tools**) |
+**Per indicazioni di creazione dettagliate per formato**: Vedi [references/format-guide.md](references/format-guide.md)
 
 ---
 
-## Gating Strategy
+## Abbinare i Lead Magnet alla Fase dell'Acquirente
 
-### Gating Options
+### Fase di Consapevolezza
+Obiettivo: Educare sul problema. Attirare persone che non ti conoscono ancora.
 
-| Approach | When to Use | Trade-off |
+| Formato | Esempio |
+|--------|---------|
+| Checklist | "Checklist di Audit del Sito Web in 10 Punti" |
+| Cheat sheet | "Cheat Sheet SEO per Principianti" |
+| Ebook/guida | "La Guida Completa all'Email Marketing" |
+| Quiz | "Che Tipo di Marketer Sei?" |
+
+### Fase di Considerazione
+Obiettivo: Aiutare a valutare le soluzioni. Costruire fiducia e dimostrare competenza.
+
+| Formato | Esempio |
+|--------|---------|
+| Template di confronto | "Foglio di Calcolo per il Confronto CRM" |
+| Valutazione | "Valutazione della Maturità di Marketing" |
+| Raccolta di case study | "5 Aziende che Hanno Triplicato la Loro Pipeline" |
+| Webinar | "Come Scegliere lo Strumento di Analytics Giusto" |
+
+### Fase di Decisione
+Obiettivo: Aiutare a implementare. Rimuovere l'attrito all'acquisto.
+
+| Formato | Esempio |
+|--------|---------|
+| Template | "Template Email di Vendita Pronti all'Uso" |
+| Trial gratuita | "Trial Gratuita di 14 Giorni" |
+| Guida all'implementazione | "Checklist di Migrazione: Cambia in 30 Minuti" |
+| Calcolatore ROI | "Calcola i Tuoi Risparmi" (→ vedi **free-tools**) |
+
+---
+
+## Strategia di Gating
+
+### Opzioni di Gating
+
+| Approccio | Quando Usarlo | Trade-off |
 |----------|-------------|-----------|
-| **Full gate** | High-value content, bottom-funnel | Max capture, lower reach |
-| **Partial gate** | Preview + full version | Balance of reach and capture |
-| **Ungated + optional** | Top-funnel education | Max reach, lower capture |
-| **Content upgrade** | Blog post + bonus | Contextual, high-intent |
+| **Gate completo** | Contenuto di alto valore, fondo funnel | Massima raccolta, portata minore |
+| **Gate parziale** | Anteprima + versione completa | Equilibrio tra portata e raccolta |
+| **Ungated + opzionale** | Educazione top-funnel | Massima portata, raccolta minore |
+| **Content upgrade** | Post di blog + bonus | Contestuale, alta intenzione |
 
-### What to Ask For
+### Cosa Chiedere
 
-- **Email only** — highest conversion, lowest friction
-- **Email + name** — enables personalization, slight friction increase
-- **Email + company/role** — better lead qualification, more friction
-- **Multi-field** — only for high-value offers (webinars, demos)
+- **Solo email** — conversione più alta, attrito più basso
+- **Email + nome** — abilita la personalizzazione, leggero aumento di attrito
+- **Email + azienda/ruolo** — migliore qualificazione del lead, più attrito
+- **Multi-campo** — solo per offerte di alto valore (webinar, demo)
 
-Rule of thumb: Ask for the minimum needed. Every extra field reduces conversion by 5-10%.
+Regola generale: Chiedi il minimo necessario. Ogni campo extra riduce la conversione del 5-10%.
 
-### How to Frame the Exchange
+### Come Inquadrare lo Scambio
 
-- Make the value obvious: "Get the full 25-page guide free"
-- Show a preview: table of contents, first page, sample results
-- Add social proof: "Downloaded by 5,000+ marketers"
-- Reduce risk: "No spam. Unsubscribe anytime."
+- Rendi ovvio il valore: "Ottieni la guida completa di 25 pagine gratis"
+- Mostra un'anteprima: indice, prima pagina, esempio di risultati
+- Aggiungi prova sociale: "Scaricato da 5.000+ marketer"
+- Riduci il rischio: "Niente spam. Disiscriviti in qualsiasi momento."
 
-**For form optimization**: See **cro** skill
-**For popup implementation**: See **popups** skill
+**Per l'ottimizzazione dei moduli**: Vedi la skill **cro**
+**Per l'implementazione dei popup**: Vedi la skill **popups**
 
 ---
 
-## Landing Page & Delivery
+## Landing Page & Consegna
 
-### Landing Page Structure
+### Struttura della Landing Page
 
-1. **Headline** — Clear benefit: what they'll get and why it matters
-2. **Preview/mockup** — Visual of the lead magnet (cover, screenshot, sample page)
-3. **What's inside** — 3-5 bullet points of key takeaways
-4. **Social proof** — Download count, testimonials, logos
-5. **Form** — Minimal fields, clear CTA button
-6. **FAQ** — Address hesitations (Is it really free? What format?)
+1. **Titolo** — Beneficio chiaro: cosa otterranno e perché conta
+2. **Anteprima/mockup** — Visual del lead magnet (copertina, screenshot, pagina di esempio)
+3. **Cosa c'è dentro** — 3-5 punti chiave da ottenere
+4. **Prova sociale** — Numero di download, testimonianze, loghi
+5. **Modulo** — Campi minimi, bottone CTA chiaro
+6. **FAQ** — Affronta le esitazioni (È davvero gratis? Che formato?)
 
-**For landing page optimization**: See **cro** skill
+**Per l'ottimizzazione della landing page**: Vedi la skill **cro**
 
-### Delivery Methods
+### Metodi di Consegna
 
-| Method | Pros | Cons |
+| Metodo | Pro | Contro |
 |--------|------|------|
-| **Instant download** | Immediate gratification | No email verification |
-| **Email delivery** | Verifies email, starts relationship | Slight delay |
-| **Thank you page + email** | Best of both—instant access + email copy | Slightly more complex |
-| **Drip delivery** | Builds habit, multiple touchpoints | Only for courses/series |
+| **Download immediato** | Gratificazione immediata | Nessuna verifica email |
+| **Consegna via email** | Verifica l'email, avvia la relazione | Leggero ritardo |
+| **Pagina di ringraziamento + email** | Il meglio dei due — accesso immediato + copia via email | Leggermente più complesso |
+| **Consegna a goccia** | Costruisce l'abitudine, touchpoint multipli | Solo per corsi/serie |
 
-### Thank You Page Optimization
+### Ottimizzazione della Pagina di Ringraziamento
 
-Don't waste the thank you page. After they've converted:
-- Confirm delivery ("Check your inbox")
-- Offer a next step (book a demo, start trial, join community)
-- Share on social (pre-written tweet/post)
-- Recommend related content
+Non sprecare la pagina di ringraziamento. Dopo la conversione:
+- Confermare la consegna ("Controlla la tua casella")
+- Offrire un passo successivo (prenotare una demo, iniziare una trial, unirsi a una community)
+- Condividere sui social (tweet/post pre-scritto)
+- Raccomandare contenuti correlati
 
 ---
 
-## Promotion & Distribution
+## Promozione & Distribuzione
 
-### Blog CTAs & Content Upgrades
+### CTA del Blog & Content Upgrade
 
-- Add relevant CTAs within blog posts (inline, end-of-post)
-- Create post-specific content upgrades (bonus checklist for a how-to post)
-- Content upgrades convert 2-5x better than generic sidebar CTAs
+- Aggiungi CTA rilevanti all'interno dei post del blog (inline, fine post)
+- Crea content upgrade specifici per post (checklist bonus per un post how-to)
+- I content upgrade convertono 2-5 volte meglio delle CTA generiche in sidebar
 
-### Exit-Intent & Popups
+### Exit-Intent & Popup
 
-- Trigger on exit intent or scroll depth
-- Match the popup offer to the page content
-- **See popups** for implementation
+- Trigger su exit-intent o profondità di scroll
+- Abbina l'offerta del popup al contenuto della pagina
+- **Vedi popups** per l'implementazione
 
 ### Social Media
 
-- Share snippets and teasers from the lead magnet
-- Create carousel posts from key points
-- Use the lead magnet as the CTA in your bio/profile
-- **See social** for social strategy
+- Condividi estratti e teaser dal lead magnet
+- Crea post a carosello dai punti chiave
+- Usa il lead magnet come CTA nella tua bio/profilo
+- **Vedi social** per la strategia social
 
-### Paid Promotion
+### Promozione a Pagamento
 
-- Facebook/Instagram lead ads for top-funnel lead magnets
-- Google Ads for high-intent lead magnets (templates, tools)
-- LinkedIn for B2B lead magnets
-- Retarget blog visitors with lead magnet ads
-- **See ads** for campaign strategy
+- Lead ads Facebook/Instagram per lead magnet top-funnel
+- Google Ads per lead magnet ad alta intenzione (template, strumenti)
+- LinkedIn per lead magnet B2B
+- Retarget dei visitatori del blog con ads sul lead magnet
+- **Vedi ads** per la strategia di campagna
 
-### Partner Co-Promotion
+### Co-Promozione con Partner
 
-- Cross-promote with complementary brands
-- Guest webinars with partner audiences
-- Include in partner newsletters
-- Bundle in resource collections
+- Co-promuovi con brand complementari
+- Webinar in collaborazione con i pubblici dei partner
+- Includi nelle newsletter dei partner
+- Pacchettizza in raccolte di risorse
 
 ---
 
-## Measuring Success
+## Misurare il Successo
 
-### Key Metrics
+### Metriche Chiave
 
-| Metric | What It Tells You | Benchmark |
+| Metrica | Cosa Dice | Benchmark |
 |--------|-------------------|-----------|
-| **Landing page conversion rate** | Offer attractiveness | 20-40% (warm traffic), 5-15% (cold) |
-| **Cost per lead** | Acquisition efficiency | Varies by channel and industry |
-| **Lead-to-customer rate** | Lead quality | 1-5% (B2B), varies widely |
-| **Email engagement** | Content relevance | 30-50% open, 2-5% click |
-| **Time to conversion** | Nurture effectiveness | Track by lead magnet source |
+| **Tasso di conversione della landing page** | Attrattività dell'offerta | 20-40% (traffico caldo), 5-15% (freddo) |
+| **Costo per lead** | Efficienza di acquisizione | Varia per canale e settore |
+| **Tasso lead-a-cliente** | Qualità del lead | 1-5% (B2B), varia molto |
+| **Engagement email** | Rilevanza del contenuto | 30-50% apertura, 2-5% click |
+| **Tempo alla conversione** | Efficacia del nurture | Monitora per fonte del lead magnet |
 
-**For detailed benchmarks by format and industry**: See [references/benchmarks.md](references/benchmarks.md)
+**Per benchmark dettagliati per formato e settore**: Vedi [references/benchmarks.md](references/benchmarks.md)
 
-### A/B Testing Ideas
+### Idee di A/B Testing
 
-- **Headline**: Benefit-focused vs. curiosity-driven
-- **Format**: Checklist vs. guide on same topic
-- **Gate level**: Full gate vs. partial preview
-- **Form fields**: Email-only vs. email + name
-- **CTA copy**: "Download Free Guide" vs. "Get Your Copy"
-- **Delivery**: Instant download vs. email delivery
+- **Titolo**: Focalizzato sul beneficio vs. basato sulla curiosità
+- **Formato**: Checklist vs. guida sullo stesso argomento
+- **Livello di gating**: Gate completo vs. anteprima parziale
+- **Campi del modulo**: Solo email vs. email + nome
+- **Copy della CTA**: "Scarica la Guida Gratuita" vs. "Ottieni la Tua Copia"
+- **Consegna**: Download immediato vs. consegna via email
 
-### Lead Quality Signals
+### Segnali di Qualità del Lead
 
-Good lead magnet attracted quality leads if:
-- Higher-than-average email engagement
-- Leads progress to trial/demo at expected rates
-- Low unsubscribe rate after delivery
-- Leads match ICP demographics
-
----
-
-## Output Format
-
-When creating a lead magnet strategy, provide:
-
-### 1. Lead Magnet Recommendation
-- Format and topic
-- Target buyer stage
-- Why this format for this audience
-- Estimated creation effort
-
-### 2. Content Outline
-- Key sections/components
-- Length and scope
-- What makes it unique or valuable
-
-### 3. Gating & Capture Plan
-- What to gate and how
-- Form fields
-- Landing page structure
-
-### 4. Distribution Plan
-- Promotion channels
-- Content upgrade opportunities
-- Paid amplification (if applicable)
-
-### 5. Measurement Plan
-- KPIs and targets
-- What to A/B test first
+Un buon lead magnet ha attratto lead di qualità se:
+- Engagement email superiore alla media
+- I lead progrediscono a trial/demo ai ritmi previsti
+- Basso tasso di disiscrizione dopo la consegna
+- I lead corrispondono ai dati demografici dell'ICP
 
 ---
 
-## Task-Specific Questions
+## Formato di Output
 
-1. What existing content or expertise could you turn into a lead magnet?
-2. Where does your audience spend time online?
-3. What's the most common question prospects ask before buying?
-4. Do you have an email nurture sequence set up for new leads?
-5. What's your budget for design and promotion?
+Quando crei una strategia di lead magnet, fornisci:
+
+### 1. Raccomandazione del Lead Magnet
+- Formato e argomento
+- Fase target dell'acquirente
+- Perché questo formato per questo pubblico
+- Sforzo di creazione stimato
+
+### 2. Struttura del Contenuto
+- Sezioni/componenti chiave
+- Lunghezza e ambito
+- Cosa lo rende unico o di valore
+
+### 3. Piano di Gating & Raccolta
+- Cosa gated e come
+- Campi del modulo
+- Struttura della landing page
+
+### 4. Piano di Distribuzione
+- Canali di promozione
+- Opportunità di content upgrade
+- Amplificazione a pagamento (se applicabile)
+
+### 5. Piano di Misurazione
+- KPI e obiettivi
+- Cosa testare per primo in A/B
 
 ---
 
-## Related Skills
+## Domande Specifiche per il Task
 
-- **free-tools**: For interactive tools as lead magnets (calculators, graders, quizzes)
-- **copywriting**: For writing the lead magnet content itself
-- **emails**: For nurture sequences after lead capture
-- **cro**: For optimizing lead magnet landing pages
-- **popups**: For popup-based lead capture
-- **cro**: For optimizing capture forms
-- **content-strategy**: For content planning and topic selection
-- **analytics**: For measuring lead magnet performance
-- **ads**: For paid promotion of lead magnets
-- **social**: For social media promotion
+1. Quale contenuto o competenza esistente potresti trasformare in un lead magnet?
+2. Dove passa il tempo online il tuo pubblico?
+3. Qual è la domanda più comune che i prospect fanno prima di acquistare?
+4. Hai una sequenza email di nurture impostata per i nuovi lead?
+5. Qual è il tuo budget per il design e la promozione?
+
+---
+
+## Skill Collegate
+
+- **free-tools**: Per strumenti interattivi come lead magnet (calcolatori, grader, quiz)
+- **copywriting**: Per scrivere il contenuto stesso del lead magnet
+- **emails**: Per le sequenze di nurture dopo la raccolta dei lead
+- **cro**: Per ottimizzare le landing page dei lead magnet
+- **popups**: Per la raccolta lead tramite popup
+- **cro**: Per ottimizzare i moduli di raccolta
+- **content-strategy**: Per la pianificazione dei contenuti e la selezione degli argomenti
+- **analytics**: Per misurare la performance del lead magnet
+- **ads**: Per la promozione a pagamento dei lead magnet
+- **social**: Per la promozione sui social media
+</content>
