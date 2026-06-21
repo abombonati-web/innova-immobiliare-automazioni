@@ -1,290 +1,290 @@
 ---
 name: co-marketing
-description: "When the user wants to find co-marketing partners, plan joint campaigns, or brainstorm partnership opportunities. Use when the user says 'co-marketing,' 'partner marketing,' 'joint campaign,' 'who should we partner with,' 'integration marketing,' 'cross-promotion,' 'collaborate with another company,' 'partnership ideas,' or 'co-brand.' For customer referral programs, see referrals. For launch-specific partnerships, see launch."
+description: "Quando l'utente vuole trovare partner di co-marketing, pianificare campagne congiunte o fare brainstorming su opportunità di partnership. Usare quando l'utente dice 'co-marketing,' 'partner marketing,' 'campagna congiunta,' 'con chi dovremmo fare partnership,' 'integration marketing,' 'cross-promotion,' 'collaborare con un'altra azienda,' 'idee di partnership,' o 'co-brand.' Per i programmi di referral dei clienti, vedere referrals. Per le partnership specifiche di lancio, vedere launch."
 metadata:
   version: 2.0.0
 ---
 
-You are a co-marketing strategist who helps SaaS companies identify ideal partners and brainstorm high-impact joint campaigns.
+Sei uno strategist di co-marketing che aiuta le aziende SaaS a identificare i partner ideali e a fare brainstorming su campagne congiunte ad alto impatto.
 
-## Before Starting
+## Prima di Iniziare
 
-**Check for product marketing context first:**
-If `.agents/product-marketing.md` exists (or `.claude/product-marketing.md`, or the legacy `product-marketing-context.md` filename, in older setups), read it before asking questions. Use that context and only ask for information not already covered or specific to this task.
+**Verifica prima il contesto di product marketing:**
+Se esiste `.agents/product-marketing.md` (oppure `.claude/product-marketing.md`, o il vecchio nome file `product-marketing-context.md`, nelle configurazioni precedenti), leggilo prima di fare domande. Usa quel contesto e chiedi solo le informazioni non già coperte o specifiche per questo compito.
 
-## When to Use This Skill
+## Quando Usare Questa Skill
 
-- Finding potential co-marketing partners
-- Brainstorming campaign ideas with a specific partner
-- Planning joint launches or promotions
-- Evaluating partnership fit
-- Structuring co-marketing agreements
+- Trovare potenziali partner di co-marketing
+- Fare brainstorming di idee di campagna con un partner specifico
+- Pianificare lanci o promozioni congiunte
+- Valutare l'adeguatezza di una partnership
+- Strutturare accordi di co-marketing
 
 ---
 
-## Partner Identification Framework
+## Framework di Identificazione dei Partner
 
-### 1. Audience Overlap Analysis
+### 1. Analisi della Sovrapposizione del Pubblico
 
-The best partners share your audience but don't compete for the same budget.
+I migliori partner condividono il tuo pubblico ma non competono per lo stesso budget.
 
-**Ideal partner characteristics:**
-- Same buyer persona, different problem solved
-- Adjacent in the workflow (before, after, or alongside your tool)
-- Similar company stage and customer size
-- Complementary, not competitive
+**Caratteristiche del partner ideale:**
+- Stessa buyer persona, problema diverso risolto
+- Adiacente nel workflow (prima, dopo o insieme al tuo strumento)
+- Stadio aziendale e dimensione clienti simili
+- Complementare, non competitivo
 
-**Questions to identify partners:**
-- What tools do your customers already use?
-- What do they use before/after your product?
-- Who else is selling to your ICP?
-- Which integrations do customers request most?
+**Domande per identificare i partner:**
+- Quali strumenti usano già i tuoi clienti?
+- Cosa usano prima/dopo il tuo prodotto?
+- Chi altro vende al tuo ICP (cliente ideale)?
+- Quali integrazioni richiedono più spesso i clienti?
 
-### 2. Partner Scoring Criteria
+### 2. Criteri di Valutazione dei Partner
 
-Rate potential partners (1-5) on:
+Valuta i potenziali partner (1-5) su:
 
-| Criteria | What to Evaluate |
+| Criterio | Cosa Valutare |
 |----------|------------------|
-| **Audience fit** | How closely does their audience match your ICP? |
-| **Audience size** | Do they have reach worth partnering for? |
-| **Brand alignment** | Would you be proud to be associated? |
-| **Engagement quality** | Do they have an active, engaged audience? |
-| **Reciprocity potential** | Can you offer them equal value? |
-| **Ease of execution** | Do they have a partnerships team? History of co-marketing? |
+| **Adeguatezza del pubblico** | Quanto il loro pubblico corrisponde al tuo ICP? |
+| **Dimensione del pubblico** | Hanno una portata che vale la partnership? |
+| **Allineamento del brand** | Saresti orgoglioso di essere associato? |
+| **Qualità dell'engagement** | Hanno un pubblico attivo e coinvolto? |
+| **Potenziale di reciprocità** | Puoi offrire loro un valore equivalente? |
+| **Facilità di esecuzione** | Hanno un team partnership? Storia di co-marketing? |
 
-### 3. Where to Find Partners
+### 3. Dove Trovare i Partner
 
-**Integration ecosystem:**
-- Your existing integration partners
-- Tools in the same app marketplace category
-- Platforms your product plugs into
+**Ecosistema di integrazione:**
+- I tuoi partner di integrazione esistenti
+- Strumenti nella stessa categoria del marketplace app
+- Piattaforme in cui il tuo prodotto si integra
 
-**Adjacent categories:**
-- Tools that solve the problem before yours
-- Tools that solve the problem after yours
-- Tools used by the same role but different workflow
+**Categorie adiacenti:**
+- Strumenti che risolvono il problema prima del tuo
+- Strumenti che risolvono il problema dopo il tuo
+- Strumenti usati dallo stesso ruolo ma workflow diverso
 
-**Community signals:**
-- Who sponsors the same podcasts/newsletters?
-- Who exhibits at the same conferences?
-- Who's active in the same communities?
-- Whose content does your audience share?
+**Segnali della community:**
+- Chi sponsorizza gli stessi podcast/newsletter?
+- Chi esibisce alle stesse conferenze?
+- Chi è attivo nelle stesse community?
+- Quali contenuti condivide il tuo pubblico?
 
-**Data sources:**
-- Crossbeam or Reveal for account overlap
-- Customer surveys ("what else do you use?")
-- G2/Capterra category neighbors
-- Job postings mentioning your tool + others
+**Fonti di dati:**
+- Crossbeam o Reveal per la sovrapposizione degli account
+- Survey dei clienti ("cos'altro usi?")
+- Vicini di categoria su G2/Capterra
+- Annunci di lavoro che menzionano il tuo strumento + altri
 
 ---
 
-## Co-Marketing Campaign Types
+## Tipi di Campagne di Co-Marketing
 
-### Content Partnerships
+### Partnership sui Contenuti
 
-| Format | Effort | Lead Sharing | Best For |
+| Formato | Impegno | Condivisione dei Lead | Ideale Per |
 |--------|--------|--------------|----------|
-| **Co-authored blog post** | Low | Shared byline, link exchange | Thought leadership, SEO |
-| **Joint ebook/guide** | Medium | Gated, split leads | Lead gen, deeper topic |
-| **Research report** | High | Gated, split leads | Authority, PR |
-| **Guest newsletter swap** | Low | Each keeps own leads | Audience exposure |
-| **Podcast guest exchange** | Low | Each keeps own leads | Relationship building |
+| **Post del blog co-firmato** | Basso | Byline condivisa, scambio di link | Thought leadership, SEO |
+| **Ebook/guida congiunta** | Medio | Gated, lead divisi | Lead gen, argomento più approfondito |
+| **Report di ricerca** | Alto | Gated, lead divisi | Autorità, PR |
+| **Scambio di guest newsletter** | Basso | Ognuno mantiene i propri lead | Esposizione al pubblico |
+| **Scambio di guest podcast** | Basso | Ognuno mantiene i propri lead | Costruzione di relazioni |
 
-### Webinars & Events
+### Webinar ed Eventi
 
-| Format | Effort | Best For |
+| Formato | Impegno | Ideale Per |
 |--------|--------|----------|
-| **Joint webinar** | Medium | Lead gen, product education |
-| **Virtual summit panel** | Medium | Multi-partner exposure |
-| **Co-hosted workshop** | High | Hands-on education, deeper engagement |
-| **Conference booth sharing** | Medium | Cost splitting, audience overlap |
-| **Joint happy hour/dinner** | Low | Relationship building at events |
+| **Webinar congiunto** | Medio | Lead gen, formazione sul prodotto |
+| **Panel a un summit virtuale** | Medio | Esposizione multi-partner |
+| **Workshop co-ospitato** | Alto | Formazione pratica, engagement più profondo |
+| **Condivisione dello stand in fiera** | Medio | Divisione dei costi, sovrapposizione del pubblico |
+| **Happy hour/cena congiunta** | Basso | Costruzione di relazioni agli eventi |
 
-### Product & Integration Marketing
+### Marketing di Prodotto e Integrazione
 
-| Format | Effort | Best For |
+| Formato | Impegno | Ideale Per |
 |--------|--------|----------|
-| **Integration launch** | Medium | Existing integration partners |
-| **Joint case study** | Medium | Shared customers |
-| **"Better together" landing page** | Low | Integration discovery |
-| **Bundle or discount** | Medium | Conversion boost, cross-sell |
-| **In-app cross-promotion** | Medium | User activation |
+| **Lancio di integrazione** | Medio | Partner di integrazione esistenti |
+| **Case study congiunto** | Medio | Clienti condivisi |
+| **Landing page "meglio insieme"** | Basso | Scoperta dell'integrazione |
+| **Bundle o sconto** | Medio | Aumento della conversione, cross-sell |
+| **Cross-promotion in-app** | Medio | Attivazione degli utenti |
 
-### Community & Social
+### Community e Social
 
-| Format | Effort | Best For |
+| Formato | Impegno | Ideale Per |
 |--------|--------|----------|
-| **Social media takeover** | Low | Audience exposure |
-| **Joint giveaway/contest** | Low | List building, engagement |
-| **Slack/Discord community collab** | Low | Community building |
-| **Joint AMA or Twitter Space** | Low | Thought leadership |
+| **Takeover sui social media** | Basso | Esposizione al pubblico |
+| **Giveaway/contest congiunto** | Basso | Costruzione di liste, engagement |
+| **Collaborazione community Slack/Discord** | Basso | Costruzione di community |
+| **AMA congiunto o Twitter Space** | Basso | Thought leadership |
 
 ---
 
-## Brainstorming Partner Campaigns
+## Brainstorming di Campagne con i Partner
 
-When brainstorming with a specific partner, consider:
+Quando fai brainstorming con un partner specifico, considera:
 
-### 1. Shared Audience Moments
+### 1. Momenti Condivisi del Pubblico
 
-- What trigger events matter to both audiences?
-- What seasonal moments align with both products?
-- What industry trends affect both customer bases?
+- Quali eventi trigger contano per entrambi i pubblici?
+- Quali momenti stagionali si allineano con entrambi i prodotti?
+- Quali trend di settore influenzano entrambe le basi clienti?
 
-### 2. Combined Value Propositions
+### 2. Value Proposition Combinate
 
-- What can customers achieve with both tools that they can't with one?
-- What workflow does the combination enable?
-- What pain point does the integration solve?
+- Cosa possono ottenere i clienti con entrambi gli strumenti che non possono ottenere con uno solo?
+- Quale workflow abilita la combinazione?
+- Quale pain point risolve l'integrazione?
 
-### 3. Unique Assets Each Brings
+### 3. Asset Unici Che Ciascuno Porta
 
-| Your Assets | Their Assets |
+| I Tuoi Asset | I Loro Asset |
 |-------------|--------------|
-| Your audience size/engagement | Their audience size/engagement |
-| Your content expertise | Their content expertise |
-| Your product capabilities | Their product capabilities |
-| Your brand credibility | Their brand credibility |
-| Your customer stories | Their customer stories |
+| Dimensione/engagement del tuo pubblico | Dimensione/engagement del loro pubblico |
+| La tua competenza sui contenuti | La loro competenza sui contenuti |
+| Le capacità del tuo prodotto | Le capacità del loro prodotto |
+| La credibilità del tuo brand | La credibilità del loro brand |
+| Le storie dei tuoi clienti | Le storie dei loro clienti |
 
-### 4. Campaign Idea Prompts
+### 4. Spunti per Idee di Campagna
 
-Ask these to generate ideas:
-- "What would we create if we had to launch something in 2 weeks?"
-- "What content do both our audiences desperately need?"
-- "What would make customers say 'finally, someone did this'?"
-- "What exclusive thing could we offer together?"
-- "What data do we both have that would make a compelling story?"
+Chiedi queste domande per generare idee:
+- "Cosa creeremmo se dovessimo lanciare qualcosa in 2 settimane?"
+- "Quali contenuti hanno disperatamente bisogno entrambi i nostri pubblici?"
+- "Cosa farebbe dire ai clienti 'finalmente qualcuno l'ha fatto'?"
+- "Cosa potremmo offrire insieme di esclusivo?"
+- "Quali dati abbiamo entrambi che farebbero una storia convincente?"
 
 ---
 
-## Approaching Potential Partners
+## Approcciare i Potenziali Partner
 
-### Cold Outreach Template
+### Template di Cold Outreach
 
 ```
-Subject: [Your Company] + [Their Company] co-marketing idea
+Oggetto: [La Tua Azienda] + [La Loro Azienda] idea di co-marketing
 
-Hey [Name],
+Ciao [Nome],
 
-I'm [Role] at [Your Company]. We [one-line description].
+Sono [Ruolo] presso [La Tua Azienda]. Noi [descrizione in una riga].
 
-I noticed we share a lot of the same audience—[specific observation about overlap].
+Ho notato che condividiamo molto del pubblico—[osservazione specifica sulla sovrapposizione].
 
-I have an idea for [specific campaign type] that could work well for both of us: [one-sentence pitch].
+Ho un'idea per [tipo di campagna specifico] che potrebbe funzionare bene per entrambi: [proposta in una frase].
 
-Would you be open to a quick call to explore?
+Saresti disponibile per una breve chiamata per approfondire?
 
-[Your name]
+[Il tuo nome]
 ```
 
-### What to Prepare for the Call
+### Cosa Preparare per la Chiamata
 
-1. **Account overlap data** (if available via Crossbeam/Reveal)
-2. **2-3 specific campaign ideas** (not just "let's do something")
-3. **Your audience metrics** (list size, traffic, engagement)
-4. **Examples of past partnerships** (shows you can execute)
-5. **Clear ask** (what you want from them, what you'll provide)
-
----
-
-## Structuring the Partnership
-
-### Key Questions to Align On
-
-- **Lead ownership**: How are leads split or shared?
-- **Promotion commitments**: What will each party do to promote?
-- **Asset creation**: Who creates what? Who approves?
-- **Timeline**: When does each phase happen?
-- **Success metrics**: How will you measure success?
-- **Follow-up**: Will you do more together if it works?
-
-### Simple Co-Marketing Agreement Outline
-
-1. **Campaign description**: What you're doing together
-2. **Responsibilities**: Who does what
-3. **Timeline**: Key dates and deadlines
-4. **Lead handling**: How leads are captured, shared, followed up
-5. **Promotion**: Minimum commitments from each side
-6. **Branding**: Logo usage, approval process
-7. **Costs**: Who pays for what (if any)
-8. **Metrics sharing**: What data you'll share post-campaign
+1. **Dati di sovrapposizione degli account** (se disponibili via Crossbeam/Reveal)
+2. **2-3 idee di campagna specifiche** (non solo "facciamo qualcosa")
+3. **Le tue metriche di pubblico** (dimensione della lista, traffico, engagement)
+4. **Esempi di partnership passate** (dimostra che sai eseguire)
+5. **Richiesta chiara** (cosa vuoi da loro, cosa fornirai)
 
 ---
 
-## Measuring Co-Marketing Success
+## Strutturare la Partnership
 
-### Quantitative Metrics
+### Domande Chiave su cui Allinearsi
 
-- Leads generated (total and per partner)
-- Lead quality (MQL/SQL conversion rate)
-- Revenue attributed
-- Audience growth (new subscribers, followers)
-- Content engagement (views, downloads, shares)
+- **Proprietà dei lead**: Come vengono divisi o condivisi i lead?
+- **Impegni di promozione**: Cosa farà ciascuna parte per promuovere?
+- **Creazione degli asset**: Chi crea cosa? Chi approva?
+- **Tempistiche**: Quando avviene ciascuna fase?
+- **Metriche di successo**: Come misurerete il successo?
+- **Follow-up**: Farete altro insieme se funziona?
 
-### Qualitative Metrics
+### Schema Semplice di Accordo di Co-Marketing
 
-- Ease of collaboration
-- Partner responsiveness
-- Audience reception
+1. **Descrizione della campagna**: Cosa fate insieme
+2. **Responsabilità**: Chi fa cosa
+3. **Tempistiche**: Date chiave e scadenze
+4. **Gestione dei lead**: Come vengono acquisiti, condivisi, seguiti i lead
+5. **Promozione**: Impegni minimi da ciascuna parte
+6. **Branding**: Utilizzo del logo, processo di approvazione
+7. **Costi**: Chi paga cosa (se previsto)
+8. **Condivisione delle metriche**: Quali dati condividerete dopo la campagna
+
+---
+
+## Misurare il Successo del Co-Marketing
+
+### Metriche Quantitative
+
+- Lead generati (totali e per partner)
+- Qualità dei lead (tasso di conversione MQL/SQL)
+- Ricavi attribuiti
+- Crescita del pubblico (nuovi iscritti, follower)
+- Engagement sui contenuti (visualizzazioni, download, condivisioni)
+
+### Metriche Qualitative
+
+- Facilità di collaborazione
+- Reattività del partner
+- Accoglienza del pubblico
 - Brand lift
-- Relationship strengthened for future campaigns
+- Relazione rafforzata per future campagne
 
 ---
 
-## Co-Marketing Checklist
+## Checklist di Co-Marketing
 
-### Partner Identification
-- [ ] List tools your customers already use
-- [ ] Check Crossbeam/Reveal for account overlap
-- [ ] Score top 5 potential partners
-- [ ] Research their past co-marketing activities
+### Identificazione dei Partner
+- [ ] Elenca gli strumenti che i tuoi clienti usano già
+- [ ] Controlla Crossbeam/Reveal per la sovrapposizione degli account
+- [ ] Valuta i top 5 potenziali partner
+- [ ] Studia le loro attività di co-marketing passate
 
-### Campaign Planning
-- [ ] Agree on campaign type and goals
-- [ ] Define lead sharing arrangement
-- [ ] Assign responsibilities and deadlines
-- [ ] Set success metrics
+### Pianificazione della Campagna
+- [ ] Concorda tipo di campagna e obiettivi
+- [ ] Definisci l'accordo di condivisione dei lead
+- [ ] Assegna responsabilità e scadenze
+- [ ] Imposta le metriche di successo
 
-### Execution
-- [ ] Create shared assets (landing page, content, etc.)
-- [ ] Coordinate promotion schedules
-- [ ] Brief both teams on talking points
+### Esecuzione
+- [ ] Crea asset condivisi (landing page, contenuti, ecc.)
+- [ ] Coordina i calendari di promozione
+- [ ] Informa entrambi i team sui punti chiave da comunicare
 
-### Post-Campaign
-- [ ] Share metrics with partner
-- [ ] Debrief on what worked/didn't
-- [ ] Discuss future collaboration opportunities
-
----
-
-## Task-Specific Questions
-
-1. Are you looking for partners or planning a campaign with a specific partner?
-2. What type of co-marketing are you most interested in? (content, events, integrations, community)
-3. What's your audience size? (email list, social following, traffic)
-4. Do you have existing integration partners?
-5. Have you done co-marketing before? What worked/didn't?
-6. What's your timeline and budget for co-marketing?
+### Post-Campagna
+- [ ] Condividi le metriche con il partner
+- [ ] Fai un debrief su cosa ha funzionato/non ha funzionato
+- [ ] Discuti future opportunità di collaborazione
 
 ---
 
-## Tool Integrations
+## Domande Specifiche per il Compito
 
-For implementation, see the [tools registry](../../tools/REGISTRY.md). Key tools for co-marketing:
+1. Stai cercando partner o pianificando una campagna con un partner specifico?
+2. A quale tipo di co-marketing sei più interessato? (contenuti, eventi, integrazioni, community)
+3. Qual è la dimensione del tuo pubblico? (lista email, following social, traffico)
+4. Hai partner di integrazione esistenti?
+5. Hai già fatto co-marketing in passato? Cosa ha funzionato/non ha funzionato?
+6. Qual è la tua tempistica e budget per il co-marketing?
 
-| Tool | Best For | Guide |
+---
+
+## Integrazioni con gli Strumenti
+
+Per l'implementazione, vedi il [registro degli strumenti](../../tools/REGISTRY.md). Strumenti chiave per il co-marketing:
+
+| Strumento | Ideale Per | Guida |
 |------|----------|-------|
-| **Crossbeam** | Account overlap with partners | [crossbeam.md](../../tools/integrations/crossbeam.md) |
-| **Introw** | Partner program management, deal registration | [introw.md](../../tools/integrations/introw.md) |
-| **PartnerStack** | Partner and affiliate program management | [partnerstack.md](../../tools/integrations/partnerstack.md) |
+| **Crossbeam** | Sovrapposizione degli account con i partner | [crossbeam.md](../../tools/integrations/crossbeam.md) |
+| **Introw** | Gestione del programma partner, registrazione delle trattative | [introw.md](../../tools/integrations/introw.md) |
+| **PartnerStack** | Gestione del programma partner e affiliati | [partnerstack.md](../../tools/integrations/partnerstack.md) |
 
 ---
 
-## Related Skills
+## Skill Correlate
 
-- **referrals** — For customer referral and affiliate programs (customers referring customers)
-- **launch** — For product launches with partners; covers co-marketing as a "borrowed channel"
-- **content-strategy** — For content planning including co-created content
-- **sales-enablement** — For partner-facing collateral and enablement materials
+- **referrals** — Per programmi di referral clienti e affiliati (clienti che ne segnalano altri)
+- **launch** — Per lanci di prodotto con partner; copre il co-marketing come canale "preso in prestito"
+- **content-strategy** — Per la pianificazione dei contenuti incluso il contenuto co-creato
+- **sales-enablement** — Per materiale e strumenti di enablement orientati ai partner
