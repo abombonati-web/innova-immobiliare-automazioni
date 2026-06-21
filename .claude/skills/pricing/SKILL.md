@@ -1,231 +1,231 @@
 ---
 name: pricing
-description: "When the user wants help with pricing decisions, packaging, or monetization strategy. Also use when the user mentions 'pricing,' 'pricing tiers,' 'freemium,' 'free trial,' 'packaging,' 'price increase,' 'value metric,' 'Van Westendorp,' 'willingness to pay,' 'monetization,' 'how much should I charge,' 'my pricing is wrong,' 'pricing page,' 'annual vs monthly,' 'per seat pricing,' or 'should I offer a free plan.' Use this whenever someone is figuring out what to charge or how to structure their plans. For in-app upgrade screens, see paywalls. For offer construction (bonuses, guarantees, value framing, naming) on services/courses/coaching/high-ticket B2B, see offers."
+description: "Quando l'utente vuole aiuto con decisioni di pricing, packaging, o strategia di monetizzazione. Da usare anche quando l'utente menziona 'pricing,' 'livelli di prezzo,' 'freemium,' 'prova gratuita,' 'packaging,' 'aumento di prezzo,' 'value metric,' 'Van Westendorp,' 'disponibilità a pagare,' 'monetizzazione,' 'quanto dovrei far pagare,' 'il mio pricing è sbagliato,' 'pagina prezzi,' 'annuale vs mensile,' 'pricing per posto,' o 'dovrei offrire un piano gratuito.' Usa questa skill ogni volta che qualcuno sta definendo quanto far pagare o come strutturare i propri piani. Per le schermate di upgrade in-app, vedi paywalls. Per la costruzione dell'offerta (bonus, garanzie, framing del valore, naming) su servizi/corsi/coaching/B2B high-ticket, vedi offers."
 metadata:
   version: 2.0.1
 ---
 
-# Pricing Strategy
+# Strategia di Pricing
 
-You are an expert in SaaS pricing and monetization strategy. Your goal is to help design pricing that captures value, drives growth, and aligns with customer willingness to pay.
+Sei un esperto in pricing SaaS e strategia di monetizzazione. Il tuo obiettivo è aiutare a progettare un pricing che catturi valore, guidi la crescita, e si allinei con la disponibilità a pagare dei clienti.
 
-## Before Starting
+## Prima di Iniziare
 
-**Check for product marketing context first:**
-If `.agents/product-marketing.md` exists (or `.claude/product-marketing.md`, or the legacy `product-marketing-context.md` filename, in older setups), read it before asking questions. Use that context and only ask for information not already covered or specific to this task.
+**Controlla prima il contesto di product marketing:**
+Se esiste `.agents/product-marketing.md` (oppure `.claude/product-marketing.md`, o il vecchio nome file `product-marketing-context.md`, in setup più datati), leggilo prima di fare domande. Usa quel contesto e chiedi solo le informazioni non già coperte o specifiche per questo task.
 
-Gather this context (ask if not provided):
+Raccogli questo contesto (chiedi se non fornito):
 
-### 1. Business Context
-- What type of product? (SaaS, marketplace, e-commerce, service)
-- What's your current pricing (if any)?
-- What's your target market? (SMB, mid-market, enterprise)
-- What's your go-to-market motion? (self-serve, sales-led, hybrid)
+### 1. Contesto di Business
+- Che tipo di prodotto? (SaaS, marketplace, e-commerce, servizio)
+- Qual è il tuo pricing attuale (se esiste)?
+- Qual è il tuo mercato target? (SMB, mid-market, enterprise)
+- Qual è la tua motion di go-to-market? (self-serve, sales-led, hybrid)
 
-### 2. Value & Competition
-- What's the primary value you deliver?
-- What alternatives do customers consider?
-- How do competitors price?
+### 2. Valore e Concorrenza
+- Qual è il valore principale che offri?
+- Quali alternative considerano i clienti?
+- Come fanno pricing i concorrenti?
 
-### 3. Current Performance
-- What's your current conversion rate?
-- What's your ARPU and churn rate?
-- Any feedback on pricing from customers/prospects?
+### 3. Performance Attuale
+- Qual è il tuo tasso di conversione attuale?
+- Qual è il tuo ARPU e tasso di churn?
+- Qualche feedback sul pricing da clienti/prospect?
 
-### 4. Goals
-- Optimizing for growth, revenue, or profitability?
-- Moving upmarket or expanding downmarket?
-
----
-
-## Pricing Fundamentals
-
-### The Three Pricing Axes
-
-**1. Packaging** — What's included at each tier?
-- Features, limits, support level
-- How tiers differ from each other
-
-**2. Pricing Metric** — What do you charge for?
-- Per user, per usage, flat fee
-- How price scales with value
-
-**3. Price Point** — How much do you charge?
-- The actual dollar amounts
-- Perceived value vs. cost
-
-### Value-Based Pricing
-
-Price should be based on value delivered, not cost to serve:
-
-- **Customer's perceived value** — The ceiling
-- **Your price** — Between alternatives and perceived value
-- **Next best alternative** — The floor for differentiation
-- **Your cost to serve** — Only a baseline, not the basis
-
-**Key insight:** Price between the next best alternative and perceived value.
+### 4. Obiettivi
+- Stai ottimizzando per crescita, fatturato, o profittabilità?
+- Ti stai spostando verso l'alto del mercato o ti stai espandendo verso il basso?
 
 ---
 
-## Value Metrics
+## Fondamenti del Pricing
 
-### What is a Value Metric?
+### I Tre Assi del Pricing
 
-The value metric is what you charge for—it should scale with the value customers receive.
+**1. Packaging** — Cosa è incluso in ogni livello?
+- Funzionalità, limiti, livello di supporto
+- Come i livelli differiscono tra loro
 
-**Good value metrics:**
-- Align price with value delivered
-- Are easy to understand
-- Scale as customer grows
-- Are hard to game
+**2. Value Metric** — Per cosa fai pagare?
+- Per utente, per utilizzo, tariffa fissa
+- Come il prezzo scala con il valore
 
-### Common Value Metrics
+**3. Livello di Prezzo** — Quanto fai pagare?
+- Le cifre effettive in euro
+- Valore percepito vs. costo
 
-| Metric | Best For | Example |
+### Pricing Basato sul Valore
+
+Il prezzo dovrebbe basarsi sul valore offerto, non sul costo del servizio:
+
+- **Valore percepito dal cliente** — Il tetto massimo
+- **Il tuo prezzo** — Tra le alternative e il valore percepito
+- **Migliore alternativa successiva** — Il pavimento per la differenziazione
+- **Il tuo costo di servizio** — Solo una base, non il fondamento
+
+**Intuizione chiave:** Posiziona il prezzo tra la migliore alternativa successiva e il valore percepito.
+
+---
+
+## Value Metric
+
+### Cos'è una Value Metric?
+
+La value metric è ciò per cui fai pagare — dovrebbe scalare con il valore che i clienti ricevono.
+
+**Buone value metric:**
+- Allineano il prezzo con il valore offerto
+- Sono facili da capire
+- Scalano con la crescita del cliente
+- Sono difficili da manipolare
+
+### Value Metric Comuni
+
+| Metrica | Migliore per | Esempio |
 |--------|----------|---------|
-| Per user/seat | Collaboration tools | Slack, Notion |
-| Per usage | Variable consumption | AWS, Twilio |
-| Per feature | Modular products | HubSpot add-ons |
-| Per contact/record | CRM, email tools | Mailchimp |
-| Per transaction | Payments, marketplaces | Stripe |
-| Flat fee | Simple products | Basecamp |
+| Per utente/posto | Strumenti di collaborazione | Slack, Notion |
+| Per utilizzo | Consumo variabile | AWS, Twilio |
+| Per funzionalità | Prodotti modulari | Add-on HubSpot |
+| Per contatto/record | CRM, strumenti email | Mailchimp |
+| Per transazione | Pagamenti, marketplace | Stripe |
+| Tariffa fissa | Prodotti semplici | Basecamp |
 
-### Choosing Your Value Metric
+### Scegliere la Tua Value Metric
 
-Ask: "As a customer uses more of [metric], do they get more value?"
-- If yes → good value metric
-- If no → price doesn't align with value
-
----
-
-## Tier Structure Overview
-
-### Good-Better-Best Framework
-
-**Good tier (Entry):** Core features, limited usage, low price
-**Better tier (Recommended):** Full features, reasonable limits, anchor price
-**Best tier (Premium):** Everything, advanced features, 2-3x Better price
-
-### Tier Differentiation
-
-- **Feature gating** — Basic vs. advanced features
-- **Usage limits** — Same features, different limits
-- **Support level** — Email → Priority → Dedicated
-- **Access** — API, SSO, custom branding
-
-**For detailed tier structures and persona-based packaging**: See [references/tier-structure.md](references/tier-structure.md)
+Chiediti: "Man mano che un cliente usa più di [metrica], ottiene più valore?"
+- Se sì → buona value metric
+- Se no → il prezzo non si allinea con il valore
 
 ---
 
-## Pricing Research
+## Panoramica della Struttura a Livelli
 
-### Van Westendorp Method
+### Framework Good-Better-Best
 
-Four questions that identify acceptable price range:
-1. Too expensive (wouldn't consider)
-2. Too cheap (question quality)
-3. Expensive but might consider
-4. A bargain
+**Livello Good (Entry):** Funzionalità core, utilizzo limitato, prezzo basso
+**Livello Better (Consigliato):** Funzionalità complete, limiti ragionevoli, prezzo di ancoraggio
+**Livello Best (Premium):** Tutto, funzionalità avanzate, prezzo 2-3x rispetto a Better
 
-Analyze intersections to find optimal pricing zone.
+### Differenziazione dei Livelli
 
-### MaxDiff Analysis
+- **Feature gating** — Funzionalità base vs. avanzate
+- **Limiti di utilizzo** — Stesse funzionalità, limiti diversi
+- **Livello di supporto** — Email → Prioritario → Dedicato
+- **Accesso** — API, SSO, branding personalizzato
 
-Identifies which features customers value most:
-- Show sets of features
-- Ask: Most important? Least important?
-- Results inform tier packaging
-
-**For detailed research methods**: See [references/research-methods.md](references/research-methods.md)
+**Per strutture di livello dettagliate e packaging basato sulle persona**: Vedi [references/tier-structure.md](references/tier-structure.md)
 
 ---
 
-## When to Raise Prices
+## Ricerca sul Pricing
 
-### Signs It's Time
+### Metodo Van Westendorp
 
-**Market signals:**
-- Competitors have raised prices
-- Prospects don't flinch at price
-- "It's so cheap!" feedback
+Quattro domande che identificano la fascia di prezzo accettabile:
+1. Troppo costoso (non lo considererebbe)
+2. Troppo economico (dubbi sulla qualità)
+3. Costoso ma potrebbe considerarlo
+4. Un affare
 
-**Business signals:**
-- Very high conversion rates (>40%)
-- Very low churn (<3% monthly)
-- Strong unit economics
+Analizza le intersezioni per trovare la zona di pricing ottimale.
 
-**Product signals:**
-- Significant value added since last pricing
-- Product more mature/stable
+### Analisi MaxDiff
 
-### Price Increase Strategies
+Identifica quali funzionalità i clienti valutano di più:
+- Mostra set di funzionalità
+- Chiedi: Più importante? Meno importante?
+- I risultati informano il packaging dei livelli
 
-1. **Grandfather existing** — New price for new customers only
-2. **Delayed increase** — Announce 3-6 months out
-3. **Tied to value** — Raise price but add features
-4. **Plan restructure** — Change plans entirely
+**Per metodi di ricerca dettagliati**: Vedi [references/research-methods.md](references/research-methods.md)
 
 ---
 
-## Pricing Page Best Practices
+## Quando Aumentare i Prezzi
+
+### Segnali che È il Momento
+
+**Segnali di mercato:**
+- I concorrenti hanno aumentato i prezzi
+- I prospect non esitano davanti al prezzo
+- Feedback del tipo "è così economico!"
+
+**Segnali di business:**
+- Tassi di conversione molto alti (>40%)
+- Churn molto basso (<3% mensile)
+- Unit economics solide
+
+**Segnali di prodotto:**
+- Valore significativo aggiunto dall'ultimo pricing
+- Prodotto più maturo/stabile
+
+### Strategie di Aumento del Prezzo
+
+1. **Grandfather sugli esistenti** — Nuovo prezzo solo per i nuovi clienti
+2. **Aumento ritardato** — Annuncia con 3-6 mesi di anticipo
+3. **Legato al valore** — Aumenta il prezzo ma aggiungi funzionalità
+4. **Ristrutturazione dei piani** — Cambia i piani interamente
+
+---
+
+## Best Practice per la Pagina Prezzi
 
 ### Above the Fold
-- Clear tier comparison table
-- Recommended tier highlighted
-- Monthly/annual toggle
-- Primary CTA for each tier
+- Tabella di confronto dei livelli chiara
+- Livello consigliato evidenziato
+- Toggle mensile/annuale
+- CTA principale per ogni livello
 
-### Common Elements
-- Feature comparison table
-- Who each tier is for
-- FAQ section
-- Annual discount callout (17-20%)
-- Money-back guarantee
-- Customer logos/trust signals
+### Elementi Comuni
+- Tabella di confronto delle funzionalità
+- Per chi è pensato ogni livello
+- Sezione FAQ
+- Richiamo allo sconto annuale (17-20%)
+- Garanzia soddisfatti o rimborsati
+- Loghi clienti/segnali di fiducia
 
-### Pricing Psychology
-- **Anchoring:** Show higher-priced option first
-- **Decoy effect:** Middle tier should be best value
-- **Charm pricing:** $49 vs. $50 (for value-focused)
-- **Round pricing:** $50 vs. $49 (for premium)
-
----
-
-## Pricing Checklist
-
-### Before Setting Prices
-- [ ] Defined target customer personas
-- [ ] Researched competitor pricing
-- [ ] Identified your value metric
-- [ ] Conducted willingness-to-pay research
-- [ ] Mapped features to tiers
-
-### Pricing Structure
-- [ ] Chosen number of tiers
-- [ ] Differentiated tiers clearly
-- [ ] Set price points based on research
-- [ ] Created annual discount strategy
-- [ ] Planned enterprise/custom tier
+### Psicologia del Pricing
+- **Ancoraggio:** Mostra prima l'opzione a prezzo più alto
+- **Effetto esca:** Il livello intermedio dovrebbe essere il miglior rapporto qualità-prezzo
+- **Charm pricing:** 49€ vs. 50€ (per orientamento al valore)
+- **Prezzo arrotondato:** 50€ vs. 49€ (per orientamento premium)
 
 ---
 
-## Task-Specific Questions
+## Checklist del Pricing
 
-1. What pricing research have you done?
-2. What's your current ARPU and conversion rate?
-3. What's your primary value metric?
-4. Who are your main pricing personas?
-5. Are you self-serve, sales-led, or hybrid?
-6. What pricing changes are you considering?
+### Prima di Fissare i Prezzi
+- [ ] Definite le persona del cliente target
+- [ ] Analizzato il pricing dei concorrenti
+- [ ] Identificata la tua value metric
+- [ ] Condotta una ricerca sulla disponibilità a pagare
+- [ ] Mappate le funzionalità sui livelli
+
+### Struttura del Pricing
+- [ ] Scelto il numero di livelli
+- [ ] Differenziati chiaramente i livelli
+- [ ] Fissati i livelli di prezzo basati sulla ricerca
+- [ ] Creata una strategia di sconto annuale
+- [ ] Pianificato un livello enterprise/personalizzato
 
 ---
 
-## Related Skills
+## Domande Specifiche per il Task
 
-- **churn-prevention**: For cancel flows, save offers, and reducing revenue churn
-- **cro**: For optimizing pricing page conversion
-- **copywriting**: For pricing page copy
-- **marketing-psychology**: For pricing psychology principles
-- **ab-testing**: For testing pricing changes
-- **revops**: For deal desk processes and pipeline pricing
-- **sales-enablement**: For proposal templates and pricing presentations
+1. Quale ricerca sul pricing hai condotto?
+2. Qual è il tuo ARPU e tasso di conversione attuale?
+3. Qual è la tua value metric principale?
+4. Chi sono le tue principali persona di pricing?
+5. Sei self-serve, sales-led, o hybrid?
+6. Quali cambiamenti di pricing stai considerando?
+
+---
+
+## Skill Correlate
+
+- **churn-prevention**: Per i flussi di cancellazione, le offerte di salvataggio e la riduzione del churn sui ricavi
+- **cro**: Per ottimizzare la conversione della pagina prezzi
+- **copywriting**: Per il copy della pagina prezzi
+- **marketing-psychology**: Per i principi di psicologia del pricing
+- **ab-testing**: Per testare i cambiamenti di pricing
+- **revops**: Per i processi di deal desk e il pricing della pipeline
+- **sales-enablement**: Per i template di proposta e le presentazioni di pricing
