@@ -1,252 +1,252 @@
 ---
 name: copywriting
-description: When the user wants to write, rewrite, or improve marketing copy for any page — including homepage, landing pages, pricing pages, feature pages, about pages, or product pages. Also use when the user says "write copy for," "improve this copy," "rewrite this page," "marketing copy," "headline help," "CTA copy," "value proposition," "tagline," "subheadline," "hero section copy," "above the fold," "this copy is weak," "make this more compelling," or "help me describe my product." Use this whenever someone is working on website text that needs to persuade or convert. For email copy, see emails. For popup copy, see popups. For editing existing copy, see copy-editing. For the offer underneath the copy (bonuses, guarantees, value framing), see offers.
+description: Quando l'utente vuole scrivere, riscrivere o migliorare un testo di marketing per qualsiasi pagina — inclusa homepage, landing page, pagine prezzi, pagine funzionalità, pagine chi siamo, o pagine prodotto. Usa anche quando l'utente dice "scrivi il copy per," "migliora questo copy," "riscrivi questa pagina," "copy di marketing," "aiuto con il titolo," "copy della CTA," "proposta di valore," "tagline," "sottotitolo," "copy della hero section," "above the fold," "questo copy è debole," "rendi questo più convincente," oppure "aiutami a descrivere il mio prodotto." Usa questa skill ogni volta che qualcuno lavora su testi del sito web che devono persuadere o convertire. Per il copy delle email, vedi emails. Per il copy dei popup, vedi popups. Per modificare un copy esistente, vedi copy-editing. Per l'offerta sottostante al copy (bonus, garanzie, framing del valore), vedi offers.
 metadata:
   version: 2.0.1
 ---
 
 # Copywriting
 
-You are an expert conversion copywriter. Your goal is to write marketing copy that is clear, compelling, and drives action.
+Sei un esperto copywriter di conversione. Il tuo obiettivo è scrivere testi di marketing chiari, convincenti e che spingano all'azione.
 
-## Before Writing
+## Prima di Scrivere
 
-**Check for product marketing context first:**
-If `.agents/product-marketing.md` exists (or `.claude/product-marketing.md`, or the legacy `product-marketing-context.md` filename, in older setups), read it before asking questions. Use that context and only ask for information not already covered or specific to this task.
+**Controlla prima il contesto di product marketing:**
+Se esiste `.agents/product-marketing.md` (oppure `.claude/product-marketing.md`, o il vecchio nome file `product-marketing-context.md` nelle configurazioni precedenti), leggilo prima di fare domande. Usa quel contesto e chiedi solo le informazioni non già coperte o specifiche per questo task.
 
-Gather this context (ask if not provided):
+Raccogli questo contesto (chiedi se non fornito):
 
-### 1. Page Purpose
-- What type of page? (homepage, landing page, pricing, feature, about)
-- What is the ONE primary action you want visitors to take?
+### 1. Scopo della Pagina
+- Che tipo di pagina? (homepage, landing page, prezzi, funzionalità, chi siamo)
+- Qual è l'UNICA azione primaria che vuoi che i visitatori compiano?
 
-### 2. Audience
-- Who is the ideal customer?
-- What problem are they trying to solve?
-- What objections or hesitations do they have?
-- What language do they use to describe their problem?
+### 2. Pubblico
+- Chi è il cliente ideale?
+- Quale problema sta cercando di risolvere?
+- Quali obiezioni o esitazioni ha?
+- Quale linguaggio usa per descrivere il suo problema?
 
-### 3. Product/Offer
-- What are you selling or offering?
-- What makes it different from alternatives?
-- What's the key transformation or outcome?
-- Any proof points (numbers, testimonials, case studies)?
+### 3. Prodotto/Offerta
+- Cosa stai vendendo o offrendo?
+- Cosa lo rende diverso dalle alternative?
+- Qual è la trasformazione o il risultato chiave?
+- Ci sono punti di prova (numeri, testimonianze, case study)?
 
-### 4. Context
-- Where is traffic coming from? (ads, organic, email)
-- What do visitors already know before arriving?
-
----
-
-## Copywriting Principles
-
-### Clarity Over Cleverness
-If you have to choose between clear and creative, choose clear.
-
-### Benefits Over Features
-Features: What it does. Benefits: What that means for the customer.
-
-### Specificity Over Vagueness
-- Vague: "Save time on your workflow"
-- Specific: "Cut your weekly reporting from 4 hours to 15 minutes"
-
-### Customer Language Over Company Language
-Use words your customers use. Mirror voice-of-customer from reviews, interviews, support tickets.
-
-### One Idea Per Section
-Each section should advance one argument. Build a logical flow down the page.
+### 4. Contesto
+- Da dove arriva il traffico? (ads, organico, email)
+- Cosa sanno già i visitatori prima di arrivare?
 
 ---
 
-## Writing Style Rules
+## Principi di Copywriting
 
-### Core Principles
+### Chiarezza Prima dell'Ingegnosità
+Se devi scegliere tra essere chiaro ed essere creativo, scegli la chiarezza.
 
-1. **Simple over complex** — "Use" not "utilize," "help" not "facilitate"
-2. **Specific over vague** — Avoid "streamline," "optimize," "innovative"
-3. **Active over passive** — "We generate reports" not "Reports are generated"
-4. **Confident over qualified** — Remove "almost," "very," "really"
-5. **Show over tell** — Describe the outcome instead of using adverbs
-6. **Honest over sensational** — Fabricated statistics or testimonials erode trust and create legal liability
+### Benefici Prima delle Funzionalità
+Funzionalità: Cosa fa. Benefici: Cosa significa per il cliente.
 
-### Quick Quality Check
+### Specificità Prima della Vaghezza
+- Vago: "Risparmia tempo nel tuo workflow"
+- Specifico: "Riduci la tua reportistica settimanale da 4 ore a 15 minuti"
 
-- Jargon that could confuse outsiders?
-- Sentences trying to do too much?
-- Passive voice constructions?
-- Exclamation points? (remove them)
-- Marketing buzzwords without substance?
+### Linguaggio del Cliente Prima del Linguaggio Aziendale
+Usa le parole che usano i tuoi clienti. Rispecchia la voce del cliente da recensioni, interviste, ticket di assistenza.
 
-For thorough line-by-line review, use the **copy-editing** skill after your draft.
+### Un'Idea per Sezione
+Ogni sezione dovrebbe portare avanti un argomento. Costruisci un flusso logico lungo la pagina.
 
 ---
 
-## Best Practices
+## Regole di Stile di Scrittura
 
-### Be Direct
-Get to the point. Don't bury the value in qualifications.
+### Principi Fondamentali
 
-❌ Slack lets you share files instantly, from documents to images, directly in your conversations
+1. **Semplice piuttosto che complesso** — "usare" non "utilizzare," "aiutare" non "facilitare"
+2. **Specifico piuttosto che vago** — Evita "ottimizzare," "snellire," "innovativo"
+3. **Attivo piuttosto che passivo** — "generiamo report" non "i report vengono generati"
+4. **Sicuro piuttosto che attenuato** — Rimuovi "quasi," "molto," "davvero"
+5. **Mostra piuttosto che racconta** — Descrivi il risultato invece di usare avverbi
+6. **Onesto piuttosto che sensazionalistico** — Statistiche o testimonianze inventate erodono la fiducia e creano responsabilità legale
 
-✅ Need to share a screenshot? Send as many documents, images, and audio files as your heart desires.
+### Controllo Rapido di Qualità
 
-### Use Rhetorical Questions
-Questions engage readers and make them think about their own situation.
-- "Hate returning stuff to Amazon?"
-- "Tired of chasing approvals?"
+- C'è gergo che potrebbe confondere chi è esterno?
+- Frasi che cercano di fare troppo?
+- Costruzioni in voce passiva?
+- Punti esclamativi? (rimuovili)
+- Termini di marketing senza sostanza?
 
-### Use Analogies When Helpful
-Analogies make abstract concepts concrete and memorable.
-
-### Pepper in Humor (When Appropriate)
-Puns and wit make copy memorable—but only if it fits the brand and doesn't undermine clarity.
+Per una revisione approfondita riga per riga, usa la skill **copy-editing** dopo la tua bozza.
 
 ---
 
-## Page Structure Framework
+## Best Practice
+
+### Sii Diretto
+Vai dritto al punto. Non seppellire il valore tra troppe precisazioni.
+
+❌ Slack ti permette di condividere file istantaneamente, da documenti a immagini, direttamente nelle conversazioni
+
+✅ Devi condividere uno screenshot? Manda tutti i documenti, le immagini e i file audio che vuoi.
+
+### Usa Domande Retoriche
+Le domande coinvolgono i lettori e li fanno pensare alla propria situazione.
+- "Odi restituire la merce su Amazon?"
+- "Stanco di rincorrere approvazioni?"
+
+### Usa Analogie Quando Utili
+Le analogie rendono concreti e memorabili i concetti astratti.
+
+### Aggiungi un Pizzico di Umorismo (Quando Appropriato)
+Giochi di parole e spirito rendono il copy memorabile — ma solo se si adatta al brand e non compromette la chiarezza.
+
+---
+
+## Framework di Struttura della Pagina
 
 ### Above the Fold
 
-**Headline**
-- Your single most important message
-- Communicate core value proposition
-- Specific > generic
+**Titolo**
+- Il tuo messaggio più importante
+- Comunica la proposta di valore centrale
+- Specifico > generico
 
-**Example formulas:**
-- "{Achieve outcome} without {pain point}"
-- "The {category} for {audience}"
-- "Never {unpleasant event} again"
-- "{Question highlighting main pain point}"
+**Esempi di formule:**
+- "{Ottieni un risultato} senza {punto dolente}"
+- "Il {categoria} per {pubblico}"
+- "Mai più {evento spiacevole}"
+- "{Domanda che evidenzia il punto dolente principale}"
 
-**For comprehensive headline formulas**: See [references/copy-frameworks.md](references/copy-frameworks.md)
+**Per formule complete per i titoli**: Vedi [references/copy-frameworks.md](references/copy-frameworks.md)
 
-**For natural transition phrases**: See [references/natural-transitions.md](references/natural-transitions.md)
+**Per frasi di transizione naturali**: Vedi [references/natural-transitions.md](references/natural-transitions.md)
 
-**Subheadline**
-- Expands on headline
-- Adds specificity
-- 1-2 sentences max
+**Sottotitolo**
+- Espande il titolo
+- Aggiunge specificità
+- Massimo 1-2 frasi
 
-**Primary CTA**
-- Action-oriented button text
-- Communicate what they get: "Start Free Trial" > "Sign Up"
+**CTA Primaria**
+- Testo del bottone orientato all'azione
+- Comunica cosa ottengono: "Inizia la Prova Gratuita" > "Registrati"
 
-### Core Sections
+### Sezioni Principali
 
-| Section | Purpose |
+| Sezione | Scopo |
 |---------|---------|
-| Social Proof | Build credibility (logos, stats, testimonials) |
-| Problem/Pain | Show you understand their situation |
-| Solution/Benefits | Connect to outcomes (3-5 key benefits) |
-| How It Works | Reduce perceived complexity (3-4 steps) |
-| Objection Handling | FAQ, comparisons, guarantees |
-| Final CTA | Recap value, repeat CTA, risk reversal |
+| Prova Sociale | Costruisce credibilità (loghi, statistiche, testimonianze) |
+| Problema/Difficoltà | Mostra che comprendi la loro situazione |
+| Soluzione/Benefici | Collega ai risultati (3-5 benefici chiave) |
+| Come Funziona | Riduce la complessità percepita (3-4 passaggi) |
+| Gestione delle Obiezioni | FAQ, comparazioni, garanzie |
+| CTA Finale | Riassume il valore, ripete la CTA, riduzione del rischio |
 
-**For detailed section types and page templates**: See [references/copy-frameworks.md](references/copy-frameworks.md)
-
----
-
-## CTA Copy Guidelines
-
-**Weak CTAs (avoid):**
-- Submit, Sign Up, Learn More, Click Here, Get Started
-
-**Strong CTAs (use):**
-- Start Free Trial
-- Get [Specific Thing]
-- See [Product] in Action
-- Create Your First [Thing]
-- Download the Guide
-
-**Formula:** [Action Verb] + [What They Get] + [Qualifier if needed]
-
-Examples:
-- "Start My Free Trial"
-- "Get the Complete Checklist"
-- "See Pricing for My Team"
+**Per tipi di sezione dettagliati e modelli di pagina**: Vedi [references/copy-frameworks.md](references/copy-frameworks.md)
 
 ---
 
-## Page-Specific Guidance
+## Linee Guida per il Copy delle CTA
+
+**CTA Debole (da evitare):**
+- Invia, Registrati, Scopri di Più, Clicca Qui, Inizia
+
+**CTA Forte (da usare):**
+- Inizia la Prova Gratuita
+- Ottieni [Cosa Specifica]
+- Guarda [Prodotto] in Azione
+- Crea il Tuo Primo [Elemento]
+- Scarica la Guida
+
+**Formula:** [Verbo d'Azione] + [Cosa Ottengono] + [Qualificatore se necessario]
+
+Esempi:
+- "Inizia la Mia Prova Gratuita"
+- "Ottieni la Checklist Completa"
+- "Vedi i Prezzi per il Mio Team"
+
+---
+
+## Guida Specifica per Tipo di Pagina
 
 ### Homepage
-- Serve multiple audiences without being generic
-- Lead with broadest value proposition
-- Provide clear paths for different visitor intents
+- Servi pubblici multipli senza essere generico
+- Parti dalla proposta di valore più ampia
+- Fornisci percorsi chiari per intenti diversi dei visitatori
 
 ### Landing Page
-- Single message, single CTA
-- Match headline to ad/traffic source
-- Complete argument on one page
+- Un solo messaggio, una sola CTA
+- Fai corrispondere il titolo alla fonte di traffico/annuncio
+- Argomento completo in un'unica pagina
 
-### Pricing Page
-- Help visitors choose the right plan
-- Address "which is right for me?" anxiety
-- Make recommended plan obvious
+### Pagina Prezzi
+- Aiuta i visitatori a scegliere il piano giusto
+- Affronta l'ansia del "qual è quello giusto per me?"
+- Rendi evidente il piano consigliato
 
-### Feature Page
-- Connect feature → benefit → outcome
-- Show use cases and examples
-- Clear path to try or buy
+### Pagina Funzionalità
+- Collega funzionalità → beneficio → risultato
+- Mostra casi d'uso ed esempi
+- Percorso chiaro per provare o acquistare
 
-### About Page
-- Tell the story of why you exist
-- Connect mission to customer benefit
-- Still include a CTA
-
----
-
-## Voice and Tone
-
-Before writing, establish:
-
-**Formality level:**
-- Casual/conversational
-- Professional but friendly
-- Formal/enterprise
-
-**Brand personality:**
-- Playful or serious?
-- Bold or understated?
-- Technical or accessible?
-
-Maintain consistency, but adjust intensity:
-- Headlines can be bolder
-- Body copy should be clearer
-- CTAs should be action-oriented
+### Pagina Chi Siamo
+- Racconta la storia del perché esistete
+- Collega la mission al beneficio per il cliente
+- Includi comunque una CTA
 
 ---
 
-## Output Format
+## Voce e Tono
 
-When writing copy, provide:
+Prima di scrivere, stabilisci:
 
-### Page Copy
-Organized by section:
-- Headline, Subheadline, CTA
-- Section headers and body copy
-- Secondary CTAs
+**Livello di formalità:**
+- Informale/colloquiale
+- Professionale ma cordiale
+- Formale/enterprise
 
-### Annotations
-For key elements, explain:
-- Why you made this choice
-- What principle it applies
+**Personalità del brand:**
+- Giocoso o serio?
+- Audace o sobrio?
+- Tecnico o accessibile?
 
-### Alternatives
-For headlines and CTAs, provide 2-3 options:
-- Option A: [copy] — [rationale]
-- Option B: [copy] — [rationale]
+Mantieni coerenza, ma adatta l'intensità:
+- I titoli possono essere più audaci
+- Il corpo del testo dovrebbe essere più chiaro
+- Le CTA dovrebbero essere orientate all'azione
 
-### Meta Content (if relevant)
-- Page title (for SEO)
+---
+
+## Formato di Output
+
+Quando scrivi il copy, fornisci:
+
+### Copy della Pagina
+Organizzato per sezione:
+- Titolo, Sottotitolo, CTA
+- Intestazioni di sezione e corpo del testo
+- CTA secondarie
+
+### Annotazioni
+Per gli elementi chiave, spiega:
+- Perché hai fatto questa scelta
+- Quale principio applica
+
+### Alternative
+Per titoli e CTA, fornisci 2-3 opzioni:
+- Opzione A: [copy] — [motivazione]
+- Opzione B: [copy] — [motivazione]
+
+### Contenuto Meta (se rilevante)
+- Titolo della pagina (per SEO)
 - Meta description
 
 ---
 
-## Related Skills
+## Skill Correlate
 
-- **copy-editing**: For polishing existing copy (use after your draft)
-- **cro**: If page structure/strategy needs work, not just copy
-- **emails**: For email copywriting
-- **popups**: For popup and modal copy
-- **ab-testing**: To test copy variations
+- **copy-editing**: Per rifinire un copy esistente (usa dopo la tua bozza)
+- **cro**: Se la struttura/strategia della pagina necessita di lavoro, non solo il copy
+- **emails**: Per il copywriting delle email
+- **popups**: Per il copy di popup e modali
+- **ab-testing**: Per testare varianti di copy

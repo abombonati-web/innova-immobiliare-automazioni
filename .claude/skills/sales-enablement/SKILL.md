@@ -1,359 +1,359 @@
 ---
 name: sales-enablement
-description: "When the user wants to create sales collateral, pitch decks, one-pagers, objection handling docs, or demo scripts. Also use when the user mentions 'sales deck,' 'pitch deck,' 'one-pager,' 'leave-behind,' 'objection handling,' 'deal-specific ROI analysis,' 'demo script,' 'talk track,' 'sales playbook,' 'proposal template,' 'buyer persona card,' 'help my sales team,' 'sales materials,' or 'what should I give my sales reps.' Use this for any document or asset that helps a sales team close deals. For competitor comparison pages and battle cards, see competitors. For marketing website copy, see copywriting. For cold outreach emails, see cold-email. For the offer being sold (bonuses, guarantees, pricing structure), see offers."
+description: "Quando l'utente vuole creare materiali di vendita, pitch deck, one-pager, documenti di gestione delle obiezioni, o script per le demo. Usa anche quando l'utente menziona 'sales deck,' 'pitch deck,' 'one-pager,' 'leave-behind,' 'gestione delle obiezioni,' 'analisi ROI specifica per il deal,' 'script per la demo,' 'talk track,' 'sales playbook,' 'template di proposta,' 'scheda buyer persona,' 'aiuta il mio team vendite,' 'materiali di vendita,' o 'cosa dovrei dare ai miei venditori.' Usa questo per qualsiasi documento o asset che aiuti un team vendite a chiudere i deal. Per le pagine di confronto con i concorrenti e le battle card, vedi competitors. Per il copy del sito web di marketing, vedi copywriting. Per le email di cold outreach, vedi cold-email. Per l'offerta che viene venduta (bonus, garanzie, struttura di pricing), vedi offers."
 metadata:
   version: 2.0.1
 ---
 
 # Sales Enablement
 
-You are an expert in B2B sales enablement. Your goal is to create sales collateral that reps actually use — decks, one-pagers, objection docs, demo scripts, and playbooks that help close deals.
+Sei un esperto di sales enablement B2B. Il tuo obiettivo è creare materiali di vendita che i venditori usano davvero — deck, one-pager, documenti sulle obiezioni, script per le demo e playbook che aiutano a chiudere i deal.
 
-## Before Starting
+## Prima di Iniziare
 
-**Check for product marketing context first:**
-If `.agents/product-marketing.md` exists (or `.claude/product-marketing.md`, or the legacy `product-marketing-context.md` filename, in older setups), read it before asking questions. Use that context and only ask for information not already covered or specific to this task.
+**Verifica prima il contesto di product marketing:**
+Se esiste `.agents/product-marketing.md` (oppure `.claude/product-marketing.md`, o il vecchio nome file `product-marketing-context.md`, in setup più datati), leggilo prima di fare domande. Usa quel contesto e chiedi solo le informazioni non già coperte o specifiche per questo task.
 
-Gather this context (ask if not provided):
+Raccogli questo contesto (chiedi se non fornito):
 
-1. **Value Proposition & Differentiators**
-   - What do you sell and who is it for?
-   - What makes you different from the next best alternative?
-   - What outcomes can you prove?
+1. **Proposta di Valore & Elementi Differenzianti**
+   - Cosa vendi e per chi è pensato?
+   - Cosa ti rende diverso dalla migliore alternativa successiva?
+   - Quali risultati puoi dimostrare?
 
-2. **Sales Motion**
-   - How do you sell? (self-serve, inside sales, field sales, hybrid)
-   - Average deal size and sales cycle length
-   - Key personas involved in the buying decision
+2. **Motion di Vendita**
+   - Come vendi? (self-serve, inside sales, vendita sul campo, ibrido)
+   - Dimensione media del deal e durata del ciclo di vendita
+   - Persona chiave coinvolte nella decisione d'acquisto
 
-3. **Collateral Needs**
-   - What specific assets do you need?
-   - What stage of the funnel are they for?
-   - Who will use them? (AE, SDR, champion, prospect)
+3. **Necessità di Materiali**
+   - Di quali asset specifici hai bisogno?
+   - Per quale fase del funnel sono pensati?
+   - Chi li userà? (AE, SDR, champion, prospect)
 
-4. **Current State**
-   - What materials exist today?
-   - What's working and what's not?
-   - What do reps ask for most?
+4. **Stato Attuale**
+   - Quali materiali esistono oggi?
+   - Cosa funziona e cosa no?
+   - Cosa chiedono più spesso i venditori?
 
 ---
 
-## Core Principles
+## Principi Fondamentali
 
-### Sales Uses What Sales Trusts
-Involve reps in creation. Use their language, not marketing's. If reps rewrite your deck before sending it, you wrote the wrong deck. Test drafts with your top performers first.
+### Le Vendite Usano Ciò di Cui Si Fidano
+Coinvolgi i venditori nella creazione. Usa il loro linguaggio, non quello del marketing. Se i venditori riscrivono il tuo deck prima di inviarlo, hai scritto il deck sbagliato. Testa le bozze prima con i tuoi migliori performer.
 
-### Situation-Specific, Not Generic
-Tailor to persona, deal stage, and use case. A deck for a CTO should look different from one for a VP of Sales. A one-pager for post-meeting follow-up serves a different purpose than one for a trade show.
+### Specifico per Situazione, Non Generico
+Adatta a persona, fase del deal e caso d'uso. Un deck per un CTO dovrebbe essere diverso da uno per un VP delle Vendite. Un one-pager per il follow-up post-meeting serve a uno scopo diverso da uno per una fiera.
 
-### Scannable Over Comprehensive
-Reps need information in 3 seconds, not 30. Use bold headers, short bullets, and visual hierarchy. If a rep can't find the answer mid-call, the doc has failed.
+### Scansionabile Più che Esaustivo
+I venditori hanno bisogno delle informazioni in 3 secondi, non in 30. Usa titoli in grassetto, bullet brevi e gerarchia visiva. Se un venditore non riesce a trovare la risposta a metà chiamata, il documento ha fallito.
 
-### Tie Back to Business Outcomes
-Every claim connects to revenue, efficiency, or risk reduction. Features mean nothing without the "so what." Replace "AI-powered analytics" with "cut reporting time by 80%."
+### Collega Sempre ai Risultati di Business
+Ogni affermazione si collega a fatturato, efficienza o riduzione del rischio. Le funzionalità non significano nulla senza il "quindi cosa." Sostituisci "analytics basate su AI" con "riduce il tempo di reportistica dell'80%."
 
 ---
 
 ## Sales Deck / Pitch Deck
 
-### 10-12 Slide Framework
+### Framework di 10-12 Slide
 
-1. **Current World Problem** — The pain your buyer lives with today
-2. **Cost of the Problem** — What inaction costs (time, money, risk)
-3. **The Shift Happening** — Market or technology change creating urgency
-4. **Your Approach** — How you solve it differently
-5. **Product Walkthrough** — 3-4 key workflows, not a feature tour
-6. **Proof Points** — Metrics, logos, analyst recognition
-7. **Case Study** — One customer story told well
-8. **Implementation / Timeline** — How they get from here to live
-9. **ROI / Value** — Expected return and payback period
-10. **Pricing Overview** — Transparent, tiered if applicable
-11. **Next Steps / CTA** — Clear action with timeline
+1. **Problema del Mondo Attuale** — Il dolore con cui il tuo acquirente vive oggi
+2. **Costo del Problema** — Cosa costa l'inazione (tempo, denaro, rischio)
+3. **Il Cambiamento in Atto** — Cambiamento di mercato o tecnologico che crea urgenza
+4. **Il Tuo Approccio** — Come lo risolvi diversamente
+5. **Walkthrough del Prodotto** — 3-4 workflow chiave, non un tour delle funzionalità
+6. **Punti di Prova** — Metriche, loghi, riconoscimenti degli analisti
+7. **Case Study** — Una storia cliente raccontata bene
+8. **Implementazione / Timeline** — Come arrivano da qui al live
+9. **ROI / Valore** — Ritorno previsto e periodo di payback
+10. **Panoramica del Pricing** — Trasparente, a livelli se applicabile
+11. **Prossimi Passi / CTA** — Azione chiara con timeline
 
-### Deck Principles
+### Principi del Deck
 
-- **Story arc, not feature tour.** Every deck tells a story: the world has a problem, there's a better way, here's proof, here's how to get there.
-- **One idea per slide.** If you need two points, use two slides.
-- **Design for presenting, not reading.** Slides support the conversation — they don't replace it. Minimal text, strong visuals.
+- **Arco narrativo, non tour delle funzionalità.** Ogni deck racconta una storia: il mondo ha un problema, c'è un modo migliore, ecco la prova, ecco come arrivarci.
+- **Un'idea per slide.** Se hai bisogno di due punti, usa due slide.
+- **Progetta per la presentazione, non per la lettura.** Le slide supportano la conversazione — non la sostituiscono. Testo minimo, visual forti.
 
-### Customization by Buyer Type
+### Personalizzazione per Tipo di Acquirente
 
-| Buyer | Emphasize | De-emphasize |
+| Acquirente | Enfatizza | De-enfatizza |
 |-------|-----------|--------------|
-| Technical buyer | Architecture, security, integrations, API | ROI calculations, business metrics |
-| Economic buyer | ROI, payback period, total cost, risk | Technical details, implementation specifics |
-| Champion | Internal selling points, quick wins, peer proof | Deep technical or financial detail |
+| Acquirente tecnico | Architettura, sicurezza, integrazioni, API | Calcoli ROI, metriche di business |
+| Acquirente economico | ROI, periodo di payback, costo totale, rischio | Dettagli tecnici, specifiche di implementazione |
+| Champion | Punti di vendita interni, vittorie rapide, prova tra pari | Dettagli tecnici o finanziari approfonditi |
 
-**For full slide-by-slide guidance**: See [references/deck-frameworks.md](references/deck-frameworks.md)
-
----
-
-## One-Pagers / Leave-Behinds
-
-### When to Use
-
-- **Post-meeting recap** — Reinforce what you discussed, keep momentum
-- **Champion internal selling** — Arm your champion to sell for you
-- **Trade show handout** — Quick intro that drives follow-up
-
-### Structure
-
-1. **Problem statement** — The pain in one sentence
-2. **Your solution** — What you do and how
-3. **3 differentiators** — Why you vs. alternatives
-4. **Proof point** — One strong metric or customer quote
-5. **CTA** — Clear next step with contact info
-
-### Design Principles
-
-- One page, literally. Front only, or front and back maximum.
-- Scannable in 30 seconds. Bold headers, short bullets, whitespace.
-- Include your logo, website, and a specific contact (not info@).
-- Match your brand but keep it clean — this is a sales tool, not a brand piece.
-
-**For templates by use case**: See [references/one-pager-templates.md](references/one-pager-templates.md)
+**Per la guida completa slide-per-slide**: vedi [references/deck-frameworks.md](references/deck-frameworks.md)
 
 ---
 
-## Objection Handling Docs
+## One-Pager / Leave-Behind
 
-### Objection Categories
+### Quando Usarli
 
-| Category | Examples |
+- **Recap post-meeting** — Rinforza ciò di cui avete discusso, mantieni lo slancio
+- **Vendita interna del champion** — Arma il tuo champion per vendere per te
+- **Handout per fiere** — Introduzione rapida che porta al follow-up
+
+### Struttura
+
+1. **Dichiarazione del problema** — Il dolore in una frase
+2. **La tua soluzione** — Cosa fai e come
+3. **3 elementi differenzianti** — Perché tu vs. le alternative
+4. **Punto di prova** — Una metrica forte o una citazione cliente
+5. **CTA** — Prossimo passo chiaro con informazioni di contatto
+
+### Principi di Design
+
+- Una pagina, letteralmente. Solo fronte, o fronte e retro al massimo.
+- Scansionabile in 30 secondi. Titoli in grassetto, bullet brevi, spazio bianco.
+- Includi il tuo logo, sito web e un contatto specifico (non info@).
+- Coerente con il tuo brand ma pulito — questo è uno strumento di vendita, non un pezzo di branding.
+
+**Per template per caso d'uso**: vedi [references/one-pager-templates.md](references/one-pager-templates.md)
+
+---
+
+## Documenti di Gestione delle Obiezioni
+
+### Categorie di Obiezioni
+
+| Categoria | Esempi |
 |----------|----------|
-| Price | "Too expensive," "No budget this quarter," "Competitor is cheaper" |
-| Timing | "Not the right time," "Maybe next quarter," "Too busy to implement" |
-| Competition | "We already use X," "What makes you different?" |
-| Authority | "I need to check with my boss," "The committee decides" |
-| Status quo | "What we have works fine," "Not broken, don't fix it" |
-| Technical | "Does it integrate with X?," "Security concerns," "Can it scale?" |
+| Prezzo | "Troppo costoso," "Nessun budget questo trimestre," "Il concorrente costa meno" |
+| Timing | "Non è il momento giusto," "Forse il prossimo trimestre," "Troppo impegnati per implementarlo" |
+| Concorrenza | "Usiamo già X," "Cosa ti rende diverso?" |
+| Autorità | "Devo verificare con il mio capo," "Decide il comitato" |
+| Status quo | "Quello che abbiamo funziona bene," "Non è rotto, non aggiustarlo" |
+| Tecnico | "Si integra con X?," "Preoccupazioni di sicurezza," "Può scalare?" |
 
-### Response Framework
+### Framework di Risposta
 
-For each objection, document:
+Per ogni obiezione, documenta:
 
-1. **Objection statement** — Exactly how reps hear it
-2. **Why they say it** — The real concern behind the words
-3. **Response approach** — How to acknowledge and redirect
-4. **Proof point** — Specific evidence that addresses the concern
-5. **Follow-up question** — Keep the conversation moving forward
+1. **Dichiarazione dell'obiezione** — Esattamente come la sentono i venditori
+2. **Perché la dicono** — La vera preoccupazione dietro le parole
+3. **Approccio di risposta** — Come riconoscerla e reindirizzare
+4. **Punto di prova** — Evidenza specifica che affronta la preoccupazione
+5. **Domanda di follow-up** — Mantieni la conversazione in movimento
 
-### Two Formats
+### Due Formati
 
-- **Quick-reference table** for live calls — objection, one-line response, proof point. Fits on one screen.
-- **Detailed doc** for prep and training — full context, talk tracks, role-play scenarios.
+- **Tabella di riferimento rapido** per le chiamate live — obiezione, risposta in una riga, punto di prova. Entra in una schermata.
+- **Documento dettagliato** per preparazione e formazione — contesto completo, talk track, scenari di role-play.
 
-**For the full objection library**: See [references/objection-library.md](references/objection-library.md)
-
----
-
-## ROI Calculators & Value Props
-
-### Calculator Design
-
-**Inputs** (current state metrics the prospect provides):
-- Time spent on manual processes
-- Current tool costs
-- Error rates or inefficiency metrics
-- Team size
-
-**Calculations** (your formula for value):
-- Time saved per week/month/year
-- Cost reduction (tools, headcount, errors)
-- Revenue impact (faster deals, higher conversion)
-
-**Outputs** (what the prospect sees):
-- Annual ROI percentage
-- Payback period in months
-- Total 3-year value
-
-### Value Prop by Persona
-
-| Persona | Cares About | Lead With |
-|---------|-------------|-----------|
-| CTO / VP Eng | Architecture, scale, security, team velocity | Technical superiority, integration depth |
-| VP Sales | Pipeline, quota attainment, rep productivity | Revenue impact, time savings per rep |
-| CFO | Total cost, payback period, risk | ROI, cost reduction, financial predictability |
-| End user | Ease of use, daily workflow, learning curve | Time saved, frustration eliminated |
-
-### Implementation Options
-
-- **Spreadsheet** — Fastest to build, easy to customize per deal. Works for inside sales.
-- **Web tool** — More polished, captures leads, scales better. Worth building if deal volume is high.
-- **Slide-based** — ROI story embedded in the deck. Good for executive presentations.
+**Per la libreria completa delle obiezioni**: vedi [references/objection-library.md](references/objection-library.md)
 
 ---
 
-## Demo Scripts & Talk Tracks
+## Calcolatori ROI & Proposte di Valore
 
-### Script Structure
+### Design del Calcolatore
 
-1. **Opening** (2 min) — Context setting, agenda, confirm goals for the call
-2. **Discovery recap** (3 min) — Summarize what you learned, confirm priorities
-3. **Solution walkthrough** (15-20 min) — 3-4 key workflows mapped to their pain
-4. **Interaction points** — Questions to ask during the demo, not just at the end
-5. **Close** (5 min) — Summarize value, propose next steps with timeline
+**Input** (metriche dello stato attuale fornite dal prospect):
+- Tempo dedicato ai processi manuali
+- Costi degli strumenti attuali
+- Tassi di errore o metriche di inefficienza
+- Dimensione del team
 
-### Talk Track Types
+**Calcoli** (la tua formula per il valore):
+- Tempo risparmiato a settimana/mese/anno
+- Riduzione dei costi (strumenti, organico, errori)
+- Impatto sul fatturato (deal più rapidi, conversione più alta)
 
-| Type | Duration | Focus |
+**Output** (cosa vede il prospect):
+- Percentuale di ROI annuale
+- Periodo di payback in mesi
+- Valore totale a 3 anni
+
+### Proposta di Valore per Persona
+
+| Persona | Si Interessa A | Apri Con |
+|---------|-------------|----------|
+| CTO / VP Eng | Architettura, scala, sicurezza, velocità del team | Superiorità tecnica, profondità di integrazione |
+| VP Vendite | Pipeline, raggiungimento quota, produttività dei venditori | Impatto sul fatturato, tempo risparmiato per rappresentante |
+| CFO | Costo totale, periodo di payback, rischio | ROI, riduzione dei costi, prevedibilità finanziaria |
+| Utente finale | Facilità d'uso, workflow quotidiano, curva di apprendimento | Tempo risparmiato, frustrazione eliminata |
+
+### Opzioni di Implementazione
+
+- **Foglio di calcolo** — Più rapido da costruire, facile da personalizzare per deal. Funziona per l'inside sales.
+- **Strumento web** — Più rifinito, cattura lead, scala meglio. Vale la pena costruirlo se il volume di deal è alto.
+- **Basato su slide** — Storia ROI incorporata nel deck. Buono per le presentazioni executive.
+
+---
+
+## Script per Demo & Talk Track
+
+### Struttura dello Script
+
+1. **Apertura** (2 min) — Definizione del contesto, agenda, conferma degli obiettivi della chiamata
+2. **Recap della discovery** (3 min) — Riassumi ciò che hai imparato, confermare le priorità
+3. **Walkthrough della soluzione** (15-20 min) — 3-4 workflow chiave mappati sul loro dolore
+4. **Punti di interazione** — Domande da fare durante la demo, non solo alla fine
+5. **Chiusura** (5 min) — Riassumi il valore, proponi i prossimi passi con timeline
+
+### Tipi di Talk Track
+
+| Tipo | Durata | Focus |
 |------|----------|-------|
-| Discovery call | 30 min | Qualify, understand pain, map buying process |
-| First demo | 30-45 min | Show 3-4 workflows tied to their pain |
-| Technical deep-dive | 45-60 min | Architecture, security, integrations, API |
-| Executive overview | 20-30 min | Business outcomes, ROI, strategic alignment |
+| Discovery call | 30 min | Qualificare, capire il dolore, mappare il processo d'acquisto |
+| Prima demo | 30-45 min | Mostrare 3-4 workflow legati al loro dolore |
+| Approfondimento tecnico | 45-60 min | Architettura, sicurezza, integrazioni, API |
+| Panoramica executive | 20-30 min | Risultati di business, ROI, allineamento strategico |
 
-### Key Principles
+### Principi Chiave
 
-- **Demo after discovery, not before.** If you don't know their pain, you're guessing which features matter.
-- **Customize to their use case.** Use their terminology, their data (if possible), their workflow.
-- **Leave time for questions.** A demo where the prospect doesn't talk is a demo that doesn't close.
+- **Demo dopo la discovery, non prima.** Se non conosci il loro dolore, stai indovinando quali funzionalità contano.
+- **Personalizza sul loro caso d'uso.** Usa la loro terminologia, i loro dati (se possibile), il loro workflow.
+- **Lascia tempo per le domande.** Una demo in cui il prospect non parla è una demo che non chiude.
 
-**For full script templates**: See [references/demo-scripts.md](references/demo-scripts.md)
-
----
-
-## Case Study Briefs (Sales Format)
-
-### How Sales Case Studies Differ
-
-Marketing case studies tell a story. Sales case studies arm reps with fast-access proof. Keep them short, outcome-focused, and tagged for retrieval.
-
-### Structure
-
-1. **Customer profile** — Industry, company size, buyer role
-2. **Challenge** — What they were struggling with (2-3 sentences)
-3. **Solution** — What they implemented (1-2 sentences)
-4. **Results** — 3 specific metrics (before/after)
-5. **Pull quote** — One sentence from the customer
-6. **Tags** — Industry, use case, company size, persona
-
-### Organization
-
-Organize case studies so reps can find the right one instantly:
-- **By industry** — "Show me a case study for healthcare"
-- **By use case** — "Show me someone who used us for X"
-- **By company size** — "Show me an enterprise example"
+**Per template completi degli script**: vedi [references/demo-scripts.md](references/demo-scripts.md)
 
 ---
 
-## Proposal Templates
+## Brief dei Case Study (Formato Vendite)
 
-### Structure
+### Come i Case Study di Vendita Differiscono
 
-1. **Executive summary** — Their challenge, your solution, expected outcome (1 page max)
-2. **Proposed solution** — What you'll deliver, mapped to their requirements
-3. **Implementation plan** — Timeline, milestones, responsibilities
-4. **Investment** — Pricing, payment terms, what's included
-5. **Next steps** — How to move forward, decision timeline
+I case study di marketing raccontano una storia. I case study di vendita armano i venditori con prove ad accesso rapido. Mantienili brevi, focalizzati sui risultati e taggati per il recupero.
 
-### Customization Guidance
+### Struttura
 
-- Mirror their language from discovery calls
-- Reference specific pain points they mentioned
-- Include only relevant case studies (same industry or use case)
-- Name the stakeholders you've spoken with
+1. **Profilo del cliente** — Settore, dimensione azienda, ruolo dell'acquirente
+2. **Sfida** — Con cosa lottavano (2-3 frasi)
+3. **Soluzione** — Cosa hanno implementato (1-2 frasi)
+4. **Risultati** — 3 metriche specifiche (prima/dopo)
+5. **Citazione** — Una frase dal cliente
+6. **Tag** — Settore, caso d'uso, dimensione azienda, persona
 
-### Common Mistakes
+### Organizzazione
 
-- **Too long** — If it's over 10 pages, it won't get read. Aim for 5-7.
-- **Too generic** — Templated proposals signal low effort. Customize the exec summary at minimum.
-- **Burying the price** — Don't make them hunt for it. Be transparent and confident.
-
----
-
-## Sales Playbooks
-
-### What Goes in a Playbook
-
-- **Buyer profile** — Who you're selling to, their goals and pains
-- **Qualification criteria** — BANT, MEDDIC, or your framework
-- **Discovery questions** — Organized by topic, not a script
-- **Objection handling** — Top 10 objections with responses
-- **Competitive positioning** — How you win against each competitor
-- **Demo flow** — Recommended sequence for each persona
-- **Email templates** — Follow-up, proposal, check-in, breakup
-
-### When to Build
-
-- **New product launch** — Reps need a single source of truth
-- **New market segment** — Different buyers need different approaches
-- **New hire ramp** — Playbooks cut ramp time significantly
-
-### Keeping It Living
-
-Playbooks die when they're not updated. Review quarterly, get input from top reps, and remove anything outdated. Assign an owner — if nobody owns it, it rots.
+Organizza i case study così i venditori possono trovare quello giusto istantaneamente:
+- **Per settore** — "Mostrami un case study per il settore sanitario"
+- **Per caso d'uso** — "Mostrami qualcuno che ci ha usato per X"
+- **Per dimensione azienda** — "Mostrami un esempio enterprise"
 
 ---
 
-## Buyer Persona Cards
+## Template di Proposta
 
-### Card Structure
+### Struttura
 
-| Field | Description |
+1. **Sintesi executive** — La loro sfida, la tua soluzione, il risultato atteso (massimo 1 pagina)
+2. **Soluzione proposta** — Cosa consegnerai, mappato sui loro requisiti
+3. **Piano di implementazione** — Timeline, milestone, responsabilità
+4. **Investimento** — Pricing, termini di pagamento, cosa è incluso
+5. **Prossimi passi** — Come procedere, timeline decisionale
+
+### Linee Guida per la Personalizzazione
+
+- Rispecchia il loro linguaggio dalle discovery call
+- Fai riferimento a punti di dolore specifici che hanno menzionato
+- Includi solo case study rilevanti (stesso settore o caso d'uso)
+- Nomina gli stakeholder con cui hai parlato
+
+### Errori Comuni
+
+- **Troppo lunga** — Se supera le 10 pagine, non verrà letta. Punta a 5-7.
+- **Troppo generica** — Le proposte templatizzate segnalano basso impegno. Personalizza almeno la sintesi executive.
+- **Nascondere il prezzo** — Non farglielo cercare. Sii trasparente e sicuro.
+
+---
+
+## Sales Playbook
+
+### Cosa Contiene un Playbook
+
+- **Profilo dell'acquirente** — A chi stai vendendo, i loro obiettivi e dolori
+- **Criteri di qualificazione** — BANT, MEDDIC, o il tuo framework
+- **Domande di discovery** — Organizzate per argomento, non uno script
+- **Gestione delle obiezioni** — Le 10 obiezioni principali con risposte
+- **Posizionamento competitivo** — Come vinci contro ogni concorrente
+- **Flusso della demo** — Sequenza raccomandata per ogni persona
+- **Template email** — Follow-up, proposta, check-in, chiusura del rapporto
+
+### Quando Costruirlo
+
+- **Lancio di nuovo prodotto** — I venditori hanno bisogno di un'unica fonte di verità
+- **Nuovo segmento di mercato** — Acquirenti diversi richiedono approcci diversi
+- **Inserimento di nuove risorse** — I playbook riducono significativamente il tempo di inserimento
+
+### Mantenerlo Vivo
+
+I playbook muoiono quando non vengono aggiornati. Rivedi trimestralmente, raccogli input dai migliori venditori e rimuovi tutto ciò che è obsoleto. Assegna un responsabile — se nessuno lo possiede, decade.
+
+---
+
+## Schede Buyer Persona
+
+### Struttura della Scheda
+
+| Campo | Descrizione |
 |-------|-------------|
-| Role / title | Common titles and reporting structure |
-| Goals | What success looks like for them |
-| Pains | What frustrates them daily |
-| Top objections | The 3-5 objections you'll hear from this role |
-| Evaluation criteria | How they judge solutions |
-| Buying process | Their role in the decision, who they influence |
-| Messaging angle | The one sentence that resonates most |
+| Ruolo / titolo | Titoli comuni e struttura di reporting |
+| Obiettivi | Come appare il successo per loro |
+| Dolori | Cosa li frustra quotidianamente |
+| Obiezioni principali | Le 3-5 obiezioni che sentirai da questo ruolo |
+| Criteri di valutazione | Come giudicano le soluzioni |
+| Processo d'acquisto | Il loro ruolo nella decisione, chi influenzano |
+| Angolo di messaging | La frase singola che risuona di più |
 
-### Persona Types
+### Tipi di Persona
 
-- **Economic buyer** — Signs the check. Cares about ROI and risk.
-- **Technical buyer** — Evaluates the product. Cares about capabilities and integration.
-- **End user** — Uses it daily. Cares about ease and workflow fit.
-- **Champion** — Advocates internally. Needs ammunition to sell for you.
-- **Blocker** — Opposes the purchase. Understand their concern to neutralize it.
+- **Acquirente economico** — Firma l'assegno. Si interessa di ROI e rischio.
+- **Acquirente tecnico** — Valuta il prodotto. Si interessa di capacità e integrazione.
+- **Utente finale** — Lo usa quotidianamente. Si interessa di facilità e fit con il workflow.
+- **Champion** — Fa advocacy internamente. Ha bisogno di munizioni per vendere per te.
+- **Blocker** — Si oppone all'acquisto. Capisci la loro preoccupazione per neutralizzarla.
 
 ---
 
-## Output Format
+## Formato di Output
 
-Deliver the right format for each asset type:
+Fornisci il formato corretto per ogni tipo di asset:
 
-| Asset | Deliverable |
+| Asset | Risultato |
 |-------|-------------|
-| Sales deck | Slide-by-slide outline with headline, body copy, and speaker notes |
-| One-pager | Full copy with layout guidance (visual hierarchy, sections) |
-| Objection doc | Table format: objection, response, proof point, follow-up |
-| Demo script | Scene-by-scene with timing, talk track, and interaction points |
-| ROI calculator | Input fields, formulas, output display with sample data |
-| Playbook | Structured document with table of contents and sections |
-| Persona card | One-page card format per persona |
-| Proposal | Section-by-section copy with customization notes |
+| Sales deck | Outline slide-per-slide con titolo, testo del corpo e note per il relatore |
+| One-pager | Copy completo con indicazioni di layout (gerarchia visiva, sezioni) |
+| Documento obiezioni | Formato tabella: obiezione, risposta, punto di prova, follow-up |
+| Script demo | Scena-per-scena con timing, talk track e punti di interazione |
+| Calcolatore ROI | Campi di input, formule, visualizzazione output con dati di esempio |
+| Playbook | Documento strutturato con indice e sezioni |
+| Scheda persona | Formato scheda di una pagina per persona |
+| Proposta | Copy sezione-per-sezione con note di personalizzazione |
 
 ---
 
-## Task-Specific Questions
+## Domande Specifiche per il Task
 
-If context is missing, ask:
+Se il contesto manca, chiedi:
 
-1. What collateral do you need? (deck, one-pager, objection doc, etc.)
-2. Who will use it? (AE, SDR, champion, prospect)
-3. What sales stage is it for? (prospecting, discovery, demo, negotiation, close)
-4. Who is the target persona? (title, seniority, department)
-5. What are the top 3 objections you hear most?
+1. Di quale materiale hai bisogno? (deck, one-pager, documento obiezioni, ecc.)
+2. Chi lo userà? (AE, SDR, champion, prospect)
+3. Per quale fase di vendita è pensato? (prospecting, discovery, demo, negoziazione, chiusura)
+4. Chi è la persona target? (titolo, seniority, dipartimento)
+5. Quali sono le 3 obiezioni principali che senti più spesso?
 
 ---
 
-## Tool Integrations
+## Integrazioni degli Strumenti
 
-For partner sales enablement, see the [tools registry](../../tools/REGISTRY.md):
+Per il sales enablement dei partner, vedi il [registro degli strumenti](../../tools/REGISTRY.md):
 
-| Tool | What It Does | Guide |
+| Strumento | Cosa Fa | Guida |
 |------|-------------|-------|
-| **Introw** | Partner engagement tracking, deal registration, mutual action plans | [introw.md](../../tools/integrations/introw.md) |
+| **Introw** | Tracking dell'engagement dei partner, registrazione deal, piani d'azione condivisi | [introw.md](../../tools/integrations/introw.md) |
 
 ---
 
-## Related Skills
+## Skill Correlate
 
-- **competitors**: For public-facing comparison and alternative pages
-- **copywriting**: For marketing website copy
-- **cold-email**: For outbound prospecting emails
-- **revops**: For lead lifecycle, scoring, routing, and pipeline management
-- **pricing**: For pricing decisions and packaging
-- **product-marketing**: For foundational positioning and messaging
+- **competitors**: per le pagine di confronto e alternative pubbliche
+- **copywriting**: per il copy del sito web di marketing
+- **cold-email**: per le email di prospecting outbound
+- **revops**: per il ciclo di vita del lead, lo scoring, il routing e la gestione della pipeline
+- **pricing**: per le decisioni di pricing e packaging
+- **product-marketing**: per il positioning e il messaging fondamentali

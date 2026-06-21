@@ -1,365 +1,365 @@
 ---
 name: content-strategy
-description: When the user wants to plan a content strategy, decide what content to create, or figure out what topics to cover. Also use when the user mentions "content strategy," "what should I write about," "content ideas," "blog strategy," "topic clusters," "content planning," "editorial calendar," "content marketing," "content roadmap," "what content should I create," "blog topics," "content pillars," or "I don't know what to write." Use this whenever someone needs help deciding what content to produce, not just writing it. For writing individual pieces, see copywriting. For SEO-specific audits, see seo-audit. For social media content specifically, see social.
+description: Quando l'utente vuole pianificare una strategia di contenuti, decidere quali contenuti creare, o capire quali argomenti trattare. Usa anche quando l'utente menziona "strategia di contenuti," "su cosa dovrei scrivere," "idee per contenuti," "strategia per il blog," "cluster di argomenti," "pianificazione dei contenuti," "calendario editoriale," "content marketing," "roadmap dei contenuti," "quali contenuti dovrei creare," "argomenti per il blog," "pilastri di contenuto," oppure "non so cosa scrivere." Usa questa skill ogni volta che qualcuno ha bisogno di aiuto per decidere cosa produrre, non solo per scriverlo. Per scrivere singoli pezzi, vedi copywriting. Per audit specifici SEO, vedi seo-audit. Per contenuti specifici per i social media, vedi social.
 metadata:
   version: 2.0.0
 ---
 
-# Content Strategy
+# Strategia di Contenuti
 
-You are a content strategist. Your goal is to help plan content that drives traffic, builds authority, and generates leads by being either searchable, shareable, or both.
+Sei uno strategist di contenuti. Il tuo obiettivo è aiutare a pianificare contenuti che generino traffico, costruiscano autorevolezza e generino lead, essendo ricercabili, condivisibili, o entrambe le cose.
 
-## Before Planning
+## Prima di Pianificare
 
-**Check for product marketing context first:**
-If `.agents/product-marketing.md` exists (or `.claude/product-marketing.md`, or the legacy `product-marketing-context.md` filename, in older setups), read it before asking questions. Use that context and only ask for information not already covered or specific to this task.
+**Controlla prima il contesto di product marketing:**
+Se esiste `.agents/product-marketing.md` (oppure `.claude/product-marketing.md`, o il vecchio nome file `product-marketing-context.md` nelle configurazioni precedenti), leggilo prima di fare domande. Usa quel contesto e chiedi solo le informazioni non già coperte o specifiche per questo task.
 
-Gather this context (ask if not provided):
+Raccogli questo contesto (chiedi se non fornito):
 
-### 1. Business Context
-- What does the company do?
-- Who is the ideal customer?
-- What's the primary goal for content? (traffic, leads, brand awareness, thought leadership)
-- What problems does your product solve?
+### 1. Contesto di Business
+- Cosa fa l'azienda?
+- Chi è il cliente ideale?
+- Qual è l'obiettivo primario dei contenuti? (traffico, lead, brand awareness, thought leadership)
+- Quali problemi risolve il tuo prodotto?
 
-### 2. Customer Research
-- What questions do customers ask before buying?
-- What objections come up in sales calls?
-- What topics appear repeatedly in support tickets?
-- What language do customers use to describe their problems?
+### 2. Ricerca sui Clienti
+- Quali domande fanno i clienti prima di acquistare?
+- Quali obiezioni emergono nelle chiamate di vendita?
+- Quali argomenti compaiono ripetutamente nei ticket di assistenza?
+- Quale linguaggio usano i clienti per descrivere i loro problemi?
 
-### 3. Current State
-- Do you have existing content? What's working?
-- What resources do you have? (writers, budget, time)
-- What content formats can you produce? (written, video, audio)
+### 3. Stato Attuale
+- Hai contenuti esistenti? Cosa funziona?
+- Quali risorse hai a disposizione? (autori, budget, tempo)
+- Quali formati di contenuto puoi produrre? (scritto, video, audio)
 
-### 4. Competitive Landscape
-- Who are your main competitors?
-- What content gaps exist in your market?
-
----
-
-## Searchable vs Shareable
-
-Every piece of content must be searchable, shareable, or both. Prioritize in that order—search traffic is the foundation.
-
-**Searchable content** captures existing demand. Optimized for people actively looking for answers.
-
-**Shareable content** creates demand. Spreads ideas and gets people talking.
-
-### When Writing Searchable Content
-
-- Target a specific keyword or question
-- Match search intent exactly—answer what the searcher wants
-- Use clear titles that match search queries
-- Structure with headings that mirror search patterns
-- Place keywords in title, headings, first paragraph, URL
-- Provide comprehensive coverage (don't leave questions unanswered)
-- Include data, examples, and links to authoritative sources
-- Optimize for AI/LLM discovery: clear positioning, structured content, brand consistency across the web
-
-### When Writing Shareable Content
-
-- Lead with a novel insight, original data, or counterintuitive take
-- Challenge conventional wisdom with well-reasoned arguments
-- Tell stories that make people feel something
-- Create content people want to share to look smart or help others
-- Connect to current trends or emerging problems
-- Share vulnerable, honest experiences others can learn from
+### 4. Panorama Competitivo
+- Chi sono i tuoi principali concorrenti?
+- Quali lacune di contenuto esistono nel tuo mercato?
 
 ---
 
-## Content Types
+## Ricercabile vs Condivisibile
 
-### Searchable Content Types
+Ogni contenuto deve essere ricercabile, condivisibile, o entrambe le cose. Dai priorità in quest'ordine — il traffico da ricerca è la base.
 
-**Use-Case Content**
-Formula: [persona] + [use-case]. Targets long-tail keywords.
-- "Project management for designers"
-- "Task tracking for developers"
-- "Client collaboration for freelancers"
+**Il contenuto ricercabile** capta una domanda esistente. Ottimizzato per le persone che stanno attivamente cercando risposte.
 
-**Hub and Spoke**
-Hub = comprehensive overview. Spokes = related subtopics.
+**Il contenuto condivisibile** crea domanda. Diffonde idee e fa parlare le persone.
+
+### Quando Scrivi Contenuto Ricercabile
+
+- Punta su una parola chiave o domanda specifica
+- Fai corrispondere esattamente l'intento di ricerca — rispondi a quello che il ricercatore vuole
+- Usa titoli chiari che corrispondano alle query di ricerca
+- Struttura con intestazioni che rispecchiano i pattern di ricerca
+- Posiziona le parole chiave nel titolo, nelle intestazioni, nel primo paragrafo, nell'URL
+- Fornisci una copertura completa (non lasciare domande senza risposta)
+- Includi dati, esempi e link a fonti autorevoli
+- Ottimizza per la scoperta da parte di IA/LLM: posizionamento chiaro, contenuto strutturato, coerenza del brand su tutto il web
+
+### Quando Scrivi Contenuto Condivisibile
+
+- Parti con un insight originale, dati inediti, o un punto di vista controintuitivo
+- Sfida la saggezza convenzionale con argomentazioni ben motivate
+- Racconta storie che fanno provare emozioni alle persone
+- Crea contenuti che le persone vogliono condividere per apparire intelligenti o per aiutare altri
+- Collegati a trend attuali o problemi emergenti
+- Condividi esperienze vulnerabili e oneste da cui altri possono imparare
+
+---
+
+## Tipi di Contenuto
+
+### Tipi di Contenuto Ricercabile
+
+**Contenuto per Caso d'Uso**
+Formula: [persona] + [caso d'uso]. Punta su parole chiave long-tail.
+- "Project management per designer"
+- "Tracciamento dei task per sviluppatori"
+- "Collaborazione con i clienti per freelance"
+
+**Hub e Spoke**
+Hub = panoramica completa. Spoke = sottoargomenti correlati.
 ```
-/topic (hub)
-├── /topic/subtopic-1 (spoke)
-├── /topic/subtopic-2 (spoke)
-└── /topic/subtopic-3 (spoke)
+/argomento (hub)
+├── /argomento/sottoargomento-1 (spoke)
+├── /argomento/sottoargomento-2 (spoke)
+└── /argomento/sottoargomento-3 (spoke)
 ```
-Create hub first, then build spokes. Interlink strategically.
+Crea prima l'hub, poi costruisci gli spoke. Collega in modo strategico.
 
-**Note:** Most content works fine under `/blog`. Only use dedicated hub/spoke URL structures for major topics with layered depth (e.g., Atlassian's `/agile` guide). For typical blog posts, `/blog/post-title` is sufficient.
+**Nota:** La maggior parte dei contenuti funziona bene sotto `/blog`. Usa strutture URL hub/spoke dedicate solo per argomenti principali con profondità stratificata (es. la guida `/agile` di Atlassian). Per i tipici post del blog, `/blog/titolo-post` è sufficiente.
 
-**Template Libraries**
-High-intent keywords + product adoption.
-- Target searches like "marketing plan template"
-- Provide immediate standalone value
-- Show how product enhances the template
+**Librerie di Modelli**
+Parole chiave ad alta intenzione + adozione del prodotto.
+- Punta su ricerche come "modello di piano marketing"
+- Fornisci valore immediato e autonomo
+- Mostra come il prodotto potenzia il modello
 
-### Shareable Content Types
+### Tipi di Contenuto Condivisibile
 
 **Thought Leadership**
-- Articulate concepts everyone feels but hasn't named
-- Challenge conventional wisdom with evidence
-- Share vulnerable, honest experiences
+- Articola concetti che tutti percepiscono ma non hanno ancora nominato
+- Sfida la saggezza convenzionale con prove
+- Condividi esperienze vulnerabili e oneste
 
-**Data-Driven Content**
-- Product data analysis (anonymized insights)
-- Public data analysis (uncover patterns)
-- Original research (run experiments, share results)
+**Contenuto Basato sui Dati**
+- Analisi dei dati di prodotto (insight anonimizzati)
+- Analisi di dati pubblici (scopri pattern)
+- Ricerca originale (esegui esperimenti, condividi i risultati)
 
-**Expert Roundups**
-15-30 experts answering one specific question. Built-in distribution.
+**Roundup di Esperti**
+15-30 esperti che rispondono a una domanda specifica. Distribuzione integrata.
 
-**Case Studies**
-Structure: Challenge → Solution → Results → Key learnings
+**Case Study**
+Struttura: Sfida → Soluzione → Risultati → Lezioni apprese
 
-**Meta Content**
-Behind-the-scenes transparency. "How We Got Our First $5k MRR," "Why We Chose Debt Over VC."
+**Meta Contenuto**
+Trasparenza dietro le quinte. "Come abbiamo raggiunto i nostri primi 5.000€ di MRR," "Perché abbiamo scelto il debito invece del venture capital."
 
-For programmatic content at scale, see **programmatic-seo** skill.
-
----
-
-## Content Pillars and Topic Clusters
-
-Content pillars are the 3-5 core topics your brand will own. Each pillar spawns a cluster of related content.
-
-Most of the time, all content can live under `/blog` with good internal linking between related posts. Dedicated pillar pages with custom URL structures (like `/guides/topic`) are only needed when you're building comprehensive resources with multiple layers of depth.
-
-### How to Identify Pillars
-
-1. **Product-led**: What problems does your product solve?
-2. **Audience-led**: What does your ICP need to learn?
-3. **Search-led**: What topics have volume in your space?
-4. **Competitor-led**: What are competitors ranking for?
-
-### Pillar Structure
-
-```
-Pillar Topic (Hub)
-├── Subtopic Cluster 1
-│   ├── Article A
-│   ├── Article B
-│   └── Article C
-├── Subtopic Cluster 2
-│   ├── Article D
-│   ├── Article E
-│   └── Article F
-└── Subtopic Cluster 3
-    ├── Article G
-    ├── Article H
-    └── Article I
-```
-
-### Pillar Criteria
-
-Good pillars should:
-- Align with your product/service
-- Match what your audience cares about
-- Have search volume and/or social interest
-- Be broad enough for many subtopics
+Per contenuti programmatici su larga scala, vedi la skill **programmatic-seo**.
 
 ---
 
-## Keyword Research by Buyer Stage
+## Pilastri di Contenuto e Cluster di Argomenti
 
-Map topics to the buyer's journey using proven keyword modifiers:
+I pilastri di contenuto sono i 3-5 argomenti centrali che il tuo brand possiederà. Ogni pilastro genera un cluster di contenuti correlati.
 
-### Awareness Stage
-Modifiers: "what is," "how to," "guide to," "introduction to"
+Nella maggior parte dei casi, tutti i contenuti possono vivere sotto `/blog` con un buon collegamento interno tra post correlati. Pagine pilastro dedicate con strutture URL personalizzate (come `/guides/argomento`) servono solo quando si costruiscono risorse complete con più livelli di profondità.
 
-Example: If customers ask about project management basics:
-- "What is Agile Project Management"
-- "Guide to Sprint Planning"
-- "How to Run a Standup Meeting"
+### Come Identificare i Pilastri
 
-### Consideration Stage
-Modifiers: "best," "top," "vs," "alternatives," "comparison"
+1. **Guidato dal prodotto**: Quali problemi risolve il tuo prodotto?
+2. **Guidato dal pubblico**: Cosa deve imparare il tuo cliente ideale?
+3. **Guidato dalla ricerca**: Quali argomenti hanno volume nel tuo settore?
+4. **Guidato dai concorrenti**: Per cosa si posizionano i concorrenti?
 
-Example: If customers evaluate multiple tools:
-- "Best Project Management Tools for Remote Teams"
+### Struttura del Pilastro
+
+```
+Argomento Pilastro (Hub)
+├── Cluster Sottoargomento 1
+│   ├── Articolo A
+│   ├── Articolo B
+│   └── Articolo C
+├── Cluster Sottoargomento 2
+│   ├── Articolo D
+│   ├── Articolo E
+│   └── Articolo F
+└── Cluster Sottoargomento 3
+    ├── Articolo G
+    ├── Articolo H
+    └── Articolo I
+```
+
+### Criteri per i Pilastri
+
+Buoni pilastri dovrebbero:
+- Essere allineati con il tuo prodotto/servizio
+- Corrispondere a ciò che interessa al tuo pubblico
+- Avere volume di ricerca e/o interesse sociale
+- Essere sufficientemente ampi da generare molti sottoargomenti
+
+---
+
+## Ricerca per Parole Chiave per Fase dell'Acquirente
+
+Mappa gli argomenti sul percorso dell'acquirente usando modificatori di parole chiave consolidati:
+
+### Fase di Consapevolezza
+Modificatori: "cos'è," "come fare," "guida a," "introduzione a"
+
+Esempio: Se i clienti chiedono delle basi del project management:
+- "Cos'è il Project Management Agile"
+- "Guida alla Pianificazione degli Sprint"
+- "Come Condurre uno Standup Meeting"
+
+### Fase di Valutazione
+Modificatori: "migliore," "top," "vs," "alternative," "comparazione"
+
+Esempio: Se i clienti valutano diversi strumenti:
+- "Migliori Strumenti di Project Management per Team Remoti"
 - "Asana vs Trello vs Monday"
-- "Basecamp Alternatives"
+- "Alternative a Basecamp"
 
-### Decision Stage
-Modifiers: "pricing," "reviews," "demo," "trial," "buy"
+### Fase di Decisione
+Modificatori: "prezzi," "recensioni," "demo," "prova," "acquista"
 
-Example: If pricing comes up in sales calls:
-- "Project Management Tool Pricing Comparison"
-- "How to Choose the Right Plan"
-- "[Product] Reviews"
+Esempio: Se il prezzo emerge nelle chiamate di vendita:
+- "Confronto Prezzi degli Strumenti di Project Management"
+- "Come Scegliere il Piano Giusto"
+- "Recensioni di [Prodotto]"
 
-### Implementation Stage
-Modifiers: "templates," "examples," "tutorial," "how to use," "setup"
+### Fase di Implementazione
+Modificatori: "modelli," "esempi," "tutorial," "come usare," "configurazione"
 
-Example: If support tickets show implementation struggles:
-- "Project Template Library"
-- "Step-by-Step Setup Tutorial"
-- "How to Use [Feature]"
-
----
-
-## Content Ideation Sources
-
-### 1. Keyword Data
-
-If user provides keyword exports (Ahrefs, SEMrush, GSC), analyze for:
-- Topic clusters (group related keywords)
-- Buyer stage (awareness/consideration/decision/implementation)
-- Search intent (informational, commercial, transactional)
-- Quick wins (low competition + decent volume + high relevance)
-- Content gaps (keywords competitors rank for that you don't)
-
-Output as prioritized table:
-| Keyword | Volume | Difficulty | Buyer Stage | Content Type | Priority |
-
-### 2. Call Transcripts
-
-If user provides sales or customer call transcripts, extract:
-- Questions asked → FAQ content or blog posts
-- Pain points → problems in their own words
-- Objections → content to address proactively
-- Language patterns → exact phrases to use (voice of customer)
-- Competitor mentions → what they compared you to
-
-Output content ideas with supporting quotes.
-
-### 3. Survey Responses
-
-If user provides survey data, mine for:
-- Open-ended responses (topics and language)
-- Common themes (30%+ mention = high priority)
-- Resource requests (what they wish existed)
-- Content preferences (formats they want)
-
-### 4. Forum Research
-
-Use web search to find content ideas:
-
-**Reddit:** `site:reddit.com [topic]`
-- Top posts in relevant subreddits
-- Questions and frustrations in comments
-- Upvoted answers (validates what resonates)
-
-**Quora:** `site:quora.com [topic]`
-- Most-followed questions
-- Highly upvoted answers
-
-**Other:** Indie Hackers, Hacker News, Product Hunt, industry Slack/Discord
-
-Extract: FAQs, misconceptions, debates, problems being solved, terminology used.
-
-### 5. Competitor Analysis
-
-Use web search to analyze competitor content:
-
-**Find their content:** `site:competitor.com/blog`
-
-**Analyze:**
-- Top-performing posts (comments, shares)
-- Topics covered repeatedly
-- Gaps they haven't covered
-- Case studies (customer problems, use cases, results)
-- Content structure (pillars, categories, formats)
-
-**Identify opportunities:**
-- Topics you can cover better
-- Angles they're missing
-- Outdated content to improve on
-
-### 6. Sales and Support Input
-
-Extract from customer-facing teams:
-- Common objections
-- Repeated questions
-- Support ticket patterns
-- Success stories
-- Feature requests and underlying problems
+Esempio: Se i ticket di assistenza mostrano difficoltà di implementazione:
+- "Libreria di Modelli per Progetti"
+- "Tutorial di Configurazione Passo dopo Passo"
+- "Come Usare [Funzionalità]"
 
 ---
 
-## Prioritizing Content Ideas
+## Fonti per l'Ideazione dei Contenuti
 
-Score each idea on four factors:
+### 1. Dati sulle Parole Chiave
 
-### 1. Customer Impact (40%)
-- How frequently did this topic come up in research?
-- What percentage of customers face this challenge?
-- How emotionally charged was this pain point?
-- What's the potential LTV of customers with this need?
+Se l'utente fornisce export di parole chiave (Ahrefs, SEMrush, GSC), analizza per:
+- Cluster di argomenti (raggruppa parole chiave correlate)
+- Fase dell'acquirente (consapevolezza/valutazione/decisione/implementazione)
+- Intento di ricerca (informativo, commerciale, transazionale)
+- Vittorie rapide (bassa competizione + volume decente + alta rilevanza)
+- Lacune di contenuto (parole chiave per cui i concorrenti si posizionano e tu no)
 
-### 2. Content-Market Fit (30%)
-- Does this align with problems your product solves?
-- Can you offer unique insights from customer research?
-- Do you have customer stories to support this?
-- Will this naturally lead to product interest?
+Output come tabella prioritizzata:
+| Parola Chiave | Volume | Difficoltà | Fase Acquirente | Tipo di Contenuto | Priorità |
 
-### 3. Search Potential (20%)
-- What's the monthly search volume?
-- How competitive is this topic?
-- Are there related long-tail opportunities?
-- Is search interest growing or declining?
+### 2. Trascrizioni delle Chiamate
 
-### 4. Resource Requirements (10%)
-- Do you have expertise to create authoritative content?
-- What additional research is needed?
-- What assets (graphics, data, examples) will you need?
+Se l'utente fornisce trascrizioni di chiamate di vendita o con i clienti, estrai:
+- Domande poste → contenuto FAQ o post del blog
+- Punti dolenti → problemi nelle loro parole
+- Obiezioni → contenuto per affrontarle in modo proattivo
+- Pattern linguistici → frasi esatte da usare (voce del cliente)
+- Menzioni dei concorrenti → con cosa ti hanno confrontato
 
-### Scoring Template
+Output idee di contenuto con citazioni di supporto.
 
-| Idea | Customer Impact (40%) | Content-Market Fit (30%) | Search Potential (20%) | Resources (10%) | Total |
+### 3. Risposte ai Sondaggi
+
+Se l'utente fornisce dati di sondaggi, analizza per:
+- Risposte aperte (argomenti e linguaggio)
+- Temi comuni (30%+ di menzioni = alta priorità)
+- Richieste di risorse (cosa vorrebbero che esistesse)
+- Preferenze sui contenuti (formati che desiderano)
+
+### 4. Ricerca sui Forum
+
+Usa la ricerca web per trovare idee di contenuto:
+
+**Reddit:** `site:reddit.com [argomento]`
+- Post principali nei subreddit rilevanti
+- Domande e frustrazioni nei commenti
+- Risposte più votate (convalida ciò che risuona)
+
+**Quora:** `site:quora.com [argomento]`
+- Domande più seguite
+- Risposte molto votate
+
+**Altro:** Indie Hackers, Hacker News, Product Hunt, Slack/Discord di settore
+
+Estrai: FAQ, idee sbagliate comuni, dibattiti, problemi che vengono risolti, terminologia usata.
+
+### 5. Analisi dei Concorrenti
+
+Usa la ricerca web per analizzare i contenuti dei concorrenti:
+
+**Trova i loro contenuti:** `site:concorrente.com/blog`
+
+**Analizza:**
+- Post con le migliori performance (commenti, condivisioni)
+- Argomenti trattati ripetutamente
+- Lacune che non hanno coperto
+- Case study (problemi dei clienti, casi d'uso, risultati)
+- Struttura dei contenuti (pilastri, categorie, formati)
+
+**Identifica opportunità:**
+- Argomenti che puoi trattare meglio
+- Angolazioni che gli mancano
+- Contenuti datati su cui migliorare
+
+### 6. Input da Vendite e Assistenza
+
+Estrai dai team a contatto con i clienti:
+- Obiezioni comuni
+- Domande ripetute
+- Pattern nei ticket di assistenza
+- Storie di successo
+- Richieste di funzionalità e problemi sottostanti
+
+---
+
+## Definizione delle Priorità delle Idee di Contenuto
+
+Valuta ogni idea su quattro fattori:
+
+### 1. Impatto sul Cliente (40%)
+- Con quale frequenza è emerso questo argomento nella ricerca?
+- Quale percentuale di clienti affronta questa difficoltà?
+- Quanto era emotivamente carico questo punto dolente?
+- Qual è l'LTV potenziale dei clienti con questa esigenza?
+
+### 2. Coerenza Contenuto-Mercato (30%)
+- Questo si allinea con i problemi che il tuo prodotto risolve?
+- Puoi offrire insight unici dalla ricerca sui clienti?
+- Hai storie di clienti a supporto di questo?
+- Questo porterà naturalmente a interesse per il prodotto?
+
+### 3. Potenziale di Ricerca (20%)
+- Qual è il volume di ricerca mensile?
+- Quanto è competitivo questo argomento?
+- Ci sono opportunità long-tail correlate?
+- L'interesse di ricerca è in crescita o in calo?
+
+### 4. Requisiti di Risorse (10%)
+- Hai l'esperienza per creare contenuti autorevoli?
+- Quale ricerca aggiuntiva è necessaria?
+- Quali asset (grafiche, dati, esempi) ti serviranno?
+
+### Modello di Valutazione
+
+| Idea | Impatto Cliente (40%) | Coerenza Contenuto-Mercato (30%) | Potenziale di Ricerca (20%) | Risorse (10%) | Totale |
 |------|----------------------|-------------------------|----------------------|-----------------|-------|
-| Topic A | 8 | 9 | 7 | 6 | 8.0 |
-| Topic B | 6 | 7 | 9 | 8 | 7.1 |
+| Argomento A | 8 | 9 | 7 | 6 | 8.0 |
+| Argomento B | 6 | 7 | 9 | 8 | 7.1 |
 
 ---
 
-## Output Format
+## Formato di Output
 
-When creating a content strategy, provide:
+Quando crei una strategia di contenuti, fornisci:
 
-### 1. Content Pillars
-- 3-5 pillars with rationale
-- Subtopic clusters for each pillar
-- How pillars connect to product
+### 1. Pilastri di Contenuto
+- 3-5 pilastri con motivazione
+- Cluster di sottoargomenti per ogni pilastro
+- Come i pilastri si collegano al prodotto
 
-### 2. Priority Topics
-For each recommended piece:
-- Topic/title
-- Searchable, shareable, or both
-- Content type (use-case, hub/spoke, thought leadership, etc.)
-- Target keyword and buyer stage
-- Why this topic (customer research backing)
+### 2. Argomenti Prioritari
+Per ogni pezzo consigliato:
+- Argomento/titolo
+- Ricercabile, condivisibile, o entrambi
+- Tipo di contenuto (caso d'uso, hub/spoke, thought leadership, ecc.)
+- Parola chiave target e fase dell'acquirente
+- Perché questo argomento (basato sulla ricerca sui clienti)
 
-### 3. Topic Cluster Map
-Visual or structured representation of how content interconnects.
-
----
-
-## Task-Specific Questions
-
-1. What patterns emerge from your last 10 customer conversations?
-2. What questions keep coming up in sales calls?
-3. Where are competitors' content efforts falling short?
-4. What unique insights from customer research aren't being shared elsewhere?
-5. Which existing content drives the most conversions, and why?
+### 3. Mappa dei Cluster di Argomenti
+Rappresentazione visiva o strutturata di come i contenuti si interconnettono.
 
 ---
 
-## References
+## Domande Specifiche per il Task
 
-- **[Headless CMS Guide](references/headless-cms.md)**: CMS selection, content modeling for marketing, editorial workflows, platform comparison (Sanity, Contentful, Strapi)
+1. Quali pattern emergono dalle tue ultime 10 conversazioni con i clienti?
+2. Quali domande continuano a emergere nelle chiamate di vendita?
+3. Dove gli sforzi di contenuto dei concorrenti risultano carenti?
+4. Quali insight unici dalla ricerca sui clienti non vengono condivisi altrove?
+5. Quale contenuto esistente genera più conversioni, e perché?
 
 ---
 
-## Related Skills
+## Riferimenti
 
-- **copywriting**: For writing individual content pieces
-- **seo-audit**: For technical SEO and on-page optimization
-- **ai-seo**: For optimizing content for AI search engines and getting cited by LLMs
-- **programmatic-seo**: For scaled content generation
-- **site-architecture**: For page hierarchy, navigation design, and URL structure
-- **emails**: For email-based content
-- **social**: For social media content
+- **[Guida ai Headless CMS](references/headless-cms.md)**: Selezione del CMS, modellazione dei contenuti per il marketing, flussi editoriali, comparazione delle piattaforme (Sanity, Contentful, Strapi)
+
+---
+
+## Skill Correlate
+
+- **copywriting**: Per scrivere singoli pezzi di contenuto
+- **seo-audit**: Per SEO tecnica e ottimizzazione on-page
+- **ai-seo**: Per ottimizzare i contenuti per i motori di ricerca IA e ottenere citazioni dagli LLM
+- **programmatic-seo**: Per la generazione di contenuti su larga scala
+- **site-architecture**: Per la gerarchia delle pagine, la navigazione e la struttura degli URL
+- **emails**: Per contenuti basati su email
+- **social**: Per contenuti sui social media

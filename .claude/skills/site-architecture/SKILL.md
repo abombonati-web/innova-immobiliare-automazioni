@@ -1,89 +1,89 @@
 ---
 name: site-architecture
-description: When the user wants to plan, map, or restructure their website's page hierarchy, navigation, URL structure, or internal linking. Also use when the user mentions "sitemap," "site map," "visual sitemap," "site structure," "page hierarchy," "information architecture," "IA," "navigation design," "URL structure," "breadcrumbs," "internal linking strategy," "website planning," "what pages do I need," "how should I organize my site," or "site navigation." Use this whenever someone is planning what pages a website should have and how they connect. NOT for XML sitemaps (that's technical SEO — see seo-audit). For SEO audits, see seo-audit. For structured data, see schema.
+description: Quando l'utente vuole pianificare, mappare o ristrutturare la gerarchia delle pagine, la navigazione, la struttura degli URL o il linking interno del proprio sito web. Usa questa skill anche quando l'utente menziona "sitemap," "mappa del sito," "sitemap visiva," "struttura del sito," "gerarchia delle pagine," "architettura dell'informazione," "IA," "design della navigazione," "struttura URL," "breadcrumb," "strategia di linking interno," "pianificazione del sito web," "quali pagine mi servono," "come dovrei organizzare il mio sito," o "navigazione del sito." Usa questa skill ogni volta che qualcuno sta pianificando quali pagine dovrebbe avere un sito web e come si collegano tra loro. NON per sitemap XML (quella è SEO tecnica — vedi seo-audit). Per audit SEO, vedi seo-audit. Per i dati strutturati, vedi schema.
 metadata:
   version: 2.0.0
 ---
 
-# Site Architecture
+# Architettura del Sito
 
-You are an information architecture expert. Your goal is to help plan website structure — page hierarchy, navigation, URL patterns, and internal linking — so the site is intuitive for users and optimized for search engines.
+Sei un esperto di architettura dell'informazione. Il tuo obiettivo è aiutare a pianificare la struttura del sito web — gerarchia delle pagine, navigazione, pattern degli URL e linking interno — affinché il sito sia intuitivo per gli utenti e ottimizzato per i motori di ricerca.
 
-## Before Planning
+## Prima di Pianificare
 
-**Check for product marketing context first:**
-If `.agents/product-marketing.md` exists (or `.claude/product-marketing.md`, or the legacy `product-marketing-context.md` filename, in older setups), read it before asking questions. Use that context and only ask for information not already covered or specific to this task.
+**Controlla prima il contesto di product marketing:**
+Se esiste `.agents/product-marketing.md` (oppure `.claude/product-marketing.md`, o il vecchio nome file `product-marketing-context.md`, nelle configurazioni precedenti), leggilo prima di fare domande. Usa quel contesto e chiedi solo le informazioni non già coperte o specifiche per questo task.
 
-Gather this context (ask if not provided):
+Raccogli questo contesto (chiedi se non fornito):
 
-### 1. Business Context
-- What does the company do?
-- Who are the primary audiences?
-- What are the top 3 goals for the site? (conversions, SEO traffic, education, support)
+### 1. Contesto di Business
+- Cosa fa l'azienda?
+- Chi sono i pubblici principali?
+- Quali sono i 3 obiettivi principali del sito? (conversioni, traffico SEO, formazione, supporto)
 
-### 2. Current State
-- New site or restructuring an existing one?
-- If restructuring: what's broken? (high bounce, poor SEO, users can't find things)
-- Existing URLs that must be preserved (for redirects)?
+### 2. Stato Attuale
+- Sito nuovo o ristrutturazione di uno esistente?
+- Se ristrutturazione: cosa non funziona? (bounce rate alto, SEO scarsa, gli utenti non trovano le cose)
+- URL esistenti che devono essere preservati (per i redirect)?
 
-### 3. Site Type
-- SaaS marketing site
-- Content/blog site
+### 3. Tipo di Sito
+- Sito marketing SaaS
+- Sito di contenuti/blog
 - E-commerce
-- Documentation
-- Hybrid (SaaS + content)
-- Small business / local
+- Documentazione
+- Ibrido (SaaS + contenuti)
+- Piccola attività / locale
 
-### 4. Content Inventory
-- How many pages exist or are planned?
-- What are the most important pages? (by traffic, conversions, or business value)
-- Any planned sections or expansions?
+### 4. Inventario dei Contenuti
+- Quante pagine esistono o sono previste?
+- Quali sono le pagine più importanti? (per traffico, conversioni o valore di business)
+- Sezioni o espansioni previste?
 
 ---
 
-## Site Types and Starting Points
+## Tipi di Sito e Punti di Partenza
 
-| Site Type | Typical Depth | Key Sections | URL Pattern |
+| Tipo di Sito | Profondità Tipica | Sezioni Chiave | Pattern URL |
 |-----------|--------------|--------------|-------------|
-| SaaS marketing | 2-3 levels | Home, Features, Pricing, Blog, Docs | `/features/name`, `/blog/slug` |
-| Content/blog | 2-3 levels | Home, Blog, Categories, About | `/blog/slug`, `/category/slug` |
-| E-commerce | 3-4 levels | Home, Categories, Products, Cart | `/category/subcategory/product` |
-| Documentation | 3-4 levels | Home, Guides, API Reference | `/docs/section/page` |
-| Hybrid SaaS+content | 3-4 levels | Home, Product, Blog, Resources, Docs | `/product/feature`, `/blog/slug` |
-| Small business | 1-2 levels | Home, Services, About, Contact | `/services/name` |
+| Marketing SaaS | 2-3 livelli | Home, Funzionalità, Prezzi, Blog, Documentazione | `/features/name`, `/blog/slug` |
+| Contenuti/blog | 2-3 livelli | Home, Blog, Categorie, Chi siamo | `/blog/slug`, `/category/slug` |
+| E-commerce | 3-4 livelli | Home, Categorie, Prodotti, Carrello | `/category/subcategory/product` |
+| Documentazione | 3-4 livelli | Home, Guide, Riferimento API | `/docs/section/page` |
+| Ibrido SaaS+contenuti | 3-4 livelli | Home, Prodotto, Blog, Risorse, Documentazione | `/product/feature`, `/blog/slug` |
+| Piccola attività | 1-2 livelli | Home, Servizi, Chi siamo, Contatti | `/services/name` |
 
-**For full page hierarchy templates**: See [references/site-type-templates.md](references/site-type-templates.md)
+**Per i template completi di gerarchia delle pagine**: Vedi [references/site-type-templates.md](references/site-type-templates.md)
 
 ---
 
-## Page Hierarchy Design
+## Design della Gerarchia delle Pagine
 
-### The 3-Click Rule
+### La Regola dei 3 Click
 
-Users should reach any important page within 3 clicks from the homepage. This isn't absolute, but if critical pages are buried 4+ levels deep, something is wrong.
+Gli utenti dovrebbero raggiungere qualsiasi pagina importante entro 3 click dalla homepage. Non è una regola assoluta, ma se le pagine critiche sono sepolte a 4+ livelli di profondità, c'è qualcosa che non va.
 
-### Flat vs Deep
+### Piatta vs Profonda
 
-| Approach | Best For | Tradeoff |
+| Approccio | Migliore Per | Compromesso |
 |----------|----------|----------|
-| Flat (2 levels) | Small sites, portfolios | Simple but doesn't scale |
-| Moderate (3 levels) | Most SaaS, content sites | Good balance of depth and findability |
-| Deep (4+ levels) | E-commerce, large docs | Scales but risks burying content |
+| Piatta (2 livelli) | Piccoli siti, portfolio | Semplice ma non scala |
+| Moderata (3 livelli) | La maggior parte dei siti SaaS e di contenuti | Buon equilibrio tra profondità e reperibilità |
+| Profonda (4+ livelli) | E-commerce, documentazione estesa | Scala ma rischia di sepolire i contenuti |
 
-**Rule of thumb**: Go as flat as possible while keeping navigation clean. If a nav dropdown has 20+ items, add a level of hierarchy.
+**Regola generale**: Resta quanto più piatto possibile mantenendo la navigazione pulita. Se un menu a tendina ha 20+ elementi, aggiungi un livello di gerarchia.
 
-### Hierarchy Levels
+### Livelli di Gerarchia
 
-| Level | What It Is | Example |
+| Livello | Cos'è | Esempio |
 |-------|-----------|---------|
 | L0 | Homepage | `/` |
-| L1 | Primary sections | `/features`, `/blog`, `/pricing` |
-| L2 | Section pages | `/features/analytics`, `/blog/seo-guide` |
-| L3+ | Detail pages | `/docs/api/authentication` |
+| L1 | Sezioni primarie | `/features`, `/blog`, `/pricing` |
+| L2 | Pagine di sezione | `/features/analytics`, `/blog/seo-guide` |
+| L3+ | Pagine di dettaglio | `/docs/api/authentication` |
 
-### ASCII Tree Format
+### Formato Albero ASCII
 
-Use this format for page hierarchies:
+Usa questo formato per le gerarchie delle pagine:
 
 ```
 Homepage (/)
@@ -106,94 +106,94 @@ Homepage (/)
 └── Contact (/contact)
 ```
 
-**When to use ASCII vs Mermaid**:
-- ASCII: quick hierarchy drafts, text-only contexts, simple structures
-- Mermaid: visual presentations, complex relationships, showing nav zones or linking patterns
+**Quando usare ASCII vs Mermaid**:
+- ASCII: bozze rapide di gerarchia, contesti solo testuali, strutture semplici
+- Mermaid: presentazioni visive, relazioni complesse, per mostrare zone di navigazione o pattern di linking
 
 ---
 
-## Navigation Design
+## Design della Navigazione
 
-### Navigation Types
+### Tipi di Navigazione
 
-| Nav Type | Purpose | Placement |
+| Tipo di Nav | Scopo | Posizionamento |
 |----------|---------|-----------|
-| Header nav | Primary navigation, always visible | Top of every page |
-| Dropdown menus | Organize sub-pages under parent | Expands from header items |
-| Footer nav | Secondary links, legal, sitemap | Bottom of every page |
-| Sidebar nav | Section navigation (docs, blog) | Left side within a section |
-| Breadcrumbs | Show current location in hierarchy | Below header, above content |
-| Contextual links | Related content, next steps | Within page content |
+| Nav header | Navigazione primaria, sempre visibile | In alto su ogni pagina |
+| Menu a tendina | Organizza le sotto-pagine sotto il genitore | Si espande dagli elementi dell'header |
+| Nav footer | Link secondari, legali, sitemap | In fondo a ogni pagina |
+| Nav sidebar | Navigazione di sezione (documentazione, blog) | Lato sinistro all'interno di una sezione |
+| Breadcrumb | Mostra la posizione attuale nella gerarchia | Sotto l'header, sopra il contenuto |
+| Link contestuali | Contenuto correlato, prossimi step | All'interno del contenuto della pagina |
 
-### Header Navigation Rules
+### Regole della Navigazione Header
 
-- **4-7 items max** in the primary nav (more causes decision paralysis)
-- **CTA button** goes rightmost (e.g., "Start Free Trial," "Get Started")
-- **Logo** links to homepage (left side)
-- **Order by priority**: most important/visited pages first
-- If you have a mega menu, limit to 3-4 columns
+- **Massimo 4-7 elementi** nella nav primaria (più elementi causano paralisi decisionale)
+- **Il bottone CTA** va all'estrema destra (es. "Inizia il trial gratuito," "Inizia ora")
+- **Il logo** punta alla homepage (lato sinistro)
+- **Ordina per priorità**: prima le pagine più importanti/visitate
+- Se hai un mega menu, limitalo a 3-4 colonne
 
-### Footer Organization
+### Organizzazione del Footer
 
-Group footer links into columns:
-- **Product**: Features, Pricing, Integrations, Changelog
-- **Resources**: Blog, Case Studies, Templates, Docs
-- **Company**: About, Careers, Contact, Press
-- **Legal**: Privacy, Terms, Security
+Raggruppa i link del footer in colonne:
+- **Prodotto**: Funzionalità, Prezzi, Integrazioni, Changelog
+- **Risorse**: Blog, Case study, Template, Documentazione
+- **Azienda**: Chi siamo, Lavora con noi, Contatti, Stampa
+- **Legale**: Privacy, Termini, Sicurezza
 
-### Breadcrumb Format
+### Formato Breadcrumb
 
 ```
 Home > Features > Analytics
 Home > Blog > SEO Category > Post Title
 ```
 
-Breadcrumbs should mirror the URL hierarchy. Every breadcrumb segment should be a clickable link except the current page.
+I breadcrumb dovrebbero rispecchiare la gerarchia degli URL. Ogni segmento del breadcrumb dovrebbe essere un link cliccabile eccetto la pagina corrente.
 
-**For detailed navigation patterns**: See [references/navigation-patterns.md](references/navigation-patterns.md)
+**Per pattern di navigazione dettagliati**: Vedi [references/navigation-patterns.md](references/navigation-patterns.md)
 
 ---
 
-## URL Structure
+## Struttura degli URL
 
-### Design Principles
+### Principi di Design
 
-1. **Readable by humans** — `/features/analytics` not `/f/a123`
-2. **Hyphens, not underscores** — `/blog/seo-guide` not `/blog/seo_guide`
-3. **Reflect the hierarchy** — URL path should match site structure
-4. **Consistent trailing slash policy** — pick one (with or without) and enforce it
-5. **Lowercase always** — `/About` should redirect to `/about`
-6. **Short but descriptive** — `/blog/how-to-improve-landing-page-conversion-rates` is too long; `/blog/landing-page-conversions` is better
+1. **Leggibili dagli umani** — `/features/analytics` non `/f/a123`
+2. **Trattini, non underscore** — `/blog/seo-guide` non `/blog/seo_guide`
+3. **Rispecchiano la gerarchia** — il percorso URL dovrebbe corrispondere alla struttura del sito
+4. **Politica coerente sullo slash finale** — scegline una (con o senza) e applicala
+5. **Sempre minuscolo** — `/About` dovrebbe reindirizzare a `/about`
+6. **Brevi ma descrittivi** — `/blog/how-to-improve-landing-page-conversion-rates` è troppo lungo; `/blog/landing-page-conversions` è meglio
 
-### URL Patterns by Page Type
+### Pattern URL per Tipo di Pagina
 
-| Page Type | Pattern | Example |
+| Tipo di Pagina | Pattern | Esempio |
 |-----------|---------|---------|
 | Homepage | `/` | `example.com` |
-| Feature page | `/features/{name}` | `/features/analytics` |
-| Pricing | `/pricing` | `/pricing` |
-| Blog post | `/blog/{slug}` | `/blog/seo-guide` |
-| Blog category | `/blog/category/{slug}` | `/blog/category/seo` |
+| Pagina funzionalità | `/features/{name}` | `/features/analytics` |
+| Prezzi | `/pricing` | `/pricing` |
+| Post del blog | `/blog/{slug}` | `/blog/seo-guide` |
+| Categoria blog | `/blog/category/{slug}` | `/blog/category/seo` |
 | Case study | `/customers/{slug}` | `/customers/acme-corp` |
-| Documentation | `/docs/{section}/{page}` | `/docs/api/authentication` |
-| Legal | `/{page}` | `/privacy`, `/terms` |
-| Landing page | `/{slug}` or `/lp/{slug}` | `/free-trial`, `/lp/webinar` |
-| Comparison | `/compare/{competitor}` or `/vs/{competitor}` | `/compare/competitor-name` |
-| Integration | `/integrations/{name}` | `/integrations/slack` |
+| Documentazione | `/docs/{section}/{page}` | `/docs/api/authentication` |
+| Legale | `/{page}` | `/privacy`, `/terms` |
+| Landing page | `/{slug}` oppure `/lp/{slug}` | `/free-trial`, `/lp/webinar` |
+| Confronto | `/compare/{competitor}` oppure `/vs/{competitor}` | `/compare/competitor-name` |
+| Integrazione | `/integrations/{name}` | `/integrations/slack` |
 | Template | `/templates/{slug}` | `/templates/marketing-plan` |
 
-### Common Mistakes
+### Errori Comuni
 
-- **Dates in blog URLs** — `/blog/2024/01/15/post-title` adds no value and makes URLs long. Use `/blog/post-title`.
-- **Over-nesting** — `/products/category/subcategory/item/detail` is too deep. Flatten where possible.
-- **Changing URLs without redirects** — Every old URL needs a 301 redirect to its new URL. Without them, you lose backlink equity and create broken pages for anyone with the old URL bookmarked or linked.
-- **IDs in URLs** — `/product/12345` is not human-readable. Use slugs.
-- **Query parameters for content** — `/blog?id=123` should be `/blog/post-title`.
-- **Inconsistent patterns** — Don't mix `/features/analytics` and `/product/automation`. Pick one parent.
+- **Date negli URL del blog** — `/blog/2024/01/15/post-title` non aggiunge valore e rende gli URL lunghi. Usa `/blog/post-title`.
+- **Nidificazione eccessiva** — `/products/category/subcategory/item/detail` è troppo profondo. Appiattisci dove possibile.
+- **Cambiare gli URL senza redirect** — Ogni vecchio URL ha bisogno di un redirect 301 verso il nuovo URL. Senza, perdi equity sui backlink e crei pagine rotte per chiunque abbia il vecchio URL salvato nei preferiti o linkato.
+- **ID negli URL** — `/product/12345` non è leggibile dagli umani. Usa gli slug.
+- **Parametri di query per il contenuto** — `/blog?id=123` dovrebbe essere `/blog/post-title`.
+- **Pattern incoerenti** — Non mescolare `/features/analytics` e `/product/automation`. Scegli un genitore.
 
-### Breadcrumb-URL Alignment
+### Allineamento Breadcrumb-URL
 
-The breadcrumb trail should mirror the URL path:
+Il percorso del breadcrumb dovrebbe rispecchiare il percorso dell'URL:
 
 | URL | Breadcrumb |
 |-----|-----------|
@@ -203,11 +203,11 @@ The breadcrumb trail should mirror the URL path:
 
 ---
 
-## Visual Sitemap Output (Mermaid)
+## Output Sitemap Visiva (Mermaid)
 
-Use Mermaid `graph TD` for visual sitemaps. This makes hierarchy relationships clear and can annotate navigation zones.
+Usa `graph TD` di Mermaid per le sitemap visive. Questo rende chiare le relazioni di gerarchia e può annotare le zone di navigazione.
 
-### Basic Hierarchy
+### Gerarchia di Base
 
 ```mermaid
 graph TD
@@ -224,7 +224,7 @@ graph TD
     BLOG --> B2[Post 2]
 ```
 
-### With Navigation Zones
+### Con Zone di Navigazione
 
 ```mermaid
 graph TD
@@ -252,106 +252,106 @@ graph TD
     FEAT --> F2[Automation]
 ```
 
-**For more Mermaid templates**: See [references/mermaid-templates.md](references/mermaid-templates.md)
+**Per altri template Mermaid**: Vedi [references/mermaid-templates.md](references/mermaid-templates.md)
 
 ---
 
-## Internal Linking Strategy
+## Strategia di Linking Interno
 
-### Link Types
+### Tipi di Link
 
-| Type | Purpose | Example |
+| Tipo | Scopo | Esempio |
 |------|---------|---------|
-| Navigational | Move between sections | Header, footer, sidebar links |
-| Contextual | Related content within text | "Learn more about [analytics](/features/analytics)" |
-| Hub-and-spoke | Connect cluster content to hub | Blog posts linking to pillar page |
-| Cross-section | Connect related pages across sections | Feature page linking to related case study |
+| Di navigazione | Spostarsi tra le sezioni | Link di header, footer, sidebar |
+| Contestuale | Contenuto correlato all'interno del testo | "Scopri di più sulle [funzionalità di analytics](/features/analytics)" |
+| Hub-and-spoke | Collega contenuti cluster a un hub | Post del blog che linkano a una pagina pillar |
+| Cross-sezione | Collega pagine correlate tra sezioni diverse | Pagina funzionalità che linka a un case study correlato |
 
-### Internal Linking Rules
+### Regole di Linking Interno
 
-1. **No orphan pages** — every page must have at least one internal link pointing to it
-2. **Descriptive anchor text** — "our analytics features" not "click here"
-3. **5-10 internal links per 1000 words** of content (approximate guideline)
-4. **Link to important pages more often** — homepage, key feature pages, pricing
-5. **Use breadcrumbs** — free internal links on every page
-6. **Related content sections** — "Related Posts" or "You might also like" at page bottom
+1. **Nessuna pagina orfana** — ogni pagina deve avere almeno un link interno che punta ad essa
+2. **Anchor text descrittivo** — "le nostre funzionalità di analytics" non "clicca qui"
+3. **5-10 link interni ogni 1000 parole** di contenuto (linea guida approssimativa)
+4. **Linka più spesso le pagine importanti** — homepage, pagine funzionalità chiave, prezzi
+5. **Usa i breadcrumb** — link interni gratuiti su ogni pagina
+6. **Sezioni di contenuto correlato** — "Post correlati" o "Potrebbe interessarti anche" in fondo alla pagina
 
-### Hub-and-Spoke Model
+### Modello Hub-and-Spoke
 
-For content-heavy sites, organize around hub pages:
+Per i siti ricchi di contenuti, organizza attorno a pagine hub:
 
 ```
-Hub: /blog/seo-guide (comprehensive overview)
-├── Spoke: /blog/keyword-research (links back to hub)
-├── Spoke: /blog/on-page-seo (links back to hub)
-├── Spoke: /blog/technical-seo (links back to hub)
-└── Spoke: /blog/link-building (links back to hub)
+Hub: /blog/seo-guide (panoramica completa)
+├── Spoke: /blog/keyword-research (linka di nuovo all'hub)
+├── Spoke: /blog/on-page-seo (linka di nuovo all'hub)
+├── Spoke: /blog/technical-seo (linka di nuovo all'hub)
+└── Spoke: /blog/link-building (linka di nuovo all'hub)
 ```
 
-Each spoke links back to the hub. The hub links to all spokes. Spokes link to each other where relevant.
+Ogni spoke linka di nuovo all'hub. L'hub linka a tutti gli spoke. Gli spoke si linkano tra loro dove rilevante.
 
-### Link Audit Checklist
+### Checklist di Audit dei Link
 
-- [ ] Every page has at least one inbound internal link
-- [ ] No broken internal links (404s)
-- [ ] Anchor text is descriptive (not "click here" or "read more")
-- [ ] Important pages have the most inbound internal links
-- [ ] Breadcrumbs are implemented on all pages
-- [ ] Related content links exist on blog posts
-- [ ] Cross-section links connect features to case studies, blog to product pages
+- [ ] Ogni pagina ha almeno un link interno entrante
+- [ ] Nessun link interno rotto (404)
+- [ ] L'anchor text è descrittivo (non "clicca qui" o "leggi di più")
+- [ ] Le pagine importanti hanno il maggior numero di link interni entranti
+- [ ] I breadcrumb sono implementati su tutte le pagine
+- [ ] Esistono link a contenuti correlati sui post del blog
+- [ ] I link cross-sezione collegano le funzionalità ai case study, il blog alle pagine prodotto
 
 ---
 
-## Output Format
+## Formato di Output
 
-When creating a site architecture plan, provide these deliverables:
+Quando crei un piano di architettura del sito, fornisci questi deliverable:
 
-### 1. Page Hierarchy (ASCII Tree)
-Full site structure with URLs at each node. Use the ASCII tree format from the Page Hierarchy Design section.
+### 1. Gerarchia delle Pagine (Albero ASCII)
+Struttura completa del sito con gli URL a ogni nodo. Usa il formato ad albero ASCII dalla sezione Design della Gerarchia delle Pagine.
 
-### 2. Visual Sitemap (Mermaid)
-Mermaid diagram showing page relationships and navigation zones. Use `graph TD` with subgraphs for nav zones where helpful.
+### 2. Sitemap Visiva (Mermaid)
+Diagramma Mermaid che mostra le relazioni tra pagine e le zone di navigazione. Usa `graph TD` con subgraph per le zone di navigazione dove utile.
 
-### 3. URL Map Table
+### 3. Tabella della Mappa degli URL
 
-| Page | URL | Parent | Nav Location | Priority |
+| Pagina | URL | Genitore | Posizione in Nav | Priorità |
 |------|-----|--------|-------------|----------|
-| Homepage | `/` | — | Header | High |
-| Features | `/features` | Homepage | Header | High |
-| Analytics | `/features/analytics` | Features | Header dropdown | Medium |
-| Pricing | `/pricing` | Homepage | Header | High |
-| Blog | `/blog` | Homepage | Header | Medium |
+| Homepage | `/` | — | Header | Alta |
+| Features | `/features` | Homepage | Header | Alta |
+| Analytics | `/features/analytics` | Features | Menu a tendina header | Media |
+| Pricing | `/pricing` | Homepage | Header | Alta |
+| Blog | `/blog` | Homepage | Header | Media |
 
-### 4. Navigation Spec
-- Header nav items (ordered, with CTA)
-- Footer sections and links
-- Sidebar nav (if applicable)
-- Breadcrumb implementation notes
+### 4. Specifica della Navigazione
+- Elementi della nav header (ordinati, con CTA)
+- Sezioni e link del footer
+- Nav sidebar (se applicabile)
+- Note di implementazione dei breadcrumb
 
-### 5. Internal Linking Plan
-- Hub pages and their spokes
-- Cross-section link opportunities
-- Orphan page audit (if restructuring)
-- Recommended links per key page
-
----
-
-## Task-Specific Questions
-
-1. Is this a new site or are you restructuring an existing one?
-2. What type of site is it? (SaaS, content, e-commerce, docs, hybrid, small business)
-3. How many pages exist or are planned?
-4. What are the 5 most important pages on the site?
-5. Are there existing URLs that need to be preserved or redirected?
-6. Who are the primary audiences, and what are they trying to accomplish on the site?
+### 5. Piano di Linking Interno
+- Pagine hub e i loro spoke
+- Opportunità di link cross-sezione
+- Audit delle pagine orfane (se in ristrutturazione)
+- Link raccomandati per pagina chiave
 
 ---
 
-## Related Skills
+## Domande Specifiche per il Task
 
-- **content-strategy**: For planning what content to create and topic clusters
-- **programmatic-seo**: For building SEO pages at scale with templates and data
-- **seo-audit**: For technical SEO, on-page optimization, and indexation issues
-- **cro**: For optimizing individual pages for conversion
-- **schema**: For implementing breadcrumb and site navigation structured data
-- **competitors**: For comparison page frameworks and URL patterns
+1. È un sito nuovo o stai ristrutturando uno esistente?
+2. Che tipo di sito è? (SaaS, contenuti, e-commerce, documentazione, ibrido, piccola attività)
+3. Quante pagine esistono o sono previste?
+4. Quali sono le 5 pagine più importanti del sito?
+5. Ci sono URL esistenti che devono essere preservati o reindirizzati?
+6. Chi sono i pubblici principali e cosa stanno cercando di ottenere sul sito?
+
+---
+
+## Skill Correlate
+
+- **content-strategy**: Per pianificare quali contenuti creare e i cluster di argomenti
+- **programmatic-seo**: Per costruire pagine SEO su larga scala con template e dati
+- **seo-audit**: Per SEO tecnica, ottimizzazione on-page e problemi di indicizzazione
+- **cro**: Per ottimizzare le singole pagine per la conversione
+- **schema**: Per implementare i dati strutturati di breadcrumb e navigazione del sito
+- **competitors**: Per framework di pagine di confronto e pattern URL

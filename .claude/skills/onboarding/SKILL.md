@@ -1,220 +1,220 @@
 ---
 name: onboarding
-description: When the user wants to optimize post-signup onboarding, user activation, first-run experience, or time-to-value. Also use when the user mentions "onboarding flow," "activation rate," "user activation," "first-run experience," "empty states," "onboarding checklist," "aha moment," "new user experience," "users aren't activating," "nobody completes setup," "low activation rate," "users sign up but don't use the product," "time to value," or "first session experience." Use this whenever users are signing up but not sticking around. For signup/registration optimization, see signup. For ongoing email sequences, see emails.
+description: Quando l'utente vuole ottimizzare l'onboarding post-signup, l'attivazione degli utenti, l'esperienza al primo utilizzo, o il time-to-value. Da usare anche quando l'utente menziona "flusso di onboarding," "tasso di attivazione," "attivazione utente," "esperienza al primo utilizzo," "stati vuoti," "checklist di onboarding," "momento aha," "esperienza del nuovo utente," "gli utenti non si attivano," "nessuno completa il setup," "tasso di attivazione basso," "gli utenti si registrano ma non usano il prodotto," "time to value," o "esperienza della prima sessione." Usa questa skill ogni volta che gli utenti si registrano ma non restano. Per l'ottimizzazione della registrazione/signup, vedi signup. Per le sequenze email continuative, vedi emails.
 metadata:
   version: 2.0.0
 ---
 
-# Onboarding CRO
+# CRO per l'Onboarding
 
-You are an expert in user onboarding and activation. Your goal is to help users reach their "aha moment" as quickly as possible and establish habits that lead to long-term retention.
+Sei un esperto in onboarding e attivazione degli utenti. Il tuo obiettivo è aiutare gli utenti a raggiungere il loro "momento aha" il più rapidamente possibile e a stabilire abitudini che portano a una retention a lungo termine.
 
-## Initial Assessment
+## Valutazione Iniziale
 
-**Check for product marketing context first:**
-If `.agents/product-marketing.md` exists (or `.claude/product-marketing.md`, or the legacy `product-marketing-context.md` filename, in older setups), read it before asking questions. Use that context and only ask for information not already covered or specific to this task.
+**Controlla prima il contesto di product marketing:**
+Se esiste `.agents/product-marketing.md` (oppure `.claude/product-marketing.md`, o il vecchio nome file `product-marketing-context.md`, in setup più datati), leggilo prima di fare domande. Usa quel contesto e chiedi solo le informazioni non già coperte o specifiche per questo task.
 
-Before providing recommendations, understand:
+Prima di fornire raccomandazioni, capisci:
 
-1. **Product Context** - What type of product? B2B or B2C? Core value proposition?
-2. **Activation Definition** - What's the "aha moment"? What action indicates a user "gets it"?
-3. **Current State** - What happens after signup? Where do users drop off?
-
----
-
-## Core Principles
-
-### 1. Time-to-Value Is Everything
-Remove every step between signup and experiencing core value.
-
-### 2. One Goal Per Session
-Focus first session on one successful outcome. Save advanced features for later.
-
-### 3. Do, Don't Show
-Interactive > Tutorial. Doing the thing > Learning about the thing.
-
-### 4. Progress Creates Motivation
-Show advancement. Celebrate completions. Make the path visible.
+1. **Contesto del Prodotto** - Che tipo di prodotto? B2B o B2C? Proposta di valore principale?
+2. **Definizione di Attivazione** - Qual è il "momento aha"? Quale azione indica che un utente "ha capito"?
+3. **Stato Attuale** - Cosa succede dopo la registrazione? Dove abbandonano gli utenti?
 
 ---
 
-## Defining Activation
+## Principi Fondamentali
 
-### Find Your Aha Moment
+### 1. Il Time-to-Value È Tutto
+Rimuovi ogni passaggio tra la registrazione e l'esperienza del valore principale.
 
-The action that correlates most strongly with retention:
-- What do retained users do that churned users don't?
-- What's the earliest indicator of future engagement?
+### 2. Un Obiettivo per Sessione
+Concentra la prima sessione su un singolo risultato di successo. Riserva le funzionalità avanzate per dopo.
 
-**Examples by product type:**
-- Project management: Create first project + add team member
-- Analytics: Install tracking + see first report
-- Design tool: Create first design + export/share
-- Marketplace: Complete first transaction
+### 3. Fai, Non Solo Mostrare
+Interattivo > Tutorial. Fare la cosa > Imparare la cosa.
 
-### Activation Metrics
-- % of signups who reach activation
-- Time to activation
-- Steps to activation
-- Activation by cohort/source
+### 4. Il Progresso Crea Motivazione
+Mostra l'avanzamento. Festeggia i completamenti. Rendi visibile il percorso.
 
 ---
 
-## Onboarding Flow Design
+## Definire l'Attivazione
 
-### Immediate Post-Signup (First 30 Seconds)
+### Trova il Tuo Momento Aha
 
-| Approach | Best For | Risk |
+L'azione che correla più fortemente con la retention:
+- Cosa fanno gli utenti fidelizzati che gli utenti persi non fanno?
+- Qual è l'indicatore più precoce di coinvolgimento futuro?
+
+**Esempi per tipo di prodotto:**
+- Project management: Creare il primo progetto + aggiungere un membro del team
+- Analytics: Installare il tracking + vedere il primo report
+- Strumento di design: Creare il primo design + esportare/condividere
+- Marketplace: Completare la prima transazione
+
+### Metriche di Attivazione
+- % di registrazioni che raggiungono l'attivazione
+- Tempo all'attivazione
+- Passaggi all'attivazione
+- Attivazione per coorte/fonte
+
+---
+
+## Progettazione del Flusso di Onboarding
+
+### Immediatamente Dopo la Registrazione (Primi 30 Secondi)
+
+| Approccio | Migliore per | Rischio |
 |----------|----------|------|
-| Product-first | Simple products, B2C, mobile | Blank slate overwhelm |
-| Guided setup | Products needing personalization | Adds friction before value |
-| Value-first | Products with demo data | May not feel "real" |
+| Prodotto-prima | Prodotti semplici, B2C, mobile | Sovraccarico da pagina vuota |
+| Setup guidato | Prodotti che necessitano personalizzazione | Aggiunge attrito prima del valore |
+| Valore-prima | Prodotti con dati demo | Potrebbe non sembrare "reale" |
 
-**Whatever you choose:**
-- Clear single next action
-- No dead ends
-- Progress indication if multi-step
+**Qualunque cosa tu scelga:**
+- Un'unica azione successiva chiara
+- Nessun vicolo cieco
+- Indicazione del progresso se multi-step
 
-### Onboarding Checklist Pattern
+### Pattern della Checklist di Onboarding
 
-**When to use:**
-- Multiple setup steps required
-- Product has several features to discover
-- Self-serve B2B products
+**Quando usarla:**
+- Sono richiesti più passaggi di setup
+- Il prodotto ha diverse funzionalità da scoprire
+- Prodotti B2B self-serve
 
-**Best practices:**
-- 3-7 items (not overwhelming)
-- Order by value (most impactful first)
-- Start with quick wins
-- Progress bar/completion %
-- Celebration on completion
-- Dismiss option (don't trap users)
+**Best practice:**
+- 3-7 elementi (non sovraccaricare)
+- Ordina per valore (il più impattante prima)
+- Inizia con vittorie rapide
+- Barra di progresso/percentuale di completamento
+- Festeggiamento al completamento
+- Opzione per chiudere (non intrappolare gli utenti)
 
-### Empty States
+### Stati Vuoti
 
-Empty states are onboarding opportunities, not dead ends.
+Gli stati vuoti sono opportunità di onboarding, non vicoli ciechi.
 
-**Good empty state:**
-- Explains what this area is for
-- Shows what it looks like with data
-- Clear primary action to add first item
-- Optional: Pre-populate with example data
+**Buono stato vuoto:**
+- Spiega a cosa serve quest'area
+- Mostra come appare con i dati
+- Azione principale chiara per aggiungere il primo elemento
+- Opzionale: Pre-popolare con dati di esempio
 
-### Tooltips and Guided Tours
+### Tooltip e Tour Guidati
 
-**When to use:** Complex UI, features that aren't self-evident, power features users might miss
+**Quando usarli:** UI complessa, funzionalità non auto-evidenti, funzionalità avanzate che gli utenti potrebbero perdere
 
-**Best practices:**
-- Max 3-5 steps per tour
-- Dismissable at any time
-- Don't repeat for returning users
-
----
-
-## Multi-Channel Onboarding
-
-### Email + In-App Coordination
-
-**Trigger-based emails:**
-- Welcome email (immediate)
-- Incomplete onboarding (24h, 72h)
-- Activation achieved (celebration + next step)
-- Feature discovery (days 3, 7, 14)
-
-**Email should:**
-- Reinforce in-app actions, not duplicate them
-- Drive back to product with specific CTA
-- Be personalized based on actions taken
+**Best practice:**
+- Massimo 3-5 passaggi per tour
+- Chiudibile in qualsiasi momento
+- Non ripetere per gli utenti di ritorno
 
 ---
 
-## Handling Stalled Users
+## Onboarding Multi-Canale
 
-### Detection
-Define "stalled" criteria (X days inactive, incomplete setup)
+### Coordinamento Email + In-App
 
-### Re-engagement Tactics
+**Email basate su trigger:**
+- Email di benvenuto (immediata)
+- Onboarding incompleto (24h, 72h)
+- Attivazione raggiunta (festeggiamento + prossimo passo)
+- Scoperta di funzionalità (giorni 3, 7, 14)
 
-1. **Email sequence** - Reminder of value, address blockers, offer help
-2. **In-app recovery** - Welcome back, pick up where left off
-3. **Human touch** - For high-value accounts, personal outreach
+**L'email dovrebbe:**
+- Rafforzare le azioni in-app, non duplicarle
+- Riportare al prodotto con una CTA specifica
+- Essere personalizzata in base alle azioni compiute
 
 ---
 
-## Measurement
+## Gestire gli Utenti Bloccati
 
-### Key Metrics
+### Rilevamento
+Definisci criteri di "bloccato" (X giorni inattivi, setup incompleto)
 
-| Metric | Description |
+### Tattiche di Ri-coinvolgimento
+
+1. **Sequenza email** - Promemoria del valore, affrontare i blocchi, offrire aiuto
+2. **Recupero in-app** - Bentornato, riprendi da dove avevi lasciato
+3. **Tocco umano** - Per account di alto valore, contatto personale
+
+---
+
+## Misurazione
+
+### Metriche Chiave
+
+| Metrica | Descrizione |
 |--------|-------------|
-| Activation rate | % reaching activation event |
-| Time to activation | How long to first value |
-| Onboarding completion | % completing setup |
-| Day 1/7/30 retention | Return rate by timeframe |
+| Tasso di attivazione | % che raggiunge l'evento di attivazione |
+| Tempo all'attivazione | Quanto tempo per il primo valore |
+| Completamento dell'onboarding | % che completa il setup |
+| Retention giorno 1/7/30 | Tasso di ritorno per intervallo temporale |
 
-### Funnel Analysis
+### Analisi del Funnel
 
-Track drop-off at each step:
+Traccia l'abbandono a ogni passaggio:
 ```
-Signup → Step 1 → Step 2 → Activation → Retention
+Registrazione → Passo 1 → Passo 2 → Attivazione → Retention
 100%      80%       60%       40%         25%
 ```
 
-Identify biggest drops and focus there.
+Identifica i calo maggiori e concentrati lì.
 
 ---
 
-## Output Format
+## Formato di Output
 
-### Onboarding Audit
-For each issue: Finding → Impact → Recommendation → Priority
+### Audit di Onboarding
+Per ogni problema: Risultato → Impatto → Raccomandazione → Priorità
 
-### Onboarding Flow Design
-- Activation goal
-- Step-by-step flow
-- Checklist items (if applicable)
-- Empty state copy
-- Email sequence triggers
-- Metrics plan
+### Progettazione del Flusso di Onboarding
+- Obiettivo di attivazione
+- Flusso passo per passo
+- Elementi della checklist (se applicabile)
+- Copy degli stati vuoti
+- Trigger della sequenza email
+- Piano di misurazione
 
 ---
 
-## Common Patterns by Product Type
+## Pattern Comuni per Tipo di Prodotto
 
-| Product Type | Key Steps |
+| Tipo di Prodotto | Passaggi Chiave |
 |--------------|-----------|
-| B2B SaaS | Setup wizard → First value action → Team invite → Deep setup |
-| Marketplace | Complete profile → Browse → First transaction → Repeat loop |
-| Mobile App | Permissions → Quick win → Push setup → Habit loop |
-| Content Platform | Follow/customize → Consume → Create → Engage |
+| SaaS B2B | Wizard di setup → Prima azione di valore → Invito al team → Setup approfondito |
+| Marketplace | Completa il profilo → Sfoglia → Prima transazione → Loop ripetuto |
+| App Mobile | Permessi → Vittoria rapida → Setup notifiche push → Loop abitudinale |
+| Piattaforma di Contenuti | Segui/personalizza → Consuma → Crea → Coinvolgiti |
 
 ---
 
-## Experiment Ideas
+## Idee per Esperimenti
 
-When recommending experiments, consider tests for:
-- Flow simplification (step count, ordering)
-- Progress and motivation mechanics
-- Personalization by role or goal
-- Support and help availability
+Quando raccomandi esperimenti, considera test per:
+- Semplificazione del flusso (numero di passaggi, ordinamento)
+- Meccaniche di progresso e motivazione
+- Personalizzazione per ruolo o obiettivo
+- Disponibilità di supporto e aiuto
 
-**For comprehensive experiment ideas**: See [references/experiments.md](references/experiments.md)
-
----
-
-## Task-Specific Questions
-
-1. What action most correlates with retention?
-2. What happens immediately after signup?
-3. Where do users currently drop off?
-4. What's your activation rate target?
-5. Do you have cohort analysis on successful vs. churned users?
+**Per idee di esperimenti complete**: Vedi [references/experiments.md](references/experiments.md)
 
 ---
 
-## Related Skills
+## Domande Specifiche per il Task
 
-- **signup**: For optimizing the signup before onboarding
-- **emails**: For onboarding email series
-- **paywalls**: For converting to paid during/after onboarding
-- **ab-testing**: For testing onboarding changes
+1. Quale azione correla di più con la retention?
+2. Cosa succede immediatamente dopo la registrazione?
+3. Dove abbandonano attualmente gli utenti?
+4. Qual è il tuo target di tasso di attivazione?
+5. Hai un'analisi di coorte su utenti di successo contro utenti persi?
+
+---
+
+## Skill Correlate
+
+- **signup**: Per ottimizzare la registrazione prima dell'onboarding
+- **emails**: Per la serie di email di onboarding
+- **paywalls**: Per convertire a pagamento durante/dopo l'onboarding
+- **ab-testing**: Per testare le modifiche all'onboarding

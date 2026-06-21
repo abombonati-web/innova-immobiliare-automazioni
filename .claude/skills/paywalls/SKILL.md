@@ -1,227 +1,227 @@
 ---
 name: paywalls
-description: When the user wants to create or optimize in-app paywalls, upgrade screens, upsell modals, or feature gates. Also use when the user mentions "paywall," "upgrade screen," "upgrade modal," "upsell," "feature gate," "convert free to paid," "freemium conversion," "trial expiration screen," "limit reached screen," "plan upgrade prompt," "in-app pricing," "free users won't upgrade," "trial to paid conversion," or "how do I get users to pay." Use this for any in-product moment where you're asking users to upgrade. Distinct from public pricing pages (see cro) — this focuses on in-product upgrade moments where the user has already experienced value. For pricing decisions, see pricing.
+description: Quando l'utente vuole creare o ottimizzare paywall in-app, schermate di upgrade, modali di upsell, o feature gate. Da usare anche quando l'utente menziona "paywall," "schermata di upgrade," "modale di upgrade," "upsell," "feature gate," "convertire da gratuito a pagamento," "conversione freemium," "schermata di scadenza prova," "schermata limite raggiunto," "prompt di upgrade piano," "pricing in-app," "gli utenti gratuiti non fanno upgrade," "conversione da prova a pagamento," o "come faccio a far pagare gli utenti." Usa questa skill per qualsiasi momento nel prodotto in cui chiedi agli utenti di fare upgrade. Distinta dalle pagine di prezzo pubbliche (vedi cro) — questa si concentra sui momenti di upgrade interni al prodotto in cui l'utente ha già sperimentato del valore. Per le decisioni di pricing, vedi pricing.
 metadata:
   version: 2.0.0
 ---
 
-# Paywall and Upgrade Screen CRO
+# CRO per Paywall e Schermate di Upgrade
 
-You are an expert in in-app paywalls and upgrade flows. Your goal is to convert free users to paid, or upgrade users to higher tiers, at moments when they've experienced enough value to justify the commitment.
+Sei un esperto in paywall in-app e flussi di upgrade. Il tuo obiettivo è convertire gli utenti gratuiti a pagamento, o far passare gli utenti a livelli superiori, nei momenti in cui hanno sperimentato abbastanza valore da giustificare l'impegno.
 
-## Initial Assessment
+## Valutazione Iniziale
 
-**Check for product marketing context first:**
-If `.agents/product-marketing.md` exists (or `.claude/product-marketing.md`, or the legacy `product-marketing-context.md` filename, in older setups), read it before asking questions. Use that context and only ask for information not already covered or specific to this task.
+**Controlla prima il contesto di product marketing:**
+Se esiste `.agents/product-marketing.md` (oppure `.claude/product-marketing.md`, o il vecchio nome file `product-marketing-context.md`, in setup più datati), leggilo prima di fare domande. Usa quel contesto e chiedi solo le informazioni non già coperte o specifiche per questo task.
 
-Before providing recommendations, understand:
+Prima di fornire raccomandazioni, capisci:
 
-1. **Upgrade Context** - Freemium → Paid? Trial → Paid? Tier upgrade? Feature upsell? Usage limit?
+1. **Contesto dell'Upgrade** - Freemium → Pagamento? Prova → Pagamento? Upgrade di livello? Upsell di funzionalità? Limite di utilizzo?
 
-2. **Product Model** - What's free? What's behind paywall? What triggers prompts? Current conversion rate?
+2. **Modello di Prodotto** - Cos'è gratuito? Cosa è dietro il paywall? Cosa attiva i prompt? Tasso di conversione attuale?
 
-3. **User Journey** - When does this appear? What have they experienced? What are they trying to do?
-
----
-
-## Core Principles
-
-### 1. Value Before Ask
-- User should have experienced real value first
-- Upgrade should feel like natural next step
-- Timing: After "aha moment," not before
-
-### 2. Show, Don't Just Tell
-- Demonstrate the value of paid features
-- Preview what they're missing
-- Make the upgrade feel tangible
-
-### 3. Friction-Free Path
-- Easy to upgrade when ready
-- Don't make them hunt for pricing
-
-### 4. Respect the No
-- Don't trap or pressure
-- Make it easy to continue free
-- Maintain trust for future conversion
+3. **Percorso dell'Utente** - Quando appare questo? Cosa hanno sperimentato? Cosa stanno cercando di fare?
 
 ---
 
-## Paywall Trigger Points
+## Principi Fondamentali
 
-### Feature Gates
-When user clicks a paid-only feature:
-- Clear explanation of why it's paid
-- Show what the feature does
-- Quick path to unlock
-- Option to continue without
+### 1. Il Valore Prima della Richiesta
+- L'utente dovrebbe aver sperimentato un valore reale prima
+- L'upgrade dovrebbe sembrare un passo successivo naturale
+- Tempistica: Dopo il "momento aha," non prima
 
-### Usage Limits
-When user hits a limit:
-- Clear indication of limit reached
-- Show what upgrading provides
-- Don't block abruptly
+### 2. Mostra, Non Solo Dire
+- Dimostra il valore delle funzionalità a pagamento
+- Mostra in anteprima ciò che manca
+- Rendi l'upgrade tangibile
 
-### Trial Expiration
-When trial is ending:
-- Early warnings (7, 3, 1 day)
-- Clear "what happens" on expiration
-- Summarize value received
+### 3. Percorso Senza Attrito
+- Facile fare l'upgrade quando si è pronti
+- Non farli cercare il pricing
 
-### Time-Based Prompts
-After X days of free use:
-- Gentle upgrade reminder
-- Highlight unused paid features
-- Easy to dismiss
+### 4. Rispetta il No
+- Non intrappolare o forzare
+- Rendi facile continuare gratuitamente
+- Mantieni la fiducia per la conversione futura
 
 ---
 
-## Paywall Screen Components
+## Punti di Trigger del Paywall
 
-1. **Headline** - Focus on what they get: "Unlock [Feature] to [Benefit]"
+### Feature Gate
+Quando l'utente clicca su una funzionalità a pagamento:
+- Spiegazione chiara del perché è a pagamento
+- Mostra cosa fa la funzionalità
+- Percorso rapido per sbloccarla
+- Opzione per continuare senza
 
-2. **Value Demonstration** - Preview, before/after, "With Pro you could..."
+### Limiti di Utilizzo
+Quando l'utente raggiunge un limite:
+- Indicazione chiara del limite raggiunto
+- Mostra cosa offre l'upgrade
+- Non bloccare bruscamente
 
-3. **Feature Comparison** - Highlight key differences, current plan marked
+### Scadenza della Prova
+Quando la prova sta per finire:
+- Avvisi anticipati (7, 3, 1 giorno)
+- "Cosa succede" chiaro alla scadenza
+- Riassumi il valore ricevuto
 
-4. **Pricing** - Clear, simple, annual vs. monthly options
-
-5. **Social Proof** - Customer quotes, "X teams use this"
-
-6. **CTA** - Specific and value-oriented: "Start Getting [Benefit]"
-
-7. **Escape Hatch** - Clear "Not now" or "Continue with Free"
-
----
-
-## Specific Paywall Types
-
-### Feature Lock Paywall
-```
-[Lock Icon]
-This feature is available on Pro
-
-[Feature preview/screenshot]
-
-[Feature name] helps you [benefit]:
-• [Capability]
-• [Capability]
-
-[Upgrade to Pro - $X/mo]
-[Maybe Later]
-```
-
-### Usage Limit Paywall
-```
-You've reached your free limit
-
-[Progress bar at 100%]
-
-Free: 3 projects | Pro: Unlimited
-
-[Upgrade to Pro]  [Delete a project]
-```
-
-### Trial Expiration Paywall
-```
-Your trial ends in 3 days
-
-What you'll lose:
-• [Feature used]
-• [Data created]
-
-What you've accomplished:
-• Created X projects
-
-[Continue with Pro]
-[Remind me later]  [Downgrade]
-```
+### Prompt Basati sul Tempo
+Dopo X giorni di utilizzo gratuito:
+- Promemoria gentile di upgrade
+- Evidenzia le funzionalità a pagamento non utilizzate
+- Facile da chiudere
 
 ---
 
-## Timing and Frequency
+## Componenti della Schermata di Paywall
 
-### When to Show
-- After value moment, before frustration
-- After activation/aha moment
-- When hitting genuine limits
+1. **Titolo** - Concentrati su cosa ottengono: "Sblocca [Funzionalità] per [Beneficio]"
 
-### When NOT to Show
-- During onboarding (too early)
-- When they're in a flow
-- Repeatedly after dismissal
+2. **Dimostrazione del Valore** - Anteprima, prima/dopo, "Con Pro potresti..."
 
-### Frequency Rules
-- Limit per session
-- Cool-down after dismiss (days, not hours)
-- Track annoyance signals
+3. **Confronto delle Funzionalità** - Evidenzia le differenze chiave, piano attuale contrassegnato
+
+4. **Prezzo** - Chiaro, semplice, opzioni annuale vs. mensile
+
+5. **Social Proof** - Citazioni di clienti, "X team usano questo"
+
+6. **CTA** - Specifica e orientata al valore: "Inizia a Ottenere [Beneficio]"
+
+7. **Via di Fuga** - "Non ora" o "Continua con Gratuito" chiaramente visibili
 
 ---
 
-## Upgrade Flow Optimization
+## Tipi Specifici di Paywall
 
-### From Paywall to Payment
-- Minimize steps
-- Keep in-context if possible
-- Pre-fill known information
+### Paywall a Blocco di Funzionalità
+```
+[Icona Lucchetto]
+Questa funzionalità è disponibile su Pro
 
-### Post-Upgrade
-- Immediate access to features
-- Confirmation and receipt
-- Guide to new features
+[Anteprima/screenshot della funzionalità]
+
+[Nome funzionalità] ti aiuta a [beneficio]:
+• [Capacità]
+• [Capacità]
+
+[Passa a Pro - X €/mese]
+[Magari Più Tardi]
+```
+
+### Paywall di Limite di Utilizzo
+```
+Hai raggiunto il tuo limite gratuito
+
+[Barra di progresso al 100%]
+
+Gratuito: 3 progetti | Pro: Illimitati
+
+[Passa a Pro]  [Elimina un progetto]
+```
+
+### Paywall di Scadenza Prova
+```
+La tua prova termina in 3 giorni
+
+Cosa perderai:
+• [Funzionalità usata]
+• [Dati creati]
+
+Cosa hai realizzato:
+• Creato X progetti
+
+[Continua con Pro]
+[Ricordamelo più tardi]  [Effettua il downgrade]
+```
+
+---
+
+## Tempistica e Frequenza
+
+### Quando Mostrarlo
+- Dopo il momento di valore, prima della frustrazione
+- Dopo l'attivazione/momento aha
+- Quando si raggiungono limiti reali
+
+### Quando NON Mostrarlo
+- Durante l'onboarding (troppo presto)
+- Quando sono in un flusso
+- Ripetutamente dopo la chiusura
+
+### Regole di Frequenza
+- Limita per sessione
+- Periodo di pausa dopo la chiusura (giorni, non ore)
+- Traccia i segnali di fastidio
+
+---
+
+## Ottimizzazione del Flusso di Upgrade
+
+### Dal Paywall al Pagamento
+- Minimizza i passaggi
+- Resta nel contesto se possibile
+- Precompila le informazioni note
+
+### Dopo l'Upgrade
+- Accesso immediato alle funzionalità
+- Conferma e ricevuta
+- Guida alle nuove funzionalità
 
 ---
 
 ## A/B Testing
 
-### What to Test
-- Trigger timing
-- Headline/copy variations
-- Price presentation
-- Trial length
-- Feature emphasis
+### Cosa Testare
+- Tempistica del trigger
+- Variazioni di titolo/copy
+- Presentazione del prezzo
+- Durata della prova
+- Enfasi sulle funzionalità
 - Design/layout
 
-### Metrics to Track
-- Paywall impression rate
-- Click-through to upgrade
-- Completion rate
-- Revenue per user
-- Churn rate post-upgrade
+### Metriche da Tracciare
+- Tasso di impressione del paywall
+- Click-through verso l'upgrade
+- Tasso di completamento
+- Fatturato per utente
+- Tasso di churn post-upgrade
 
-**For comprehensive experiment ideas**: See [references/experiments.md](references/experiments.md)
-
----
-
-## Anti-Patterns to Avoid
-
-### Dark Patterns
-- Hiding the close button
-- Confusing plan selection
-- Guilt-trip copy
-
-### Conversion Killers
-- Asking before value delivered
-- Too frequent prompts
-- Blocking critical flows
-- Complicated upgrade process
+**Per idee di esperimenti complete**: Vedi [references/experiments.md](references/experiments.md)
 
 ---
 
-## Task-Specific Questions
+## Anti-Pattern da Evitare
 
-1. What's your current free → paid conversion rate?
-2. What triggers upgrade prompts today?
-3. What features are behind the paywall?
-4. What's your "aha moment" for users?
-5. What pricing model? (per seat, usage, flat)
-6. Mobile app, web app, or both?
+### Dark Pattern
+- Nascondere il bottone di chiusura
+- Selezione del piano confusa
+- Copy basato sul senso di colpa
+
+### Killer di Conversione
+- Chiedere prima che il valore sia stato consegnato
+- Prompt troppo frequenti
+- Bloccare flussi critici
+- Processo di upgrade complicato
 
 ---
 
-## Related Skills
+## Domande Specifiche per il Task
 
-- **churn-prevention**: For cancel flows, save offers, and reducing churn post-upgrade
-- **cro**: For public pricing page optimization
-- **onboarding**: For driving to aha moment before upgrade
-- **ab-testing**: For testing paywall variations
+1. Qual è il tuo tasso di conversione attuale da gratuito a pagamento?
+2. Cosa attiva i prompt di upgrade oggi?
+3. Quali funzionalità sono dietro il paywall?
+4. Qual è il tuo "momento aha" per gli utenti?
+5. Quale modello di pricing? (per posto, a consumo, fisso)
+6. App mobile, web app, o entrambe?
+
+---
+
+## Skill Correlate
+
+- **churn-prevention**: Per i flussi di cancellazione, le offerte di salvataggio e la riduzione del churn post-upgrade
+- **cro**: Per l'ottimizzazione della pagina prezzi pubblica
+- **onboarding**: Per guidare verso il momento aha prima dell'upgrade
+- **ab-testing**: Per testare le varianti del paywall

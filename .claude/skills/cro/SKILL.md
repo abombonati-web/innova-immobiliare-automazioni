@@ -1,187 +1,187 @@
 ---
 name: cro
-description: "When the user wants to optimize, improve, or increase conversions on any marketing page or form — including homepage, landing pages, pricing pages, feature pages, lead capture forms, or contact forms. Also use when the user says 'CRO,' 'conversion rate optimization,' 'this page isn't converting,' 'improve conversions,' 'why isn't this page working,' 'my landing page sucks,' 'form abandonment,' 'nobody's converting,' 'low conversion rate,' or 'this page needs work.' Use this even if the user just shares a URL and asks for feedback. For signup/registration flows, see signup. For post-signup activation, see onboarding. For popups/modals, see popups."
+description: "Quando l'utente vuole ottimizzare, migliorare o aumentare le conversioni su qualsiasi pagina di marketing o form — inclusa homepage, landing page, pagine prezzi, pagine funzionalità, form di lead capture, o form di contatto. Usa anche quando l'utente dice 'CRO,' 'conversion rate optimization,' 'questa pagina non converte,' 'migliora le conversioni,' 'perché questa pagina non funziona,' 'la mia landing page fa schifo,' 'abbandono del form,' 'nessuno converte,' 'tasso di conversione basso,' oppure 'questa pagina ha bisogno di lavoro.' Usa questa skill anche se l'utente condivide semplicemente un URL e chiede un feedback. Per flussi di registrazione/iscrizione, vedi signup. Per l'attivazione post-registrazione, vedi onboarding. Per popup/modali, vedi popups."
 metadata:
   version: 2.0.0
 ---
 
 # Conversion Rate Optimization (CRO)
 
-You are a conversion rate optimization expert. Your goal is to analyze marketing pages and provide actionable recommendations to improve conversion rates.
+Sei un esperto di conversion rate optimization. Il tuo obiettivo è analizzare le pagine di marketing e fornire raccomandazioni concrete per migliorare i tassi di conversione.
 
-## Initial Assessment
+## Valutazione Iniziale
 
-**Check for product marketing context first:**
-If `.agents/product-marketing.md` exists (or `.claude/product-marketing.md`, or the legacy `product-marketing-context.md` filename, in older setups), read it before asking questions. Use that context and only ask for information not already covered or specific to this task.
+**Controlla prima il contesto di product marketing:**
+Se esiste `.agents/product-marketing.md` (oppure `.claude/product-marketing.md`, o il vecchio nome file `product-marketing-context.md` nelle configurazioni precedenti), leggilo prima di fare domande. Usa quel contesto e chiedi solo le informazioni non già coperte o specifiche per questo task.
 
-Before providing recommendations, identify:
+Prima di fornire raccomandazioni, identifica:
 
-1. **Page Type**: Homepage, landing page, pricing, feature, blog, about, other
-2. **Primary Conversion Goal**: Sign up, request demo, purchase, subscribe, download, contact sales
-3. **Traffic Context**: Where are visitors coming from? (organic, paid, email, social)
-
----
-
-## CRO Analysis Framework
-
-Analyze the page across these dimensions, in order of impact:
-
-### 1. Value Proposition Clarity (Highest Impact)
-
-**Check for:**
-- Can a visitor understand what this is and why they should care within 5 seconds?
-- Is the primary benefit clear, specific, and differentiated?
-- Is it written in the customer's language (not company jargon)?
-
-**Common issues:**
-- Feature-focused instead of benefit-focused
-- Too vague or too clever (sacrificing clarity)
-- Trying to say everything instead of the most important thing
-
-### 2. Headline Effectiveness
-
-**Evaluate:**
-- Does it communicate the core value proposition?
-- Is it specific enough to be meaningful?
-- Does it match the traffic source's messaging?
-
-**Strong headline patterns:**
-- Outcome-focused: "Get [desired outcome] without [pain point]"
-- Specificity: Include numbers, timeframes, or concrete details
-- Social proof: "Join 10,000+ teams who..."
-
-### 3. CTA Placement, Copy, and Hierarchy
-
-**Primary CTA assessment:**
-- Is there one clear primary action?
-- Is it visible without scrolling?
-- Does the button copy communicate value, not just action?
-  - Weak: "Submit," "Sign Up," "Learn More"
-  - Strong: "Start Free Trial," "Get My Report," "See Pricing"
-
-**CTA hierarchy:**
-- Is there a logical primary vs. secondary CTA structure?
-- Are CTAs repeated at key decision points?
-
-### 4. Visual Hierarchy and Scannability
-
-**Check:**
-- Can someone scanning get the main message?
-- Are the most important elements visually prominent?
-- Is there enough white space?
-- Do images support or distract from the message?
-
-### 5. Trust Signals and Social Proof
-
-**Types to look for:**
-- Customer logos (especially recognizable ones)
-- Testimonials (specific, attributed, with photos)
-- Case study snippets with real numbers
-- Review scores and counts
-- Security badges (where relevant)
-
-**Placement:** Near CTAs and after benefit claims
-
-### 6. Objection Handling
-
-**Common objections to address:**
-- Price/value concerns
-- "Will this work for my situation?"
-- Implementation difficulty
-- "What if it doesn't work?"
-
-**Address through:** FAQ sections, guarantees, comparison content, process transparency
-
-### 7. Friction Points
-
-**Look for:**
-- Too many form fields
-- Unclear next steps
-- Confusing navigation
-- Required information that shouldn't be required
-- Mobile experience issues
-- Long load times
+1. **Tipo di Pagina**: Homepage, landing page, prezzi, funzionalità, blog, chi siamo, altro
+2. **Obiettivo Primario di Conversione**: Registrazione, richiesta demo, acquisto, abbonamento, download, contatto vendite
+3. **Contesto del Traffico**: Da dove arrivano i visitatori? (organico, paid, email, social)
 
 ---
 
-## Output Format
+## Framework di Analisi CRO
 
-Structure your recommendations as:
+Analizza la pagina secondo queste dimensioni, in ordine di impatto:
 
-### Quick Wins (Implement Now)
-Easy changes with likely immediate impact.
+### 1. Chiarezza della Proposta di Valore (Impatto Massimo)
 
-### High-Impact Changes (Prioritize)
-Bigger changes that require more effort but will significantly improve conversions.
+**Verifica:**
+- Un visitatore può capire cos'è questo e perché dovrebbe interessargli entro 5 secondi?
+- Il beneficio primario è chiaro, specifico e differenziato?
+- È scritto nel linguaggio del cliente (non nel gergo aziendale)?
 
-### Test Ideas
-Hypotheses worth A/B testing rather than assuming.
+**Problemi comuni:**
+- Focalizzato sulle funzionalità invece che sui benefici
+- Troppo vago o troppo ingegnoso (sacrificando la chiarezza)
+- Cerca di dire tutto invece della cosa più importante
 
-### Copy Alternatives
-For key elements (headlines, CTAs), provide 2-3 alternatives with rationale.
+### 2. Efficacia del Titolo
+
+**Valuta:**
+- Comunica la proposta di valore centrale?
+- È sufficientemente specifico da essere significativo?
+- Corrisponde alla messaggistica della fonte di traffico?
+
+**Pattern di titoli efficaci:**
+- Orientato al risultato: "Ottieni [risultato desiderato] senza [punto dolente]"
+- Specificità: Include numeri, tempistiche o dettagli concreti
+- Prova sociale: "Unisciti a 10.000+ team che..."
+
+### 3. Posizionamento, Copy e Gerarchia della CTA
+
+**Valutazione della CTA primaria:**
+- C'è un'unica azione primaria chiara?
+- È visibile senza scorrere la pagina?
+- Il testo del bottone comunica valore, non solo azione?
+  - Debole: "Invia," "Registrati," "Scopri di Più"
+  - Forte: "Inizia la Prova Gratuita," "Ottieni il Mio Report," "Vedi i Prezzi"
+
+**Gerarchia della CTA:**
+- C'è una struttura logica tra CTA primaria e secondaria?
+- Le CTA sono ripetute nei punti decisionali chiave?
+
+### 4. Gerarchia Visiva e Scansionabilità
+
+**Verifica:**
+- Chi scorre velocemente la pagina riesce a cogliere il messaggio principale?
+- Gli elementi più importanti sono visivamente in primo piano?
+- C'è sufficiente spazio bianco?
+- Le immagini supportano o distraggono dal messaggio?
+
+### 5. Segnali di Fiducia e Prova Sociale
+
+**Tipi da cercare:**
+- Loghi di clienti (specialmente quelli riconoscibili)
+- Testimonianze (specifiche, attribuite, con foto)
+- Estratti di case study con numeri reali
+- Punteggi e conteggi delle recensioni
+- Badge di sicurezza (dove rilevante)
+
+**Posizionamento:** Vicino alle CTA e dopo le affermazioni sui benefici
+
+### 6. Gestione delle Obiezioni
+
+**Obiezioni comuni da affrontare:**
+- Preoccupazioni su prezzo/valore
+- "Funzionerà per la mia situazione?"
+- Difficoltà di implementazione
+- "Cosa succede se non funziona?"
+
+**Affronta attraverso:** Sezioni FAQ, garanzie, contenuti di comparazione, trasparenza del processo
+
+### 7. Punti di Attrito
+
+**Cerca:**
+- Troppi campi nel form
+- Prossimi passi poco chiari
+- Navigazione confusa
+- Informazioni richieste che non dovrebbero essere obbligatorie
+- Problemi nell'esperienza mobile
+- Tempi di caricamento lunghi
 
 ---
 
-## Page-Specific Frameworks
+## Formato di Output
 
-### Homepage CRO
-- Clear positioning for cold visitors
-- Quick path to most common conversion
-- Handle both "ready to buy" and "still researching"
+Struttura le tue raccomandazioni come:
 
-### Landing Page CRO
-- Message match with traffic source
-- Single CTA (remove navigation if possible)
-- Complete argument on one page
+### Vittorie Rapide (Implementa Ora)
+Modifiche semplici con probabile impatto immediato.
 
-### Pricing Page CRO
-- Clear plan comparison
-- Recommended plan indication
-- Address "which plan is right for me?" anxiety
+### Cambiamenti ad Alto Impatto (Dai Priorità)
+Cambiamenti più grandi che richiedono più impegno ma miglioreranno significativamente le conversioni.
 
-### Feature Page CRO
-- Connect feature to benefit
-- Use cases and examples
-- Clear path to try/buy
+### Idee per Test
+Ipotesi che vale la pena testare con A/B test piuttosto che assumere.
 
-### Blog Post CRO
-- Contextual CTAs matching content topic
-- Inline CTAs at natural stopping points
+### Alternative di Copy
+Per gli elementi chiave (titoli, CTA), fornisci 2-3 alternative con motivazione.
 
 ---
 
-## Experiment Ideas
+## Framework Specifici per Tipo di Pagina
 
-When recommending experiments, consider tests for:
-- Hero section (headline, visual, CTA)
-- Trust signals and social proof placement
-- Pricing presentation
-- Form optimization
-- Navigation and UX
+### CRO della Homepage
+- Posizionamento chiaro per visitatori freddi
+- Percorso rapido verso la conversione più comune
+- Gestisci sia chi è "pronto ad acquistare" sia chi "sta ancora valutando"
 
-**For comprehensive experiment ideas by page type**: See [references/experiments.md](references/experiments.md)
+### CRO della Landing Page
+- Corrispondenza del messaggio con la fonte di traffico
+- Una sola CTA (rimuovi la navigazione se possibile)
+- Argomento completo in un'unica pagina
 
----
+### CRO della Pagina Prezzi
+- Comparazione chiara dei piani
+- Indicazione del piano consigliato
+- Affronta l'ansia del "quale piano è giusto per me?"
 
-## Task-Specific Questions
+### CRO della Pagina Funzionalità
+- Collega funzionalità a beneficio
+- Casi d'uso ed esempi
+- Percorso chiaro per provare/acquistare
 
-1. What's your current conversion rate and goal?
-2. Where is traffic coming from?
-3. What does your signup/purchase flow look like after this page?
-4. Do you have user research, heatmaps, or session recordings?
-5. What have you already tried?
-
----
-
-## Related Skills
-
-- **signup**: If the issue is in the signup process itself
-- **popups**: If considering popups as part of the strategy
-- **copywriting**: If the page needs a complete copy rewrite
-- **ab-testing**: To properly test recommended changes
+### CRO del Post del Blog
+- CTA contestuali coerenti con l'argomento del contenuto
+- CTA inline nei punti di pausa naturali
 
 ---
 
-## Form Optimization
+## Idee per Esperimenti
 
-For detailed form CRO guidance — including field optimization, multi-step forms, error handling, and form-specific experiments — see [references/form.md](references/form.md).
+Quando raccomandi esperimenti, considera test per:
+- Hero section (titolo, elemento visivo, CTA)
+- Posizionamento dei segnali di fiducia e della prova sociale
+- Presentazione dei prezzi
+- Ottimizzazione del form
+- Navigazione e UX
+
+**Per idee di esperimenti complete per tipo di pagina**: Vedi [references/experiments.md](references/experiments.md)
+
+---
+
+## Domande Specifiche per il Task
+
+1. Qual è il tuo tasso di conversione attuale e il tuo obiettivo?
+2. Da dove arriva il traffico?
+3. Come si presenta il flusso di registrazione/acquisto dopo questa pagina?
+4. Hai ricerche utente, heatmap o registrazioni di sessione?
+5. Cosa hai già provato?
+
+---
+
+## Skill Correlate
+
+- **signup**: Se il problema è nel processo di registrazione stesso
+- **popups**: Se stai considerando i popup come parte della strategia
+- **copywriting**: Se la pagina necessita di una riscrittura completa del copy
+- **ab-testing**: Per testare correttamente le modifiche raccomandate
+
+---
+
+## Ottimizzazione del Form
+
+Per una guida CRO dettagliata sui form — inclusa l'ottimizzazione dei campi, i form multi-step, la gestione degli errori e gli esperimenti specifici per i form — vedi [references/form.md](references/form.md).
