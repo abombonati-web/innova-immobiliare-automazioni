@@ -16,22 +16,48 @@
 **Modello di business:** Commissioni su compravendita/locazione. Partnership strategiche: WEUNIT (prequalifica reddituale acquirenti), Agente Strategico (formazione del team).
 
 ## Pubblico Target
-**Clienti target:** Proprietari privati che vogliono vendere o affittare casa a Palermo e zone limitrofe (residenziale); proprietari di immobili commerciali (es. locali commerciali). Obiettivo dichiarato di espansione nel mercato nazionale e USA.
+Innova si rivolge a due segmenti di clientela con esigenze diverse:
 
-**Decision-maker:** Tipicamente il proprietario stesso o la coppia/famiglia proprietaria dell'immobile.
+1. **Proprietari venditori/locatori** — privati che vogliono vendere o affittare casa a Palermo e zone limitrofe (residenziale), o proprietari di immobili commerciali.
+2. **Investitori** — in particolare investitori flip/ristrutturazione (acquistano per ristrutturare e rivendere a plusvalenza) e investitori esteri/internazionali (in linea con l'obiettivo dichiarato di espansione nel mercato nazionale e USA).
 
-**Caso d'uso primario:** Vendere (o affittare) il proprio immobile al miglior prezzo possibile, nel minor tempo possibile, con il minimo stress e la minima differenza tra prezzo richiesto e prezzo di vendita reale.
+**Decision-maker:**
+- Proprietari venditori: tipicamente il proprietario stesso o la coppia/famiglia proprietaria dell'immobile.
+- Investitori: l'investitore stesso o, per gli stranieri, spesso tramite un referente/consulente locale di fiducia.
 
-**Jobs to be done:**
+**Caso d'uso primario:**
+- Proprietari venditori: vendere (o affittare) il proprio immobile al miglior prezzo possibile, nel minor tempo possibile, con il minimo stress e la minima differenza tra prezzo richiesto e prezzo di vendita reale.
+- Investitori: trovare immobili sottovalutati o con buon potenziale di rivalutazione a Palermo da ristrutturare e rivendere (o, per gli stranieri, da acquistare a distanza con fiducia), con supporto nella gestione anche dopo l'acquisto.
+
+**Jobs to be done (proprietari venditori):**
 - Vendere casa senza dover gestire da solo burocrazia, trattative e documentazione
 - Massimizzare il prezzo di vendita riducendo lo scostamento dal prezzo richiesto
 - Vendere in tempi rapidi (idealmente già al primo appuntamento con un acquirente)
 - Avere fiducia che l'agenzia verifichi la solidità finanziaria degli acquirenti prima di perdere tempo in trattative
 
+**Jobs to be done (investitori):**
+- Individuare immobili con buon margine tra prezzo di acquisto e potenziale post-ristrutturazione, prima che arrivino sui portali generalisti
+- Valutare a distanza (per gli stranieri) un mercato che non conoscono direttamente, affidandosi a un partner locale credibile
+- Non dover gestire di persona l'immobile dopo l'acquisto (locazione, manutenzione, rapporti con inquilini/ospiti)
+
 **Casi d'uso:**
 - Vendita di appartamenti/case nei quartieri storici e centrali di Palermo
 - Vendita/locazione di immobili commerciali (es. locali commerciali)
 - Valutazione gratuita dell'immobile (lead magnet presente sul sito: "Valuta il tuo Immobile")
+- Acquisto di immobili da ristrutturare nei quartieri storici di Palermo (es. Albergheria, Zisa) da parte di investitori flip
+- Acquisto a distanza da parte di investitori esteri, con gestione post-acquisto a cura di Innova
+
+## Persona
+| Persona | Cosa gli interessa | Sfida | Valore che promettiamo |
+|---------|---------------------|-------|--------------------------|
+| Proprietario venditore | Vendere al miglior prezzo, in fretta, senza stress | Paura di svendere; burocrazia; acquirenti non seri | Metodo Innova: +96% vendute al primo appuntamento, scostamento prezzo ridotto al 2% |
+| Investitore flip/ristrutturazione | Margine tra prezzo d'acquisto e valore post-ristrutturazione | Trovare deal validi prima della concorrenza; valutare il potenziale di rivalutazione della zona | Accesso a deal off-market in esclusiva nei quartieri storici di Palermo |
+| Investitore estero/internazionale | Investire con fiducia in un mercato che non conosce di persona | Distanza fisica, lingua, diffidenza verso un mercato non familiare | Partner locale affidabile + gestione completa post-acquisto (locazione, manutenzione) |
+
+## Offerta per Investitori
+Oltre ai servizi del Protocollo Innova (vedi sezione Servizi), per il segmento investitori Innova offre (o sta sviluppando):
+- **Deal off-market in esclusiva**: accesso a immobili non ancora pubblicati sui portali, individuati tramite la rete di contatti dell'agenzia — rilevante soprattutto per investitori flip che competono sul tempo
+- **Gestione post-acquisto**: supporto nella gestione dell'immobile dopo l'acquisto (locazione, manutenzione, affitti brevi) — rilevante soprattutto per investitori esteri che non possono gestire l'immobile di persona
 
 ## Zone di Competenza
 Quartieri di Palermo in cui Innova ha venduto immobili (zona favorita: Arenella): Arenella, Principe di Palagonia, Politeama, Libertà, Zisa, Albergheria, Sette Cannoli, Brancaccio.
@@ -48,12 +74,18 @@ Quartieri di Palermo in cui Innova ha venduto immobili (zona favorita: Arenella)
 
 **Tensione emotiva:** Ansia di "svendere" un patrimonio importante; paura di scegliere l'agenzia sbagliata e perdere tempo/opportunità.
 
+**Problema principale (investitori):** Trovare deal con margine reale prima che li trovi qualcun altro; per gli investitori esteri, il timore di investire "alla cieca" in un mercato e una città che non conoscono di persona.
+
+**Perché le alternative non bastano (investitori):** I portali generalisti mostrano tutti gli stessi immobili già pubblici, senza margine competitivo; agenzie locali senza rete di contatti o senza un referente affidabile per gestione post-acquisto a distanza.
+
+**Cosa costa loro (investitori):** Occasioni perse per lentezza nell'individuare i deal giusti; costi di gestione/manutenzione se devono occuparsene da soli o tramite intermediari non affidabili.
+
 ## Panorama Competitivo
-**Diretto:** Altre agenzie immobiliari tradizionali di Palermo — spesso non offrono un metodo strutturato né servizi tecnologici/fotografici di livello professionale incluso.
+**Diretto:** Altre agenzie immobiliari tradizionali di Palermo — spesso non offrono un metodo strutturato né servizi tecnologici/fotografici di livello professionale incluso, né un'offerta dedicata a investitori (deal off-market, gestione post-acquisto).
 
 **Secondario:** Vendita privata (FSBO) tra privati — manca competenza tecnica/finanziaria e potere negoziale.
 
-**Indiretto:** Portali immobiliari self-service (Idealista, Immobiliare.it) usati come canale fai-da-te — danno visibilità ma nessun supporto consulenziale, verifica acquirenti o metodo di vendita.
+**Indiretto:** Portali immobiliari self-service (Idealista, Immobiliare.it) usati come canale fai-da-te — danno visibilità ma nessun supporto consulenziale, verifica acquirenti, metodo di vendita, o accesso a deal non ancora pubblicati.
 
 ## Differenziazione — Il Metodo Innova
 **Differenziatori chiave:**
@@ -146,4 +178,5 @@ Rispetto, Professionalità, Trasparenza, Innovazione.
 
 **Note per chi aggiorna questo documento:**
 - Il fetch automatico del sito innovaimmobiliare.it è bloccato da una protezione anti-bot (403 su ogni pagina, anche con user-agent browser). I dati sito sono dedotti da snippet di ricerca; per dettagli più ricchi (annunci attivi, copy esatto delle pagine "Chi Siamo"/"Servizi") serve copiare il testo manualmente o fornire screenshot/PDF.
-- Sezioni "Persona" (multi-stakeholder B2B) e "Glossario termini di prodotto" del template standard sono state omesse perché non rilevanti per un'agenzia immobiliare B2C — eseguire `/product-marketing` per aggiungerle se servono in futuro (es. se si sviluppa un'offerta B2B per investitori/costruttori).
+- Il segmento "investitori" (flip/ristrutturazione + esteri) è stato aggiunto su indicazione diretta, con servizi dedicati (deal off-market, gestione post-acquisto) ancora da formalizzare operativamente — quando saranno definiti processi/numeri concreti (es. quanti deal off-market all'anno, condizioni della gestione post-acquisto), aggiornare questa sezione con dati reali invece che con la descrizione generica attuale.
+- Sezione "Glossario termini di prodotto" del template standard è stata omessa perché non ancora rilevante — eseguire `/product-marketing` per aggiungerla se serve in futuro.
