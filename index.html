@@ -1,0 +1,494 @@
+<title>Innova Experience — Villa Città Giardino</title>
+<style>
+  :root {
+    --stone: #E9EBE4;
+    --paper: #F5F6F1;
+    --ink: #1A2420;
+    --ink-soft: #4B564E;
+    --brass: #93672C;
+    --brass-bg: #E4D7BE;
+    --cypress: #2C4A38;
+    --cypress-bg: #DCE6DD;
+    --line: #D3D2C4;
+    --card: #FFFFFF;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --stone: #12160F;
+      --paper: #171C15;
+      --ink: #E8E6DC;
+      --ink-soft: #AFB6A9;
+      --brass: #D6A75C;
+      --brass-bg: #3A2F1A;
+      --cypress: #7FA98C;
+      --cypress-bg: #1F2E24;
+      --line: #2C332A;
+      --card: #1B211A;
+    }
+  }
+  :root[data-theme="dark"] {
+    --stone: #12160F;
+    --paper: #171C15;
+    --ink: #E8E6DC;
+    --ink-soft: #AFB6A9;
+    --brass: #D6A75C;
+    --brass-bg: #3A2F1A;
+    --cypress: #7FA98C;
+    --cypress-bg: #1F2E24;
+    --line: #2C332A;
+    --card: #1B211A;
+  }
+  :root[data-theme="light"] {
+    --stone: #E9EBE4;
+    --paper: #F5F6F1;
+    --ink: #1A2420;
+    --ink-soft: #4B564E;
+    --brass: #93672C;
+    --brass-bg: #E4D7BE;
+    --cypress: #2C4A38;
+    --cypress-bg: #DCE6DD;
+    --line: #D3D2C4;
+    --card: #FFFFFF;
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    background: var(--stone);
+    color: var(--ink);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 3rem 1.25rem 6rem;
+  }
+
+  .doc {
+    max-width: 46rem;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+  }
+
+  .mono {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    font-variant-numeric: tabular-nums;
+  }
+
+  .eyebrow {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    font-size: 0.72rem;
+    color: var(--brass);
+    font-weight: 600;
+  }
+
+  h1, h2, h3 {
+    font-family: Georgia, "Iowan Old Style", "Times New Roman", serif;
+    text-wrap: balance;
+    margin: 0;
+    color: var(--ink);
+  }
+
+  h1 { font-size: 2.1rem; font-weight: 400; letter-spacing: -0.01em; }
+  h2 { font-size: 1.35rem; font-weight: 400; margin-bottom: 0.9rem; }
+  h3 { font-size: 1.05rem; font-weight: 700; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; }
+
+  header.hero {
+    display: flex;
+    flex-direction: column;
+    gap: 1.1rem;
+    padding-bottom: 2rem;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .subtitle {
+    color: var(--ink-soft);
+    font-size: 1rem;
+  }
+
+  .stats {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-top: 0.4rem;
+  }
+
+  .stat {
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: 6px;
+    padding: 0.55rem 0.85rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.15rem;
+    min-width: 8.5rem;
+  }
+
+  .stat .label {
+    font-size: 0.68rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--ink-soft);
+  }
+
+  .stat .value {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    font-size: 0.95rem;
+    font-weight: 600;
+  }
+
+  section { display: flex; flex-direction: column; gap: 1rem; }
+
+  .lede-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+  }
+  .lede-list li {
+    padding-left: 1.1rem;
+    border-left: 2px solid var(--cypress);
+    color: var(--ink-soft);
+  }
+  .lede-list strong { color: var(--ink); }
+
+  .table-wrap { overflow-x: auto; border: 1px solid var(--line); border-radius: 8px; }
+
+  table { border-collapse: collapse; width: 100%; font-size: 0.9rem; }
+  thead th {
+    text-align: left;
+    font-size: 0.68rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--ink-soft);
+    padding: 0.7rem 0.9rem;
+    border-bottom: 1px solid var(--line);
+    background: var(--paper);
+  }
+  tbody td {
+    padding: 0.7rem 0.9rem;
+    border-bottom: 1px solid var(--line);
+    vertical-align: top;
+  }
+  tbody tr:last-child td { border-bottom: none; }
+  td.date { white-space: nowrap; font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace; }
+  td.day { white-space: nowrap; color: var(--ink-soft); }
+  .phase-tag {
+    display: inline-block;
+    font-size: 0.68rem;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    padding: 0.15rem 0.5rem;
+    border-radius: 4px;
+    white-space: nowrap;
+  }
+  .phase-1 { background: var(--brass-bg); color: var(--brass); }
+  .phase-2 { background: var(--cypress-bg); color: var(--cypress); }
+  .phase-3 { background: var(--brass-bg); color: var(--brass); }
+  .phase-4 { background: var(--cypress); color: var(--card); }
+  .phase-5 { background: var(--paper); color: var(--ink-soft); border: 1px solid var(--line); }
+  tr.milestone td { font-weight: 700; }
+
+  .asset-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+    gap: 0.75rem;
+  }
+  .asset-card {
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    padding: 0.9rem 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+  }
+  .asset-card .kind { font-size: 0.68rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--brass); }
+  .asset-card a { color: var(--ink); text-decoration: none; border-bottom: 1px solid var(--line); font-size: 0.92rem; }
+  .asset-card a:hover { border-color: var(--brass); }
+  .asset-card .meta { font-size: 0.78rem; color: var(--ink-soft); font-family: ui-monospace, monospace; }
+
+  .copy-card {
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    padding: 1.4rem 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .beat {
+    display: grid;
+    grid-template-columns: 5.5rem 1fr;
+    gap: 0.9rem;
+    align-items: start;
+  }
+  .beat .time {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    font-size: 0.78rem;
+    color: var(--brass);
+    padding-top: 0.15rem;
+  }
+  .beat .beat-label {
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--ink-soft);
+    display: block;
+    margin-bottom: 0.2rem;
+  }
+  .beat blockquote {
+    margin: 0.3rem 0 0;
+    padding-left: 0.9rem;
+    border-left: 2px solid var(--cypress);
+    font-style: italic;
+    color: var(--ink);
+  }
+
+  .msg-block {
+    background: var(--paper);
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    padding: 1.1rem 1.25rem;
+    font-size: 0.95rem;
+  }
+  .msg-block .msg-subject {
+    font-weight: 700;
+    margin-bottom: 0.6rem;
+    padding-bottom: 0.6rem;
+    border-bottom: 1px dashed var(--line);
+  }
+  .msg-block p { margin: 0.55rem 0; }
+
+  .field-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+  }
+  .field-chip {
+    font-size: 0.8rem;
+    background: var(--paper);
+    border: 1px solid var(--line);
+    border-radius: 5px;
+    padding: 0.25rem 0.6rem;
+    color: var(--ink-soft);
+  }
+
+  .callout {
+    border: 1px solid var(--brass);
+    background: var(--brass-bg);
+    color: var(--ink);
+    border-radius: 8px;
+    padding: 0.9rem 1.1rem;
+    font-size: 0.9rem;
+  }
+  .callout strong { color: var(--brass); }
+
+  footer {
+    border-top: 1px solid var(--line);
+    padding-top: 1.5rem;
+    color: var(--ink-soft);
+    font-size: 0.85rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  footer a { color: var(--brass); }
+
+  @media (max-width: 30rem) {
+    .beat { grid-template-columns: 1fr; }
+    .beat .time { padding-top: 0; }
+  }
+</style>
+
+<div class="doc">
+
+  <header class="hero">
+    <span class="eyebrow">Piano operativo campagna</span>
+    <h1>Villa Città Giardino</h1>
+    <p class="subtitle">Innova Experience · Viale Regione Siciliana 7800, Palermo · 12–29 luglio 2026</p>
+    <div class="stats">
+      <div class="stat"><span class="label">Prezzo ufficiale</span><span class="value">€ 720.000</span></div>
+      <div class="stat"><span class="label">Superficie</span><span class="value">468 mq + 2.000 mq parco</span></div>
+      <div class="stat"><span class="label">Evento</span><span class="value">Dom 26/7 · 18:00</span></div>
+      <div class="stat"><span class="label">Reveal prezzo</span><span class="value">+1h da fine evento</span></div>
+    </div>
+  </header>
+
+  <section>
+    <span class="eyebrow">L'offerta</span>
+    <h2>Cosa rende scarsa questa partecipazione</h2>
+    <ul class="lede-list">
+      <li><strong>Prezzo segreto ribassato</strong> — nessun prezzo comunicato in villa: viene svelato solo all'apertura della piattaforma digitale, 1 ora dopo la chiusura dell'evento</li>
+      <li><strong>Posti limitati</strong> — accesso solo su candidatura, non su prenotazione libera</li>
+      <li><strong>Offerta trasparente riservata</strong> — solo i registrati sulla piattaforma potranno vedere il prezzo e presentare un'offerta</li>
+    </ul>
+  </section>
+
+  <section>
+    <span class="eyebrow">Timeline</span>
+    <h2>Calendario campagna, 12–29 luglio</h2>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr><th>Data</th><th>Giorno</th><th>Fase</th><th>Azione</th></tr>
+        </thead>
+        <tbody>
+          <tr><td class="date">12/7</td><td class="day">Dom</td><td><span class="phase-tag phase-1">Teaser</span></td><td>Video teaser drone live (Reel + Stories), boost ads geolocalizzato Palermo. Niente prezzo, niente planimetria.</td></tr>
+          <tr><td class="date">13/7</td><td class="day">Lun</td><td><span class="phase-tag phase-1">Teaser</span></td><td>Stories dettaglio marmi/terrazza/giardino + sticker "Richiedi l'invito"</td></tr>
+          <tr><td class="date">14/7</td><td class="day">Mar</td><td><span class="phase-tag phase-1">Teaser</span></td><td>Post carosello aggiornato — slide prezzo corretta a €720.000</td></tr>
+          <tr class="milestone"><td class="date">15/7</td><td class="day">Mer</td><td><span class="phase-tag phase-2">Candidature</span></td><td>Apertura candidature — landing live, invio email/WhatsApp al CRM segmentato</td></tr>
+          <tr><td class="date">16/7</td><td class="day">Gio</td><td><span class="phase-tag phase-2">Candidature</span></td><td>Reel dietro le quinte (drone raw) con CTA candidatura</td></tr>
+          <tr><td class="date">17/7</td><td class="day">Ven</td><td><span class="phase-tag phase-2">Candidature</span></td><td>Retargeting ads su chi ha visitato la landing + chiamate dirette ai lead caldi CRM</td></tr>
+          <tr><td class="date">18–19/7</td><td class="day">Sab–Dom</td><td><span class="phase-tag phase-2">Candidature</span></td><td>Push weekend, countdown nelle Stories</td></tr>
+          <tr><td class="date">20/7</td><td class="day">Lun</td><td><span class="phase-tag phase-2">Candidature</span></td><td>Ads intensivo + chiamate ai lead indecisi</td></tr>
+          <tr><td class="date">21–22/7</td><td class="day">Mar–Mer</td><td><span class="phase-tag phase-2">Candidature</span></td><td>Ultimo giro di retargeting pesante</td></tr>
+          <tr class="milestone"><td class="date">23/7</td><td class="day">Gio</td><td><span class="phase-tag phase-3">Conferma</span></td><td>Chiusura candidature → selezione → invio conferme + regole evento + invio modulo di registrazione piattaforma</td></tr>
+          <tr><td class="date">24–25/7</td><td class="day">Ven–Sab</td><td><span class="phase-tag phase-3">Conferma</span></td><td>Reminder logistico (orario, indirizzo, cosa portare) + sollecito a chi non si è ancora registrato</td></tr>
+          <tr class="milestone"><td class="date">26/7</td><td class="day">Dom</td><td><span class="phase-tag phase-4">Evento</span></td><td>Innova Experience in villa, ore 18:00 — visita esclusiva. Nessun prezzo comunicato in loco.</td></tr>
+          <tr class="milestone"><td class="date">26/7</td><td class="day">Dom, +1h</td><td><span class="phase-tag phase-5">Reveal</span></td><td>Apertura piattaforma digitale, 1 ora dopo la chiusura dell'evento — <strong>è qui che viene svelato il prezzo ribassato</strong>, solo ai registrati</td></tr>
+          <tr><td class="date">27–29/7</td><td class="day">Lun–Mer</td><td><span class="phase-tag phase-5">Offerta</span></td><td>Finestra offerta trasparente di 72h indicative dall'apertura piattaforma</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section>
+    <span class="eyebrow">Materiali</span>
+    <h2>Asset multimediali (Google Drive)</h2>
+    <div class="asset-grid">
+      <div class="asset-card"><span class="kind">Video</span><a href="https://drive.google.com/file/d/1kJQBzSOi1oO4QlOU18PnmKAVx7AdrSX7/view">viale della regione 7800_YOUTUBE.mp4</a><span class="meta">417 MB</span></div>
+      <div class="asset-card"><span class="kind">Video</span><a href="https://drive.google.com/file/d/10achgtdEea4GnPkouYzxam7g639yv-4j/view">viale della regione 7800_IDEALISTA.mp4</a><span class="meta">241 MB</span></div>
+      <div class="asset-card"><span class="kind">Video</span><a href="https://drive.google.com/file/d/1oOJ7xYErjdzeHWi9q4TWeNR9yMXqXf37/view">Video Immersivo Viale Regione Siciliana 7800.mp4</a><span class="meta">32 MB</span></div>
+      <div class="asset-card"><span class="kind">Video grezzo</span><a href="https://drive.google.com/file/d/1AJLF8aCN2ypD10oIi_Lt_JHEuEPl1DOi/view">video innova .MOV</a><span class="meta">96 MB</span></div>
+      <div class="asset-card"><span class="kind">Carosello 1/6</span><a href="https://drive.google.com/file/d/1AtdVP2JSJAgJ6kOu6ZAfdbp-6bDacJ63/view">Copertina — "Scorri per il prezzo"</a></div>
+      <div class="asset-card"><span class="kind">Carosello 2/6</span><a href="https://drive.google.com/file/d/1Qm2ldbXBmGc307xVsDhE-DqA-EFK0vDr/view">Mappa / posizione</a></div>
+      <div class="asset-card"><span class="kind">Carosello 3/6</span><a href="https://drive.google.com/file/d/1bGXat6GnBhhG2pSLUNMZY0-NNmTxwmu5/view">Foto esterno</a></div>
+      <div class="asset-card"><span class="kind">Carosello 4/6</span><a href="https://drive.google.com/file/d/1kwbLZTIwqQN0qBGFWUOWncIQ8ktAl3h5/view">Slide prezzo — da correggere a €720.000</a></div>
+      <div class="asset-card"><span class="kind">Carosello 5/6</span><a href="https://drive.google.com/file/d/1Y3YXl6Ec97fh5VTqPQcoNLiPUBxs2Goh/view">Foto interni</a></div>
+      <div class="asset-card"><span class="kind">Carosello 6/6</span><a href="https://drive.google.com/file/d/1QGjsfe2GY3AtMKfEI08HBv0hCTwDNKiQ/view">Foto interni</a></div>
+    </div>
+    <div class="callout"><strong>Da fare prima del 14/7:</strong> aggiornare la slide 4 del carosello — mostra ancora €750.000, il prezzo ufficiale di campagna è €720.000.</div>
+  </section>
+
+  <section>
+    <span class="eyebrow">Script · Video teaser</span>
+    <h2>Reel/Stories, 20–25 sec</h2>
+    <div class="copy-card">
+      <div class="beat">
+        <span class="time">0–3s</span>
+        <div><span class="beat-label">Hook — drone in discesa sul residence</span>
+          <blockquote>"A Città Giardino, Palermo, sta per succedere qualcosa che non si è mai visto in una compravendita immobiliare."</blockquote>
+        </div>
+      </div>
+      <div class="beat">
+        <span class="time">4–9s</span>
+        <div><span class="beat-label">Curiosity gap — marmi, terrazza, giardino</span>
+          <blockquote>"Una villa signorile di 468 mq, in uno dei residence più esclusivi della città. Prezzo ufficiale: 720.000 euro."</blockquote>
+        </div>
+      </div>
+      <div class="beat">
+        <span class="time">10–16s</span>
+        <div><span class="beat-label">La svolta — testo a schermo pieno</span>
+          <blockquote>"Ma il prezzo cambierà. E lo scoprirai solo se sarai tra i partecipanti registrati, un'ora dopo la fine dell'evento."</blockquote>
+        </div>
+      </div>
+      <div class="beat">
+        <span class="time">17–22s</span>
+        <div><span class="beat-label">Scarsità + CTA</span>
+          <blockquote>"Posti limitati. Nessuna visita privata prima. Solo un accesso: l'Innova Experience." — CTA a schermo: "Candidati ora — link in bio"</blockquote>
+        </div>
+      </div>
+      <div class="beat">
+        <span class="time">23–25s</span>
+        <div><span class="beat-label">Chiusura</span>
+          <blockquote>Logo Innova + "Candidature aperte fino al 23 luglio."</blockquote>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <span class="eyebrow">Copy · Landing page</span>
+    <h2>Candidatura Innova Experience</h2>
+    <div class="copy-card">
+      <div>
+        <h3>Una villa a Città Giardino. Un prezzo che solo pochi conosceranno.</h3>
+        <p style="color:var(--ink-soft); margin-top:0.4rem;">Prezzo ufficiale: €720.000. Il prezzo cambierà — lo scoprirai sulla piattaforma riservata, all'apertura, 1 ora dopo la chiusura dell'evento, se sarai tra i partecipanti registrati.</p>
+      </div>
+      <div>
+        <h3>Cosa ottieni</h3>
+        <ul class="lede-list">
+          <li>Accesso esclusivo alla villa prima di chiunque altro</li>
+          <li>Reveal del prezzo riservato, svelato all'apertura della piattaforma, 1 ora dopo la chiusura dell'evento</li>
+          <li>Possibilità di presentare la tua offerta in modo trasparente, sulla piattaforma digitale riservata ai partecipanti</li>
+          <li>Registrazione riservata tramite modulo dedicato, per essere abilitato all'accesso alla piattaforma</li>
+        </ul>
+      </div>
+      <div>
+        <h3>Regole</h3>
+        <blockquote style="margin:0; padding-left:0.9rem; border-left:2px solid var(--cypress); color:var(--ink-soft);">I posti sono limitati e assegnati per candidatura, non per ordine di arrivo. Non stiamo vendendo visite: stiamo selezionando chi avrà accesso a un'opportunità che non si ripeterà. Le candidature chiudono il 23 luglio. Dopo quella data, non sarà più possibile partecipare.</blockquote>
+      </div>
+      <div>
+        <h3>Campi form</h3>
+        <div class="field-list">
+          <span class="field-chip">Nome</span>
+          <span class="field-chip">Cognome</span>
+          <span class="field-chip">Telefono</span>
+          <span class="field-chip">Email</span>
+          <span class="field-chip">Budget indicativo</span>
+          <span class="field-chip">Perché ti interessa questa villa?</span>
+        </div>
+      </div>
+      <div>
+        <h3>CTA e microcopy</h3>
+        <p><strong>Invia la tua candidatura →</strong></p>
+        <p style="color:var(--ink-soft); font-size:0.88rem;">Risposta entro 48h. Posti in esaurimento — [N] candidature ricevute su [totale] disponibili. Dopo la conferma riceverai il modulo di registrazione per l'accesso all'offerta trasparente.</p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <span class="eyebrow">Messaggio · 23 luglio</span>
+    <h2>Conferma partecipazione</h2>
+    <div class="msg-block">
+      <div class="msg-subject">Sei stato selezionato per l'Innova Experience — Villa Città Giardino</div>
+      <p>Ciao [Nome],</p>
+      <p>La tua candidatura è stata accettata: sei tra i partecipanti confermati dell'Innova Experience di domenica 26 luglio, ore 18:00, per la villa unifamiliare di Città Giardino (prezzo ufficiale €720.000).</p>
+      <p><strong>Cosa succede ora:</strong></p>
+      <p>1. Registrati sulla piattaforma riservata per essere abilitato all'offerta trasparente → <a href="https://www.innovaexperience.it/modulo">innovaexperience.it/modulo</a><br>
+      2. La registrazione va completata entro oggi, 23 luglio<br>
+      3. Il prezzo riservato non verrà comunicato durante la visita in villa: sarà svelato solo all'apertura della piattaforma, 1 ora dopo la chiusura dell'evento — solo i registrati potranno vederlo e presentare un'offerta</p>
+      <p><strong>Regole essenziali:</strong> nessun prezzo viene comunicato in villa; il prezzo ribassato viene svelato esclusivamente all'apertura della piattaforma, 1 ora dopo la fine dell'evento; le offerte saranno visibili in tempo reale a tutti i partecipanti registrati.</p>
+      <p>Ti aspettiamo domenica 26 luglio, ore 18:00, in Viale Regione Siciliana 7800, Palermo.<br>— Innova Immobiliare</p>
+    </div>
+  </section>
+
+  <section>
+    <span class="eyebrow">Messaggio · 24–25 luglio</span>
+    <h2>Reminder logistico</h2>
+    <div class="msg-block">
+      <div class="msg-subject">Ci vediamo domenica alle 18:00 — Innova Experience Villa Città Giardino</div>
+      <p>Ciao [Nome],</p>
+      <p>Manca pochissimo. Ecco tutto quello che ti serve sapere:</p>
+      <p><strong>Dove:</strong> Viale Regione Siciliana Nord Ovest 7800, Palermo (Residence Città Giardino)<br>
+      <strong>Quando:</strong> Domenica 26 luglio, ore 18:00 in punto<br>
+      <strong>Arrivo:</strong> 10–15 minuti prima — i posti sono nominali e verificati all'ingresso</p>
+      <p><strong>Cosa portare:</strong> documento d'identità (verifica accesso); smartphone, per seguire l'apertura della piattaforma un'ora dopo la chiusura dell'evento — è lì che scoprirai il prezzo riservato</p>
+      <p><strong>Se non hai ancora completato la registrazione</strong>, fallo oggi su <a href="https://www.innovaexperience.it/modulo">innovaexperience.it/modulo</a> — solo chi è registrato potrà vedere il prezzo e partecipare alla fase di offerta.</p>
+      <p>A domenica.<br>— Innova Immobiliare</p>
+    </div>
+  </section>
+
+  <footer>
+    <span>Registrazione piattaforma offerta trasparente tramite modulo esterno: <a href="https://www.innovaexperience.it/modulo">innovaexperience.it/modulo</a></span>
+    <span>Prezzo ufficiale di campagna: €720.000. Il prezzo ribassato resta riservato e viene svelato esclusivamente all'apertura della piattaforma, 1 ora dopo la chiusura dell'evento del 26/7.</span>
+  </footer>
+
+</div>
