@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Innova Experience — Villa Città Giardino | Innova Immobiliare</title>
+<meta name="description" content="Un evento esclusivo a numero chiuso. Visita la villa a Città Giardino il 22 e 23 luglio: solo i partecipanti scopriranno il nuovo prezzo ribassato e potranno fare la loro offerta.">
+
+<!-- ============================================================
+  META PIXEL — DA ATTIVARE PRIMA DEL LANCIO ADS
+  1. Sostituisci IL_TUO_PIXEL_ID con l'ID del Pixel Meta di Innova
+  2. Rimuovi i commenti <!- - e - -> attorno al blocco
+============================================================
+<script>
+!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
+document,'script','https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', 'IL_TUO_PIXEL_ID');
+fbq('track', 'PageView');
+</script>
+============================================================ -->
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --amber:#E8982A;
+  --amber-deep:#C97E15;
+  --charcoal:#4A4A4A;
+  --charcoal-deep:#2B2A28;
+  --cream:#FBF6EE;
+  --white:#FFFFFF;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:'Poppins',sans-serif;color:var(--charcoal);background:var(--cream);line-height:1.6}
+img{max-width:100%;display:block}
+a{color:inherit}
+
+.container{max-width:1080px;margin:0 auto;padding:0 24px}
+
+/* ---------- HERO ---------- */
+.hero{background:var(--charcoal-deep);color:var(--cream);padding:72px 0 88px;position:relative;overflow:hidden}
+.hero::after{content:"";position:absolute;right:-180px;top:-180px;width:520px;height:520px;border-radius:50%;
+  background:radial-gradient(circle, rgba(232,152,42,.22), transparent 65%);pointer-events:none}
+.eyebrow{display:inline-block;border:1px solid var(--amber);color:var(--amber);
+  font-size:.78rem;letter-spacing:.22em;text-transform:uppercase;font-weight:600;
+  padding:8px 18px;border-radius:999px;margin-bottom:28px}
+.hero h1{font-size:clamp(1.9rem,4.6vw,3.3rem);font-weight:700;line-height:1.18;max-width:20ch}
+.hero h1 em{font-style:normal;color:var(--amber)}
+.hero .sub{margin-top:22px;font-size:clamp(1rem,1.6vw,1.2rem);font-weight:300;max-width:56ch;color:#EDE6DA}
+
+/* prezzo segreto — elemento firma */
+.secret-price{margin:40px 0 8px;display:inline-flex;flex-direction:column;gap:6px;
+  background:rgba(255,255,255,.04);border:1px dashed rgba(232,152,42,.55);border-radius:14px;padding:20px 30px}
+.secret-price .label{font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;color:#BFB7AA;font-weight:500}
+.secret-price .value{font-size:clamp(1.8rem,4vw,2.6rem);font-weight:800;color:var(--amber);letter-spacing:.06em}
+.secret-price .note{font-size:.82rem;color:#D8D0C2;font-weight:300}
+
+.cta-row{margin-top:34px;display:flex;flex-wrap:wrap;gap:16px;align-items:center}
+.btn{display:inline-block;background:var(--amber);color:var(--charcoal-deep);font-weight:700;
+  font-size:1.02rem;padding:16px 36px;border-radius:999px;text-decoration:none;border:none;cursor:pointer;
+  transition:transform .15s ease, background .15s ease}
+.btn:hover{background:var(--amber-deep);transform:translateY(-2px)}
+.btn:focus-visible{outline:3px solid var(--cream);outline-offset:3px}
+.cta-row .hint{font-size:.85rem;color:#BFB7AA;font-weight:300}
+
+/* ---------- COUNTDOWN ---------- */
+.countdown-bar{background:var(--amber);color:var(--charcoal-deep);padding:20px 0}
+.countdown-inner{display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:14px 34px;text-align:center}
+.countdown-inner .cd-label{font-weight:600;font-size:.92rem;letter-spacing:.04em;text-transform:uppercase}
+.cd-units{display:flex;gap:18px}
+.cd-unit{min-width:64px}
+.cd-unit span{display:block}
+.cd-num{font-size:1.9rem;font-weight:800;line-height:1}
+.cd-txt{font-size:.68rem;letter-spacing:.14em;text-transform:uppercase;font-weight:600;opacity:.8}
+
+/* ---------- SEZIONI ---------- */
+section{padding:76px 0}
+.section-title{font-size:clamp(1.5rem,3vw,2.1rem);font-weight:700;color:var(--charcoal-deep);max-width:26ch}
+.section-title .accent{color:var(--amber)}
+.section-lead{margin-top:14px;font-weight:300;max-width:62ch}
+
+/* percorso 4 tappe */
+.steps{margin-top:48px;display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:22px}
+.step{background:var(--white);border-radius:16px;padding:28px 24px;border-top:4px solid var(--amber);
+  box-shadow:0 4px 18px rgba(74,74,74,.07)}
+.step .num{font-size:.75rem;font-weight:700;letter-spacing:.2em;color:var(--amber);text-transform:uppercase}
+.step h3{margin:10px 0 8px;font-size:1.05rem;font-weight:600;color:var(--charcoal-deep)}
+.step p{font-size:.92rem;font-weight:300}
+.step .when{display:inline-block;margin-top:12px;font-size:.78rem;font-weight:600;color:var(--charcoal-deep);
+  background:var(--cream);border-radius:999px;padding:5px 12px}
+
+/* dettagli evento */
+.event-grid{margin-top:44px;display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:22px}
+.event-card{background:var(--charcoal-deep);color:var(--cream);border-radius:16px;padding:30px 26px}
+.event-card h3{color:var(--amber);font-size:1rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase;margin-bottom:12px}
+.event-card p, .event-card li{font-weight:300;font-size:.95rem}
+.event-card ul{list-style:none;margin-top:4px}
+.event-card li{padding:7px 0;border-bottom:1px solid rgba(251,246,238,.12)}
+.event-card li:last-child{border-bottom:none}
+.event-card strong{font-weight:600;color:var(--white)}
+
+/* perché fidarsi */
+.trust{background:var(--white)}
+.trust-grid{margin-top:40px;display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:26px}
+.trust-item h3{font-size:1rem;font-weight:600;color:var(--charcoal-deep);margin-bottom:8px}
+.trust-item h3::before{content:"—";color:var(--amber);margin-right:10px;font-weight:800}
+.trust-item p{font-size:.92rem;font-weight:300}
+
+/* ---------- FORM ---------- */
+.form-section{background:var(--charcoal-deep);color:var(--cream)}
+.form-wrap{margin-top:40px;background:var(--white);border-radius:20px;padding:40px;color:var(--charcoal);
+  max-width:640px;box-shadow:0 10px 40px rgba(0,0,0,.25)}
+.form-wrap h3{color:var(--charcoal-deep);font-size:1.15rem;font-weight:700;margin-bottom:6px}
+.form-wrap .form-sub{font-size:.88rem;font-weight:300;margin-bottom:26px}
+.field{margin-bottom:18px}
+.field label{display:block;font-size:.8rem;font-weight:600;letter-spacing:.04em;margin-bottom:6px;color:var(--charcoal-deep)}
+.field input,.field select{width:100%;padding:13px 15px;border:1.5px solid #DDD5C8;border-radius:10px;
+  font-family:'Poppins',sans-serif;font-size:.95rem;color:var(--charcoal);background:var(--cream)}
+.field input:focus,.field select:focus{outline:2px solid var(--amber);border-color:var(--amber)}
+.consent{display:flex;gap:10px;align-items:flex-start;font-size:.78rem;font-weight:300;margin:22px 0}
+.consent input{margin-top:3px;accent-color:var(--amber)}
+.form-wrap .btn{width:100%;text-align:center}
+.form-msg{display:none;margin-top:18px;padding:16px;border-radius:10px;font-size:.9rem;font-weight:500}
+.form-msg.ok{display:block;background:#EFF7EC;color:#2F6B33;border:1px solid #BCDCB9}
+.form-msg.err{display:block;background:#FBEDEA;color:#9B3A2C;border:1px solid #ECC3BA}
+
+/* ---------- FOOTER ---------- */
+footer{background:#1F1E1C;color:#BFB7AA;padding:44px 0;font-size:.85rem;font-weight:300}
+.footer-inner{display:flex;flex-wrap:wrap;gap:20px 60px;justify-content:space-between;align-items:center}
+.footer-brand{color:var(--cream);font-weight:600;font-size:1rem}
+.footer-brand span{color:var(--amber)}
+.payoff{color:var(--amber);font-weight:500;letter-spacing:.04em}
+
+@media (prefers-reduced-motion:no-preference){
+  .reveal{opacity:0;transform:translateY(18px);transition:opacity .6s ease,transform .6s ease}
+  .reveal.in{opacity:1;transform:none}
+}
+@media (max-width:640px){
+  .hero{padding:56px 0 64px}
+  section{padding:56px 0}
+  .form-wrap{padding:28px 22px}
+}
+</style>
+</head>
+<body>
+
+<!-- ================= HERO ================= -->
+<header class="hero">
+  <div class="container">
+    <span class="eyebrow">Innova Experience · 22–23 luglio · Palermo</span>
+    <h1>Il nuovo prezzo di questa villa lo scopriranno <em>solo poche persone</em>.</h1>
+    <p class="sub">Una villa a Città Giardino sta per essere venduta in un modo mai visto a Palermo:
+    un evento esclusivo a numero chiuso, in soli due giorni di visita. Chi partecipa scopre il prezzo
+    ribassato e ottiene il diritto di fare la propria offerta, in totale trasparenza.</p>
+
+    <div class="secret-price" aria-label="Prezzo riservato ai partecipanti">
+      <span class="label">Nuovo prezzo ribassato</span>
+      <span class="value">€ ••• •••</span>
+      <span class="note">Verrà svelato venerdì 24 luglio, solo a chi avrà visitato la villa.</span>
+    </div>
+
+    <div class="cta-row">
+      <a class="btn" href="#candidatura">Candidati alla visita</a>
+      <span class="hint">Posti limitati · Candidature entro lunedì 20 luglio, mezzanotte</span>
+    </div>
+  </div>
+</header>
+
+<!-- ================= COUNTDOWN ================= -->
+<div class="countdown-bar" role="timer" aria-live="off">
+  <div class="container countdown-inner">
+    <span class="cd-label">Le candidature chiudono tra</span>
+    <div class="cd-units" id="countdown">
+      <div class="cd-unit"><span class="cd-num" id="cd-d">–</span><span class="cd-txt">giorni</span></div>
+      <div class="cd-unit"><span class="cd-num" id="cd-h">–</span><span class="cd-txt">ore</span></div>
+      <div class="cd-unit"><span class="cd-num" id="cd-m">–</span><span class="cd-txt">minuti</span></div>
+      <div class="cd-unit"><span class="cd-num" id="cd-s">–</span><span class="cd-txt">secondi</span></div>
+    </div>
+  </div>
+</div>
+
+<!-- ================= COME FUNZIONA ================= -->
+<section>
+  <div class="container">
+    <h2 class="section-title reveal">Un percorso in quattro tappe.<br><span class="accent">Chiaro dall'inizio alla fine.</span></h2>
+    <p class="section-lead reveal">Nessuna trattativa al buio, nessuna corsia preferenziale: le regole sono le stesse per tutti, dal primo giorno.</p>
+
+    <div class="steps">
+      <div class="step reveal">
+        <span class="num">Tappa 1</span>
+        <h3>Candidati</h3>
+        <p>Compila il modulo e scegli la fascia di visita che preferisci. Riceverai la conferma del tuo posto direttamente dal team Innova.</p>
+        <span class="when">Entro lun 20 luglio, mezzanotte</span>
+      </div>
+      <div class="step reveal">
+        <span class="num">Tappa 2</span>
+        <h3>Vivi la villa</h3>
+        <p>Due giornate di open house su prenotazione. Visiti la villa di persona con il nostro team, con consulenza mutuo direttamente in villa.</p>
+        <span class="when">Mer 22 · Gio 23 luglio</span>
+      </div>
+      <div class="step reveal">
+        <span class="num">Tappa 3</span>
+        <h3>Scopri il nuovo prezzo</h3>
+        <p>Venerdì mattina si apre la piattaforma digitale riservata ai partecipanti: è lì che viene svelato il prezzo ribassato.</p>
+        <span class="when">Ven 24 luglio, mattina</span>
+      </div>
+      <div class="step reveal">
+        <span class="num">Tappa 4</span>
+        <h3>Fai la tua offerta</h3>
+        <p>Per un periodo di tempo limitato, solo chi ha partecipato può presentare la propria offerta con un rilancio minimo. Tutte le offerte sono visibili sulla piattaforma, in totale trasparenza.</p>
+        <span class="when">Solo partecipanti</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= DETTAGLI EVENTO ================= -->
+<section style="padding-top:0">
+  <div class="container">
+    <div class="event-grid">
+      <div class="event-card reveal">
+        <h3>Le giornate di visita</h3>
+        <ul>
+          <li><strong>Mercoledì 22 luglio</strong> · 9:30–13:00 e 15:30–18:30</li>
+          <li><strong>Giovedì 23 luglio</strong> · 9:30–13:00 e 15:30–18:30</li>
+          <li>Visite su prenotazione, in piccoli gruppi</li>
+        </ul>
+      </div>
+      <div class="event-card reveal">
+        <h3>La villa</h3>
+        <p>Una proprietà esclusiva nel cuore di <strong>Città Giardino</strong>, una delle zone residenziali più ricercate.
+        Planimetrie, dettagli e documentazione completa sono riservati ai partecipanti: la scoprirai di persona,
+        accompagnato dal team Innova.</p>
+      </div>
+      <div class="event-card reveal">
+        <h3>In villa troverai</h3>
+        <ul>
+          <li>Il team Innova per ogni domanda tecnica e documentale</li>
+          <li>Consulenza finanziaria e pre-fattibilità mutuo sul posto</li>
+          <li>Documentazione e risposte immediate, senza attese</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= PERCHÉ COSÌ ================= -->
+<section class="trust">
+  <div class="container">
+    <h2 class="section-title reveal">Perché vendiamo così?<br><span class="accent">Perché la trasparenza premia tutti.</span></h2>
+    <div class="trust-grid">
+      <div class="trust-item reveal">
+        <h3>Offerte visibili</h3>
+        <p>Sulla piattaforma digitale ogni offerta è visibile a tutti i partecipanti. Nessuna trattativa parallela, nessun dubbio su cosa stia succedendo.</p>
+      </div>
+      <div class="trust-item reveal">
+        <h3>Regole uguali per tutti</h3>
+        <p>Prezzo di partenza ribassato, rilancio minimo, finestra temporale definita. Le condizioni le conosci prima di offrire.</p>
+      </div>
+      <div class="trust-item reveal">
+        <h3>Accompagnati fino al rogito</h3>
+        <p>Innova gestisce ogni fase: verifica documentale, pratiche burocratiche e consulenza tecnica e finanziaria, con il Metodo Innova.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= FORM CANDIDATURA ================= -->
+<section class="form-section" id="candidatura">
+  <div class="container">
+    <h2 class="section-title reveal" style="color:var(--cream)">Candidati alla visita.<br><span class="accent">I posti sono limitati.</span></h2>
+    <p class="section-lead reveal" style="color:#D8D0C2">Le candidature chiudono lunedì 20 luglio a mezzanotte. Il team Innova ti contatterà per confermare il tuo posto e la tua fascia di visita.</p>
+
+    <div class="form-wrap reveal">
+      <h3>Richiedi il tuo invito</h3>
+      <p class="form-sub">Compila i campi: ti ricontattiamo entro 24 ore.</p>
+
+      <form id="leadForm" novalidate>
+        <div class="field">
+          <label for="nome">Nome e cognome *</label>
+          <input type="text" id="nome" name="nome" required autocomplete="name" placeholder="Il tuo nome completo">
+        </div>
+        <div class="field">
+          <label for="telefono">Telefono *</label>
+          <input type="tel" id="telefono" name="telefono" required autocomplete="tel" placeholder="+39 ...">
+        </div>
+        <div class="field">
+          <label for="email">Email *</label>
+          <input type="email" id="email" name="email" required autocomplete="email" placeholder="nome@email.it">
+        </div>
+        <div class="field">
+          <label for="slot">Fascia di visita preferita</label>
+          <select id="slot" name="slot">
+            <option value="">Scegli una fascia</option>
+            <option>Mercoledì 22 luglio · mattina (9:30–13:00)</option>
+            <option>Mercoledì 22 luglio · pomeriggio (15:30–18:30)</option>
+            <option>Giovedì 23 luglio · mattina (9:30–13:00)</option>
+            <option>Giovedì 23 luglio · pomeriggio (15:30–18:30)</option>
+            <option>Nessuna preferenza</option>
+          </select>
+        </div>
+
+        <!-- Campi nascosti per il tracciamento delle campagne (compilati automaticamente) -->
+        <input type="hidden" name="utm_source" id="utm_source">
+        <input type="hidden" name="utm_medium" id="utm_medium">
+        <input type="hidden" name="utm_campaign" id="utm_campaign">
+        <input type="hidden" name="utm_content" id="utm_content">
+
+        <!-- Configurazione invio email (FormSubmit) -->
+        <input type="hidden" name="_subject" value="Nuova candidatura — Innova Experience Villa Città Giardino">
+        <input type="hidden" name="_template" value="table">
+        <input type="hidden" name="_captcha" value="false">
+        <!-- Honeypot antispam: campo invisibile, se compilato l'invio viene scartato -->
+        <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off">
+
+        <label class="consent">
+          <input type="checkbox" id="privacy" required>
+          <span>Ho letto l'informativa privacy e acconsento al trattamento dei miei dati per essere ricontattato da Innova Immobiliare S.r.l. in merito a questo evento. *</span>
+        </label>
+
+        <button class="btn" type="submit">Invia la candidatura</button>
+        <div class="form-msg ok" id="msgOk">Candidatura inviata. Il team Innova ti contatterà entro 24 ore per confermare il tuo posto. Controlla anche WhatsApp ed email.</div>
+        <div class="form-msg err" id="msgErr">Compila tutti i campi obbligatori (nome, telefono, email e consenso privacy) e riprova.</div>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- ================= FOOTER ================= -->
+<footer>
+  <div class="container footer-inner">
+    <div>
+      <div class="footer-brand">Innova <span>Immobiliare</span></div>
+      <div class="payoff">Progetta il tuo futuro.</div>
+    </div>
+    <div>
+      Via Siracusa 46, Palermo · +39 339 418 5631<br>
+      info@innovaimmobiliare.it · innovaimmobiliare.it
+    </div>
+  </div>
+</footer>
+
+<script>
+/* ============================================================
+   INVIO CANDIDATURE — ATTIVO
+   Le candidature vengono inviate via FormSubmit alla casella
+   info@innovaimmobiliare.it.
+   IMPORTANTE — ATTIVAZIONE (una sola volta):
+   al primo invio di prova, FormSubmit manda una email di
+   conferma a info@innovaimmobiliare.it: cliccare "Activate"
+   in quella email. Da quel momento tutte le candidature
+   arrivano in casella, formattate in tabella.
+============================================================ */
+const FORM_ENDPOINT = "https://formsubmit.co/ajax/info@innovaimmobiliare.it";
+
+/* Countdown → chiusura candidature: lunedì 20 luglio 2026, mezzanotte (ora italiana) */
+const deadline = new Date("2026-07-20T23:59:59+02:00").getTime();
+function tick(){
+  const diff = deadline - Date.now();
+  const el = id => document.getElementById(id);
+  if(diff <= 0){
+    document.querySelector(".countdown-inner .cd-label").textContent = "Le candidature sono chiuse";
+    ["cd-d","cd-h","cd-m","cd-s"].forEach(i => el(i).textContent = "0");
+    return;
+  }
+  el("cd-d").textContent = Math.floor(diff/864e5);
+  el("cd-h").textContent = Math.floor(diff%864e5/36e5);
+  el("cd-m").textContent = Math.floor(diff%36e5/6e4);
+  el("cd-s").textContent = Math.floor(diff%6e4/1e3);
+}
+tick(); setInterval(tick, 1000);
+
+/* Cattura automatica dei parametri UTM dalle Ads */
+const params = new URLSearchParams(location.search);
+["utm_source","utm_medium","utm_campaign","utm_content"].forEach(k=>{
+  const f = document.getElementById(k);
+  if(f && params.get(k)) f.value = params.get(k);
+});
+
+/* Invio form */
+document.getElementById("leadForm").addEventListener("submit", async function(e){
+  e.preventDefault();
+  const ok = document.getElementById("msgOk"), err = document.getElementById("msgErr");
+  ok.style.display = "none"; err.style.display = "none";
+
+  const nome = document.getElementById("nome").value.trim();
+  const tel  = document.getElementById("telefono").value.trim();
+  const mail = document.getElementById("email").value.trim();
+  const priv = document.getElementById("privacy").checked;
+  if(!nome || !tel || !mail || !priv){ err.style.display = "block"; return; }
+
+  const data = Object.fromEntries(new FormData(this).entries());
+  if(data._honey){ return; } /* spam bot: scarta in silenzio */
+
+  const btn = this.querySelector("button[type=submit]");
+  const btnText = btn.textContent;
+  btn.disabled = true; btn.textContent = "Invio in corso…";
+
+  try{
+    const r = await fetch(FORM_ENDPOINT, {
+      method:"POST",
+      headers:{ "Content-Type":"application/json", "Accept":"application/json" },
+      body: JSON.stringify(data)
+    });
+    if(!r.ok) throw new Error("Invio non riuscito");
+    /* Evento Lead per il Pixel Meta (si attiva solo se il Pixel è installato)
+       Da qui puoi ottimizzare le campagne sulla conversione "Lead". */
+    if(typeof fbq === "function") fbq("track", "Lead");
+
+    ok.style.display = "block";
+    this.reset();
+  }catch(_){
+    err.textContent = "Si è verificato un problema con l'invio. Riprova oppure chiamaci al +39 339 418 5631.";
+    err.style.display = "block";
+  }finally{
+    btn.disabled = false; btn.textContent = btnText;
+  }
+});
+
+/* Reveal on scroll (disattivato se l'utente preferisce ridurre le animazioni) */
+if(matchMedia("(prefers-reduced-motion: no-preference)").matches){
+  const io = new IntersectionObserver(es=>{
+    es.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add("in"); io.unobserve(e.target);} });
+  },{threshold:.15});
+  document.querySelectorAll(".reveal").forEach(el=>io.observe(el));
+}else{
+  document.querySelectorAll(".reveal").forEach(el=>el.classList.add("in"));
+}
+</script>
+</body>
+</html>
