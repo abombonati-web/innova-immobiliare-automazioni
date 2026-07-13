@@ -54,8 +54,13 @@ a{color:inherit}
 .hero h1 em{font-style:normal;color:var(--amber)}
 .hero .sub{margin-top:22px;font-size:clamp(1rem,1.6vw,1.2rem);font-weight:300;max-width:56ch;color:#EDE6DA}
 
+/* prezzo attuale di mercato */
+.current-price{margin-top:32px;display:flex;align-items:baseline;flex-wrap:wrap;gap:10px}
+.current-price .cp-label{font-size:.78rem;letter-spacing:.1em;text-transform:uppercase;color:#BFB7AA;font-weight:500}
+.current-price .cp-value{font-size:1.2rem;font-weight:700;color:#D8D0C2;text-decoration:line-through;text-decoration-color:rgba(232,152,42,.6);text-decoration-thickness:2px}
+
 /* prezzo segreto — elemento firma */
-.secret-price{margin:40px 0 8px;display:inline-flex;flex-direction:column;gap:6px;
+.secret-price{margin:16px 0 8px;display:inline-flex;flex-direction:column;gap:6px;
   background:rgba(255,255,255,.04);border:1px dashed rgba(232,152,42,.55);border-radius:14px;padding:20px 30px}
 .secret-price .label{font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;color:#BFB7AA;font-weight:500}
 .secret-price .value{font-size:clamp(1.8rem,4vw,2.6rem);font-weight:800;color:var(--amber);letter-spacing:.06em}
@@ -166,6 +171,11 @@ footer{background:#1F1E1C;color:#BFB7AA;padding:44px 0;font-size:.85rem;font-wei
     <p class="sub">Una villa a Città Giardino sta per essere venduta in un modo mai visto a Palermo:
     un evento esclusivo a numero chiuso, in soli due giorni di visita. Chi partecipa scopre il prezzo
     ribassato e ottiene il diritto di fare la propria offerta, in totale trasparenza.</p>
+
+    <div class="current-price reveal">
+      <span class="cp-label">Prezzo attuale di mercato</span>
+      <span class="cp-value">€ 720.000</span>
+    </div>
 
     <div class="secret-price" aria-label="Prezzo riservato ai partecipanti">
       <span class="label">Nuovo prezzo ribassato</span>
