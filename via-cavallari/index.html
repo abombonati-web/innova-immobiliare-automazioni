@@ -3,12 +3,12 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Via Saverio Cavallari 2, Palermo — bivano ristrutturato | Innova Immobiliare</title>
-<meta name="description" content="Hai chiesto il prezzo: eccolo. Bivano completamente ristrutturato di 66 mq in via Saverio Cavallari 2, zona Libertà, Palermo. 2 bagni, cucina compresa nel prezzo, finiture di pregio. € 170.000.">
+<title>Innova Experience — Via Saverio Cavallari 2, Palermo | Innova Immobiliare</title>
+<meta name="description" content="Bivano ristrutturato di 66 mq in via Saverio Cavallari 2, Palermo. Prezzo di partenza € 170.000. Partecipa all'open house: solo i partecipanti accedono alla piattaforma digitale e possono fare la loro offerta migliore, in totale trasparenza.">
 
 <meta property="og:type" content="website">
-<meta property="og:title" content="Via Saverio Cavallari 2, Palermo — bivano ristrutturato, € 170.000">
-<meta property="og:description" content="66 mq, bivano, 2 bagni, cucina compresa nel prezzo. Tutto pronto, tutto perfetto. Guarda le foto e prenota la visita.">
+<meta property="og:title" content="Innova Experience — Via Saverio Cavallari 2, Palermo">
+<meta property="og:description" content="66 mq, bivano, 2 bagni, cucina compresa. Prezzo di partenza € 170.000. Partecipa all'open house e fai la tua offerta sulla piattaforma dedicata.">
 <meta property="og:image" content="foto/innova-01.jpg">
 
 <!-- ============================================================
@@ -59,12 +59,12 @@ a{color:inherit}
 .hero h1 em{font-style:normal;color:var(--amber)}
 .hero .sub{margin-top:22px;font-size:clamp(1rem,1.6vw,1.2rem);font-weight:300;max-width:56ch;color:#EDE6DA}
 
-/* prezzo di vendita — elemento firma */
-.price-box{margin:30px 0 8px;display:inline-flex;flex-direction:column;gap:6px;
-  background:rgba(255,255,255,.04);border:1px solid rgba(232,152,42,.55);border-radius:14px;padding:20px 30px}
-.price-box .label{font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;color:#BFB7AA;font-weight:500}
-.price-box .value{font-size:clamp(2rem,5vw,3rem);font-weight:800;color:var(--amber);letter-spacing:.02em;line-height:1.1}
-.price-box .note{font-size:.82rem;color:#D8D0C2;font-weight:300;max-width:38ch}
+/* prezzo di partenza — elemento firma */
+.secret-price{margin:30px 0 8px;display:inline-flex;flex-direction:column;gap:6px;
+  background:rgba(255,255,255,.04);border:1px dashed rgba(232,152,42,.55);border-radius:14px;padding:20px 30px}
+.secret-price .label{font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;color:#BFB7AA;font-weight:500}
+.secret-price .value{font-size:clamp(1.9rem,4.4vw,2.8rem);font-weight:800;color:var(--amber);letter-spacing:.02em;line-height:1.1}
+.secret-price .note{font-size:.82rem;color:#D8D0C2;font-weight:300;max-width:40ch}
 
 .cta-row{margin-top:34px;display:flex;flex-wrap:wrap;gap:16px;align-items:center}
 .btn{display:inline-block;background:var(--amber);color:var(--charcoal-deep);font-weight:700;
@@ -76,13 +76,16 @@ a{color:inherit}
 .btn-ghost:hover{background:rgba(251,246,238,.1);color:var(--cream)}
 .cta-row .hint{font-size:.85rem;color:#BFB7AA;font-weight:300}
 
-/* ---------- BARRA DATI (al posto del countdown) ---------- */
-.specs-bar{background:var(--amber);color:var(--charcoal-deep);padding:20px 0}
-.specs-inner{display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:14px 34px;text-align:center}
-.spec{min-width:96px}
-.spec span{display:block}
-.spec-num{font-size:1.5rem;font-weight:800;line-height:1.1}
-.spec-txt{font-size:.68rem;letter-spacing:.14em;text-transform:uppercase;font-weight:600;opacity:.8}
+/* ---------- COUNTDOWN ---------- */
+.countdown-bar{background:var(--amber);color:var(--charcoal-deep);padding:20px 0}
+.countdown-inner{display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:14px 34px;text-align:center}
+.countdown-inner .cd-label{font-weight:600;font-size:.92rem;letter-spacing:.04em;text-transform:uppercase}
+.cd-units{display:flex;gap:18px}
+.cd-units[hidden]{display:none}
+.cd-unit{min-width:64px}
+.cd-unit span{display:block}
+.cd-num{font-size:1.9rem;font-weight:800;line-height:1}
+.cd-txt{font-size:.68rem;letter-spacing:.14em;text-transform:uppercase;font-weight:600;opacity:.8}
 
 /* ---------- SEZIONI ---------- */
 section{padding:76px 0}
@@ -90,8 +93,14 @@ section{padding:76px 0}
 .section-title .accent{color:var(--amber)}
 .section-lead{margin-top:14px;font-weight:300;max-width:62ch}
 
+/* riga dati immobile */
+.specs{margin-top:34px;display:flex;flex-wrap:wrap;gap:12px}
+.specs .spec{background:var(--white);border-radius:999px;padding:9px 20px;font-size:.86rem;font-weight:600;
+  color:var(--charcoal-deep);box-shadow:0 2px 10px rgba(74,74,74,.06)}
+.specs .spec em{font-style:normal;color:var(--amber);font-weight:800;margin-right:6px}
+
 /* foto di copertina */
-.cover{margin-top:36px;border-radius:18px;overflow:hidden;box-shadow:0 10px 34px rgba(74,74,74,.16)}
+.cover{margin-top:32px;border-radius:18px;overflow:hidden;box-shadow:0 10px 34px rgba(74,74,74,.16)}
 .cover img{width:100%;aspect-ratio:3/2;object-fit:cover}
 
 /* elenco caratteristiche */
@@ -123,7 +132,7 @@ section{padding:76px 0}
 .reel-text h3{font-size:1.15rem;font-weight:700;color:var(--charcoal-deep);margin-bottom:10px}
 .reel-text p{font-weight:300}
 
-/* schede dettagli */
+/* dettagli evento */
 .event-grid{margin-top:44px;display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:22px}
 .event-card{background:var(--charcoal-deep);color:var(--cream);border-radius:16px;padding:30px 26px}
 .event-card h3{color:var(--amber);font-size:1rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase;margin-bottom:12px}
@@ -188,44 +197,57 @@ footer{background:#1F1E1C;color:#BFB7AA;padding:44px 0;font-size:.85rem;font-wei
 <!-- ================= HERO ================= -->
 <header class="hero">
   <div class="container">
-    <span class="eyebrow">Via Saverio Cavallari 2 · Palermo · Zona Libertà</span>
-    <h1>Hai chiesto il prezzo.<br><em>Eccolo, senza giri di parole.</em></h1>
-    <p class="sub">Bivano completamente ristrutturato di 66 mq al primo piano di un palazzo d'epoca,
-    a pochi minuti a piedi da via Libertà e dal Politeama. Due bagni nuovi, cucina compresa nel prezzo,
-    finiture di pregio: tutto pronto, non serve toccare nulla.</p>
+    <span class="eyebrow">Innova Experience · Open House · Via Saverio Cavallari 2, Palermo</span>
+    <h1>Hai chiesto il prezzo. Eccolo: <em>da qui parte la tua offerta.</em></h1>
+    <p class="sub">Un bivano completamente ristrutturato di 66 mq in zona Libertà viene venduto in un modo diverso:
+    un open house a numero chiuso e poi una piattaforma digitale riservata ai partecipanti, dove ognuno presenta
+    la propria offerta migliore. Tutte le offerte sono visibili a tutti, in totale trasparenza.</p>
 
     <!-- ============================================================
-      PREZZO DI VENDITA — unico punto da aggiornare in caso di ribasso
+      PREZZO DI PARTENZA — si aggiorna nel blocco CONFIG in fondo alla pagina
     ============================================================ -->
-    <div class="price-box" aria-label="Prezzo di vendita">
-      <span class="label">Prezzo di vendita</span>
-      <span class="value">€ 170.000</span>
-      <span class="note">Cucina completa compresa nel prezzo. Nessuna spesa di agenzia a carico dell'acquirente al di fuori di quanto concordato prima della proposta.</span>
+    <div class="secret-price" aria-label="Prezzo di partenza delle offerte">
+      <span class="label">Prezzo di partenza delle offerte</span>
+      <span class="value" data-cfg="prezzoPartenza">€ 170.000</span>
+      <span class="note">Cucina completa compresa nel prezzo. Da questa base partono le offerte sulla piattaforma
+      digitale, con rilancio minimo e finestra temporale definiti: le regole le conosci prima di offrire.</span>
     </div>
 
     <div class="cta-row">
-      <a class="btn" href="#visita">Prenota la visita</a>
-      <a class="btn btn-ghost" href="https://wa.me/393394185631?text=Ciao%20Innova%2C%20ho%20visto%20la%20pagina%20di%20via%20Saverio%20Cavallari%202%20e%20vorrei%20prenotare%20una%20visita." target="_blank" rel="noopener">Scrivici su WhatsApp</a>
-      <span class="hint">Visite su appuntamento · Ti rispondiamo entro 24 ore</span>
+      <a class="btn" href="#candidatura">Partecipa all'open house</a>
+      <a class="btn btn-ghost" href="https://wa.me/393394185631?text=Ciao%20Innova%2C%20ho%20visto%20la%20pagina%20di%20via%20Saverio%20Cavallari%202%20e%20vorrei%20partecipare%20all%27open%20house." target="_blank" rel="noopener">Scrivici su WhatsApp</a>
+      <span class="hint" data-cfg="hintCandidature">Posti limitati · Solo i partecipanti possono fare l'offerta</span>
     </div>
   </div>
 </header>
 
-<!-- ================= BARRA DATI ================= -->
-<div class="specs-bar">
-  <div class="container specs-inner">
-    <div class="spec"><span class="spec-num">66</span><span class="spec-txt">mq</span></div>
-    <div class="spec"><span class="spec-num">Bivano</span><span class="spec-txt">Living + camera</span></div>
-    <div class="spec"><span class="spec-num">2</span><span class="spec-txt">bagni nuovi</span></div>
-    <div class="spec"><span class="spec-num">1°</span><span class="spec-txt">piano</span></div>
-    <div class="spec"><span class="spec-num">A nuovo</span><span class="spec-txt">ristrutturato</span></div>
+<!-- ================= COUNTDOWN ================= -->
+<div class="countdown-bar" role="timer" aria-live="off">
+  <div class="container countdown-inner">
+    <span class="cd-label" id="cd-label">Le candidature chiudono tra</span>
+    <div class="cd-units" id="countdown">
+      <div class="cd-unit"><span class="cd-num" id="cd-d">–</span><span class="cd-txt">giorni</span></div>
+      <div class="cd-unit"><span class="cd-num" id="cd-h">–</span><span class="cd-txt">ore</span></div>
+      <div class="cd-unit"><span class="cd-num" id="cd-m">–</span><span class="cd-txt">minuti</span></div>
+      <div class="cd-unit"><span class="cd-num" id="cd-s">–</span><span class="cd-txt">secondi</span></div>
+    </div>
   </div>
 </div>
 
 <!-- ================= L'IMMOBILE ================= -->
 <section id="immobile">
   <div class="container">
-    <h2 class="section-title reveal">Il bivano che hai visto nel video.<br><span class="accent">Via Saverio Cavallari 2, Palermo.</span></h2>
+    <h2 class="section-title reveal">L'immobile che stai per scoprire.<br><span class="accent">Via Saverio Cavallari 2, Palermo.</span></h2>
+
+    <div class="specs reveal">
+      <span class="spec"><em>66</em>mq</span>
+      <span class="spec"><em>Bivano</em>living + camera</span>
+      <span class="spec"><em>2</em>bagni nuovi</span>
+      <span class="spec"><em>1°</em>piano</span>
+      <span class="spec"><em>Ristrutturato</em>a nuovo</span>
+      <span class="spec"><em>Cucina</em>compresa</span>
+    </div>
+
     <p class="section-lead reveal">Primo piano di un palazzo storico in muratura, all'angolo tra via Saverio Cavallari e via Marconi:
     siamo nel cuore della zona Libertà, a pochi minuti a piedi da via Libertà, dal Teatro Politeama, da negozi, scuole e servizi.</p>
     <p class="section-lead reveal">L'appartamento è stato ristrutturato integralmente e consegnato finito: zona living di circa 30 mq
@@ -261,7 +283,7 @@ footer{background:#1F1E1C;color:#BFB7AA;padding:44px 0;font-size:.85rem;font-wei
       </div>
       <div class="feature reveal">
         <h3>Documentazione in ordine</h3>
-        <p>Abitabilità/agibilità rilasciata dal Comune, CILA per l'attuale distribuzione interna, conformità impianti: tutto verificabile prima della proposta.</p>
+        <p>Abitabilità/agibilità rilasciata dal Comune, CILA per l'attuale distribuzione interna, conformità impianti: tutto verificabile prima dell'offerta.</p>
       </div>
     </div>
   </div>
@@ -271,7 +293,7 @@ footer{background:#1F1E1C;color:#BFB7AA;padding:44px 0;font-size:.85rem;font-wei
 <section style="padding-top:0">
   <div class="container">
     <h2 class="section-title reveal">Guarda ogni angolo.<br><span class="accent">26 foto, nessun filtro.</span></h2>
-    <p class="section-lead reveal">Tocca una foto per aprirla a schermo intero.</p>
+    <p class="section-lead reveal">Tocca una foto per aprirla a schermo intero. Planimetrie e documentazione completa li vedi durante l'open house.</p>
 
     <div class="gallery reveal">
       <a href="foto/innova-01.jpg" target="_blank" rel="noopener"><img src="foto/thumb/innova-01.jpg" loading="lazy" alt="Zona living con angolo cottura"></a>
@@ -313,8 +335,8 @@ footer{background:#1F1E1C;color:#BFB7AA;padding:44px 0;font-size:.85rem;font-wei
       <div class="reel-text">
         <h3>Il video che hai visto sui social</h3>
         <p>Pochi secondi per capire com'è fatta la casa: living con cucina, camera con cabina armadio,
-        due bagni nuovi. Qui trovi tutto quello che nel reel non stava: prezzo, metratura,
-        documenti e il modo più rapido per venire a vederla di persona.</p>
+        due bagni nuovi. Qui trovi tutto quello che nel reel non stava: prezzo di partenza, metratura,
+        documenti e come partecipare all'open house per poter fare la tua offerta.</p>
       </div>
     </div>
   </div>
@@ -323,69 +345,62 @@ footer{background:#1F1E1C;color:#BFB7AA;padding:44px 0;font-size:.85rem;font-wei
 <!-- ================= COME FUNZIONA ================= -->
 <section>
   <div class="container">
-    <h2 class="section-title reveal">Da qui alle chiavi.<br><span class="accent">Quattro passaggi, nessuna sorpresa.</span></h2>
-    <p class="section-lead reveal">Il prezzo lo conosci già. Da adesso in poi ogni passaggio è scritto e verificabile: nessuna trattativa al buio, nessuna corsia preferenziale.</p>
+    <h2 class="section-title reveal">Un percorso in quattro tappe.<br><span class="accent">Chiaro dall'inizio alla fine.</span></h2>
+    <p class="section-lead reveal">Nessuna trattativa al buio, nessuna corsia preferenziale: le regole sono le stesse per tutti, dal primo giorno.</p>
 
     <div class="steps">
       <div class="step reveal">
-        <span class="num">Passo 1</span>
-        <h3>Prenota la visita</h3>
-        <p>Compila il modulo o scrivici su WhatsApp e scegli quando preferisci vederla. Ti confermiamo l'appuntamento direttamente noi.</p>
-        <span class="when">Risposta entro 24 ore</span>
+        <span class="num">Tappa 1</span>
+        <h3>Candidati</h3>
+        <p>Compila il modulo e scegli la fascia di visita che preferisci. Riceverai la conferma del tuo posto direttamente dal team Innova.</p>
+        <span class="when" data-cfg="whenCandidature">Posti limitati</span>
       </div>
       <div class="step reveal">
-        <span class="num">Passo 2</span>
-        <h3>Vieni a vederla</h3>
-        <p>Visita con un consulente Innova, con tutti i documenti dell'immobile già sul tavolo: abitabilità, planimetrie, conformità impianti.</p>
-        <span class="when">Su appuntamento</span>
+        <span class="num">Tappa 2</span>
+        <h3>Vivi l'open house</h3>
+        <p>Giornate di open house su prenotazione, in piccoli gruppi. Visiti l'appartamento con il nostro team, con la documentazione completa e la consulenza mutuo sul posto.</p>
+        <span class="when" data-cfg="whenVisite">Su prenotazione</span>
       </div>
       <div class="step reveal">
-        <span class="num">Passo 3</span>
-        <h3>Verifica mutuo e costi</h3>
-        <p>Se serve, facciamo la pre-fattibilità del mutuo e ti mettiamo per iscritto tutti i costi: imposte, notaio, spese accessorie.</p>
-        <span class="when">Consulenza inclusa</span>
+        <span class="num">Tappa 3</span>
+        <h3>Accedi alla piattaforma</h3>
+        <p>Solo i partecipanti ricevono il link di accesso riservato alla piattaforma digitale dedicata: è lì che si raccolgono le offerte.</p>
+        <span class="when" data-cfg="whenPiattaforma">Dopo l'open house</span>
       </div>
       <div class="step reveal">
-        <span class="num">Passo 4</span>
-        <h3>Fai la tua proposta</h3>
-        <p>Quando hai tutti gli elementi, presenti la proposta d'acquisto. Ti accompagniamo dal preliminare fino al rogito.</p>
-        <span class="when">Con il Metodo Innova</span>
+        <span class="num">Tappa 4</span>
+        <h3>Fai la tua offerta migliore</h3>
+        <p>Per un periodo di tempo limitato presenti la tua offerta, con un rilancio minimo. Tutte le offerte sono visibili sulla piattaforma, in totale trasparenza.</p>
+        <span class="when">Solo partecipanti</span>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ================= SCHEDA E DETTAGLI ================= -->
+<!-- ================= DETTAGLI EVENTO ================= -->
 <section style="padding-top:0">
   <div class="container">
     <div class="event-grid">
       <div class="event-card reveal">
-        <h3>Scheda immobile</h3>
-        <ul>
-          <li><strong>Indirizzo</strong> · Via Saverio Cavallari 2, Palermo</li>
-          <li><strong>Zona</strong> · Libertà, a due passi dal Politeama</li>
-          <li><strong>Superficie</strong> · 66 mq · Piano primo</li>
-          <li><strong>Composizione</strong> · Living con angolo cottura, camera con cabina armadio, 2 bagni, disimpegno, ammezzato tecnico</li>
-          <li><strong>Stato</strong> · Ristrutturato a nuovo, libero</li>
+        <h3>Le giornate di open house</h3>
+        <ul id="giornate-list">
+          <li data-cfg-list="giornate">Date in definizione: candidati ora e te le confermiamo noi</li>
+          <li>Visite su prenotazione, in piccoli gruppi</li>
         </ul>
       </div>
       <div class="event-card reveal">
-        <h3>Impianti e comfort</h3>
-        <ul>
-          <li>Riscaldamento autonomo con caldaia in ammezzato tecnico</li>
-          <li>Climatizzazione in living e in camera</li>
-          <li>Impianti elettrico, idrico e termico rifatti a norma</li>
-          <li>Luce a led perimetrale in tutti gli ambienti</li>
-          <li>Soffitti alti circa 3,25 m · rosone originale conservato</li>
-          <li>Spese condominiali contenute (circa 10 €/mese dichiarati dalla proprietà)</li>
-        </ul>
+        <h3>La piattaforma dedicata</h3>
+        <p>Dopo l'open house ricevi via link un accesso riservato alla piattaforma digitale.
+        Ogni offerta è <strong>visibile a tutti i partecipanti</strong>, con rilancio minimo
+        (<span data-cfg="rilancio">comunicato all'apertura della piattaforma</span>) e finestra temporale definita.
+        Nessuna trattativa parallela, nessun dubbio su cosa stia succedendo.</p>
       </div>
       <div class="event-card reveal">
-        <h3>Cosa vedi in visita</h3>
+        <h3>In appartamento troverai</h3>
         <ul>
-          <li>Il consulente Innova per ogni domanda tecnica e documentale</li>
+          <li>Il team Innova per ogni domanda tecnica e documentale</li>
           <li>Abitabilità/agibilità, planimetrie catastali e titoli edilizi</li>
-          <li>Consulenza finanziaria e pre-fattibilità mutuo</li>
+          <li>Consulenza finanziaria e pre-fattibilità mutuo sul posto</li>
           <li>Il quadro completo dei costi d'acquisto, per iscritto</li>
         </ul>
       </div>
@@ -393,35 +408,35 @@ footer{background:#1F1E1C;color:#BFB7AA;padding:44px 0;font-size:.85rem;font-wei
   </div>
 </section>
 
-<!-- ================= PERCHÉ FIDARSI ================= -->
+<!-- ================= PERCHÉ COSÌ ================= -->
 <section class="trust">
   <div class="container">
-    <h2 class="section-title reveal">Perché ti diciamo subito il prezzo?<br><span class="accent">Perché la trasparenza premia tutti.</span></h2>
+    <h2 class="section-title reveal">Perché vendiamo così?<br><span class="accent">Perché la trasparenza premia tutti.</span></h2>
     <div class="trust-grid">
       <div class="trust-item reveal">
-        <h3>Nessun prezzo nascosto</h3>
-        <p>Hai commentato "prezzo" e il prezzo è la prima cosa che leggi. Nessun modulo da compilare per sapere quanto costa, nessuna telefonata di filtro.</p>
+        <h3>Offerte visibili</h3>
+        <p>Sulla piattaforma digitale ogni offerta è visibile a tutti i partecipanti. Nessuna trattativa parallela, nessun dubbio su cosa stia succedendo.</p>
       </div>
       <div class="trust-item reveal">
-        <h3>Documenti prima della proposta</h3>
-        <p>Abitabilità, planimetrie, conformità impianti e titoli edilizi sono già verificati e li vedi prima di impegnarti, non dopo.</p>
+        <h3>Regole uguali per tutti</h3>
+        <p>Prezzo di partenza pubblico, rilancio minimo, finestra temporale definita. Le condizioni le conosci prima di offrire.</p>
       </div>
       <div class="trust-item reveal">
         <h3>Accompagnati fino al rogito</h3>
-        <p>Innova gestisce ogni fase: verifica documentale, pratiche burocratiche, consulenza tecnica e finanziaria, con il Metodo Innova.</p>
+        <p>Innova gestisce ogni fase: verifica documentale, pratiche burocratiche e consulenza tecnica e finanziaria, con il Metodo Innova.</p>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ================= FORM VISITA ================= -->
-<section class="form-section" id="visita">
+<!-- ================= FORM CANDIDATURA ================= -->
+<section class="form-section" id="candidatura">
   <div class="container">
-    <h2 class="section-title reveal" style="color:var(--cream)">Vieni a vederla.<br><span class="accent">Le visite sono su appuntamento.</span></h2>
-    <p class="section-lead reveal" style="color:#D8D0C2">Lasciaci i tuoi contatti: ti richiamiamo entro 24 ore per fissare la visita nel giorno e nell'orario che preferisci.</p>
+    <h2 class="section-title reveal" style="color:var(--cream)">Candidati all'open house.<br><span class="accent">I posti sono limitati.</span></h2>
+    <p class="section-lead reveal" style="color:#D8D0C2" data-cfg="leadForm">Solo chi partecipa all'open house accede alla piattaforma e può presentare la propria offerta. Il team Innova ti contatterà per confermare il tuo posto e la tua fascia di visita.</p>
 
     <div class="form-wrap reveal">
-      <h3>Prenota la tua visita</h3>
+      <h3>Richiedi il tuo invito</h3>
       <p class="form-sub">Compila i campi: ti ricontattiamo entro 24 ore.</p>
 
       <form id="leadForm" novalidate>
@@ -438,13 +453,10 @@ footer{background:#1F1E1C;color:#BFB7AA;padding:44px 0;font-size:.85rem;font-wei
           <input type="email" id="email" name="email" required autocomplete="email" placeholder="nome@email.it">
         </div>
         <div class="field">
-          <label for="quando">Quando preferisci visitarla</label>
-          <select id="quando" name="quando">
+          <label for="slot">Fascia di visita preferita</label>
+          <select id="slot" name="slot">
             <option value="">Scegli una fascia</option>
-            <option>Mattina, nei giorni lavorativi</option>
-            <option>Pomeriggio, nei giorni lavorativi</option>
-            <option>Sabato mattina</option>
-            <option>Sono flessibile</option>
+            <option>Nessuna preferenza</option>
           </select>
         </div>
         <div class="field">
@@ -466,10 +478,10 @@ footer{background:#1F1E1C;color:#BFB7AA;padding:44px 0;font-size:.85rem;font-wei
         <input type="hidden" name="utm_medium" id="utm_medium">
         <input type="hidden" name="utm_campaign" id="utm_campaign">
         <input type="hidden" name="utm_content" id="utm_content">
-        <input type="hidden" name="immobile" value="Via Saverio Cavallari 2 — Palermo">
+        <input type="hidden" name="immobile" value="Via Saverio Cavallari 2 — Palermo (open house)">
 
         <!-- Configurazione invio email (FormSubmit) -->
-        <input type="hidden" name="_subject" value="Nuova richiesta di visita — Via Saverio Cavallari 2">
+        <input type="hidden" name="_subject" value="Nuova candidatura open house — Via Saverio Cavallari 2">
         <input type="hidden" name="_template" value="table">
         <input type="hidden" name="_captcha" value="false">
         <!-- Honeypot antispam: campo invisibile, se compilato l'invio viene scartato -->
@@ -477,17 +489,17 @@ footer{background:#1F1E1C;color:#BFB7AA;padding:44px 0;font-size:.85rem;font-wei
 
         <label class="consent">
           <input type="checkbox" id="privacy" required>
-          <span>Ho letto l'informativa privacy e acconsento al trattamento dei miei dati per essere ricontattato da Innova Immobiliare S.r.l. in merito a questo immobile. *</span>
+          <span>Ho letto l'informativa privacy e acconsento al trattamento dei miei dati per essere ricontattato da Innova Immobiliare S.r.l. in merito a questo evento. *</span>
         </label>
 
-        <button class="btn" type="submit">Prenota la visita</button>
-        <div class="form-msg ok" id="msgOk">Richiesta inviata. Ti contattiamo entro 24 ore per fissare la visita. Controlla anche WhatsApp ed email.</div>
+        <button class="btn" type="submit">Invia la candidatura</button>
+        <div class="form-msg ok" id="msgOk">Candidatura inviata. Il team Innova ti contatterà entro 24 ore per confermare il tuo posto. Controlla anche WhatsApp ed email.</div>
         <div class="form-msg err" id="msgErr">Compila tutti i campi obbligatori (nome, telefono, email e consenso privacy) e riprova.</div>
       </form>
     </div>
 
     <p class="wa-row reveal">Preferisci scrivere?
-      <a href="https://wa.me/393394185631?text=Ciao%20Innova%2C%20ho%20visto%20la%20pagina%20di%20via%20Saverio%20Cavallari%202%20e%20vorrei%20prenotare%20una%20visita." target="_blank" rel="noopener">Scrivici su WhatsApp</a>
+      <a href="https://wa.me/393394185631?text=Ciao%20Innova%2C%20ho%20visto%20la%20pagina%20di%20via%20Saverio%20Cavallari%202%20e%20vorrei%20partecipare%20all%27open%20house." target="_blank" rel="noopener">Scrivici su WhatsApp</a>
       oppure chiama il <a href="tel:+393394185631">+39 339 418 5631</a>.
     </p>
   </div>
@@ -507,21 +519,144 @@ footer{background:#1F1E1C;color:#BFB7AA;padding:44px 0;font-size:.85rem;font-wei
       </div>
     </div>
     <p class="disclaimer">Le informazioni e le misure riportate in questa pagina hanno valore indicativo e non costituiscono
-    proposta contrattuale ai sensi dell'art. 1336 c.c. Superfici e dati sono espressi in forma commerciale e vanno verificati
-    in sede di visita e sulla documentazione tecnica, che l'agenzia mette a disposizione prima della proposta d'acquisto.
-    Gli arredi presenti nelle fotografie non sono compresi nella vendita, con l'eccezione della cucina completa.</p>
+    proposta contrattuale ai sensi dell'art. 1336 c.c. Il prezzo indicato è la base di partenza delle offerte raccolte
+    tramite la piattaforma digitale riservata ai partecipanti all'open house e non costituisce impegno alla vendita a tale
+    importo: la valutazione delle offerte resta in capo alla proprietà. Superfici e dati sono espressi in forma commerciale
+    e vanno verificati in sede di visita e sulla documentazione tecnica, che l'agenzia mette a disposizione prima
+    dell'offerta. Gli arredi presenti nelle fotografie non sono compresi nella vendita, con l'eccezione della cucina completa.</p>
   </div>
 </footer>
 
 <script>
 /* ============================================================
-   INVIO RICHIESTE — ATTIVO
-   Le richieste vengono inviate via FormSubmit alla casella
+   ★★★ CONFIG — L'UNICO BLOCCO DA MODIFICARE ★★★
+
+   Compila i campi qui sotto quando le date dell'open house sono
+   fissate: la pagina si aggiorna da sola in tutti i punti
+   (countdown, tappe, schede evento, fasce di visita del modulo).
+   Finché un campo resta vuoto, la pagina mostra un testo neutro
+   e coerente: si può pubblicare anche prima di fissare le date.
+============================================================ */
+const CONFIG = {
+  /* Prezzo di partenza delle offerte */
+  prezzoPartenza: "€ 170.000",
+
+  /* Rilancio minimo sulla piattaforma. Es: "€ 2.000" */
+  rilancioMinimo: "",
+
+  /* Chiusura candidature: data e ora italiane in formato ISO.
+     Es: "2026-08-10T23:59:59+02:00" — se vuoto, il countdown non compare */
+  scadenzaCandidature: "",
+
+  /* Testo leggibile della scadenza. Es: "lunedì 10 agosto, mezzanotte" */
+  scadenzaTesto: "",
+
+  /* Giornate di open house. Es:
+     [{ giorno:"Mercoledì 12 agosto", fasce:["9:30–13:00","15:30–18:30"] },
+      { giorno:"Giovedì 13 agosto",   fasce:["9:30–13:00","15:30–18:30"] }] */
+  giornate: [],
+
+  /* Apertura della piattaforma offerte. Es: "Venerdì 14 agosto, mattina" */
+  aperturaPiattaforma: ""
+};
+
+/* ============================================================
+   Da qui in giù non serve modificare nulla.
+============================================================ */
+
+/* ---- Prezzo e rilancio ---- */
+function setCfg(key, value){
+  document.querySelectorAll('[data-cfg="'+key+'"]').forEach(el => { el.textContent = value; });
+}
+setCfg("prezzoPartenza", CONFIG.prezzoPartenza);
+setCfg("rilancio", CONFIG.rilancioMinimo
+  ? "rilancio minimo " + CONFIG.rilancioMinimo
+  : "rilancio minimo comunicato all'apertura della piattaforma");
+
+/* ---- Testi legati alle date ---- */
+setCfg("hintCandidature", CONFIG.scadenzaTesto
+  ? "Posti limitati · Candidature entro " + CONFIG.scadenzaTesto
+  : "Posti limitati · Solo i partecipanti possono fare l'offerta");
+
+setCfg("whenCandidature", CONFIG.scadenzaTesto
+  ? "Entro " + CONFIG.scadenzaTesto
+  : "Posti limitati");
+
+setCfg("whenPiattaforma", CONFIG.aperturaPiattaforma || "Dopo l'open house");
+
+setCfg("leadForm", (CONFIG.scadenzaTesto
+    ? "Le candidature chiudono " + CONFIG.scadenzaTesto + ". "
+    : "")
+  + "Solo chi partecipa all'open house accede alla piattaforma e può presentare la propria offerta. "
+  + "Il team Innova ti contatterà per confermare il tuo posto e la tua fascia di visita.");
+
+/* ---- Giornate di open house ---- */
+if(CONFIG.giornate.length){
+  /* etichetta sintetica nella tappa 2 */
+  setCfg("whenVisite", CONFIG.giornate.map(g => g.giorno).join(" · "));
+
+  /* elenco nella scheda evento */
+  const li = document.querySelector('[data-cfg-list="giornate"]');
+  if(li){
+    const frag = document.createDocumentFragment();
+    CONFIG.giornate.forEach(g => {
+      const el = document.createElement("li");
+      const b = document.createElement("strong");
+      b.textContent = g.giorno;
+      el.appendChild(b);
+      el.appendChild(document.createTextNode(" · " + (g.fasce || []).join(" e ")));
+      frag.appendChild(el);
+    });
+    li.replaceWith(frag);
+  }
+
+  /* fasce di visita nel modulo */
+  const slot = document.getElementById("slot");
+  if(slot){
+    const nessuna = slot.querySelector('option:last-child');
+    CONFIG.giornate.forEach(g => {
+      (g.fasce || []).forEach(f => {
+        const o = document.createElement("option");
+        o.textContent = g.giorno + " · " + f;
+        slot.insertBefore(o, nessuna);
+      });
+    });
+  }
+}
+
+/* ---- Countdown alla chiusura delle candidature ---- */
+const units = document.getElementById("countdown");
+const label = document.getElementById("cd-label");
+if(CONFIG.scadenzaCandidature){
+  const deadline = new Date(CONFIG.scadenzaCandidature).getTime();
+  const el = id => document.getElementById(id);
+  function tick(){
+    const diff = deadline - Date.now();
+    if(diff <= 0){
+      label.textContent = "Le candidature sono chiuse";
+      ["cd-d","cd-h","cd-m","cd-s"].forEach(i => el(i).textContent = "0");
+      return;
+    }
+    el("cd-d").textContent = Math.floor(diff/864e5);
+    el("cd-h").textContent = Math.floor(diff%864e5/36e5);
+    el("cd-m").textContent = Math.floor(diff%36e5/6e4);
+    el("cd-s").textContent = Math.floor(diff%6e4/1e3);
+  }
+  tick(); setInterval(tick, 1000);
+}else{
+  /* nessuna scadenza impostata: la barra resta, senza numeri */
+  units.hidden = true;
+  label.textContent = "Candidature aperte · posti limitati · solo i partecipanti possono fare l'offerta";
+}
+
+/* ============================================================
+   INVIO CANDIDATURE — ATTIVO
+   Le candidature vengono inviate via FormSubmit alla casella
    info@innovaimmobiliare.it.
    IMPORTANTE — ATTIVAZIONE (una sola volta):
    al primo invio di prova, FormSubmit manda una email di
    conferma a info@innovaimmobiliare.it: cliccare "Activate"
-   in quella email. Da quel momento tutte le richieste
+   in quella email. Da quel momento tutte le candidature
    arrivano in casella, formattate in tabella.
 ============================================================ */
 const FORM_ENDPOINT = "https://formsubmit.co/ajax/info@innovaimmobiliare.it";
