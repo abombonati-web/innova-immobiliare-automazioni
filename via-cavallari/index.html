@@ -406,7 +406,7 @@ footer{background:#1F1E1C;color:#BFB7AA;padding:44px 0;font-size:.85rem;font-wei
       <div class="step reveal">
         <span class="num">Tappa 1</span>
         <h3>Candidati</h3>
-        <p>Compila il modulo e scegli la fascia di visita che preferisci. Riceverai la conferma del tuo posto direttamente dal team Innova.</p>
+        <p>Lasci i tuoi dati qui sotto. Ti inviamo poi un modulo da compilare: è obbligatorio, e solo dopo averlo ricevuto ti confermiamo se il tuo accesso all'evento è accolto o no.</p>
         <span class="when" data-cfg="whenCandidature">Posti limitati</span>
       </div>
       <div class="step reveal">
@@ -431,10 +431,12 @@ footer{background:#1F1E1C;color:#BFB7AA;padding:44px 0;font-size:.85rem;font-wei
 
     <div class="access-note reveal">
       <h3>Come si accede alla piattaforma</h3>
-      <p><strong>La candidatura è obbligatoria.</strong> Il link alla piattaforma viene inviato esclusivamente
-      a chi si è candidato e ha partecipato alla visita di <strong data-cfg="giornoVisita">venerdì 31 luglio</strong>:
-      chi non partecipa non riceve l'accesso e non può presentare la propria proposta. Non ci sono eccezioni
-      e non esistono canali alternativi per offrire.</p>
+      <p><strong>La candidatura è obbligatoria e non è automatica.</strong> Dopo esserti candidato ricevi
+      un modulo da compilare: è un passaggio necessario, e solo al termine ti viene confermato — o meno —
+      l'accesso all'evento. Il link alla piattaforma viene poi inviato esclusivamente a chi è stato ammesso
+      e ha partecipato alla visita di <strong data-cfg="giornoVisita">venerdì 31 luglio</strong>: chi non
+      partecipa non riceve l'accesso e non può presentare la propria offerta. Non ci sono eccezioni e non
+      esistono canali alternativi per offrire.</p>
     </div>
   </div>
 </section>
@@ -447,7 +449,7 @@ footer{background:#1F1E1C;color:#BFB7AA;padding:44px 0;font-size:.85rem;font-wei
         <h3>Le giornate di open house</h3>
         <ul id="giornate-list">
           <li data-cfg-list="giornate">Date in definizione: candidati ora e te le confermiamo noi</li>
-          <li>Visite su prenotazione, in piccoli gruppi</li>
+          <li>Accesso riservato ai soli candidati confermati</li>
         </ul>
       </div>
       <div class="event-card reveal">
@@ -463,11 +465,12 @@ footer{background:#1F1E1C;color:#BFB7AA;padding:44px 0;font-size:.85rem;font-wei
       <div class="event-card reveal">
         <h3>In appartamento troverai</h3>
         <ul>
-          <li>Il team Innova per ogni domanda tecnica e documentale</li>
-          <li>Abitabilità/agibilità, planimetrie catastali e titoli edilizi</li>
-          <li>Consulenza finanziaria e pre-fattibilità mutuo sul posto</li>
-          <li>Il quadro completo dei costi d'acquisto, per iscritto</li>
+          <li>Il <strong>team Innova</strong> a supportarti per tutta la visita</li>
+          <li>Tutti i <strong>dettagli tecnici</strong> dell'immobile, senza omissioni</li>
+          <li>Un <strong>consulente mutui dedicato</strong></li>
+          <li>Il <strong>tecnico di Innova</strong>, per ogni verifica documentale e strutturale</li>
         </ul>
+        <p style="margin-top:14px">Insomma: tutto quello che ti serve per decidere se fare un'offerta oppure no.</p>
       </div>
     </div>
   </div>
@@ -502,7 +505,7 @@ footer{background:#1F1E1C;color:#BFB7AA;padding:44px 0;font-size:.85rem;font-wei
 
     <div class="form-wrap reveal">
       <h3>Richiedi il tuo invito</h3>
-      <p class="form-sub">Compila i campi: ti ricontattiamo entro 24 ore.</p>
+      <p class="form-sub">Compila i campi: ti ricontattiamo entro 24 ore con il modulo da compilare.</p>
 
       <form id="leadForm" novalidate>
         <div class="field">
@@ -518,9 +521,9 @@ footer{background:#1F1E1C;color:#BFB7AA;padding:44px 0;font-size:.85rem;font-wei
           <input type="email" id="email" name="email" required autocomplete="email" placeholder="nome@email.it">
         </div>
         <div class="field">
-          <label for="slot">Fascia di visita preferita</label>
+          <label for="slot">Orario indicativo di arrivo</label>
           <select id="slot" name="slot">
-            <option value="">Scegli una fascia</option>
+            <option value="">Scegli un orario</option>
             <option>Nessuna preferenza</option>
           </select>
         </div>
@@ -558,7 +561,7 @@ footer{background:#1F1E1C;color:#BFB7AA;padding:44px 0;font-size:.85rem;font-wei
         </label>
 
         <button class="btn" type="submit">Invia la candidatura</button>
-        <div class="form-msg ok" id="msgOk">Candidatura inviata. Il team Innova ti contatterà entro 24 ore per confermare il tuo posto. Controlla anche WhatsApp ed email.</div>
+        <div class="form-msg ok" id="msgOk">Candidatura ricevuta. A breve ti invieremo un modulo da compilare: è necessario per completare la candidatura. Solo dopo ti confermeremo se l'accesso all'evento è stato accolto. Controlla email e WhatsApp.</div>
         <div class="form-msg err" id="msgErr">Compila tutti i campi obbligatori (nome, telefono, email e consenso privacy) e riprova.</div>
       </form>
     </div>
@@ -621,7 +624,13 @@ const CONFIG = {
   /* Giornate di visita fisica. Se "fasce" è vuoto la pagina scrive
      "su prenotazione" e il modulo non mostra fasce orarie. */
   giornate: [
-    { giorno: "Venerdì 31 luglio", fasce: [] }
+    {
+      giorno: "Venerdì 31 luglio",
+      /* testo mostrato nella scheda evento */
+      orario: "10:00 – 18:00, no stop",
+      /* scaglioni proposti nel modulo, solo per organizzare gli arrivi */
+      fasce: ["10:00 – 12:00", "12:00 – 14:00", "14:00 – 16:00", "16:00 – 18:00"]
+    }
   ],
 
   /* Apertura della piattaforma delle proposte. */
@@ -667,8 +676,9 @@ setCfg("whenOfferte", CONFIG.chiusuraPiattaforma
 setCfg("leadForm", (CONFIG.scadenzaTesto
     ? "Le candidature chiudono " + CONFIG.scadenzaTesto + ". "
     : "")
-  + "Solo chi partecipa all'open house accede alla piattaforma e può presentare la propria offerta. "
-  + "Il team Innova ti contatterà per confermare il tuo posto e la tua fascia di visita.");
+  + "Dopo la candidatura riceverai un modulo da compilare: è obbligatorio e solo al termine ti verrà "
+  + "confermato o meno l'accesso all'evento. Solo chi partecipa alla visita accede poi alla piattaforma "
+  + "e può presentare la propria offerta.");
 
 /* ---- Giornate di open house ---- */
 if(CONFIG.giornate.length){
@@ -684,8 +694,8 @@ if(CONFIG.giornate.length){
       const b = document.createElement("strong");
       b.textContent = g.giorno;
       el.appendChild(b);
-      const fasce = (g.fasce && g.fasce.length) ? g.fasce.join(" e ") : "visite su prenotazione";
-      el.appendChild(document.createTextNode(" · " + fasce));
+      const orario = g.orario || ((g.fasce && g.fasce.length) ? g.fasce.join(" e ") : "visite su prenotazione");
+      el.appendChild(document.createTextNode(" · " + orario));
       frag.appendChild(el);
     });
     li.replaceWith(frag);
