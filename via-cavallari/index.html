@@ -4,11 +4,11 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Innova Experience — Via Saverio Cavallari 2, Palermo | Innova Immobiliare</title>
-<meta name="description" content="Bivano ristrutturato di 66 mq in via Saverio Cavallari 2, Palermo. Prezzo di partenza € 170.000. Partecipa all'open house: solo i partecipanti accedono alla piattaforma digitale e possono fare la loro offerta migliore, in totale trasparenza.">
+<meta name="description" content="Bivano ristrutturato di 66 mq in via Saverio Cavallari 2, Palermo. Prezzo attuale € 170.000: il nuovo prezzo viene svelato solo ai partecipanti. Candidati, visita la casa venerdì 31 luglio e fai la tua proposta sulla piattaforma dedicata, in totale trasparenza.">
 
 <meta property="og:type" content="website">
 <meta property="og:title" content="Innova Experience — Via Saverio Cavallari 2, Palermo">
-<meta property="og:description" content="66 mq, bivano, 2 bagni, cucina compresa. Prezzo di partenza € 170.000. Partecipa all'open house e fai la tua offerta sulla piattaforma dedicata.">
+<meta property="og:description" content="66 mq, bivano, 2 bagni, cucina compresa. Il nuovo prezzo lo scoprono solo i partecipanti. Visita venerdì 31 luglio, poi la piattaforma per le proposte.">
 <meta property="og:image" content="foto/innova-01.jpg">
 
 <!-- ============================================================
@@ -59,8 +59,14 @@ a{color:inherit}
 .hero h1 em{font-style:normal;color:var(--amber)}
 .hero .sub{margin-top:22px;font-size:clamp(1rem,1.6vw,1.2rem);font-weight:300;max-width:56ch;color:#EDE6DA}
 
-/* prezzo di partenza — elemento firma */
-.secret-price{margin:30px 0 8px;display:inline-flex;flex-direction:column;gap:6px;
+/* prezzo attuale, tagliato */
+.current-price{margin-top:32px;display:flex;align-items:baseline;flex-wrap:wrap;gap:10px}
+.current-price .cp-label{font-size:.78rem;letter-spacing:.1em;text-transform:uppercase;color:#BFB7AA;font-weight:500}
+.current-price .cp-value{font-size:1.4rem;font-weight:700;color:#D8D0C2;text-decoration:line-through;
+  text-decoration-color:rgba(232,152,42,.75);text-decoration-thickness:3px}
+
+/* prezzo segreto — elemento firma */
+.secret-price{margin:16px 0 8px;display:inline-flex;flex-direction:column;gap:6px;
   background:rgba(255,255,255,.04);border:1px dashed rgba(232,152,42,.55);border-radius:14px;padding:20px 30px}
 .secret-price .label{font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;color:#BFB7AA;font-weight:500}
 .secret-price .value{font-size:clamp(1.9rem,4.4vw,2.8rem);font-weight:800;color:var(--amber);letter-spacing:.02em;line-height:1.1}
@@ -132,6 +138,14 @@ section{padding:76px 0}
 .step p{font-size:.92rem;font-weight:300}
 .step .when{display:inline-block;margin-top:12px;font-size:.78rem;font-weight:600;color:var(--charcoal-deep);
   background:var(--cream);border-radius:999px;padding:5px 12px}
+
+/* avviso accesso alla piattaforma */
+.access-note{margin-top:34px;background:var(--charcoal-deep);color:var(--cream);border-left:5px solid var(--amber);
+  border-radius:14px;padding:26px 30px}
+.access-note h3{color:var(--amber);font-size:.82rem;font-weight:700;letter-spacing:.18em;
+  text-transform:uppercase;margin-bottom:10px}
+.access-note p{font-weight:300;font-size:.98rem;max-width:70ch}
+.access-note strong{font-weight:600;color:var(--white)}
 
 /* galleria e video */
 .gallery{margin-top:40px;display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:14px}
@@ -211,23 +225,29 @@ footer{background:#1F1E1C;color:#BFB7AA;padding:44px 0;font-size:.85rem;font-wei
 <header class="hero">
   <div class="container">
     <span class="eyebrow">Innova Experience · Open House · Via Saverio Cavallari 2, Palermo</span>
-    <h1>Hai chiesto il prezzo. Eccolo: <em>da qui parte la tua offerta.</em></h1>
-    <p class="sub">Un bivano completamente ristrutturato di 66 mq in zona Libertà viene venduto in un modo diverso:
-    un open house a numero chiuso e poi una piattaforma digitale riservata ai partecipanti, dove ognuno presenta
-    la propria offerta migliore. Tutte le offerte sono visibili a tutti, in totale trasparenza.</p>
+    <h1>Il nuovo prezzo di questa casa lo scopriranno <em>solo i partecipanti.</em></h1>
+    <p class="sub">Un bivano completamente ristrutturato di 66 mq in zona Libertà viene venduto in un modo mai visto
+    a Palermo: <strong>venerdì 31 luglio</strong> si visita la casa di persona, poi si apre una piattaforma digitale
+    riservata ai soli partecipanti. È lì che viene svelato il nuovo prezzo ed è lì che ognuno presenta la propria
+    proposta, con tutte le offerte visibili a tutti. L'offerta migliore sarà scelta dalla proprietà.</p>
 
     <!-- ============================================================
-      PREZZO DI PARTENZA — si aggiorna nel blocco CONFIG in fondo alla pagina
+      PREZZI — si aggiornano nel blocco CONFIG in fondo alla pagina
     ============================================================ -->
-    <div class="secret-price" aria-label="Prezzo di partenza delle offerte">
-      <span class="label">Prezzo di partenza delle offerte</span>
-      <span class="value" data-cfg="prezzoPartenza">€ 170.000</span>
-      <span class="note">Cucina completa compresa nel prezzo. Da questa base partono le offerte sulla piattaforma
-      digitale, con rilancio minimo e finestra temporale definiti: le regole le conosci prima di offrire.</span>
+    <div class="current-price">
+      <span class="cp-label">Prezzo attuale</span>
+      <span class="cp-value" data-cfg="prezzoAttuale">€ 170.000</span>
+    </div>
+
+    <div class="secret-price" aria-label="Nuovo prezzo riservato ai partecipanti">
+      <span class="label">Nuovo prezzo</span>
+      <span class="value">€ ••• •••</span>
+      <span class="note">Viene svelato solo sulla piattaforma digitale, accessibile tramite link riservato
+      esclusivamente a chi si è candidato e ha partecipato alla visita. È da quel prezzo che partono le proposte.</span>
     </div>
 
     <div class="cta-row">
-      <a class="btn" href="#candidatura">Partecipa all'open house</a>
+      <a class="btn" href="#candidatura">Candidati per partecipare</a>
       <a class="btn btn-ghost" href="https://wa.me/393394185631?text=Ciao%20Innova%2C%20ho%20visto%20la%20pagina%20di%20via%20Saverio%20Cavallari%202%20e%20vorrei%20partecipare%20all%27open%20house." target="_blank" rel="noopener">Scrivici su WhatsApp</a>
       <span class="hint" data-cfg="hintCandidature">Posti limitati · Solo i partecipanti possono fare l'offerta</span>
     </div>
@@ -314,7 +334,8 @@ footer{background:#1F1E1C;color:#BFB7AA;padding:44px 0;font-size:.85rem;font-wei
         <div class="row"><dt>Spese condominiali</dt><dd><strong>€ 20 al mese</strong></dd></div>
         <div class="row"><dt>Stato</dt><dd>Ristrutturato a nuovo, libero</dd></div>
         <div class="row"><dt>Cucina</dt><dd>Completa, compresa nel prezzo</dd></div>
-        <div class="row"><dt>Prezzo di partenza</dt><dd><strong data-cfg="prezzoPartenza">€ 170.000</strong></dd></div>
+        <div class="row"><dt>Prezzo attuale</dt><dd><strong data-cfg="prezzoAttuale">€ 170.000</strong></dd></div>
+        <div class="row"><dt>Nuovo prezzo</dt><dd>Svelato sulla piattaforma ai soli partecipanti</dd></div>
       </dl>
     </div>
   </div>
@@ -366,8 +387,8 @@ footer{background:#1F1E1C;color:#BFB7AA;padding:44px 0;font-size:.85rem;font-wei
       <div class="reel-text">
         <h3>Il video che hai visto sui social</h3>
         <p>Pochi secondi per capire com'è fatta la casa: living con cucina, camera con cabina armadio,
-        due bagni nuovi. Qui trovi tutto quello che nel reel non stava: prezzo di partenza, metratura,
-        documenti e come partecipare all'open house per poter fare la tua offerta.</p>
+        due bagni nuovi. Qui trovi tutto quello che nel reel non stava: metratura, documenti, prezzo attuale
+        e come candidarsi per partecipare e poter fare la propria proposta.</p>
       </div>
     </div>
   </div>
@@ -389,21 +410,29 @@ footer{background:#1F1E1C;color:#BFB7AA;padding:44px 0;font-size:.85rem;font-wei
       <div class="step reveal">
         <span class="num">Tappa 2</span>
         <h3>Vivi l'open house</h3>
-        <p>Giornate di open house su prenotazione, in piccoli gruppi. Visiti l'appartamento con il nostro team, con la documentazione completa e la consulenza mutuo sul posto.</p>
+        <p>Visiti l'appartamento di persona con il nostro team, in piccoli gruppi, con la documentazione completa e la consulenza mutuo sul posto. Senza questa visita non si accede alla piattaforma.</p>
         <span class="when" data-cfg="whenVisite">Su prenotazione</span>
       </div>
       <div class="step reveal">
         <span class="num">Tappa 3</span>
         <h3>Accedi alla piattaforma</h3>
-        <p>Solo i partecipanti ricevono il link di accesso riservato alla piattaforma digitale dedicata: è lì che si raccolgono le offerte.</p>
+        <p>Solo chi ha partecipato riceve il link di accesso riservato alla piattaforma digitale. È lì che viene svelato il nuovo prezzo e che si raccolgono le proposte.</p>
         <span class="when" data-cfg="whenPiattaforma">Dopo l'open house</span>
       </div>
       <div class="step reveal">
         <span class="num">Tappa 4</span>
         <h3>Fai la tua offerta migliore</h3>
-        <p>Per un periodo di tempo limitato presenti la tua offerta, con un rilancio minimo. Tutte le offerte sono visibili sulla piattaforma, in totale trasparenza.</p>
-        <span class="when">Solo partecipanti</span>
+        <p>Hai una finestra di tempo limitata per presentare la tua proposta, con rilancio minimo. Tutte le offerte sono visibili a tutti i partecipanti e alla chiusura la proprietà sceglie la migliore.</p>
+        <span class="when" data-cfg="whenOfferte">Solo partecipanti</span>
       </div>
+    </div>
+
+    <div class="access-note reveal">
+      <h3>Come si accede alla piattaforma</h3>
+      <p><strong>La candidatura è obbligatoria.</strong> Il link alla piattaforma viene inviato esclusivamente
+      a chi si è candidato e ha partecipato alla visita di <strong data-cfg="giornoVisita">venerdì 31 luglio</strong>:
+      chi non partecipa non riceve l'accesso e non può presentare la propria proposta. Non ci sono eccezioni
+      e non esistono canali alternativi per offrire.</p>
     </div>
   </div>
 </section>
@@ -421,10 +450,14 @@ footer{background:#1F1E1C;color:#BFB7AA;padding:44px 0;font-size:.85rem;font-wei
       </div>
       <div class="event-card reveal">
         <h3>La piattaforma dedicata</h3>
-        <p>Dopo l'open house ricevi via link un accesso riservato alla piattaforma digitale.
-        Ogni offerta è <strong>visibile a tutti i partecipanti</strong>, con rilancio minimo
-        (<span data-cfg="rilancio">comunicato all'apertura della piattaforma</span>) e finestra temporale definita.
-        Nessuna trattativa parallela, nessun dubbio su cosa stia succedendo.</p>
+        <ul>
+          <li><strong>Apre</strong> · <span data-cfg="aperturaTesto">subito dopo la visita</span></li>
+          <li><strong>Chiude</strong> · <span data-cfg="chiusuraTesto">alla scadenza comunicata ai partecipanti</span></li>
+          <li>Accesso tramite link riservato: <strong>solo a chi ha partecipato alla visita</strong></li>
+          <li>Il nuovo prezzo viene svelato qui, all'apertura</li>
+          <li>Ogni proposta è <strong>visibile a tutti i partecipanti</strong>, con <span data-cfg="rilancio">rilancio minimo comunicato all'apertura della piattaforma</span></li>
+          <li>Alla chiusura <strong>la proprietà sceglie l'offerta migliore</strong></li>
+        </ul>
       </div>
       <div class="event-card reveal">
         <h3>In appartamento troverai</h3>
@@ -450,7 +483,7 @@ footer{background:#1F1E1C;color:#BFB7AA;padding:44px 0;font-size:.85rem;font-wei
       </div>
       <div class="trust-item reveal">
         <h3>Regole uguali per tutti</h3>
-        <p>Prezzo di partenza pubblico, rilancio minimo, finestra temporale definita. Le condizioni le conosci prima di offrire.</p>
+        <p>Stesso prezzo di partenza per tutti, stesso rilancio minimo, stessa finestra temporale. Le condizioni le conosci prima di offrire, non dopo.</p>
       </div>
       <div class="trust-item reveal">
         <h3>Accompagnati fino al rogito</h3>
@@ -550,9 +583,11 @@ footer{background:#1F1E1C;color:#BFB7AA;padding:44px 0;font-size:.85rem;font-wei
       </div>
     </div>
     <p class="disclaimer">Le informazioni e le misure riportate in questa pagina hanno valore indicativo e non costituiscono
-    proposta contrattuale ai sensi dell'art. 1336 c.c. Il prezzo indicato è la base di partenza delle offerte raccolte
-    tramite la piattaforma digitale riservata ai partecipanti all'open house e non costituisce impegno alla vendita a tale
-    importo: la valutazione delle offerte resta in capo alla proprietà. Superfici e dati sono espressi in forma commerciale
+    proposta contrattuale ai sensi dell'art. 1336 c.c. Il prezzo indicato è il prezzo di vendita
+    attualmente richiesto; il nuovo prezzo viene comunicato ai soli partecipanti all'apertura della piattaforma digitale.
+    La raccolta delle proposte tramite piattaforma non costituisce asta né incanto e non comporta obbligo di vendita:
+    la valutazione delle proposte e la scelta dell'offerta migliore restano in capo alla proprietà, che può non
+    accettarne alcuna. Superfici e dati sono espressi in forma commerciale
     e vanno verificati in sede di visita e sulla documentazione tecnica, che l'agenzia mette a disposizione prima
     dell'offerta. Gli arredi presenti nelle fotografie non sono compresi nella vendita, con l'eccezione della cucina completa.</p>
   </div>
@@ -569,26 +604,32 @@ footer{background:#1F1E1C;color:#BFB7AA;padding:44px 0;font-size:.85rem;font-wei
    e coerente: si può pubblicare anche prima di fissare le date.
 ============================================================ */
 const CONFIG = {
-  /* Prezzo di partenza delle offerte */
-  prezzoPartenza: "€ 170.000",
+  /* Prezzo attuale, mostrato tagliato. Il nuovo prezzo NON va qui:
+     viene svelato solo sulla piattaforma ai partecipanti. */
+  prezzoAttuale: "€ 170.000",
 
-  /* Rilancio minimo sulla piattaforma. Es: "€ 2.000" */
+  /* Rilancio minimo sulla piattaforma. Es: "€ 2.000" — se vuoto,
+     la pagina scrive che verrà comunicato all'apertura. */
   rilancioMinimo: "",
 
   /* Chiusura candidature: data e ora italiane in formato ISO.
-     Es: "2026-08-10T23:59:59+02:00" — se vuoto, il countdown non compare */
-  scadenzaCandidature: "",
+     È la scadenza del countdown in cima alla pagina. */
+  scadenzaCandidature: "2026-07-30T23:59:59+02:00",
 
-  /* Testo leggibile della scadenza. Es: "lunedì 10 agosto, mezzanotte" */
-  scadenzaTesto: "",
+  /* Testo leggibile della stessa scadenza. */
+  scadenzaTesto: "giovedì 30 luglio, mezzanotte",
 
-  /* Giornate di open house. Es:
-     [{ giorno:"Mercoledì 12 agosto", fasce:["9:30–13:00","15:30–18:30"] },
-      { giorno:"Giovedì 13 agosto",   fasce:["9:30–13:00","15:30–18:30"] }] */
-  giornate: [],
+  /* Giornate di visita fisica. Se "fasce" è vuoto la pagina scrive
+     "su prenotazione" e il modulo non mostra fasce orarie. */
+  giornate: [
+    { giorno: "Venerdì 31 luglio", fasce: [] }
+  ],
 
-  /* Apertura della piattaforma offerte. Es: "Venerdì 14 agosto, mattina" */
-  aperturaPiattaforma: ""
+  /* Apertura della piattaforma delle proposte. */
+  aperturaPiattaforma: "Venerdì 31 luglio, a mezzanotte",
+
+  /* Chiusura della piattaforma delle proposte. */
+  chiusuraPiattaforma: "Domenica 2 agosto, a mezzanotte"
 };
 
 /* ============================================================
@@ -599,7 +640,7 @@ const CONFIG = {
 function setCfg(key, value){
   document.querySelectorAll('[data-cfg="'+key+'"]').forEach(el => { el.textContent = value; });
 }
-setCfg("prezzoPartenza", CONFIG.prezzoPartenza);
+setCfg("prezzoAttuale", CONFIG.prezzoAttuale);
 setCfg("rilancio", CONFIG.rilancioMinimo
   ? "rilancio minimo " + CONFIG.rilancioMinimo
   : "rilancio minimo comunicato all'apertura della piattaforma");
@@ -614,6 +655,14 @@ setCfg("whenCandidature", CONFIG.scadenzaTesto
   : "Posti limitati");
 
 setCfg("whenPiattaforma", CONFIG.aperturaPiattaforma || "Dopo l'open house");
+setCfg("aperturaTesto", CONFIG.aperturaPiattaforma || "subito dopo la visita");
+setCfg("giornoVisita", CONFIG.giornate.length
+  ? CONFIG.giornate.map(g => g.giorno).join(" e ").replace(/^([A-Z])/, m => m.toLowerCase())
+  : "open house");
+setCfg("chiusuraTesto", CONFIG.chiusuraPiattaforma || "alla scadenza comunicata ai partecipanti");
+setCfg("whenOfferte", CONFIG.chiusuraPiattaforma
+  ? "Fino a " + CONFIG.chiusuraPiattaforma.replace(/^([A-Z])/, m => m.toLowerCase())
+  : "Solo partecipanti");
 
 setCfg("leadForm", (CONFIG.scadenzaTesto
     ? "Le candidature chiudono " + CONFIG.scadenzaTesto + ". "
@@ -635,7 +684,8 @@ if(CONFIG.giornate.length){
       const b = document.createElement("strong");
       b.textContent = g.giorno;
       el.appendChild(b);
-      el.appendChild(document.createTextNode(" · " + (g.fasce || []).join(" e ")));
+      const fasce = (g.fasce && g.fasce.length) ? g.fasce.join(" e ") : "visite su prenotazione";
+      el.appendChild(document.createTextNode(" · " + fasce));
       frag.appendChild(el);
     });
     li.replaceWith(frag);
