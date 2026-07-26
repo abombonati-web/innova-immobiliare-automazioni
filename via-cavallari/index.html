@@ -153,7 +153,10 @@ section{padding:76px 0}
 /* galleria e video */
 .gallery{margin-top:40px;display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:14px}
 .gallery a{display:block;border-radius:14px;overflow:hidden;aspect-ratio:4/3}
-.gallery img{width:100%;height:100%;object-fit:cover;transition:transform .3s ease}
+/* aspect-ratio anche sull'img, non solo sul contenitore: evita che un'altezza
+   percentuale non risolta (dipendente dal parente) lasci la foto a 0px su
+   alcuni browser mobili prima che l'immagine lazy sia stata caricata */
+.gallery img{width:100%;height:auto;aspect-ratio:4/3;object-fit:cover;transition:transform .3s ease}
 .gallery a:hover img{transform:scale(1.05)}
 .reel{margin-top:36px;display:flex;flex-wrap:wrap;gap:28px;align-items:center}
 .reel-video{flex:0 0 300px;max-width:300px;border-radius:18px;overflow:hidden;box-shadow:0 10px 30px rgba(74,74,74,.18)}
@@ -415,6 +418,69 @@ footer{background:#1F1E1C;color:#BFB7AA;padding:44px 0;font-size:.85rem;font-wei
   </div>
 </section>
 
+<!-- ================= ZONA E INVESTIMENTO ================= -->
+<section style="padding-top:0" id="investimento">
+  <div class="container">
+    <h2 class="section-title reveal">Non solo casa.<br><span class="accent">Un investimento in una delle zone più richieste di Palermo.</span></h2>
+    <p class="section-lead reveal">La zona Libertà ha i prezzi immobiliari più alti della città e uno dei mercati più attivi: un contesto che rende
+    l'immobile interessante non solo per abitarci, ma anche per metterlo a reddito, con l'affitto turistico o tradizionale.</p>
+
+    <div class="specs reveal">
+      <span class="spec"><em>€ 2.085–2.234</em>al mq in zona</span>
+      <span class="spec"><em>vs € 1.550</em>media città</span>
+      <span class="spec"><em>+1%</em>valore nell'ultimo anno</span>
+      <span class="spec"><em>11%</em>delle compravendite di Palermo</span>
+      <span class="spec"><em>6,9–7,1%</em>rendimento medio città</span>
+    </div>
+
+    <div class="features">
+      <div class="feature reveal">
+        <h3>Zona tra le più richieste</h3>
+        <p>Il valore medio in zona Libertà è tra € 2.085 e € 2.234 al mq, contro una media cittadina di circa € 1.550/mq:
+        una delle aree con il valore immobiliare più alto di Palermo, con prezzi ancora in crescita nell'ultimo anno.</p>
+      </div>
+      <div class="feature reveal">
+        <h3>Un mercato liquido</h3>
+        <p>Libertà, Notarbartolo e Politeama concentrano da sole circa l'11% di tutte le compravendite della città:
+        più domanda significa tempi di vendita e di affitto più rapidi rispetto a zone meno centrali.</p>
+      </div>
+      <div class="feature reveal">
+        <h3>Il turismo a Palermo cresce</h3>
+        <p>L'aeroporto Falcone Borsellino ha chiuso il 2025 con 9,2 milioni di passeggeri (+10%) e nel 2026 continua a
+        crescere, con 105 destinazioni collegate per l'estate: più voli e più turisti significano più domanda di
+        affitti brevi in centro città.</p>
+      </div>
+      <div class="feature reveal">
+        <h3>Due bagni: un vantaggio raro</h3>
+        <p>Per un affitto turistico, due bagni in un bivano fanno una grande differenza: permettono di ospitare
+        comodamente famiglie o piccoli gruppi, un comfort che pochi annunci comparabili offrono.</p>
+      </div>
+      <div class="feature reveal">
+        <h3>Pronta a essere messa a reddito</h3>
+        <p>Ristrutturata, con cucina compresa e finiture di pregio: nessun investimento aggiuntivo prima di iniziare
+        ad affittarla, né come casa vacanza né come locazione tradizionale.</p>
+      </div>
+      <div class="feature reveal">
+        <h3>Attenzione alla normativa</h3>
+        <p>Dal 2025 ogni immobile destinato ad affitti brevi deve avere il proprio CIN (Codice Identificativo
+        Nazionale) ed essere in regola con la L.R. 6/2025 in Sicilia: un adempimento da mettere in conto, con
+        sanzioni da € 800 a € 8.000 per chi non è in regola.</p>
+      </div>
+    </div>
+
+    <div class="access-note reveal">
+      <h3>Una stima, non una promessa</h3>
+      <p>Il costo medio di un affitto breve nel centro di Palermo è di circa <strong>€ 112 a notte</strong>, con
+      un'occupazione media di <strong>80 giorni l'anno</strong> (circa il 22%): un ricavo lordo indicativo di
+      <strong>€ 8.000–9.000 l'anno</strong>, calcolato sui dati medi di mercato — cifra che tende a salire con una
+      gestione professionale e in una posizione richiesta come questa. Il rendimento medio degli investimenti
+      immobiliari a Palermo è tra i più alti in Italia, intorno al <strong>7%</strong>. Sono dati di mercato
+      aggregati, utili come riferimento: il rendimento reale dipende da gestione, prezzo di acquisto finale e
+      stagionalità, e va verificato con un commercialista o un property manager prima di decidere.</p>
+    </div>
+  </div>
+</section>
+
 <!-- ================= COME FUNZIONA ================= -->
 <section>
   <div class="container">
@@ -610,7 +676,10 @@ footer{background:#1F1E1C;color:#BFB7AA;padding:44px 0;font-size:.85rem;font-wei
     la valutazione delle proposte e la scelta dell'offerta migliore restano in capo alla proprietà, che può non
     accettarne alcuna. Superfici e dati sono espressi in forma commerciale
     e vanno verificati in sede di visita e sulla documentazione tecnica, che l'agenzia fornisce in fase di
-    sottoscrizione della proposta. Gli arredi presenti nelle fotografie non sono compresi nella vendita, con l'eccezione della cucina completa.</p>
+    sottoscrizione della proposta. Gli arredi presenti nelle fotografie non sono compresi nella vendita, con l'eccezione della cucina completa.
+    I dati su prezzi di zona, mercato e turismo citati in questa pagina provengono da osservatori immobiliari e fonti
+    aeroportuali pubblicamente disponibili, hanno valore puramente indicativo e non costituiscono garanzia di
+    rendimento: qualunque valutazione di investimento va verificata con un professionista prima di procedere.</p>
   </div>
 </footer>
 
