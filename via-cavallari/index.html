@@ -4,11 +4,11 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Innova Experience — Via Saverio Cavallari 2, Palermo | Innova Immobiliare</title>
-<meta name="description" content="Bivano ristrutturato di 66 mq in via Saverio Cavallari 2, Palermo. Prezzo attuale € 170.000: il nuovo prezzo viene svelato solo ai partecipanti. Candidati, visita la casa venerdì 31 luglio e fai la tua proposta sulla piattaforma dedicata, in totale trasparenza.">
+<meta name="description" content="Bivano ristrutturato di 66 mq in via Saverio Cavallari 2, Palermo. Prezzo tagliato da € 175.000. Visita l'immobile venerdì 31 luglio e fai la tua offerta sulla piattaforma riservata ai partecipanti, con rilancio minimo di € 2.000.">
 
 <meta property="og:type" content="website">
 <meta property="og:title" content="Innova Experience — Via Saverio Cavallari 2, Palermo">
-<meta property="og:description" content="66 mq, bivano, 2 bagni, cucina compresa. Il nuovo prezzo lo scoprono solo i partecipanti. Visita venerdì 31 luglio, poi la piattaforma per le proposte.">
+<meta property="og:description" content="66 mq, bivano, 2 bagni, cucina compresa. Prezzo tagliato da € 175.000: visita l'immobile venerdì 31 luglio e fai la tua offerta, rilancio minimo € 2.000.">
 <meta property="og:image" content="foto/innova-01.jpg">
 
 <!-- ============================================================
@@ -69,8 +69,9 @@ a{color:inherit}
 .secret-price{margin:16px 0 8px;display:inline-flex;flex-direction:column;gap:6px;
   background:rgba(255,255,255,.04);border:1px dashed rgba(232,152,42,.55);border-radius:14px;padding:20px 30px}
 .secret-price .label{font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;color:#BFB7AA;font-weight:500}
-.secret-price .value{font-size:clamp(1.9rem,4.4vw,2.8rem);font-weight:800;color:var(--amber);letter-spacing:.02em;line-height:1.1}
+.secret-price .value{font-size:clamp(1.7rem,4vw,2.4rem);font-weight:800;color:var(--amber);letter-spacing:.02em;line-height:1.15}
 .secret-price .note{font-size:.82rem;color:#D8D0C2;font-weight:300;max-width:40ch}
+.secret-price .note strong{color:var(--amber);font-weight:700}
 
 .cta-row{margin-top:34px;display:flex;flex-wrap:wrap;gap:16px;align-items:center}
 .btn{display:inline-block;background:var(--amber);color:var(--charcoal-deep);font-weight:700;
@@ -225,25 +226,26 @@ footer{background:#1F1E1C;color:#BFB7AA;padding:44px 0;font-size:.85rem;font-wei
 <header class="hero">
   <div class="container">
     <span class="eyebrow">Innova Experience · Open House · Via Saverio Cavallari 2, Palermo</span>
-    <h1>Il nuovo prezzo di questa casa lo scopriranno <em>solo i partecipanti.</em></h1>
+    <h1>Visita l'immobile e <em>fai la tua offerta.</em></h1>
     <p class="sub">Un bivano completamente ristrutturato di 66 mq in zona Libertà viene venduto in un modo mai visto
     a Palermo: <strong>venerdì 31 luglio</strong> si visita la casa di persona, poi si apre una piattaforma digitale
-    riservata ai soli partecipanti. È lì che viene svelato il nuovo prezzo ed è lì che ognuno presenta la propria
-    proposta, con tutte le offerte visibili a tutti. L'offerta migliore sarà scelta dalla proprietà.</p>
+    riservata ai soli partecipanti. È lì che ognuno presenta la propria offerta, con rilancio minimo e con tutte
+    le offerte visibili a tutti. L'offerta migliore sarà scelta dalla proprietà.</p>
 
     <!-- ============================================================
       PREZZI — si aggiornano nel blocco CONFIG in fondo alla pagina
     ============================================================ -->
     <div class="current-price">
-      <span class="cp-label">Prezzo attuale</span>
-      <span class="cp-value" data-cfg="prezzoAttuale">€ 170.000</span>
+      <span class="cp-label">Prezzo precedente</span>
+      <span class="cp-value" data-cfg="prezzoAttuale">€ 175.000</span>
     </div>
 
-    <div class="secret-price" aria-label="Nuovo prezzo riservato ai partecipanti">
-      <span class="label">Nuovo prezzo</span>
-      <span class="value">€ ••• •••</span>
-      <span class="note">Viene svelato solo sulla piattaforma digitale, accessibile tramite link riservato
-      esclusivamente a chi si è candidato e ha partecipato alla visita. È da quel prezzo che partono le proposte.</span>
+    <div class="secret-price" aria-label="Come si presenta l'offerta">
+      <span class="label">Ora decidi tu</span>
+      <span class="value">La tua offerta</span>
+      <span class="note">La presenti sulla piattaforma riservata ai partecipanti, con un rilancio minimo di
+      <strong data-cfg="rilancioValore">€ 2.000</strong>. Tutte le offerte sono visibili a tutti e alla chiusura
+      la proprietà sceglie la migliore.</span>
     </div>
 
     <div class="cta-row">
@@ -334,8 +336,8 @@ footer{background:#1F1E1C;color:#BFB7AA;padding:44px 0;font-size:.85rem;font-wei
         <div class="row"><dt>Spese condominiali</dt><dd><strong>€ 20 al mese</strong></dd></div>
         <div class="row"><dt>Stato</dt><dd>Ristrutturato a nuovo, libero</dd></div>
         <div class="row"><dt>Cucina</dt><dd>Completa, compresa nel prezzo</dd></div>
-        <div class="row"><dt>Prezzo attuale</dt><dd><strong data-cfg="prezzoAttuale">€ 170.000</strong></dd></div>
-        <div class="row"><dt>Nuovo prezzo</dt><dd>Svelato sulla piattaforma ai soli partecipanti</dd></div>
+        <div class="row"><dt>Prezzo precedente</dt><dd><strong data-cfg="prezzoAttuale">€ 175.000</strong></dd></div>
+        <div class="row"><dt>Offerte</dt><dd>Sulla piattaforma, rilancio minimo <strong data-cfg="rilancioValore">€ 2.000</strong></dd></div>
       </dl>
     </div>
   </div>
@@ -416,7 +418,7 @@ footer{background:#1F1E1C;color:#BFB7AA;padding:44px 0;font-size:.85rem;font-wei
       <div class="step reveal">
         <span class="num">Tappa 3</span>
         <h3>Accedi alla piattaforma</h3>
-        <p>Solo chi ha partecipato riceve il link di accesso riservato alla piattaforma digitale. È lì che viene svelato il nuovo prezzo e che si raccolgono le proposte.</p>
+        <p>Solo chi ha partecipato riceve il link di accesso riservato alla piattaforma digitale. È lì che si raccolgono tutte le offerte, visibili a ogni partecipante.</p>
         <span class="when" data-cfg="whenPiattaforma">Dopo l'open house</span>
       </div>
       <div class="step reveal">
@@ -454,7 +456,6 @@ footer{background:#1F1E1C;color:#BFB7AA;padding:44px 0;font-size:.85rem;font-wei
           <li><strong>Apre</strong> · <span data-cfg="aperturaTesto">subito dopo la visita</span></li>
           <li><strong>Chiude</strong> · <span data-cfg="chiusuraTesto">alla scadenza comunicata ai partecipanti</span></li>
           <li>Accesso tramite link riservato: <strong>solo a chi ha partecipato alla visita</strong></li>
-          <li>Il nuovo prezzo viene svelato qui, all'apertura</li>
           <li>Ogni proposta è <strong>visibile a tutti i partecipanti</strong>, con <span data-cfg="rilancio">rilancio minimo comunicato all'apertura della piattaforma</span></li>
           <li>Alla chiusura <strong>la proprietà sceglie l'offerta migliore</strong></li>
         </ul>
@@ -583,9 +584,8 @@ footer{background:#1F1E1C;color:#BFB7AA;padding:44px 0;font-size:.85rem;font-wei
       </div>
     </div>
     <p class="disclaimer">Le informazioni e le misure riportate in questa pagina hanno valore indicativo e non costituiscono
-    proposta contrattuale ai sensi dell'art. 1336 c.c. Il prezzo indicato è il prezzo di vendita
-    attualmente richiesto; il nuovo prezzo viene comunicato ai soli partecipanti all'apertura della piattaforma digitale.
-    La raccolta delle proposte tramite piattaforma non costituisce asta né incanto e non comporta obbligo di vendita:
+    proposta contrattuale ai sensi dell'art. 1336 c.c. Il prezzo barrato indica il prezzo di vendita
+    precedentemente richiesto ed è riportato a solo scopo informativo. La raccolta delle proposte tramite piattaforma non costituisce asta né incanto e non comporta obbligo di vendita:
     la valutazione delle proposte e la scelta dell'offerta migliore restano in capo alla proprietà, che può non
     accettarne alcuna. Superfici e dati sono espressi in forma commerciale
     e vanno verificati in sede di visita e sulla documentazione tecnica, che l'agenzia mette a disposizione prima
@@ -604,13 +604,12 @@ footer{background:#1F1E1C;color:#BFB7AA;padding:44px 0;font-size:.85rem;font-wei
    e coerente: si può pubblicare anche prima di fissare le date.
 ============================================================ */
 const CONFIG = {
-  /* Prezzo attuale, mostrato tagliato. Il nuovo prezzo NON va qui:
-     viene svelato solo sulla piattaforma ai partecipanti. */
-  prezzoAttuale: "€ 170.000",
+  /* Prezzo precedente, mostrato tagliato in hero e in scheda tecnica. */
+  prezzoAttuale: "€ 175.000",
 
   /* Rilancio minimo sulla piattaforma. Es: "€ 2.000" — se vuoto,
      la pagina scrive che verrà comunicato all'apertura. */
-  rilancioMinimo: "",
+  rilancioMinimo: "€ 2.000",
 
   /* Chiusura candidature: data e ora italiane in formato ISO.
      È la scadenza del countdown in cima alla pagina. */
@@ -641,6 +640,7 @@ function setCfg(key, value){
   document.querySelectorAll('[data-cfg="'+key+'"]').forEach(el => { el.textContent = value; });
 }
 setCfg("prezzoAttuale", CONFIG.prezzoAttuale);
+setCfg("rilancioValore", CONFIG.rilancioMinimo || "comunicato all'apertura");
 setCfg("rilancio", CONFIG.rilancioMinimo
   ? "rilancio minimo " + CONFIG.rilancioMinimo
   : "rilancio minimo comunicato all'apertura della piattaforma");
