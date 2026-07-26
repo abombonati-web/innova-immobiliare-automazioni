@@ -121,7 +121,9 @@ section{padding:76px 0}
 
 /* foto di copertina */
 .cover{margin-top:32px;border-radius:18px;overflow:hidden;box-shadow:0 10px 34px rgba(74,74,74,.16)}
-.cover img{width:100%;aspect-ratio:3/2;object-fit:cover}
+/* height:auto serve a neutralizzare l'attributo height dell'immagine,
+   altrimenti l'aspect-ratio non viene applicato */
+.cover img{width:100%;height:auto;aspect-ratio:3/2;object-fit:cover}
 
 /* elenco caratteristiche */
 .features{margin-top:44px;display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:22px}
@@ -269,8 +271,64 @@ footer{background:#1F1E1C;color:#BFB7AA;padding:44px 0;font-size:.85rem;font-wei
   </div>
 </div>
 
+<!-- ================= FOTO E VIDEO ================= -->
+<section id="foto">
+  <div class="container">
+    <h2 class="section-title reveal">Guarda ogni angolo.<br><span class="accent">26 foto, nessun filtro.</span></h2>
+    <p class="section-lead reveal">Tocca una foto per aprirla a schermo intero.</p>
+
+    <div class="cover reveal">
+      <img src="foto/innova-01.jpg" alt="Zona living con angolo cottura, via Saverio Cavallari 2, Palermo" width="1600" height="1067">
+    </div>
+    <div class="gallery reveal">
+      <a href="foto/innova-01.jpg" target="_blank" rel="noopener"><img src="foto/thumb/innova-01.jpg" loading="lazy" alt="Zona living con angolo cottura"></a>
+      <a href="foto/innova-04.jpg" target="_blank" rel="noopener"><img src="foto/thumb/innova-04.jpg" loading="lazy" alt="Cucina completa con forno e piano a induzione"></a>
+      <a href="foto/innova-22.jpg" target="_blank" rel="noopener"><img src="foto/thumb/innova-22.jpg" loading="lazy" alt="Forno e piano cottura a induzione"></a>
+      <a href="foto/innova-21.jpg" target="_blank" rel="noopener"><img src="foto/thumb/innova-21.jpg" loading="lazy" alt="Dettaglio piano cottura a induzione"></a>
+      <a href="foto/innova-02.jpg" target="_blank" rel="noopener"><img src="foto/thumb/innova-02.jpg" loading="lazy" alt="Living verso l'ingresso e la scala interna"></a>
+      <a href="foto/innova-10.jpg" target="_blank" rel="noopener"><img src="foto/thumb/innova-10.jpg" loading="lazy" alt="Disimpegno con porte a filo muro"></a>
+      <a href="foto/innova-03.jpg" target="_blank" rel="noopener"><img src="foto/thumb/innova-03.jpg" loading="lazy" alt="Scala interna verso l'ammezzato tecnico"></a>
+      <a href="foto/innova-11.jpg" target="_blank" rel="noopener"><img src="foto/thumb/innova-11.jpg" loading="lazy" alt="Camera da letto con luce a led perimetrale"></a>
+      <a href="foto/innova-13.jpg" target="_blank" rel="noopener"><img src="foto/thumb/innova-13.jpg" loading="lazy" alt="Camera da letto, vista d'insieme"></a>
+      <a href="foto/innova-07.jpg" target="_blank" rel="noopener"><img src="foto/thumb/innova-07.jpg" loading="lazy" alt="Parete armadio su misura con cabina"></a>
+      <a href="foto/innova-08.jpg" target="_blank" rel="noopener"><img src="foto/thumb/innova-08.jpg" loading="lazy" alt="Cabina armadio e climatizzazione in camera"></a>
+      <a href="foto/innova-09.jpg" target="_blank" rel="noopener"><img src="foto/thumb/innova-09.jpg" loading="lazy" alt="Camera con tenda, radiatore e accesso al disimpegno"></a>
+      <a href="foto/innova-05.jpg" target="_blank" rel="noopener"><img src="foto/thumb/innova-05.jpg" loading="lazy" alt="Primo bagno finestrato con rivestimento effetto quarzite"></a>
+      <a href="foto/innova-06.jpg" target="_blank" rel="noopener"><img src="foto/thumb/innova-06.jpg" loading="lazy" alt="Box doccia in cristallo e scaldasalviette"></a>
+      <a href="foto/innova-24.jpg" target="_blank" rel="noopener"><img src="foto/thumb/innova-24.jpg" loading="lazy" alt="Radiatore del riscaldamento autonomo"></a>
+      <a href="foto/innova-12.jpg" target="_blank" rel="noopener"><img src="foto/thumb/innova-12.jpg" loading="lazy" alt="Secondo bagno con pavimento in graniglia"></a>
+      <a href="foto/innova-14.jpg" target="_blank" rel="noopener"><img src="foto/thumb/innova-14.jpg" loading="lazy" alt="Secondo bagno, sanitari e box doccia"></a>
+      <a href="foto/innova-15.jpg" target="_blank" rel="noopener"><img src="foto/thumb/innova-15.jpg" loading="lazy" alt="Lavabo d'appoggio e rivestimento in ceramica smaltata"></a>
+      <a href="foto/innova-16.jpg" target="_blank" rel="noopener"><img src="foto/thumb/innova-16.jpg" loading="lazy" alt="Doccia e scaldasalviette del secondo bagno"></a>
+      <a href="foto/innova-17.jpg" target="_blank" rel="noopener"><img src="foto/thumb/innova-17.jpg" loading="lazy" alt="Dettaglio della rubinetteria del secondo bagno"></a>
+      <a href="foto/innova-18.jpg" target="_blank" rel="noopener"><img src="foto/thumb/innova-18.jpg" loading="lazy" alt="Rubinetteria a parete e specchio"></a>
+      <a href="foto/innova-19.jpg" target="_blank" rel="noopener"><img src="foto/thumb/innova-19.jpg" loading="lazy" alt="Luce a led perimetrale a soffitto"></a>
+      <a href="foto/innova-23.jpg" target="_blank" rel="noopener"><img src="foto/thumb/innova-23.jpg" loading="lazy" alt="Rosone originale in gesso conservato"></a>
+      <a href="foto/innova-20.jpg" target="_blank" rel="noopener"><img src="foto/thumb/innova-20.jpg" loading="lazy" alt="Climatizzatore a parete"></a>
+      <a href="foto/innova-25.jpg" target="_blank" rel="noopener"><img src="foto/thumb/innova-25.jpg" loading="lazy" alt="Via Saverio Cavallari all'angolo con via Marconi, Palermo"></a>
+      <a href="foto/innova-26.jpg" target="_blank" rel="noopener"><img src="foto/thumb/innova-26.jpg" loading="lazy" alt="Facciata del palazzo d'epoca in via Saverio Cavallari 2"></a>
+    </div>
+
+    <div class="reel reveal">
+      <div class="reel-video">
+        <video controls preload="metadata" playsinline poster="video/reel-poster.jpg">
+          <source src="video/reel-via-cavallari.mp4" type="video/mp4">
+          Il tuo browser non supporta la riproduzione diretta del video.
+          <a href="video/reel-via-cavallari.mp4" target="_blank" rel="noopener">Guarda il video dell'appartamento</a>.
+        </video>
+      </div>
+      <div class="reel-text">
+        <h3>Il video che hai visto sui social</h3>
+        <p>Pochi secondi per capire com'è fatta la casa: living con cucina, camera con cabina armadio,
+        due bagni nuovi. Qui trovi tutto quello che nel reel non stava: metratura, prezzo precedente
+        e come candidarsi per partecipare e poter fare la propria offerta.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- ================= L'IMMOBILE ================= -->
-<section id="immobile">
+<section id="immobile" style="padding-top:0">
   <div class="container">
     <h2 class="section-title reveal">L'immobile che stai per scoprire.<br><span class="accent">Via Saverio Cavallari 2, Palermo.</span></h2>
 
@@ -292,9 +350,6 @@ footer{background:#1F1E1C;color:#BFB7AA;padding:44px 0;font-size:.85rem;font-wei
     in ogni ambiente, climatizzazione in living e camera, riscaldamento autonomo. Il rosone originale in gesso è stato
     conservato e restaurato: un pezzo di storia del palazzo dentro una casa nuova.</p>
 
-    <div class="cover reveal">
-      <img src="foto/innova-01.jpg" alt="Zona living con angolo cottura, via Saverio Cavallari 2, Palermo" width="1600" height="1067">
-    </div>
 
     <div class="features">
       <div class="feature reveal">
@@ -339,59 +394,6 @@ footer{background:#1F1E1C;color:#BFB7AA;padding:44px 0;font-size:.85rem;font-wei
         <div class="row"><dt>Prezzo precedente</dt><dd><strong data-cfg="prezzoAttuale">€ 175.000</strong></dd></div>
         <div class="row"><dt>Offerte</dt><dd>Sulla piattaforma, rilancio minimo <strong data-cfg="rilancioValore">€ 2.000</strong></dd></div>
       </dl>
-    </div>
-  </div>
-</section>
-
-<!-- ================= GALLERIA ================= -->
-<section style="padding-top:0">
-  <div class="container">
-    <h2 class="section-title reveal">Guarda ogni angolo.<br><span class="accent">26 foto, nessun filtro.</span></h2>
-    <p class="section-lead reveal">Tocca una foto per aprirla a schermo intero.</p>
-
-    <div class="gallery reveal">
-      <a href="foto/innova-01.jpg" target="_blank" rel="noopener"><img src="foto/thumb/innova-01.jpg" loading="lazy" alt="Zona living con angolo cottura"></a>
-      <a href="foto/innova-04.jpg" target="_blank" rel="noopener"><img src="foto/thumb/innova-04.jpg" loading="lazy" alt="Cucina completa con forno e piano a induzione"></a>
-      <a href="foto/innova-22.jpg" target="_blank" rel="noopener"><img src="foto/thumb/innova-22.jpg" loading="lazy" alt="Forno e piano cottura a induzione"></a>
-      <a href="foto/innova-21.jpg" target="_blank" rel="noopener"><img src="foto/thumb/innova-21.jpg" loading="lazy" alt="Dettaglio piano cottura a induzione"></a>
-      <a href="foto/innova-02.jpg" target="_blank" rel="noopener"><img src="foto/thumb/innova-02.jpg" loading="lazy" alt="Living verso l'ingresso e la scala interna"></a>
-      <a href="foto/innova-10.jpg" target="_blank" rel="noopener"><img src="foto/thumb/innova-10.jpg" loading="lazy" alt="Disimpegno con porte a filo muro"></a>
-      <a href="foto/innova-03.jpg" target="_blank" rel="noopener"><img src="foto/thumb/innova-03.jpg" loading="lazy" alt="Scala interna verso l'ammezzato tecnico"></a>
-      <a href="foto/innova-11.jpg" target="_blank" rel="noopener"><img src="foto/thumb/innova-11.jpg" loading="lazy" alt="Camera da letto con luce a led perimetrale"></a>
-      <a href="foto/innova-13.jpg" target="_blank" rel="noopener"><img src="foto/thumb/innova-13.jpg" loading="lazy" alt="Camera da letto, vista d'insieme"></a>
-      <a href="foto/innova-07.jpg" target="_blank" rel="noopener"><img src="foto/thumb/innova-07.jpg" loading="lazy" alt="Parete armadio su misura con cabina"></a>
-      <a href="foto/innova-08.jpg" target="_blank" rel="noopener"><img src="foto/thumb/innova-08.jpg" loading="lazy" alt="Cabina armadio e climatizzazione in camera"></a>
-      <a href="foto/innova-09.jpg" target="_blank" rel="noopener"><img src="foto/thumb/innova-09.jpg" loading="lazy" alt="Camera con tenda, radiatore e accesso al disimpegno"></a>
-      <a href="foto/innova-05.jpg" target="_blank" rel="noopener"><img src="foto/thumb/innova-05.jpg" loading="lazy" alt="Primo bagno finestrato con rivestimento effetto quarzite"></a>
-      <a href="foto/innova-06.jpg" target="_blank" rel="noopener"><img src="foto/thumb/innova-06.jpg" loading="lazy" alt="Box doccia in cristallo e scaldasalviette"></a>
-      <a href="foto/innova-24.jpg" target="_blank" rel="noopener"><img src="foto/thumb/innova-24.jpg" loading="lazy" alt="Radiatore del riscaldamento autonomo"></a>
-      <a href="foto/innova-12.jpg" target="_blank" rel="noopener"><img src="foto/thumb/innova-12.jpg" loading="lazy" alt="Secondo bagno con pavimento in graniglia"></a>
-      <a href="foto/innova-14.jpg" target="_blank" rel="noopener"><img src="foto/thumb/innova-14.jpg" loading="lazy" alt="Secondo bagno, sanitari e box doccia"></a>
-      <a href="foto/innova-15.jpg" target="_blank" rel="noopener"><img src="foto/thumb/innova-15.jpg" loading="lazy" alt="Lavabo d'appoggio e rivestimento in ceramica smaltata"></a>
-      <a href="foto/innova-16.jpg" target="_blank" rel="noopener"><img src="foto/thumb/innova-16.jpg" loading="lazy" alt="Doccia e scaldasalviette del secondo bagno"></a>
-      <a href="foto/innova-17.jpg" target="_blank" rel="noopener"><img src="foto/thumb/innova-17.jpg" loading="lazy" alt="Dettaglio della rubinetteria del secondo bagno"></a>
-      <a href="foto/innova-18.jpg" target="_blank" rel="noopener"><img src="foto/thumb/innova-18.jpg" loading="lazy" alt="Rubinetteria a parete e specchio"></a>
-      <a href="foto/innova-19.jpg" target="_blank" rel="noopener"><img src="foto/thumb/innova-19.jpg" loading="lazy" alt="Luce a led perimetrale a soffitto"></a>
-      <a href="foto/innova-23.jpg" target="_blank" rel="noopener"><img src="foto/thumb/innova-23.jpg" loading="lazy" alt="Rosone originale in gesso conservato"></a>
-      <a href="foto/innova-20.jpg" target="_blank" rel="noopener"><img src="foto/thumb/innova-20.jpg" loading="lazy" alt="Climatizzatore a parete"></a>
-      <a href="foto/innova-25.jpg" target="_blank" rel="noopener"><img src="foto/thumb/innova-25.jpg" loading="lazy" alt="Via Saverio Cavallari all'angolo con via Marconi, Palermo"></a>
-      <a href="foto/innova-26.jpg" target="_blank" rel="noopener"><img src="foto/thumb/innova-26.jpg" loading="lazy" alt="Facciata del palazzo d'epoca in via Saverio Cavallari 2"></a>
-    </div>
-
-    <div class="reel reveal">
-      <div class="reel-video">
-        <video controls preload="metadata" playsinline poster="video/reel-poster.jpg">
-          <source src="video/reel-via-cavallari.mp4" type="video/mp4">
-          Il tuo browser non supporta la riproduzione diretta del video.
-          <a href="video/reel-via-cavallari.mp4" target="_blank" rel="noopener">Guarda il video dell'appartamento</a>.
-        </video>
-      </div>
-      <div class="reel-text">
-        <h3>Il video che hai visto sui social</h3>
-        <p>Pochi secondi per capire com'è fatta la casa: living con cucina, camera con cabina armadio,
-        due bagni nuovi. Qui trovi tutto quello che nel reel non stava: metratura, prezzo precedente
-        e come candidarsi per partecipare e poter fare la propria offerta.</p>
-      </div>
     </div>
   </div>
 </section>
