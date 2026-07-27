@@ -1,0 +1,128 @@
+{
+  "_nota": "Brief di riferimento: Via F. Petrarca 36, Palermo. Ogni dato tecnico proviene dalla scheda ufficiale su Drive (Appartamento-90mq-piano rialzato-Via-Petrarca-36.docx). Non aggiungere campi 'a sentimento': se un dato non e sulla scheda, va chiesto all'agenzia. I campi lasciati vuoti fanno semplicemente sparire la sezione dalla landing, non vengono inventati.",
+  "_drive_folder_id": "1E7CcGEd8MUOeovb2F3SNf1D0PE-OMexI",
+
+  "property": {
+    "name": "Via F. Petrarca 36",
+    "address": "Via F. Petrarca 36",
+    "city": "Palermo",
+    "map_query": "Via Francesco Petrarca 36, Palermo",
+    "surface_sqm": 90,
+    "eyebrow": "Nuovo prezzo · Palermo centro",
+    "headline": "90 mq al piano rialzato, con portineria.<br>A pochi passi da <em>Via Libertà</em>.",
+    "description": [
+      "Appartamento di 90 mq su un unico livello, in una delle zone più centrali e strategiche di Palermo, a pochi passi da Via Libertà. Quattro vani ben distribuiti, due camere da letto, un bagno e ambienti giorno funzionali, in stabile condominiale con servizio di portineria.",
+      "Doppia vocazione: abitazione principale oppure studio professionale, grazie alla posizione di prestigio, alla comoda accessibilità per la clientela e alla portineria che garantisce accoglienza, sicurezza e gestione della corrispondenza."
+    ]
+  },
+
+  "price": {
+    "old": 168000,
+    "new": 155000
+  },
+
+  "facts": [
+    { "label": "Superficie", "value": "90 mq", "icon": "▦", "spoken": "novanta metri quadri" },
+    { "label": "Vani", "value": "4", "icon": "◫" },
+    { "label": "Camere", "value": "2", "icon": "▭" },
+    { "label": "Bagni", "value": "1", "icon": "▢" },
+    { "label": "Piano", "value": "Rialzato", "icon": "▤" },
+    { "label": "Portineria", "value": "Sì", "icon": "◉" }
+  ],
+
+  "details": [
+    { "label": "Tipologia", "value": "Appartamento residenziale o studio professionale" },
+    { "label": "Superficie", "value": "90 mq su un unico livello" },
+    { "label": "Vani", "value": "4 ben distribuiti" },
+    { "label": "Camere da letto", "value": "2" },
+    { "label": "Bagni", "value": "1" },
+    { "label": "Piano", "value": "Rialzato" },
+    { "label": "Stabile", "value": "Condominiale con servizio di portineria" },
+    { "label": "Riscaldamento", "value": "Autonomo a pompa di calore, predisposizione gas metano" },
+    { "label": "Infissi", "value": "Doppi vetri camera, isolamento termico e acustico" },
+    { "label": "Stato", "value": "Buono stato di manutenzione, abitabile da subito" },
+    { "label": "Spese condominiali", "value": "Circa € 110 al mese" }
+  ],
+
+  "highlights": [
+    {
+      "icon": "↓",
+      "title": "13.000 euro in meno",
+      "text": "Il prezzo passa da 168.000 a 155.000 euro. Un ribasso dichiarato apertamente e uguale per tutti, senza trattative parallele."
+    },
+    {
+      "icon": "◎",
+      "title": "Circa 1.722 €/mq",
+      "text": "Novanta metri quadri al nuovo prezzo, in una delle zone più centrali di Palermo: il valore al metro quadro torna competitivo."
+    },
+    {
+      "icon": "≋",
+      "title": "Pompa di calore",
+      "text": "Riscaldamento autonomo a pompa di calore, soluzione efficiente e a basso consumo, con predisposizione per il gas metano. Infissi a doppio vetro camera."
+    },
+    {
+      "icon": "◉",
+      "title": "Stabile con portineria",
+      "text": "Accoglienza, sicurezza e gestione della corrispondenza: un plus concreto sia per chi ci abita sia per chi ci lavora."
+    },
+    {
+      "icon": "◱",
+      "title": "Casa o studio",
+      "text": "Il layout razionale si adatta anche a sala d'attesa più studi o postazioni di lavoro: abitazione, sede professionale o entrambe."
+    },
+    {
+      "icon": "✓",
+      "title": "Abitabile da subito",
+      "text": "Buono stato di manutenzione: nessun cantiere da programmare prima di entrare."
+    }
+  ],
+
+  "targets": [
+    {
+      "title": "Famiglie e coppie",
+      "text": "Abitazione principale spaziosa in zona di prestigio, già abitabile, con consumi contenuti grazie alla pompa di calore."
+    },
+    {
+      "title": "Liberi professionisti",
+      "text": "Sede di rappresentanza con portineria e accesso comodo per i clienti: ideale per studi legali, medici, di consulenza o di progettazione."
+    },
+    {
+      "title": "Investitori",
+      "text": "Zona ad alta domanda, immobile mettibile a reddito come locazione residenziale o come ufficio, con prospettive di apprezzamento nel tempo."
+    },
+    {
+      "title": "Uso misto casa-studio",
+      "text": "Per chi vuole unire abitazione e attività professionale in un unico spazio, senza rinunciare alla posizione."
+    }
+  ],
+
+  "zone": {
+    "intro": "Via Francesco Petrarca 36, in una delle zone più centrali e strategiche di Palermo, a pochi passi da Via Libertà.",
+    "advantages": [
+      "A pochi passi da Via Libertà",
+      "Ben servita dai mezzi pubblici",
+      "Attività commerciali e servizi di ogni genere",
+      "Accessibilità comoda per la clientela di uno studio professionale",
+      "Zona ad alta domanda, sia residenziale sia direzionale"
+    ]
+  },
+
+  "photo_captions": [
+    "4 vani ben distribuiti",
+    "2 camere da letto",
+    "Ambienti luminosi e ariosi",
+    "Stabile con portineria",
+    "Pompa di calore e doppi vetri"
+  ],
+
+  "event": {
+    "label": "Innova Experience",
+    "date": "2026-08-05",
+    "slots": ["12:00", "15:30"],
+    "note": "Visite guidate su prenotazione, in piccoli gruppi."
+  },
+
+  "contact": {
+    "phone": "+39 339 418 5631"
+  }
+}

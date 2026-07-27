@@ -1,0 +1,12 @@
+__pycache__/
+*.py[cod]
+.pytest_cache/
+
+# deliverable generati dal kit (video/landing/PDF non vanno versionati)
+output/
+*.mp4
+*.wav
+*.mp3
+landing-*.html
+landing-*.pdf
+!index.html
