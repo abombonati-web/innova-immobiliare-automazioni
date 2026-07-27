@@ -1,0 +1,9 @@
+# Innova Property Kit — dipendenze Python
+# Binari di sistema richiesti a parte: ffmpeg, wkhtmltopdf
+numpy>=1.26
+scipy>=1.11
+Pillow>=10.0
+sherpa-onnx>=1.10        # motore TTS offline per la voce Piper italiana
+
+# solo per i test
+pytest>=8.0
