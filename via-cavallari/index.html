@@ -4,11 +4,11 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Via Saverio Cavallari 2, Palermo — bivano ristrutturato | Innova Immobiliare</title>
-<meta name="description" content="Bivano di 70 mq in via Saverio Cavallari 2, Palermo, ristrutturato integralmente 2 anni fa e in condizioni pressoché nuove. Prezzo tagliato da € 175.000. Visita l'immobile venerdì 31 luglio e fai la tua offerta sulla piattaforma riservata ai partecipanti, con rilancio minimo di € 2.000.">
+<meta name="description" content="Bivano di 70 mq in via Saverio Cavallari 2, Palermo, ristrutturato integralmente 2 anni fa e in condizioni pressoché nuove. Prezzo tagliato da € 175.000. Visita condivisa mercoledì 5 agosto (11:00 o 15:00) e fai la tua offerta sulla piattaforma riservata ai partecipanti, con rilancio minimo di € 2.000.">
 
 <meta property="og:type" content="website">
 <meta property="og:title" content="Via Saverio Cavallari 2, Palermo — bivano ristrutturato">
-<meta property="og:description" content="70 mq, bivano, 2 bagni, ristrutturato 2 anni fa e pressoché nuovo, cucina compresa. Prezzo tagliato da € 175.000: visita l'immobile venerdì 31 luglio e fai la tua offerta, rilancio minimo € 2.000.">
+<meta property="og:description" content="70 mq, bivano, 2 bagni, ristrutturato 2 anni fa e pressoché nuovo, cucina compresa. Prezzo tagliato da € 175.000: visita condivisa mercoledì 5 agosto (11:00 o 15:00), rilancio minimo € 2.000.">
 <meta property="og:image" content="foto/innova-01.jpg">
 
 <!-- ============================================================
@@ -238,9 +238,11 @@ footer{background:#1F1E1C;color:#BFB7AA;padding:44px 0;font-size:.85rem;font-wei
     <span class="eyebrow">Via Saverio Cavallari 2 · Palermo · Zona Libertà</span>
     <h1>Visita l'immobile e <em>fai la tua offerta.</em></h1>
     <p class="sub">Un bivano di 70 mq in zona Libertà, ristrutturato integralmente 2 anni fa e in condizioni pressoché nuove, viene venduto in un modo mai visto
-    a Palermo: <strong>venerdì 31 luglio</strong> si visita la casa di persona, poi si apre una piattaforma digitale
-    riservata ai soli partecipanti. È lì che ognuno presenta la propria offerta, con rilancio minimo e con tutte
-    le offerte visibili a tutti. L'offerta migliore sarà scelta dalla proprietà.</p>
+    a Palermo: <strong>mercoledì 5 agosto</strong> si visita la casa di persona, in un unico giorno condiviso —
+    scegli le 11:00 o le 15:00 in candidatura, sei in visita insieme agli altri ammessi a quell'orario e resti
+    quanto vuoi. Poi si apre una piattaforma digitale riservata ai soli partecipanti: è lì che ognuno presenta
+    la propria offerta, con rilancio minimo e con tutte le offerte visibili a tutti. L'offerta migliore sarà
+    scelta dalla proprietà.</p>
 
     <!-- ============================================================
       PREZZI — si aggiornano nel blocco CONFIG in fondo alla pagina
@@ -508,7 +510,9 @@ footer{background:#1F1E1C;color:#BFB7AA;padding:44px 0;font-size:.85rem;font-wei
       <div class="step reveal">
         <span class="num">Tappa 2</span>
         <h3>Visita l'immobile</h3>
-        <p>Visiti l'appartamento di persona con il team Innova, il tecnico e il consulente mutui a disposizione per ogni domanda. Senza questa visita non si accede alla piattaforma.</p>
+        <p>Vieni a vedere l'appartamento di persona, all'orario che hai scelto in candidatura: è una visita condivisa
+        con gli altri ammessi allo stesso orario, e resti quanto vuoi. Il team Innova, il tecnico e il consulente
+        mutui sono a disposizione per ogni domanda. Senza questa visita non si accede alla piattaforma.</p>
         <span class="when" data-cfg="whenVisite">Su prenotazione</span>
       </div>
       <div class="step reveal">
@@ -530,9 +534,9 @@ footer{background:#1F1E1C;color:#BFB7AA;padding:44px 0;font-size:.85rem;font-wei
       <p><strong>La candidatura è obbligatoria e non è automatica.</strong> Dopo esserti candidato ricevi
       un modulo da compilare: è un passaggio necessario, e solo al termine ti viene confermato — o meno —
       l'accesso all'evento. Il link alla piattaforma viene poi inviato esclusivamente a chi è stato ammesso
-      e ha partecipato alla visita di <strong data-cfg="giornoVisita">venerdì 31 luglio</strong>: chi non
-      partecipa non riceve l'accesso e non può presentare la propria offerta. Non ci sono eccezioni e non
-      esistono canali alternativi per offrire.</p>
+      e ha partecipato alla visita di <strong data-cfg="giornoVisita">mercoledì 5 agosto</strong>, all'orario
+      scelto in candidatura: chi non partecipa non riceve l'accesso e non può presentare la propria offerta.
+      Non ci sono eccezioni e non esistono canali alternativi per offrire.</p>
     </div>
   </div>
 </section>
@@ -617,10 +621,9 @@ footer{background:#1F1E1C;color:#BFB7AA;padding:44px 0;font-size:.85rem;font-wei
           <input type="email" id="email" name="email" required autocomplete="email" placeholder="nome@email.it">
         </div>
         <div class="field">
-          <label for="slot">Orario indicativo di arrivo</label>
-          <select id="slot" name="slot">
+          <label for="slot">A che ora vuoi vedere l'immobile? *</label>
+          <select id="slot" name="slot" required>
             <option value="">Scegli un orario</option>
-            <option>Nessuna preferenza</option>
           </select>
         </div>
         <div class="field">
@@ -660,7 +663,7 @@ footer{background:#1F1E1C;color:#BFB7AA;padding:44px 0;font-size:.85rem;font-wei
 
         <button class="btn" type="submit">Invia la candidatura</button>
         <div class="form-msg ok" id="msgOk">Candidatura ricevuta. A breve ti invieremo un modulo da compilare: è necessario per completare la candidatura. Solo dopo ti confermeremo se l'accesso all'evento è stato accolto. Controlla email e WhatsApp.</div>
-        <div class="form-msg err" id="msgErr">Compila tutti i campi obbligatori (nome, telefono, email e consenso privacy) e riprova.</div>
+        <div class="form-msg err" id="msgErr">Compila tutti i campi obbligatori (nome, telefono, email, orario di visita e consenso privacy) e riprova.</div>
       </form>
     </div>
 
@@ -725,31 +728,31 @@ const CONFIG = {
 
   /* Chiusura candidature: data e ora italiane in formato ISO.
      È la scadenza del countdown in cima alla pagina. */
-  scadenzaCandidature: "2026-07-29T23:59:59+02:00",
+  scadenzaCandidature: "2026-08-03T23:59:59+02:00",
 
   /* Testo leggibile della stessa scadenza. */
-  scadenzaTesto: "mercoledì 29 luglio, mezzanotte",
+  scadenzaTesto: "lunedì 3 agosto, mezzanotte",
 
-  /* Giornate di visita fisica. Se "fasce" è vuoto la pagina scrive
-     "su prenotazione" e il modulo non mostra fasce orarie. */
+  /* Giornata di visita: un solo giorno, visita condivisa a orario fisso
+     (tutti i candidati ammessi a un orario entrano insieme e restano
+     quanto vogliono). "fasce" ha i due orari tra cui scegliere in
+     candidatura: qui NON sono scaglioni di arrivo, sono le uniche due
+     opzioni selezionabili nel modulo. */
   giornate: [
     {
-      giorno: "Venerdì 31 luglio",
+      giorno: "Mercoledì 5 agosto",
       /* testo mostrato nella scheda evento */
-      orario: "10:00 – 18:00, no stop",
-      /* scaglioni proposti nel modulo, solo per organizzare gli arrivi */
-      fasce: ["10:00 – 10:30", "10:30 – 11:00", "11:00 – 11:30", "11:30 – 12:00",
-              "12:00 – 12:30", "12:30 – 13:00", "13:00 – 13:30", "13:30 – 14:00",
-              "14:00 – 14:30", "14:30 – 15:00", "15:00 – 15:30", "15:30 – 16:00",
-              "16:00 – 16:30", "16:30 – 17:00", "17:00 – 17:30", "17:30 – 18:00"]
+      orario: "scegli le 11:00 o le 15:00 in candidatura — visita condivisa, resti quanto vuoi",
+      /* le due opzioni selezionabili nel modulo */
+      fasce: ["11:00", "15:00"]
     }
   ],
 
   /* Apertura della piattaforma delle proposte. */
-  aperturaPiattaforma: "Venerdì 31 luglio, a mezzanotte",
+  aperturaPiattaforma: "Mercoledì 5 agosto, alle 19:30",
 
   /* Chiusura della piattaforma delle proposte. */
-  chiusuraPiattaforma: "Domenica 2 agosto, a mezzanotte"
+  chiusuraPiattaforma: "Giovedì 6 agosto, alle 19:30"
 };
 
 /* ============================================================
@@ -813,15 +816,14 @@ if(CONFIG.giornate.length){
     li.replaceWith(frag);
   }
 
-  /* fasce di visita nel modulo */
+  /* orari di visita nel modulo (scelta obbligatoria, visita condivisa) */
   const slot = document.getElementById("slot");
   if(slot){
-    const nessuna = slot.querySelector('option:last-child');
     CONFIG.giornate.forEach(g => {
       (g.fasce || []).forEach(f => {
         const o = document.createElement("option");
-        o.textContent = g.giorno + " · " + f;
-        slot.insertBefore(o, nessuna);
+        o.textContent = g.giorno + " · ore " + f;
+        slot.appendChild(o);
       });
     });
   }
@@ -881,7 +883,8 @@ document.getElementById("leadForm").addEventListener("submit", async function(e)
   const tel  = document.getElementById("telefono").value.trim();
   const mail = document.getElementById("email").value.trim();
   const priv = document.getElementById("privacy").checked;
-  if(!nome || !tel || !mail || !priv){ err.style.display = "block"; return; }
+  const slotScelto = document.getElementById("slot").value;
+  if(!nome || !tel || !mail || !priv || !slotScelto){ err.style.display = "block"; return; }
 
   const data = Object.fromEntries(new FormData(this).entries());
   if(data._honey){ return; } /* spam bot: scarta in silenzio */
