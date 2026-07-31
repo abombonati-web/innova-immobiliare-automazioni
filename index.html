@@ -103,7 +103,10 @@ section{padding:76px 0}
 /* galleria e video villa */
 .gallery{margin-top:40px;display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:14px}
 .gallery a{display:block;border-radius:14px;overflow:hidden;aspect-ratio:4/3}
-.gallery img{width:100%;height:100%;object-fit:cover;transition:transform .3s ease}
+/* aspect-ratio anche sull'img, non solo sul contenitore: evita che un'altezza
+   percentuale non risolta (dipendente dal parente) lasci la foto a 0px su
+   alcuni browser mobili prima che l'immagine lazy sia stata caricata */
+.gallery img{width:100%;height:auto;aspect-ratio:4/3;object-fit:cover;transition:transform .3s ease}
 .gallery a:hover img{transform:scale(1.05)}
 .villa-video{margin-top:32px;border-radius:16px;overflow:hidden;box-shadow:0 10px 30px rgba(74,74,74,.18)}
 .villa-video video{width:100%;display:block;background:#000}
@@ -139,15 +142,21 @@ section{padding:76px 0}
 .consent{display:flex;gap:10px;align-items:flex-start;font-size:.78rem;font-weight:300;margin:22px 0}
 .consent input{margin-top:3px;accent-color:var(--amber)}
 .form-wrap .btn{width:100%;text-align:center}
+/* i messaggi partono nascosti: vengono mostrati dallo script solo dopo l'invio */
 .form-msg{display:none;margin-top:18px;padding:16px;border-radius:10px;font-size:.9rem;font-weight:500}
-.form-msg.ok{display:block;background:#EFF7EC;color:#2F6B33;border:1px solid #BCDCB9}
-.form-msg.err{display:block;background:#FBEDEA;color:#9B3A2C;border:1px solid #ECC3BA}
+.form-msg.ok{background:#EFF7EC;color:#2F6B33;border:1px solid #BCDCB9}
+.form-msg.err{background:#FBEDEA;color:#9B3A2C;border:1px solid #ECC3BA}
 
 /* ---------- FOOTER ---------- */
 footer{background:#1F1E1C;color:#BFB7AA;padding:44px 0;font-size:.85rem;font-weight:300}
 .footer-inner{display:flex;flex-wrap:wrap;gap:20px 60px;justify-content:space-between;align-items:center}
 .footer-brand{color:var(--cream);font-weight:600;font-size:1rem}
 .footer-brand span{color:var(--amber)}
+.footer-social{display:flex;gap:12px;margin-top:16px}
+.footer-social a{display:inline-flex;align-items:center;justify-content:center;width:36px;height:36px;
+  border-radius:999px;background:rgba(251,246,238,.08);color:var(--cream);transition:background .15s ease,color .15s ease}
+.footer-social a:hover,.footer-social a:focus-visible{background:var(--amber);color:var(--charcoal-deep)}
+.footer-social svg{width:18px;height:18px;fill:currentColor}
 .payoff{color:var(--amber);font-weight:500;letter-spacing:.04em}
 
 @media (prefers-reduced-motion:no-preference){
@@ -210,7 +219,7 @@ footer{background:#1F1E1C;color:#BFB7AA;padding:44px 0;font-size:.85rem;font-wei
     <p class="section-lead reveal">Nel prestigioso complesso residenziale di Città Giardino, con portineria e piscina condominiale, la villa si sviluppa su tre livelli per circa 468 mq, circondata da un parco privato di circa 2.000 mq: un'oasi verde rara da vivere in città.</p>
     <p class="section-lead reveal">11 camere, 4 bagni, terrazze panoramiche, rivestimenti in marmo, guardaroba su misura, riscaldamento autonomo e climatizzazione: una villa elegante, solida e funzionale, in classe energetica D. Posizione strategica vicino a via Ugo La Malfa, allo svincolo autostradale, al Policlinico Cervello, scuole e servizi. È inoltre già disponibile un progetto di frazionamento in due unità abitative autonome.</p>
 
-    <div class="gallery reveal">
+    <div class="gallery">
       <a href="https://www.innovaimmobiliare.it/wp-content/uploads/2026/03/INNOVA-01-3.jpg" target="_blank" rel="noopener"><img src="https://www.innovaimmobiliare.it/wp-content/uploads/2026/03/INNOVA-01-3.jpg" loading="lazy" alt="Villa a Città Giardino, viale Regione Siciliana 7800, Palermo"></a>
       <a href="https://www.innovaimmobiliare.it/wp-content/uploads/2026/03/INNOVA-04-3.jpg" target="_blank" rel="noopener"><img src="https://www.innovaimmobiliare.it/wp-content/uploads/2026/03/INNOVA-04-3.jpg" loading="lazy" alt="Villa a Città Giardino, viale Regione Siciliana 7800, Palermo"></a>
       <a href="https://www.innovaimmobiliare.it/wp-content/uploads/2026/03/INNOVA-06-3.jpg" target="_blank" rel="noopener"><img src="https://www.innovaimmobiliare.it/wp-content/uploads/2026/03/INNOVA-06-3.jpg" loading="lazy" alt="Villa a Città Giardino, viale Regione Siciliana 7800, Palermo"></a>
@@ -394,6 +403,14 @@ footer{background:#1F1E1C;color:#BFB7AA;padding:44px 0;font-size:.85rem;font-wei
     <div>
       <div class="footer-brand">Innova <span>Immobiliare</span></div>
       <div class="payoff">Progetta il tuo futuro.</div>
+      <div class="footer-social">
+        <a href="https://www.instagram.com/innova_immobiliare/" target="_blank" rel="noopener" aria-label="Innova Immobiliare su Instagram">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2c-2.72 0-3.06.01-4.12.06-1.06.05-1.79.22-2.43.47-.66.26-1.22.6-1.77 1.15-.55.55-.9 1.11-1.15 1.77-.25.64-.42 1.37-.47 2.43C2.01 8.94 2 9.28 2 12s.01 3.06.06 4.12c.05 1.06.22 1.79.47 2.43.26.66.6 1.22 1.15 1.77.55.55 1.11.9 1.77 1.15.64.25 1.37.42 2.43.47C8.94 21.99 9.28 22 12 22s3.06-.01 4.12-.06c1.06-.05 1.79-.22 2.43-.47.66-.26 1.22-.6 1.77-1.15.55-.55.9-1.11 1.15-1.77.25-.64.42-1.37.47-2.43.05-1.06.06-1.4.06-4.12s-.01-3.06-.06-4.12c-.05-1.06-.22-1.79-.47-2.43-.26-.66-.6-1.22-1.15-1.77-.55-.55-1.11-.9-1.77-1.15-.64-.25-1.37-.42-2.43-.47C15.06 2.01 14.72 2 12 2zm0 1.8c2.67 0 2.99.01 4.04.06.98.04 1.5.21 1.86.34.47.18.8.4 1.15.75.35.35.57.68.75 1.15.13.36.29.88.34 1.86.05 1.05.06 1.37.06 4.04s-.01 2.99-.06 4.04c-.04.98-.21 1.5-.34 1.86-.18.47-.4.8-.75 1.15-.35.35-.68.57-1.15.75-.36.13-.88.29-1.86.34-1.05.05-1.37.06-4.04.06s-2.99-.01-4.04-.06c-.98-.04-1.5-.21-1.86-.34-.47-.18-.8-.4-1.15-.75-.35-.35-.57-.68-.75-1.15-.13-.36-.29-.88-.34-1.86C3.81 14.99 3.8 14.67 3.8 12s.01-2.99.06-4.04c.04-.98.21-1.5.34-1.86.18-.47.4-.8.75-1.15.35-.35.68-.57 1.15-.75.36-.13.88-.29 1.86-.34C9.01 3.81 9.33 3.8 12 3.8zm0 3.05a5.15 5.15 0 1 0 0 10.3 5.15 5.15 0 0 0 0-10.3zm0 8.5a3.35 3.35 0 1 1 0-6.7 3.35 3.35 0 0 1 0 6.7zm5.36-8.7a1.2 1.2 0 1 1-2.4 0 1.2 1.2 0 0 1 2.4 0z"/></svg>
+        </a>
+        <a href="https://www.facebook.com/innovaimmobili/" target="_blank" rel="noopener" aria-label="Innova Immobiliare su Facebook">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M13.5 21v-7.8h2.62l.39-3.04H13.5V8.24c0-.88.24-1.48 1.5-1.48h1.61V4.05C16.34 4.02 15.4 3.94 14.3 3.94c-2.29 0-3.86 1.4-3.86 3.97v2.25H7.81v3.04h2.63V21h3.06z"/></svg>
+        </a>
+      </div>
     </div>
     <div>
       Via Siracusa 46, Palermo · +39 339 418 5631<br>
