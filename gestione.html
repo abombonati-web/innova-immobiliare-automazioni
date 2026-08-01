@@ -1,0 +1,1169 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>Gestione Lead — Innova Experience</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --amber:#E8982A;
+  --amber-deep:#C97E15;
+  --charcoal:#4A4A4A;
+  --charcoal-deep:#2B2A28;
+  --cream:#FBF6EE;
+  --white:#FFFFFF;
+  --line:#E4DCCE;
+  --danger:#9B3A2C;
+  --ok:#2F6B33;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Poppins',sans-serif;color:var(--charcoal);background:var(--cream);line-height:1.55;font-size:15px}
+button,input,select,textarea{font-family:inherit;font-size:inherit;color:inherit}
+a{color:inherit}
+
+.container{max-width:1180px;margin:0 auto;padding:0 20px}
+
+/* ---------- TOPBAR ---------- */
+.topbar{background:var(--charcoal-deep);color:var(--cream);position:sticky;top:0;z-index:40;
+  box-shadow:0 2px 14px rgba(0,0,0,.18)}
+.topbar-inner{display:flex;flex-wrap:wrap;align-items:center;gap:14px 22px;padding:14px 20px;max-width:1180px;margin:0 auto}
+.brand{font-weight:700;font-size:1rem;white-space:nowrap}
+.brand span{color:var(--amber)}
+.brand small{display:block;font-weight:300;font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:#BFB7AA}
+.tabs{display:flex;gap:6px;flex:1;flex-wrap:wrap}
+.tab{background:transparent;border:1px solid rgba(251,246,238,.22);color:var(--cream);border-radius:999px;
+  padding:8px 18px;cursor:pointer;font-size:.86rem;font-weight:500;transition:background .15s ease,border-color .15s ease}
+.tab:hover{background:rgba(251,246,238,.08)}
+.tab.active{background:var(--amber);border-color:var(--amber);color:var(--charcoal-deep);font-weight:600}
+.tab .badge{display:inline-block;margin-left:7px;background:rgba(0,0,0,.18);border-radius:999px;padding:0 7px;font-size:.74rem;font-weight:700}
+.tab.active .badge{background:rgba(0,0,0,.14)}
+
+/* ---------- BOTTONI ---------- */
+.btn{background:var(--amber);color:var(--charcoal-deep);font-weight:600;border:none;border-radius:999px;
+  padding:11px 24px;cursor:pointer;font-size:.9rem;transition:background .15s ease,transform .15s ease;text-decoration:none;
+  display:inline-flex;align-items:center;gap:8px;justify-content:center}
+.btn:hover{background:var(--amber-deep);transform:translateY(-1px)}
+.btn:disabled{opacity:.5;cursor:not-allowed;transform:none}
+.btn.ghost{background:transparent;border:1.5px solid var(--line);color:var(--charcoal)}
+.btn.ghost:hover{background:var(--white);border-color:var(--amber)}
+.btn.dark{background:var(--charcoal-deep);color:var(--cream)}
+.btn.dark:hover{background:#3d3b38}
+.btn.danger{background:transparent;border:1.5px solid #E3BDB5;color:var(--danger)}
+.btn.danger:hover{background:#FBEDEA}
+.btn.sm{padding:7px 15px;font-size:.82rem}
+
+/* ---------- LAYOUT ---------- */
+main{padding:28px 0 80px}
+.view{display:none}
+.view.active{display:block}
+.view-head{display:flex;flex-wrap:wrap;gap:14px;align-items:flex-end;justify-content:space-between;margin-bottom:22px}
+h1{font-size:1.5rem;font-weight:700;color:var(--charcoal-deep)}
+h2{font-size:1.1rem;font-weight:700;color:var(--charcoal-deep);margin-bottom:14px}
+.muted{color:#8A8175;font-weight:300;font-size:.88rem}
+
+/* ---------- KPI ---------- */
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:14px;margin-bottom:30px}
+.kpi{background:var(--white);border-radius:14px;padding:20px 22px;border-top:4px solid var(--line);
+  box-shadow:0 3px 14px rgba(74,74,74,.06)}
+.kpi.hot{border-top-color:var(--danger)}
+.kpi.warn{border-top-color:var(--amber)}
+.kpi.good{border-top-color:var(--ok)}
+.kpi .n{font-size:2rem;font-weight:800;color:var(--charcoal-deep);line-height:1.1}
+.kpi .l{font-size:.76rem;letter-spacing:.1em;text-transform:uppercase;font-weight:600;color:#8A8175;margin-top:4px}
+
+/* ---------- CARD / LISTE ---------- */
+.card{background:var(--white);border-radius:16px;padding:24px;box-shadow:0 3px 14px rgba(74,74,74,.06);margin-bottom:22px}
+.empty{text-align:center;padding:44px 20px;color:#8A8175;font-weight:300}
+.empty .big{font-size:2rem;margin-bottom:10px}
+
+.row-item{display:flex;flex-wrap:wrap;gap:12px 16px;align-items:center;justify-content:space-between;
+  padding:15px 0;border-bottom:1px solid var(--line)}
+.row-item:last-child{border-bottom:none}
+.row-main{flex:1;min-width:230px}
+.row-title{font-weight:600;color:var(--charcoal-deep)}
+.row-sub{font-size:.84rem;color:#8A8175;font-weight:300;margin-top:2px}
+.row-actions{display:flex;gap:8px;flex-wrap:wrap}
+
+/* ---------- PILL / BADGE ---------- */
+.pill{display:inline-block;border-radius:999px;padding:3px 12px;font-size:.74rem;font-weight:600;
+  letter-spacing:.03em;white-space:nowrap}
+.pill.late{background:#FBEDEA;color:var(--danger)}
+.pill.today{background:#FDF3E3;color:var(--amber-deep)}
+.pill.next{background:#F1EEE8;color:#7A7266}
+.pill.done{background:#EFF7EC;color:var(--ok)}
+.dot{display:inline-block;width:8px;height:8px;border-radius:50%;margin-right:7px;vertical-align:middle}
+
+/* ---------- FILTRI ---------- */
+.filters{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:18px;align-items:center}
+.filters input[type=search],.filters select{padding:10px 14px;border:1.5px solid var(--line);border-radius:10px;
+  background:var(--white);font-size:.9rem}
+.filters input[type=search]{min-width:230px;flex:1}
+.filters input:focus,.filters select:focus{outline:2px solid var(--amber);border-color:var(--amber)}
+
+/* ---------- FORM ---------- */
+.grid2{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:16px}
+.field{margin-bottom:16px}
+.field label{display:block;font-size:.78rem;font-weight:600;letter-spacing:.04em;margin-bottom:6px;color:var(--charcoal-deep)}
+.field input,.field select,.field textarea{width:100%;padding:11px 14px;border:1.5px solid var(--line);border-radius:10px;
+  background:var(--cream);font-size:.92rem}
+.field textarea{resize:vertical;min-height:76px}
+.field input:focus,.field select:focus,.field textarea:focus{outline:2px solid var(--amber);border-color:var(--amber)}
+.field .hint{font-size:.76rem;color:#8A8175;font-weight:300;margin-top:5px}
+
+/* ---------- DRAWER SCHEDA CONTATTO ---------- */
+.overlay{position:fixed;inset:0;background:rgba(43,42,40,.55);z-index:50;display:none}
+.overlay.open{display:block}
+.drawer{position:fixed;top:0;right:0;bottom:0;width:min(640px,100%);background:var(--cream);z-index:51;
+  overflow-y:auto;transform:translateX(100%);transition:transform .25s ease;box-shadow:-6px 0 30px rgba(0,0,0,.2)}
+.drawer.open{transform:none}
+.drawer-head{position:sticky;top:0;background:var(--charcoal-deep);color:var(--cream);padding:20px 24px;z-index:2}
+.drawer-head .dh-top{display:flex;align-items:flex-start;justify-content:space-between;gap:14px}
+.drawer-head h2{color:var(--cream);font-size:1.25rem;margin:0}
+.drawer-head .dh-sub{font-size:.84rem;color:#BFB7AA;font-weight:300;margin-top:3px}
+.close-x{background:transparent;border:none;color:var(--cream);font-size:1.7rem;line-height:1;cursor:pointer;padding:0 4px}
+.quick-actions{display:flex;gap:9px;flex-wrap:wrap;margin-top:16px}
+.quick-actions .btn{padding:9px 18px;font-size:.84rem}
+.drawer-body{padding:24px}
+.section-block{background:var(--white);border-radius:14px;padding:22px;margin-bottom:18px;box-shadow:0 2px 10px rgba(74,74,74,.05)}
+.section-block h3{font-size:.8rem;letter-spacing:.12em;text-transform:uppercase;font-weight:700;color:var(--amber-deep);margin-bottom:16px}
+
+/* ---------- TIMELINE ATTIVITÀ ---------- */
+.timeline{list-style:none}
+.tl-item{position:relative;padding:0 0 18px 26px;border-left:2px solid var(--line);margin-left:6px}
+.tl-item:last-child{border-left-color:transparent;padding-bottom:0}
+.tl-item::before{content:"";position:absolute;left:-7px;top:4px;width:12px;height:12px;border-radius:50%;
+  background:var(--white);border:2px solid var(--line)}
+.tl-item.open::before{border-color:var(--amber);background:var(--amber)}
+.tl-item.late::before{border-color:var(--danger);background:var(--danger)}
+.tl-head{display:flex;flex-wrap:wrap;gap:8px;align-items:baseline;justify-content:space-between}
+.tl-title{font-weight:600;color:var(--charcoal-deep);font-size:.94rem}
+.tl-when{font-size:.78rem;color:#8A8175;font-weight:300;white-space:nowrap}
+.tl-note{font-size:.86rem;font-weight:300;margin-top:4px;white-space:pre-wrap}
+.tl-actions{margin-top:8px;display:flex;gap:8px;flex-wrap:wrap}
+
+/* ---------- BANNER ---------- */
+.banner{position:fixed;left:50%;bottom:26px;transform:translateX(-50%) translateY(120%);z-index:80;
+  background:var(--charcoal-deep);color:var(--cream);padding:14px 26px;border-radius:999px;font-size:.9rem;font-weight:500;
+  box-shadow:0 8px 26px rgba(0,0,0,.28);transition:transform .3s ease;max-width:92vw;text-align:center}
+.banner.show{transform:translateX(-50%)}
+.banner.ok{background:#2F6B33}
+.banner.err{background:var(--danger)}
+
+/* ---------- GATE PIN ---------- */
+.gate{position:fixed;inset:0;background:var(--charcoal-deep);z-index:100;display:flex;align-items:center;justify-content:center;padding:24px}
+.gate.hidden{display:none}
+.gate-box{background:var(--white);border-radius:18px;padding:36px 32px;max-width:380px;width:100%;text-align:center}
+.gate-box .brand2{font-weight:700;color:var(--charcoal-deep);margin-bottom:6px}
+.gate-box .brand2 span{color:var(--amber)}
+.gate-box p{font-size:.86rem;font-weight:300;margin-bottom:20px;color:#8A8175}
+.gate-box input{width:100%;padding:13px;border:1.5px solid var(--line);border-radius:10px;text-align:center;
+  font-size:1.3rem;letter-spacing:.5em;background:var(--cream)}
+.gate-box .btn{width:100%;margin-top:16px}
+.gate-err{color:var(--danger);font-size:.84rem;margin-top:12px;min-height:20px}
+
+@media (max-width:640px){
+  .drawer-body{padding:18px}
+  .card{padding:18px}
+  .topbar-inner{padding:12px 16px}
+}
+</style>
+</head>
+<body>
+
+<!-- ================= GATE PIN (blocco leggero) ================= -->
+<div class="gate hidden" id="gate">
+  <div class="gate-box">
+    <div class="brand2">Innova <span>Experience</span></div>
+    <p>Inserisci il PIN per accedere alla gestione lead.</p>
+    <input type="password" id="gatePin" inputmode="numeric" maxlength="10" autocomplete="off" placeholder="••••">
+    <button class="btn" id="gateBtn">Entra</button>
+    <div class="gate-err" id="gateErr"></div>
+  </div>
+</div>
+
+<!-- ================= TOPBAR ================= -->
+<header class="topbar">
+  <div class="topbar-inner">
+    <div class="brand">Innova <span>Experience</span><small>Gestione Lead</small></div>
+    <nav class="tabs">
+      <button class="tab active" data-view="dashboard">Da fare <span class="badge" id="badgeTodo">0</span></button>
+      <button class="tab" data-view="contatti">Contatti <span class="badge" id="badgeContatti">0</span></button>
+      <button class="tab" data-view="impostazioni">Impostazioni</button>
+    </nav>
+    <button class="btn sm" id="btnNuovo">+ Nuovo contatto</button>
+  </div>
+</header>
+
+<main>
+<div class="container">
+
+  <!-- ================= VISTA: DA FARE ================= -->
+  <section class="view active" id="view-dashboard">
+    <div class="view-head">
+      <div>
+        <h1>Le attività da fare</h1>
+        <p class="muted" id="oggiLabel"></p>
+      </div>
+    </div>
+
+    <div class="kpis">
+      <div class="kpi hot"><div class="n" id="kScadute">0</div><div class="l">Scadute</div></div>
+      <div class="kpi warn"><div class="n" id="kOggi">0</div><div class="l">In scadenza oggi</div></div>
+      <div class="kpi"><div class="n" id="kProssime">0</div><div class="l">Prossime</div></div>
+      <div class="kpi good"><div class="n" id="kNuovi">0</div><div class="l">Lead mai contattate</div></div>
+    </div>
+
+    <div class="card">
+      <h2>Attività aperte</h2>
+      <div id="listaAttivita"></div>
+    </div>
+  </section>
+
+  <!-- ================= VISTA: CONTATTI ================= -->
+  <section class="view" id="view-contatti">
+    <div class="view-head">
+      <div>
+        <h1>Contatti</h1>
+        <p class="muted">Clicca su un contatto per aprire la scheda, modificarla e registrare le attività svolte.</p>
+      </div>
+      <button class="btn ghost sm" id="btnEsporta">Esporta backup</button>
+    </div>
+
+    <div class="filters">
+      <input type="search" id="cerca" placeholder="Cerca per nome, telefono, email…">
+      <select id="filtroStato"><option value="">Tutti gli stati</option></select>
+      <select id="ordina">
+        <option value="recenti">Più recenti</option>
+        <option value="vecchi">Meno recenti</option>
+        <option value="nome">Nome A→Z</option>
+      </select>
+    </div>
+
+    <div class="card">
+      <div id="listaContatti"></div>
+    </div>
+  </section>
+
+  <!-- ================= VISTA: IMPOSTAZIONI ================= -->
+  <section class="view" id="view-impostazioni">
+    <div class="view-head"><div><h1>Impostazioni</h1></div></div>
+
+    <div class="card">
+      <h2>Attività fissa su ogni nuova lead</h2>
+      <p class="muted" style="margin-bottom:16px">Questa attività viene creata automaticamente ogni volta che arriva una nuova lead da Innova Experience. Le modifiche valgono per le lead future.</p>
+      <div class="field">
+        <label for="afTitolo">Titolo dell'attività</label>
+        <input type="text" id="afTitolo">
+      </div>
+      <div class="grid2">
+        <div class="field">
+          <label for="afTipo">Tipo</label>
+          <select id="afTipo"></select>
+        </div>
+        <div class="field">
+          <label for="afOre">Scadenza (ore dall'arrivo della lead)</label>
+          <input type="number" id="afOre" min="1" max="336">
+        </div>
+      </div>
+      <div class="field">
+        <label for="afChecklist">Traccia per la chiamata (una riga per punto)</label>
+        <textarea id="afChecklist" rows="6"></textarea>
+      </div>
+      <button class="btn" id="btnSalvaAF">Salva attività fissa</button>
+    </div>
+
+    <div class="card">
+      <h2>Accesso</h2>
+      <p class="muted" style="margin-bottom:16px">Blocco leggero per evitare che chiunque apra la gestione da un dispositivo condiviso. Non è una protezione di sicurezza: i dati restano comunque solo su questo browser.</p>
+      <div class="field" style="max-width:260px">
+        <label for="setPin">PIN di accesso</label>
+        <input type="text" id="setPin" inputmode="numeric" maxlength="10" placeholder="vuoto = nessun PIN">
+      </div>
+      <button class="btn ghost" id="btnSalvaPin">Salva PIN</button>
+    </div>
+
+    <div class="card">
+      <h2>Backup e trasferimento dati</h2>
+      <p class="muted" style="margin-bottom:16px">I contatti e le attività sono salvati solo in questo browser. Esporta un backup con regolarità, e importalo per spostare l'archivio su un altro dispositivo.</p>
+      <div class="row-actions">
+        <button class="btn ghost" id="btnEsporta2">Esporta backup (JSON)</button>
+        <button class="btn ghost" id="btnEsportaCsv">Esporta contatti (CSV)</button>
+        <button class="btn ghost" id="btnImporta">Importa backup</button>
+        <input type="file" id="fileImporta" accept="application/json,.json" hidden>
+      </div>
+      <hr style="border:none;border-top:1px solid var(--line);margin:22px 0">
+      <button class="btn danger" id="btnSvuota">Cancella tutto l'archivio</button>
+    </div>
+  </section>
+
+</div>
+</main>
+
+<!-- ================= DRAWER SCHEDA CONTATTO ================= -->
+<div class="overlay" id="overlay"></div>
+<aside class="drawer" id="drawer" aria-hidden="true">
+  <div class="drawer-head">
+    <div class="dh-top">
+      <div>
+        <h2 id="dhNome">—</h2>
+        <div class="dh-sub" id="dhSub">—</div>
+      </div>
+      <button class="close-x" id="btnChiudi" aria-label="Chiudi">&times;</button>
+    </div>
+    <div class="quick-actions" id="quickActions"></div>
+  </div>
+  <div class="drawer-body" id="drawerBody"></div>
+</aside>
+
+<div class="banner" id="banner"></div>
+
+<script>
+/* ============================================================
+   GESTIONE LEAD — INNOVA EXPERIENCE
+   ------------------------------------------------------------
+   Console interna per gestire le candidature che arrivano dalla
+   landing page.
+
+   Cosa fa:
+   1. Crea il contatto e l'ATTIVITÀ FISSA ogni volta che arriva
+      una nuova lead (dal link nell'email di riepilogo, oppure
+      inserendo il contatto a mano).
+   2. Permette di modificare e aggiornare i dati del contatto.
+   3. Permette di registrare le attività svolte sul contatto
+      (chiamate, WhatsApp, email, visite, note) con esito.
+
+   Dove stanno i dati: nel browser di chi gestisce le lead
+   (localStorage). Non vengono inviati a nessun server. Per
+   spostarli su un altro dispositivo usa Esporta/Importa backup
+   in Impostazioni.
+============================================================ */
+
+const STORAGE_KEY = "innova_experience_gestione_v1";
+
+/* ---------- Configurazione di partenza dell'attività fissa ---------- */
+const ATTIVITA_FISSA_DEFAULT = {
+  titolo: "Chiamare la lead e confermare la fascia di visita",
+  tipo: "chiamata",
+  scadenzaOre: 24,
+  checklist: [
+    "Confermare la fascia di visita richiesta",
+    "Capire se compra per abitarci o come investimento",
+    "Verificare come intende acquistare (mutuo / liquidità)",
+    "Spiegare le 4 tappe e l'apertura della piattaforma di venerdì",
+    "Confermare email e telefono per l'accesso riservato"
+  ]
+};
+
+/* ---------- Tabelle di riferimento ---------- */
+const STATI = [
+  { id:"nuovo",             label:"Nuovo",             color:"#E8982A" },
+  { id:"contattato",        label:"Contattato",        color:"#3B82C4" },
+  { id:"visita_confermata", label:"Visita confermata", color:"#7C6BD1" },
+  { id:"visitato",          label:"Ha visitato",       color:"#2F8F5B" },
+  { id:"offerta",           label:"Ha fatto offerta",  color:"#1F6F4A" },
+  { id:"non_interessato",   label:"Non interessato",   color:"#9B3A2C" }
+];
+
+const TIPI = [
+  { id:"chiamata", label:"Chiamata", icona:"📞" },
+  { id:"whatsapp", label:"WhatsApp", icona:"💬" },
+  { id:"email",    label:"Email",    icona:"✉️" },
+  { id:"visita",   label:"Visita",   icona:"🏠" },
+  { id:"nota",     label:"Nota",     icona:"📝" }
+];
+
+const ESITI = [
+  "Ha risposto — interessato",
+  "Ha risposto — da ricontattare",
+  "Non risponde",
+  "Numero errato",
+  "Non interessato",
+  "Visita confermata",
+  "Visita annullata"
+];
+
+const INTERESSI = [
+  "Comprare per abitarci",
+  "Investimento / rendita",
+  "Frazionamento in due unità",
+  "Scoprire il nuovo prezzo",
+  "Sto valutando il mercato"
+];
+
+const FINANZIAMENTI = ["Mutuo", "Liquidità propria", "Mutuo + liquidità", "Da valutare"];
+
+/* ============================================================
+   ARCHIVIO
+============================================================ */
+let DB = { contatti:[], attivita:[], attivitaFissa:{ ...ATTIVITA_FISSA_DEFAULT }, pin:"" };
+
+function carica(){
+  try{
+    const raw = localStorage.getItem(STORAGE_KEY);
+    if(raw){
+      const d = JSON.parse(raw);
+      DB.contatti      = Array.isArray(d.contatti) ? d.contatti : [];
+      DB.attivita      = Array.isArray(d.attivita) ? d.attivita : [];
+      DB.attivitaFissa = { ...ATTIVITA_FISSA_DEFAULT, ...(d.attivitaFissa || {}) };
+      DB.pin           = d.pin || "";
+    }
+  }catch(_){
+    avviso("Archivio non leggibile: riparto da vuoto.", "err");
+  }
+}
+function salva(){
+  try{
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(DB));
+  }catch(_){
+    avviso("Spazio esaurito: esporta un backup e libera spazio.", "err");
+  }
+}
+
+/* ============================================================
+   UTILITÀ
+============================================================ */
+const $  = s => document.querySelector(s);
+const $$ = s => Array.from(document.querySelectorAll(s));
+
+function uid(p){ return p + "_" + Date.now().toString(36) + "_" + Math.random().toString(36).slice(2,7); }
+function esc(s){ return String(s ?? "").replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c])); }
+
+const dtIT = iso => iso ? new Date(iso).toLocaleString("it-IT",{day:"2-digit",month:"2-digit",year:"numeric",hour:"2-digit",minute:"2-digit"}) : "—";
+const dIT  = iso => iso ? new Date(iso).toLocaleDateString("it-IT",{day:"2-digit",month:"long",year:"numeric"}) : "—";
+
+function toInput(iso){
+  const d = iso ? new Date(iso) : new Date();
+  const p = n => String(n).padStart(2,"0");
+  return `${d.getFullYear()}-${p(d.getMonth()+1)}-${p(d.getDate())}T${p(d.getHours())}:${p(d.getMinutes())}`;
+}
+function fromInput(v){ return v ? new Date(v).toISOString() : null; }
+
+/* Numero in formato WhatsApp internazionale (Italia di default) */
+function numeroWa(tel){
+  let n = String(tel || "").replace(/\D/g,"");
+  if(!n) return "";
+  if(n.startsWith("0039")) n = n.slice(2);
+  if(!n.startsWith("39"))  n = "39" + n;
+  return n;
+}
+
+function stato(id){ return STATI.find(s => s.id === id) || STATI[0]; }
+function tipo(id){  return TIPI.find(t => t.id === id)  || TIPI[4]; }
+
+function avviso(testo, classe){
+  const b = $("#banner");
+  b.textContent = testo;
+  b.className = "banner show " + (classe || "");
+  clearTimeout(avviso._t);
+  avviso._t = setTimeout(() => { b.className = "banner"; }, 3600);
+}
+
+/* Inizio e fine della giornata di oggi, per capire cosa è in scadenza */
+function fineOggi(){ const d = new Date(); d.setHours(23,59,59,999); return d.getTime(); }
+function adesso(){ return Date.now(); }
+
+/* ============================================================
+   CREAZIONE CONTATTI E ATTIVITÀ
+============================================================ */
+
+/* Crea il contatto e, con lui, l'ATTIVITÀ FISSA di richiamo.
+   `dati` arriva dalla landing page o dall'inserimento manuale. */
+function creaContatto(dati, opzioni){
+  const ora = new Date().toISOString();
+  const c = {
+    id: uid("c"),
+    nome:          (dati.nome || "").trim() || "Senza nome",
+    telefono:      (dati.telefono || "").trim(),
+    email:         (dati.email || "").trim(),
+    slot:          dati.slot || "",
+    interesse:     dati.interesse || "",
+    finanziamento: dati.finanziamento || "",
+    note:          dati.note || "",
+    stato:         "nuovo",
+    origine: {
+      utm_source:   dati.utm_source   || "",
+      utm_medium:   dati.utm_medium   || "",
+      utm_campaign: dati.utm_campaign || "",
+      utm_content:  dati.utm_content  || ""
+    },
+    creato:     dati.creato || ora,
+    aggiornato: ora
+  };
+  DB.contatti.unshift(c);
+
+  if(!opzioni || opzioni.attivitaFissa !== false) creaAttivitaFissa(c);
+
+  salva();
+  return c;
+}
+
+/* L'attività fissa: sempre la stessa, su ogni nuova lead. */
+function creaAttivitaFissa(c){
+  const af = DB.attivitaFissa;
+  const scadenza = new Date(new Date(c.creato).getTime() + (Number(af.scadenzaOre) || 24) * 3600 * 1000);
+  const checklist = (af.checklist || []).filter(Boolean).map(r => "• " + r).join("\n");
+
+  DB.attivita.unshift({
+    id: uid("a"),
+    contattoId: c.id,
+    tipo: af.tipo || "chiamata",
+    titolo: af.titolo || ATTIVITA_FISSA_DEFAULT.titolo,
+    note: [contestoLead(c), checklist].filter(Boolean).join("\n\n"),
+    stato: "aperta",
+    scadenza: scadenza.toISOString(),
+    svoltaIl: null,
+    esito: "",
+    automatica: true,
+    creato: new Date().toISOString()
+  });
+}
+
+/* Riassunto del motivo per cui la lead ha scritto: serve in chiamata. */
+function contestoLead(c){
+  const r = [];
+  if(c.interesse)     r.push("Interesse: " + c.interesse);
+  if(c.slot)          r.push("Fascia richiesta: " + c.slot);
+  if(c.finanziamento) r.push("Acquisto: " + c.finanziamento);
+  if(c.note)          r.push("Ha scritto: «" + c.note + "»");
+  const camp = [c.origine?.utm_source, c.origine?.utm_campaign].filter(Boolean).join(" · ");
+  if(camp)            r.push("Proviene da: " + camp);
+  return r.join("\n");
+}
+
+/* Registra un'attività già svolta sul contatto. */
+function registraAttivita(contattoId, dati){
+  DB.attivita.unshift({
+    id: uid("a"),
+    contattoId,
+    tipo: dati.tipo || "nota",
+    titolo: dati.titolo || tipo(dati.tipo).label,
+    note: dati.note || "",
+    stato: "completata",
+    scadenza: null,
+    svoltaIl: dati.svoltaIl || new Date().toISOString(),
+    esito: dati.esito || "",
+    automatica: false,
+    creato: new Date().toISOString()
+  });
+  salva();
+}
+
+/* Programma un'attività da fare in futuro. */
+function programmaAttivita(contattoId, dati){
+  DB.attivita.unshift({
+    id: uid("a"),
+    contattoId,
+    tipo: dati.tipo || "chiamata",
+    titolo: dati.titolo || "Attività da fare",
+    note: dati.note || "",
+    stato: "aperta",
+    scadenza: dati.scadenza || new Date(Date.now() + 864e5).toISOString(),
+    svoltaIl: null,
+    esito: "",
+    automatica: false,
+    creato: new Date().toISOString()
+  });
+  salva();
+}
+
+function attivitaDi(contattoId){
+  return DB.attivita
+    .filter(a => a.contattoId === contattoId)
+    .sort((x,y) => new Date(y.svoltaIl || y.scadenza || y.creato) - new Date(x.svoltaIl || x.scadenza || x.creato));
+}
+function contatto(id){ return DB.contatti.find(c => c.id === id); }
+
+/* ============================================================
+   INGRESSO LEAD DAL LINK DELL'EMAIL DI RIEPILOGO
+   La landing page mette nell'email un link con i dati della lead
+   codificati: aprendolo si crea contatto + attività fissa.
+============================================================ */
+function b64dec(s){
+  s = String(s).replace(/-/g,"+").replace(/_/g,"/");
+  while(s.length % 4) s += "=";
+  const bin = atob(s);
+  return new TextDecoder().decode(Uint8Array.from(bin, ch => ch.charCodeAt(0)));
+}
+
+function importaDaLink(){
+  const m = location.hash.match(/lead=([^&]+)/);
+  if(!m) return;
+  history.replaceState(null, "", location.pathname + location.search);
+
+  let dati;
+  try{ dati = JSON.parse(b64dec(m[1])); }
+  catch(_){ avviso("Il link della lead non è leggibile.", "err"); return; }
+
+  /* Evita di creare due volte lo stesso contatto */
+  const chiave = (x) => (String(x.email||"").toLowerCase().trim() + "|" + numeroWa(x.telefono));
+  const esistente = DB.contatti.find(c => chiave(c) === chiave(dati) && chiave(dati) !== "|");
+  if(esistente){
+    avviso("Contatto già presente in archivio: apro la scheda.");
+    apriScheda(esistente.id);
+    return;
+  }
+
+  const c = creaContatto(dati);
+  render();
+  apriScheda(c.id);
+  avviso("Lead importata: contatto e attività di richiamo creati.", "ok");
+}
+
+/* ============================================================
+   RENDER — VISTA "DA FARE"
+============================================================ */
+function render(){
+  renderAttivita();
+  renderContatti();
+  $("#badgeContatti").textContent = DB.contatti.length;
+}
+
+function renderAttivita(){
+  const aperte = DB.attivita
+    .filter(a => a.stato === "aperta" && contatto(a.contattoId))
+    .sort((x,y) => new Date(x.scadenza) - new Date(y.scadenza));
+
+  const ora = adesso(), fine = fineOggi();
+  const scadute  = aperte.filter(a => new Date(a.scadenza).getTime() < ora);
+  const oggi     = aperte.filter(a => { const t = new Date(a.scadenza).getTime(); return t >= ora && t <= fine; });
+  const prossime = aperte.filter(a => new Date(a.scadenza).getTime() > fine);
+
+  $("#kScadute").textContent  = scadute.length;
+  $("#kOggi").textContent     = oggi.length;
+  $("#kProssime").textContent = prossime.length;
+  $("#kNuovi").textContent    = DB.contatti.filter(c => c.stato === "nuovo").length;
+  $("#badgeTodo").textContent = aperte.length;
+  $("#oggiLabel").textContent = "Oggi è " + dIT(new Date().toISOString()) + ".";
+
+  const box = $("#listaAttivita");
+  if(!aperte.length){
+    box.innerHTML = `<div class="empty"><div class="big">☕</div>Nessuna attività aperta.<br>
+      Quando arriva una nuova lead, l'attività di richiamo compare qui.</div>`;
+    return;
+  }
+
+  box.innerHTML = aperte.map(a => {
+    const c = contatto(a.contattoId);
+    const t = new Date(a.scadenza).getTime();
+    const cls = t < ora ? "late" : (t <= fine ? "today" : "next");
+    const testo = t < ora ? "Scaduta " + dtIT(a.scadenza) : (t <= fine ? "Entro oggi, " + new Date(a.scadenza).toLocaleTimeString("it-IT",{hour:"2-digit",minute:"2-digit"}) : "Entro " + dtIT(a.scadenza));
+    return `<div class="row-item">
+      <div class="row-main">
+        <div class="row-title">${tipo(a.tipo).icona} ${esc(a.titolo)}</div>
+        <div class="row-sub">${esc(c.nome)}${c.telefono ? " · " + esc(c.telefono) : ""}${c.interesse ? " · " + esc(c.interesse) : ""}</div>
+        <div style="margin-top:7px"><span class="pill ${cls}">${esc(testo)}</span></div>
+      </div>
+      <div class="row-actions">
+        ${c.telefono ? `<a class="btn sm dark" href="tel:${esc(c.telefono.replace(/\s/g,""))}">Chiama</a>` : ""}
+        <button class="btn sm ghost" data-apri="${c.id}">Apri scheda</button>
+        <button class="btn sm ghost" data-chiudi="${a.id}">Fatta</button>
+      </div>
+    </div>`;
+  }).join("");
+}
+
+/* ============================================================
+   RENDER — VISTA "CONTATTI"
+============================================================ */
+function renderContatti(){
+  const q       = $("#cerca").value.trim().toLowerCase();
+  const fStato  = $("#filtroStato").value;
+  const ordine  = $("#ordina").value;
+
+  let lista = DB.contatti.filter(c => {
+    if(fStato && c.stato !== fStato) return false;
+    if(!q) return true;
+    return [c.nome, c.telefono, c.email, c.interesse, c.note].join(" ").toLowerCase().includes(q);
+  });
+
+  if(ordine === "vecchi")     lista = lista.slice().sort((a,b) => new Date(a.creato) - new Date(b.creato));
+  else if(ordine === "nome")  lista = lista.slice().sort((a,b) => a.nome.localeCompare(b.nome,"it"));
+  else                        lista = lista.slice().sort((a,b) => new Date(b.creato) - new Date(a.creato));
+
+  const box = $("#listaContatti");
+  if(!lista.length){
+    box.innerHTML = `<div class="empty"><div class="big">📇</div>${DB.contatti.length ? "Nessun contatto con questi filtri." : "Ancora nessun contatto in archivio."}</div>`;
+    return;
+  }
+
+  box.innerHTML = lista.map(c => {
+    const s = stato(c.stato);
+    const aperte = DB.attivita.filter(a => a.contattoId === c.id && a.stato === "aperta").length;
+    const svolte = DB.attivita.filter(a => a.contattoId === c.id && a.stato === "completata").length;
+    return `<div class="row-item">
+      <div class="row-main">
+        <div class="row-title"><span class="dot" style="background:${s.color}"></span>${esc(c.nome)}</div>
+        <div class="row-sub">
+          ${esc(c.telefono || "—")}${c.email ? " · " + esc(c.email) : ""}<br>
+          ${esc(s.label)}${c.interesse ? " · " + esc(c.interesse) : ""} · arrivata il ${dtIT(c.creato)}
+          ${aperte ? ` · <strong>${aperte} da fare</strong>` : ""}${svolte ? ` · ${svolte} svolte` : ""}
+        </div>
+      </div>
+      <div class="row-actions">
+        <button class="btn sm" data-apri="${c.id}">Apri scheda</button>
+      </div>
+    </div>`;
+  }).join("");
+}
+
+/* ============================================================
+   SCHEDA CONTATTO (drawer)
+============================================================ */
+let contattoAperto = null;
+
+function apriScheda(id){
+  const c = contatto(id);
+  if(!c) return;
+  /* Cambiando contatto la scheda riparte dall'alto; ricaricando lo stesso
+     contatto (dopo un salvataggio) si resta dove si stava lavorando. */
+  const cambioContatto = contattoAperto !== id;
+  const scrollPrec = $("#drawer").scrollTop;
+  contattoAperto = id;
+
+  $("#dhNome").textContent = c.nome;
+  $("#dhSub").textContent  = [c.telefono, c.email].filter(Boolean).join(" · ") || "Nessun recapito";
+
+  /* Azioni rapide: chiamare, WhatsApp con messaggio già pronto, email */
+  const wa = numeroWa(c.telefono);
+  const msg = encodeURIComponent(`Buongiorno ${c.nome.split(" ")[0]}, sono del team Innova Immobiliare. La contatto per la sua candidatura a Innova Experience, la villa a Città Giardino.`);
+  const ogg = encodeURIComponent("Innova Experience — la sua candidatura alla visita");
+  $("#quickActions").innerHTML = `
+    ${c.telefono ? `<a class="btn" href="tel:${esc(c.telefono.replace(/\s/g,""))}">📞 Chiama</a>` : ""}
+    ${wa ? `<a class="btn ghost" style="background:#fff" href="https://wa.me/${wa}?text=${msg}" target="_blank" rel="noopener">💬 WhatsApp</a>` : ""}
+    ${c.email ? `<a class="btn ghost" style="background:#fff" href="mailto:${esc(c.email)}?subject=${ogg}">✉️ Email</a>` : ""}`;
+
+  $("#drawerBody").innerHTML = schedaHTML(c);
+  collegaScheda(c);
+
+  $("#overlay").classList.add("open");
+  $("#drawer").classList.add("open");
+  $("#drawer").setAttribute("aria-hidden","false");
+  $("#drawer").scrollTop = cambioContatto ? 0 : scrollPrec;
+  document.body.style.overflow = "hidden";
+}
+
+function chiudiScheda(){
+  contattoAperto = null;
+  $("#overlay").classList.remove("open");
+  $("#drawer").classList.remove("open");
+  $("#drawer").setAttribute("aria-hidden","true");
+  document.body.style.overflow = "";
+}
+
+function opzioni(valori, sel){
+  return valori.map(v => {
+    const val = typeof v === "string" ? v : v.id;
+    const lab = typeof v === "string" ? v : v.label;
+    return `<option value="${esc(val)}"${val === sel ? " selected" : ""}>${esc(lab)}</option>`;
+  }).join("");
+}
+
+function schedaHTML(c){
+  const camp = [c.origine?.utm_source, c.origine?.utm_medium, c.origine?.utm_campaign, c.origine?.utm_content].filter(Boolean).join(" · ");
+
+  return `
+  <!-- ---------- DATI DEL CONTATTO (modificabili) ---------- -->
+  <div class="section-block">
+    <h3>Dati del contatto</h3>
+    <form id="formContatto">
+      <div class="field">
+        <label for="f_nome">Nome e cognome</label>
+        <input type="text" id="f_nome" value="${esc(c.nome)}">
+      </div>
+      <div class="grid2">
+        <div class="field">
+          <label for="f_telefono">Telefono</label>
+          <input type="tel" id="f_telefono" value="${esc(c.telefono)}">
+        </div>
+        <div class="field">
+          <label for="f_email">Email</label>
+          <input type="email" id="f_email" value="${esc(c.email)}">
+        </div>
+      </div>
+      <div class="grid2">
+        <div class="field">
+          <label for="f_stato">Stato</label>
+          <select id="f_stato">${opzioni(STATI, c.stato)}</select>
+        </div>
+        <div class="field">
+          <label for="f_slot">Fascia di visita</label>
+          <input type="text" id="f_slot" value="${esc(c.slot)}" placeholder="es. Mer 22 · mattina">
+        </div>
+      </div>
+      <div class="grid2">
+        <div class="field">
+          <label for="f_interesse">A cosa è interessata</label>
+          <input list="dl_interessi" id="f_interesse" value="${esc(c.interesse)}" placeholder="es. Investimento">
+          <datalist id="dl_interessi">${INTERESSI.map(i => `<option value="${esc(i)}">`).join("")}</datalist>
+        </div>
+        <div class="field">
+          <label for="f_finanziamento">Come intende acquistare</label>
+          <input list="dl_finanziamenti" id="f_finanziamento" value="${esc(c.finanziamento)}" placeholder="es. Mutuo">
+          <datalist id="dl_finanziamenti">${FINANZIAMENTI.map(i => `<option value="${esc(i)}">`).join("")}</datalist>
+        </div>
+      </div>
+      <div class="field">
+        <label for="f_note">Note sul contatto</label>
+        <textarea id="f_note" rows="3">${esc(c.note)}</textarea>
+        <div class="hint">Arrivata il ${dtIT(c.creato)}${camp ? " · campagna: " + esc(camp) : ""} · ultimo aggiornamento ${dtIT(c.aggiornato)}</div>
+      </div>
+      <div class="row-actions">
+        <button class="btn" type="submit">Salva modifiche</button>
+        <button class="btn danger" type="button" id="btnElimina">Elimina contatto</button>
+      </div>
+    </form>
+  </div>
+
+  <!-- ---------- REGISTRA UN'ATTIVITÀ SVOLTA ---------- -->
+  <div class="section-block">
+    <h3>Registra un'attività svolta</h3>
+    <form id="formSvolta">
+      <div class="grid2">
+        <div class="field">
+          <label for="s_tipo">Tipo di attività</label>
+          <select id="s_tipo">${opzioni(TIPI, "chiamata")}</select>
+        </div>
+        <div class="field">
+          <label for="s_quando">Quando</label>
+          <input type="datetime-local" id="s_quando" value="${toInput()}">
+        </div>
+      </div>
+      <div class="field">
+        <label for="s_esito">Esito</label>
+        <select id="s_esito"><option value="">— nessun esito —</option>${opzioni(ESITI, "")}</select>
+      </div>
+      <div class="field">
+        <label for="s_note">Cosa è emerso</label>
+        <textarea id="s_note" rows="3" placeholder="Cosa ha detto, cosa cerca, quando richiamare…"></textarea>
+      </div>
+      <button class="btn" type="submit">Registra attività</button>
+    </form>
+  </div>
+
+  <!-- ---------- PROGRAMMA UNA PROSSIMA ATTIVITÀ ---------- -->
+  <div class="section-block">
+    <h3>Programma una prossima attività</h3>
+    <form id="formProgramma">
+      <div class="field">
+        <label for="p_titolo">Cosa va fatto</label>
+        <input type="text" id="p_titolo" placeholder="es. Richiamare per confermare la visita">
+      </div>
+      <div class="grid2">
+        <div class="field">
+          <label for="p_tipo">Tipo</label>
+          <select id="p_tipo">${opzioni(TIPI, "chiamata")}</select>
+        </div>
+        <div class="field">
+          <label for="p_quando">Entro il</label>
+          <input type="datetime-local" id="p_quando" value="${toInput(new Date(Date.now()+864e5).toISOString())}">
+        </div>
+      </div>
+      <button class="btn ghost" type="submit">Aggiungi alle cose da fare</button>
+    </form>
+  </div>
+
+  <!-- ---------- STORICO ---------- -->
+  <div class="section-block">
+    <h3>Storico attività</h3>
+    <ul class="timeline" id="timeline">${timelineHTML(c.id)}</ul>
+  </div>`;
+}
+
+function timelineHTML(contattoId){
+  const att = attivitaDi(contattoId);
+  if(!att.length) return `<li class="muted">Nessuna attività registrata.</li>`;
+
+  const ora = adesso();
+  return att.map(a => {
+    const aperta = a.stato === "aperta";
+    const tardi  = aperta && new Date(a.scadenza).getTime() < ora;
+    const quando = aperta ? "Da fare entro " + dtIT(a.scadenza) : dtIT(a.svoltaIl);
+    return `<li class="tl-item ${aperta ? (tardi ? "late" : "open") : ""}">
+      <div class="tl-head">
+        <span class="tl-title">${tipo(a.tipo).icona} ${esc(a.titolo)}${a.automatica ? ' <span class="pill next">automatica</span>' : ""}</span>
+        <span class="tl-when">${esc(quando)}</span>
+      </div>
+      ${a.esito ? `<div style="margin-top:5px"><span class="pill ${a.esito.includes("Non") ? "late" : "done"}">${esc(a.esito)}</span></div>` : ""}
+      ${a.note ? `<div class="tl-note">${esc(a.note)}</div>` : ""}
+      <div class="tl-actions">
+        ${aperta ? `<button class="btn sm ghost" data-chiudi="${a.id}">Segna come fatta</button>` : ""}
+        <button class="btn sm ghost" data-elimina-att="${a.id}">Elimina</button>
+      </div>
+    </li>`;
+  }).join("");
+}
+
+/* Collega gli eventi dei form dentro la scheda */
+function collegaScheda(c){
+  $("#formContatto").addEventListener("submit", e => {
+    e.preventDefault();
+    Object.assign(c, {
+      nome:          $("#f_nome").value.trim() || "Senza nome",
+      telefono:      $("#f_telefono").value.trim(),
+      email:         $("#f_email").value.trim(),
+      stato:         $("#f_stato").value,
+      slot:          $("#f_slot").value.trim(),
+      interesse:     $("#f_interesse").value.trim(),
+      finanziamento: $("#f_finanziamento").value.trim(),
+      note:          $("#f_note").value.trim(),
+      aggiornato:    new Date().toISOString()
+    });
+    salva(); render(); apriScheda(c.id);
+    avviso("Contatto aggiornato.", "ok");
+  });
+
+  $("#btnElimina").addEventListener("click", () => {
+    if(!confirm(`Eliminare definitivamente ${c.nome} e tutte le sue attività?`)) return;
+    DB.contatti = DB.contatti.filter(x => x.id !== c.id);
+    DB.attivita = DB.attivita.filter(a => a.contattoId !== c.id);
+    salva(); render(); chiudiScheda();
+    avviso("Contatto eliminato.");
+  });
+
+  $("#formSvolta").addEventListener("submit", e => {
+    e.preventDefault();
+    const t = $("#s_tipo").value;
+    registraAttivita(c.id, {
+      tipo: t,
+      titolo: tipo(t).label + ($("#s_esito").value ? " — " + $("#s_esito").value : ""),
+      esito: $("#s_esito").value,
+      note: $("#s_note").value.trim(),
+      svoltaIl: fromInput($("#s_quando").value)
+    });
+    /* Una lead appena contattata non è più "nuova" */
+    if(c.stato === "nuovo" && t !== "nota"){
+      c.stato = "contattato";
+      c.aggiornato = new Date().toISOString();
+      salva();
+    }
+    render(); apriScheda(c.id);
+    avviso("Attività registrata.", "ok");
+  });
+
+  $("#formProgramma").addEventListener("submit", e => {
+    e.preventDefault();
+    const titolo = $("#p_titolo").value.trim();
+    if(!titolo){ avviso("Scrivi cosa va fatto.", "err"); return; }
+    programmaAttivita(c.id, { titolo, tipo: $("#p_tipo").value, scadenza: fromInput($("#p_quando").value) });
+    render(); apriScheda(c.id);
+    avviso("Attività aggiunta alle cose da fare.", "ok");
+  });
+}
+
+/* ============================================================
+   AZIONI SULLE ATTIVITÀ (delegate su tutta la pagina)
+============================================================ */
+document.addEventListener("click", e => {
+  const apri = e.target.closest("[data-apri]");
+  if(apri){ apriScheda(apri.dataset.apri); return; }
+
+  const chiudi = e.target.closest("[data-chiudi]");
+  if(chiudi){
+    const a = DB.attivita.find(x => x.id === chiudi.dataset.chiudi);
+    if(a){
+      a.stato = "completata";
+      a.svoltaIl = new Date().toISOString();
+      const c = contatto(a.contattoId);
+      if(c && c.stato === "nuovo"){ c.stato = "contattato"; c.aggiornato = a.svoltaIl; }
+      salva(); render();
+      if(contattoAperto) apriScheda(contattoAperto);
+      avviso("Attività completata.", "ok");
+    }
+    return;
+  }
+
+  const elimina = e.target.closest("[data-elimina-att]");
+  if(elimina){
+    DB.attivita = DB.attivita.filter(x => x.id !== elimina.dataset.eliminaAtt);
+    salva(); render();
+    if(contattoAperto) apriScheda(contattoAperto);
+    return;
+  }
+});
+
+/* ============================================================
+   NUOVO CONTATTO A MANO
+============================================================ */
+function nuovoContatto(){
+  const nome = prompt("Nome e cognome del contatto:");
+  if(nome === null) return;
+  const telefono = prompt("Telefono:") || "";
+  const email = prompt("Email:") || "";
+  const c = creaContatto({ nome, telefono, email });
+  render();
+  apriScheda(c.id);
+  avviso("Contatto creato con l'attività di richiamo.", "ok");
+}
+
+/* ============================================================
+   BACKUP
+============================================================ */
+function scarica(nome, contenuto, mime){
+  const blob = new Blob([contenuto], { type: mime });
+  const a = document.createElement("a");
+  a.href = URL.createObjectURL(blob);
+  a.download = nome;
+  a.click();
+  setTimeout(() => URL.revokeObjectURL(a.href), 2000);
+}
+
+function esportaJson(){
+  const data = new Date().toISOString().slice(0,10);
+  scarica(`innova-experience-lead-${data}.json`, JSON.stringify(DB, null, 2), "application/json");
+  avviso("Backup esportato.", "ok");
+}
+
+function esportaCsv(){
+  const col = ["Nome","Telefono","Email","Stato","Fascia di visita","Interesse","Acquisto","Note","Campagna","Arrivata il","Attività svolte","Ultima attività"];
+  const righe = DB.contatti.map(c => {
+    const svolte = DB.attivita.filter(a => a.contattoId === c.id && a.stato === "completata");
+    const ultima = svolte.sort((x,y) => new Date(y.svoltaIl) - new Date(x.svoltaIl))[0];
+    return [
+      c.nome, c.telefono, c.email, stato(c.stato).label, c.slot, c.interesse, c.finanziamento,
+      (c.note || "").replace(/\s+/g," "),
+      [c.origine?.utm_source, c.origine?.utm_campaign].filter(Boolean).join(" / "),
+      dtIT(c.creato), svolte.length,
+      ultima ? `${ultima.titolo} (${dtIT(ultima.svoltaIl)})` : ""
+    ];
+  });
+  const csv = [col, ...righe]
+    .map(r => r.map(v => `"${String(v ?? "").replace(/"/g,'""')}"`).join(";"))
+    .join("\r\n");
+  scarica(`innova-experience-contatti-${new Date().toISOString().slice(0,10)}.csv`, "﻿" + csv, "text/csv;charset=utf-8");
+  avviso("Contatti esportati in CSV.", "ok");
+}
+
+function importaJson(file){
+  const r = new FileReader();
+  r.onload = () => {
+    try{
+      const d = JSON.parse(r.result);
+      if(!Array.isArray(d.contatti)) throw new Error("formato");
+      if(!confirm(`Il backup contiene ${d.contatti.length} contatti. Unirlo all'archivio attuale? I contatti già presenti verranno saltati.`)) return;
+
+      const chiave = x => (String(x.email||"").toLowerCase().trim() + "|" + numeroWa(x.telefono));
+      const presenti = new Set(DB.contatti.map(chiave));
+      let nuovi = 0;
+      d.contatti.forEach(c => {
+        if(presenti.has(chiave(c)) && chiave(c) !== "|") return;
+        DB.contatti.push(c);
+        presenti.add(chiave(c));
+        nuovi++;
+        (d.attivita || []).filter(a => a.contattoId === c.id).forEach(a => DB.attivita.push(a));
+      });
+      salva(); render();
+      avviso(`Importati ${nuovi} contatti.`, "ok");
+    }catch(_){
+      avviso("File di backup non valido.", "err");
+    }
+  };
+  r.readAsText(file);
+}
+
+/* ============================================================
+   IMPOSTAZIONI
+============================================================ */
+function caricaImpostazioni(){
+  const af = DB.attivitaFissa;
+  $("#afTitolo").value = af.titolo;
+  $("#afTipo").innerHTML = opzioni(TIPI, af.tipo);
+  $("#afOre").value = af.scadenzaOre;
+  $("#afChecklist").value = (af.checklist || []).join("\n");
+  $("#setPin").value = DB.pin || "";
+}
+
+/* ============================================================
+   GATE PIN — blocco leggero
+============================================================ */
+function verificaGate(){
+  if(!DB.pin){ $("#gate").classList.add("hidden"); return; }
+  if(sessionStorage.getItem(STORAGE_KEY + "_ok") === "1"){ $("#gate").classList.add("hidden"); return; }
+  $("#gate").classList.remove("hidden");
+  setTimeout(() => $("#gatePin").focus(), 100);
+}
+function tentaAccesso(){
+  if($("#gatePin").value === DB.pin){
+    sessionStorage.setItem(STORAGE_KEY + "_ok","1");
+    $("#gate").classList.add("hidden");
+    importaDaLink();
+  }else{
+    $("#gateErr").textContent = "PIN errato.";
+    $("#gatePin").value = "";
+  }
+}
+
+/* ============================================================
+   AVVIO
+============================================================ */
+carica();
+
+/* Filtro stati */
+$("#filtroStato").innerHTML = `<option value="">Tutti gli stati</option>` + opzioni(STATI, "__");
+
+/* Navigazione tra le viste */
+$$(".tab").forEach(t => t.addEventListener("click", () => {
+  $$(".tab").forEach(x => x.classList.remove("active"));
+  $$(".view").forEach(v => v.classList.remove("active"));
+  t.classList.add("active");
+  $("#view-" + t.dataset.view).classList.add("active");
+  if(t.dataset.view === "impostazioni") caricaImpostazioni();
+  window.scrollTo({ top:0, behavior:"smooth" });
+}));
+
+/* Filtri contatti */
+["#cerca","#filtroStato","#ordina"].forEach(s => $(s).addEventListener("input", renderContatti));
+
+/* Drawer */
+$("#btnChiudi").addEventListener("click", chiudiScheda);
+$("#overlay").addEventListener("click", chiudiScheda);
+document.addEventListener("keydown", e => { if(e.key === "Escape" && contattoAperto) chiudiScheda(); });
+
+/* Pulsanti generali */
+$("#btnNuovo").addEventListener("click", nuovoContatto);
+$("#btnEsporta").addEventListener("click", esportaJson);
+$("#btnEsporta2").addEventListener("click", esportaJson);
+$("#btnEsportaCsv").addEventListener("click", esportaCsv);
+$("#btnImporta").addEventListener("click", () => $("#fileImporta").click());
+$("#fileImporta").addEventListener("change", e => { if(e.target.files[0]) importaJson(e.target.files[0]); e.target.value = ""; });
+
+$("#btnSvuota").addEventListener("click", () => {
+  if(!confirm("Cancellare TUTTI i contatti e le attività? L'operazione non è reversibile: esporta prima un backup.")) return;
+  if(!confirm("Confermi definitivamente?")) return;
+  DB.contatti = []; DB.attivita = [];
+  salva(); render();
+  avviso("Archivio svuotato.");
+});
+
+$("#btnSalvaAF").addEventListener("click", () => {
+  DB.attivitaFissa = {
+    titolo: $("#afTitolo").value.trim() || ATTIVITA_FISSA_DEFAULT.titolo,
+    tipo: $("#afTipo").value,
+    scadenzaOre: Math.max(1, Number($("#afOre").value) || 24),
+    checklist: $("#afChecklist").value.split("\n").map(r => r.trim()).filter(Boolean)
+  };
+  salva();
+  avviso("Attività fissa aggiornata.", "ok");
+});
+
+$("#btnSalvaPin").addEventListener("click", () => {
+  DB.pin = $("#setPin").value.trim();
+  salva();
+  sessionStorage.setItem(STORAGE_KEY + "_ok","1");
+  avviso(DB.pin ? "PIN impostato." : "PIN rimosso.", "ok");
+});
+
+$("#gateBtn").addEventListener("click", tentaAccesso);
+$("#gatePin").addEventListener("keydown", e => { if(e.key === "Enter") tentaAccesso(); });
+
+render();
+verificaGate();
+if(!DB.pin || sessionStorage.getItem(STORAGE_KEY + "_ok") === "1") importaDaLink();
+</script>
+</body>
+</html>

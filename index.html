@@ -133,15 +133,17 @@ section{padding:76px 0}
 .form-wrap .form-sub{font-size:.88rem;font-weight:300;margin-bottom:26px}
 .field{margin-bottom:18px}
 .field label{display:block;font-size:.8rem;font-weight:600;letter-spacing:.04em;margin-bottom:6px;color:var(--charcoal-deep)}
-.field input,.field select{width:100%;padding:13px 15px;border:1.5px solid #DDD5C8;border-radius:10px;
+.field input,.field select,.field textarea{width:100%;padding:13px 15px;border:1.5px solid #DDD5C8;border-radius:10px;
   font-family:'Poppins',sans-serif;font-size:.95rem;color:var(--charcoal);background:var(--cream)}
-.field input:focus,.field select:focus{outline:2px solid var(--amber);border-color:var(--amber)}
+.field textarea{resize:vertical;min-height:84px}
+.field input:focus,.field select:focus,.field textarea:focus{outline:2px solid var(--amber);border-color:var(--amber)}
 .consent{display:flex;gap:10px;align-items:flex-start;font-size:.78rem;font-weight:300;margin:22px 0}
 .consent input{margin-top:3px;accent-color:var(--amber)}
 .form-wrap .btn{width:100%;text-align:center}
+/* Nascosti finché il JS non li mostra dopo l'invio (style.display = "block") */
 .form-msg{display:none;margin-top:18px;padding:16px;border-radius:10px;font-size:.9rem;font-weight:500}
-.form-msg.ok{display:block;background:#EFF7EC;color:#2F6B33;border:1px solid #BCDCB9}
-.form-msg.err{display:block;background:#FBEDEA;color:#9B3A2C;border:1px solid #ECC3BA}
+.form-msg.ok{background:#EFF7EC;color:#2F6B33;border:1px solid #BCDCB9}
+.form-msg.err{background:#FBEDEA;color:#9B3A2C;border:1px solid #ECC3BA}
 
 /* ---------- FOOTER ---------- */
 footer{background:#1F1E1C;color:#BFB7AA;padding:44px 0;font-size:.85rem;font-weight:300}
@@ -362,16 +364,38 @@ footer{background:#1F1E1C;color:#BFB7AA;padding:44px 0;font-size:.85rem;font-wei
           </select>
         </div>
 
+        <div class="field">
+          <label for="interesse">Cosa ti interessa di più?</label>
+          <select id="interesse" name="interesse">
+            <option value="">Scegli un'opzione</option>
+            <option>Comprare per abitarci</option>
+            <option>Investimento / rendita</option>
+            <option>Frazionamento in due unità</option>
+            <option>Scoprire il nuovo prezzo</option>
+            <option>Sto valutando il mercato</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="finanziamento">Come pensi di procedere all'acquisto?</label>
+          <select id="finanziamento" name="finanziamento">
+            <option value="">Scegli un'opzione</option>
+            <option>Mutuo</option>
+            <option>Liquidità propria</option>
+            <option>Mutuo + liquidità</option>
+            <option>Da valutare</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="note">C'è qualcosa che dovremmo sapere prima di chiamarti?</label>
+          <textarea id="note" name="note" placeholder="Domande, orari in cui preferisci essere ricontattato, esigenze particolari…"></textarea>
+        </div>
+
         <!-- Campi nascosti per il tracciamento delle campagne (compilati automaticamente) -->
         <input type="hidden" name="utm_source" id="utm_source">
         <input type="hidden" name="utm_medium" id="utm_medium">
         <input type="hidden" name="utm_campaign" id="utm_campaign">
         <input type="hidden" name="utm_content" id="utm_content">
 
-        <!-- Configurazione invio email (FormSubmit) -->
-        <input type="hidden" name="_subject" value="Nuova candidatura — Innova Experience Villa Città Giardino">
-        <input type="hidden" name="_template" value="table">
-        <input type="hidden" name="_captcha" value="false">
         <!-- Honeypot antispam: campo invisibile, se compilato l'invio viene scartato -->
         <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off">
 
@@ -406,7 +430,12 @@ footer{background:#1F1E1C;color:#BFB7AA;padding:44px 0;font-size:.85rem;font-wei
 /* ============================================================
    INVIO CANDIDATURE — ATTIVO
    Le candidature vengono inviate via FormSubmit alla casella
-   info@innovaimmobiliare.it.
+   info@innovaimmobiliare.it come EMAIL DI RIEPILOGO: contiene
+   tutti i dati per chiamare la lead sapendo già perché ha
+   scritto e a cosa è interessata, i link per chiamarla o
+   scriverle su WhatsApp, e il link che apre la Gestione Lead
+   creando il contatto con la sua attività di richiamo.
+
    IMPORTANTE — ATTIVAZIONE (una sola volta):
    al primo invio di prova, FormSubmit manda una email di
    conferma a info@innovaimmobiliare.it: cliccare "Activate"
@@ -414,6 +443,14 @@ footer{background:#1F1E1C;color:#BFB7AA;padding:44px 0;font-size:.85rem;font-wei
    arrivano in casella, formattate in tabella.
 ============================================================ */
 const FORM_ENDPOINT = "https://formsubmit.co/ajax/info@innovaimmobiliare.it";
+
+/* Indirizzo della console Gestione Lead.
+   Di default è gestione.html accanto a questa pagina: se la
+   console viene pubblicata altrove, scrivi qui l'URL completo. */
+const GESTIONE_URL = new URL("gestione.html", location.href).href;
+
+/* Entro quante ore va richiamata la lead (compare nell'email). */
+const ORE_RICHIAMO = 24;
 
 /* Countdown → chiusura candidature: lunedì 20 luglio 2026, mezzanotte (ora italiana) */
 const deadline = new Date("2026-07-20T23:59:59+02:00").getTime();
@@ -439,6 +476,35 @@ const params = new URLSearchParams(location.search);
   if(f && params.get(k)) f.value = params.get(k);
 });
 
+/* Codifica i dati della lead dentro il link della Gestione Lead */
+function b64enc(testo){
+  let bin = "";
+  new TextEncoder().encode(testo).forEach(b => bin += String.fromCharCode(b));
+  return btoa(bin).replace(/\+/g,"-").replace(/\//g,"_").replace(/=+$/,"");
+}
+
+/* Numero in formato WhatsApp internazionale (Italia di default) */
+function numeroWa(tel){
+  let n = String(tel||"").replace(/\D/g,"");
+  if(!n) return "";
+  if(n.startsWith("0039")) n = n.slice(2);
+  if(!n.startsWith("39"))  n = "39" + n;
+  return n;
+}
+
+/* Traccia sintetica per la telefonata, costruita su ciò che la lead ha dichiarato */
+function tracciaChiamata(d){
+  const punti = ["Confermare la fascia di visita e i dati di contatto"];
+  if(d.interesse === "Investimento / rendita")          punti.push("Portare i numeri: rendita, zona, potenziale di rivalutazione");
+  else if(d.interesse === "Frazionamento in due unità") punti.push("Presentare il progetto di frazionamento già disponibile");
+  else if(d.interesse === "Comprare per abitarci")      punti.push("Puntare su parco privato, 11 camere e servizi della zona");
+  else if(d.interesse === "Scoprire il nuovo prezzo")   punti.push("Spiegare che il prezzo si scopre solo dopo la visita, venerdì");
+  if(d.finanziamento === "Mutuo" || d.finanziamento === "Mutuo + liquidità")
+    punti.push("Proporre la consulenza mutuo disponibile in villa");
+  punti.push("Ricordare le 4 tappe e l'apertura della piattaforma di venerdì");
+  return punti.map((p,i) => (i+1) + ") " + p).join("  ");
+}
+
 /* Invio form */
 document.getElementById("leadForm").addEventListener("submit", async function(e){
   e.preventDefault();
@@ -451,8 +517,52 @@ document.getElementById("leadForm").addEventListener("submit", async function(e)
   const priv = document.getElementById("privacy").checked;
   if(!nome || !tel || !mail || !priv){ err.style.display = "block"; return; }
 
-  const data = Object.fromEntries(new FormData(this).entries());
-  if(data._honey){ return; } /* spam bot: scarta in silenzio */
+  const campi = Object.fromEntries(new FormData(this).entries());
+  if(campi._honey){ return; } /* spam bot: scarta in silenzio */
+
+  /* ---- Scheda della lead: stessi campi che finiscono in Gestione Lead ---- */
+  const ora = new Date();
+  const lead = {
+    nome, telefono: tel, email: mail,
+    slot:          campi.slot          || "",
+    interesse:     campi.interesse     || "",
+    finanziamento: campi.finanziamento || "",
+    note:          (campi.note || "").trim(),
+    utm_source:    campi.utm_source    || "",
+    utm_medium:    campi.utm_medium    || "",
+    utm_campaign:  campi.utm_campaign  || "",
+    utm_content:   campi.utm_content   || "",
+    creato: ora.toISOString()
+  };
+
+  const scadenza = new Date(ora.getTime() + ORE_RICHIAMO*3600*1000);
+  const fmt = d => d.toLocaleString("it-IT",{weekday:"long",day:"2-digit",month:"long",hour:"2-digit",minute:"2-digit"});
+  const wa = numeroWa(tel);
+  const campagna = [lead.utm_source, lead.utm_medium, lead.utm_campaign, lead.utm_content].filter(Boolean).join(" · ");
+
+  /* ---- Email di riepilogo: tutto ciò che serve per chiamarla subito ---- */
+  const data = {
+    _subject:  `🔔 Nuova lead Innova Experience — ${nome} — ${tel}`,
+    _template: "table",
+    _captcha:  "false",
+
+    "Nome e cognome":              nome,
+    "Telefono":                    tel,
+    "Email":                       mail,
+    "A cosa è interessata":        lead.interesse     || "non indicato",
+    "Come intende acquistare":     lead.finanziamento || "non indicato",
+    "Fascia di visita richiesta":  lead.slot          || "nessuna preferenza",
+    "Cosa ha scritto":             lead.note          || "—",
+    "Candidatura ricevuta il":     fmt(ora),
+    "Da richiamare entro":         fmt(scadenza),
+    "Provenienza campagna":        campagna || "diretta / non tracciata",
+    "Traccia per la chiamata":     tracciaChiamata(lead),
+    "▶ Chiama ora":                "tel:" + tel.replace(/\s/g,""),
+    "▶ Scrivi su WhatsApp":        wa ? "https://wa.me/" + wa : "—",
+    "▶ APRI IN GESTIONE LEAD (crea contatto e attività)": GESTIONE_URL + "#lead=" + b64enc(JSON.stringify(lead)),
+
+    _honey: ""
+  };
 
   const btn = this.querySelector("button[type=submit]");
   const btnText = btn.textContent;
