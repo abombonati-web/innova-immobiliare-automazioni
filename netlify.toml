@@ -1,0 +1,23 @@
+# ============================================================
+#  INNOVA EXPERIENCE — configurazione della piattaforma
+# ------------------------------------------------------------
+#  Il sito è statico: non c'è nulla da compilare. Le funzioni
+#  in netlify/functions sono il lato server della piattaforma
+#  (archivio condiviso delle lead, attività, invio email).
+# ============================================================
+
+[build]
+  publish = "."
+  functions = "netlify/functions"
+  command = "echo 'Sito statico: nessuna compilazione necessaria'"
+
+# L'area riservata non deve finire nei motori di ricerca
+[[headers]]
+  for = "/gestione.html"
+  [headers.values]
+    X-Robots-Tag = "noindex, nofollow"
+
+[[headers]]
+  for = "/api/*"
+  [headers.values]
+    Cache-Control = "no-store"

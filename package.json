@@ -1,0 +1,13 @@
+{
+  "name": "innova-experience",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Piattaforma Innova Experience: landing degli eventi e gestione lead",
+  "type": "module",
+  "scripts": {
+    "test": "node --test 'test/*.test.mjs'"
+  },
+  "dependencies": {
+    "@netlify/blobs": "^8.1.0"
+  }
+}

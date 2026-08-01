@@ -155,6 +155,13 @@ h2{font-size:1.1rem;font-weight:700;color:var(--charcoal-deep);margin-bottom:14p
 .banner.ok{background:#2F6B33}
 .banner.err{background:var(--danger)}
 
+/* ---------- STATO DEL COLLEGAMENTO ALLA PIATTAFORMA ---------- */
+.stato-rete{font-size:.74rem;font-weight:600;letter-spacing:.04em;padding:4px 12px;border-radius:999px;
+  white-space:nowrap;cursor:default;border:1px solid transparent}
+.stato-rete[data-stato="collegata"]{color:#7FD6A0;border-color:rgba(127,214,160,.35);background:rgba(127,214,160,.1)}
+.stato-rete[data-stato="in-attesa"]{color:var(--amber);border-color:rgba(232,152,42,.4);background:rgba(232,152,42,.1)}
+.stato-rete[data-stato="scollegata"]{color:#E9A79B;border-color:rgba(233,167,155,.4);background:rgba(233,167,155,.1)}
+
 /* ---------- MODALE (creazione contatti e attività) ---------- */
 .modal-bg{position:fixed;inset:0;background:rgba(43,42,40,.6);z-index:60;display:none;
   align-items:flex-start;justify-content:center;padding:40px 18px;overflow-y:auto}
@@ -199,11 +206,11 @@ h2{font-size:1.1rem;font-weight:700;color:var(--charcoal-deep);margin-bottom:14p
 <body>
 
 <!-- ================= GATE PIN (blocco leggero) ================= -->
-<div class="gate hidden" id="gate">
+<div class="gate" id="gate">
   <div class="gate-box">
     <div class="brand2">Innova <span>Experience</span></div>
-    <p>Inserisci il PIN per accedere alla gestione lead.</p>
-    <input type="password" id="gatePin" inputmode="numeric" maxlength="10" autocomplete="off" placeholder="••••">
+    <p>Area riservata della piattaforma. Inserisci la password per accedere alla gestione lead.</p>
+    <input type="password" id="gatePwd" autocomplete="current-password" placeholder="Password">
     <button class="btn" id="gateBtn">Entra</button>
     <div class="gate-err" id="gateErr"></div>
   </div>
@@ -213,6 +220,7 @@ h2{font-size:1.1rem;font-weight:700;color:var(--charcoal-deep);margin-bottom:14p
 <header class="topbar">
   <div class="topbar-inner">
     <div class="brand">Innova <span>Experience</span><small>Gestione Lead</small></div>
+    <span class="stato-rete" id="statoRete" data-stato="in-attesa">◐</span>
     <nav class="tabs">
       <button class="tab active" data-view="dashboard">Da fare <span class="badge" id="badgeTodo">0</span></button>
       <button class="tab" data-view="contatti">Contatti <span class="badge" id="badgeContatti">0</span></button>
@@ -328,18 +336,18 @@ h2{font-size:1.1rem;font-weight:700;color:var(--charcoal-deep);margin-bottom:14p
     </div>
 
     <div class="card">
-      <h2>Accesso</h2>
-      <p class="muted" style="margin-bottom:16px">Blocco leggero per evitare che chiunque apra la gestione da un dispositivo condiviso. Non è una protezione di sicurezza: i dati restano comunque solo su questo browser.</p>
-      <div class="field" style="max-width:260px">
-        <label for="setPin">PIN di accesso</label>
-        <input type="text" id="setPin" inputmode="numeric" maxlength="10" placeholder="vuoto = nessun PIN">
+      <h2>Piattaforma</h2>
+      <p class="muted" style="margin-bottom:16px">Le lead entrano da sole nell'archivio della piattaforma appena qualcuno si candida, e l'archivio è unico: chiunque acceda, da qualunque dispositivo, vede le stesse schede e le stesse attività. Quando la rete manca si continua a lavorare sulla copia locale, e tutto viene riversato appena torna il collegamento.</p>
+      <p class="muted" style="margin-bottom:16px" id="statoArchivio"></p>
+      <div class="row-actions">
+        <button class="btn ghost" id="btnSincronizza">Sincronizza ora</button>
+        <button class="btn ghost" id="btnEsci">Esci dalla gestione</button>
       </div>
-      <button class="btn ghost" id="btnSalvaPin">Salva PIN</button>
     </div>
 
     <div class="card">
       <h2>Backup e trasferimento dati</h2>
-      <p class="muted" style="margin-bottom:16px">I contatti e le attività sono salvati solo in questo browser. Esporta un backup con regolarità, e importalo per spostare l'archivio su un altro dispositivo.</p>
+      <p class="muted" style="margin-bottom:16px">L'archivio vive sulla piattaforma, ma un backup periodico resta una buona abitudine: l'esportazione serve anche a consegnare i dati a chi lavora fuori dalla gestione.</p>
       <div class="row-actions">
         <button class="btn ghost" id="btnEsporta2">Esporta backup (JSON)</button>
         <button class="btn ghost" id="btnEsportaCsv">Esporta contatti (CSV)</button>
@@ -460,30 +468,117 @@ const INTERESSI = [
 const FINANZIAMENTI = ["Mutuo", "Liquidità propria", "Mutuo + liquidità", "Da valutare"];
 
 /* ============================================================
-   ARCHIVIO
+   ARCHIVIO CONDIVISO
+   ------------------------------------------------------------
+   L'archivio vero sta sulla piattaforma ed è unico per tutti.
+   Qui se ne tiene una copia, così la gestione continua a
+   funzionare anche senza rete: appena torna, le modifiche fatte
+   nel frattempo vengono riversate sulla piattaforma e fra due
+   versioni della stessa scheda vince la più recente.
 ============================================================ */
-let DB = { contatti:[], attivita:[], attivitaFissa:{ ...ATTIVITA_FISSA_DEFAULT }, pin:"" };
+let DB = { contatti:[], attivita:[], attivitaFissa:{ ...ATTIVITA_FISSA_DEFAULT }, versione:0 };
 
-function carica(){
+let TOKEN = localStorage.getItem(STORAGE_KEY + "_token") || "";
+let DA_INVIARE = false;     /* ci sono modifiche non ancora sulla piattaforma */
+let TIMER_SYNC = null;
+
+/* Copia locale ---------------------------------------------------- */
+function caricaCopia(){
   try{
     const raw = localStorage.getItem(STORAGE_KEY);
-    if(raw){
-      const d = JSON.parse(raw);
-      DB.contatti      = Array.isArray(d.contatti) ? d.contatti : [];
-      DB.attivita      = Array.isArray(d.attivita) ? d.attivita : [];
-      DB.attivitaFissa = { ...ATTIVITA_FISSA_DEFAULT, ...(d.attivitaFissa || {}) };
-      DB.pin           = d.pin || "";
-    }
+    if(!raw) return;
+    const d = JSON.parse(raw);
+    DB.contatti      = Array.isArray(d.contatti) ? d.contatti : [];
+    DB.attivita      = Array.isArray(d.attivita) ? d.attivita : [];
+    DB.attivitaFissa = { ...ATTIVITA_FISSA_DEFAULT, ...(d.attivitaFissa || {}) };
+    DB.versione      = d.versione || 0;
+    DA_INVIARE       = !!d.daInviare;
   }catch(_){
-    avviso("Archivio non leggibile: riparto da vuoto.", "err");
+    avviso("Copia locale illeggibile: la ricarico dalla piattaforma.", "err");
   }
 }
-function salva(){
+function scriviCopia(){
   try{
-    localStorage.setItem(STORAGE_KEY, JSON.stringify(DB));
+    localStorage.setItem(STORAGE_KEY, JSON.stringify({ ...DB, daInviare: DA_INVIARE }));
   }catch(_){
-    avviso("Spazio esaurito: esporta un backup e libera spazio.", "err");
+    avviso("Spazio del browser esaurito: esporta un backup.", "err");
   }
+}
+
+/* Ogni modifica marca la scheda con l'ora: è ciò che permette di
+   fondere senza perdere nulla quando si lavora su più dispositivi. */
+function marca(scheda){
+  scheda.aggiornato = new Date().toISOString();
+  return scheda;
+}
+
+function salva(){
+  DA_INVIARE = true;
+  scriviCopia();
+  mostraStatoRete("in-attesa");
+  clearTimeout(TIMER_SYNC);
+  TIMER_SYNC = setTimeout(sincronizza, 800);
+}
+
+/* Comunicazione con la piattaforma -------------------------------- */
+async function chiama(percorso, opzioni = {}){
+  const r = await fetch("/api/" + percorso, {
+    ...opzioni,
+    headers: {
+      "Content-Type": "application/json",
+      ...(TOKEN ? { Authorization: "Bearer " + TOKEN } : {}),
+      ...(opzioni.headers || {})
+    }
+  });
+  if(r.status === 401){ scollega(); throw new Error("Accesso scaduto."); }
+  const corpo = await r.json().catch(() => ({}));
+  if(!r.ok) throw new Error(corpo.errore || "La piattaforma non ha risposto.");
+  return corpo;
+}
+
+function applica(archivio){
+  DB.contatti      = archivio.contatti || [];
+  DB.attivita      = archivio.attivita || [];
+  DB.attivitaFissa = { ...ATTIVITA_FISSA_DEFAULT, ...(archivio.attivitaFissa || {}) };
+  DB.versione      = archivio.versione || 0;
+  DA_INVIARE = false;
+  scriviCopia();
+}
+
+async function sincronizza(silenzioso){
+  if(!TOKEN) return;
+  try{
+    const archivio = DA_INVIARE
+      ? await chiama("sincronizza", { method:"POST", body: JSON.stringify(DB) })
+      : await chiama("archivio");
+    applica(archivio);
+    mostraStatoRete("collegata");
+    render();
+    if(contattoAperto && contatto(contattoAperto)) apriScheda(contattoAperto);
+  }catch(e){
+    mostraStatoRete("scollegata", e.message);
+    if(!silenzioso) avviso("Piattaforma non raggiungibile: continuo in locale.", "err");
+  }
+}
+
+function mostraStatoRete(stato, dettaglio){
+  const el = $("#statoRete");
+  if(!el) return;
+  const testi = {
+    "collegata":  ["● Collegata",   "Archivio allineato con la piattaforma"],
+    "in-attesa":  ["◐ Salvataggio…","Modifiche non ancora inviate alla piattaforma"],
+    "scollegata": ["○ Solo locale", dettaglio || "Le modifiche partiranno appena torna la rete"]
+  };
+  const [testo, titolo] = testi[stato] || testi["scollegata"];
+  el.textContent = testo;
+  el.title = titolo;
+  el.dataset.stato = stato;
+}
+
+function scollega(){
+  TOKEN = "";
+  localStorage.removeItem(STORAGE_KEY + "_token");
+  $("#gate").classList.remove("hidden");
 }
 
 /* ============================================================
@@ -587,7 +682,8 @@ function creaAttivitaFissa(c, scadenzaScelta){
     svoltaIl: null,
     esito: "",
     automatica: true,
-    creato: new Date().toISOString()
+    creato: new Date().toISOString(),
+    aggiornato: new Date().toISOString()
   });
 }
 
@@ -616,7 +712,8 @@ function registraAttivita(contattoId, dati){
     svoltaIl: dati.svoltaIl || new Date().toISOString(),
     esito: dati.esito || "",
     automatica: false,
-    creato: new Date().toISOString()
+    creato: new Date().toISOString(),
+    aggiornato: new Date().toISOString()
   });
   salva();
 }
@@ -634,51 +731,40 @@ function programmaAttivita(contattoId, dati){
     svoltaIl: null,
     esito: "",
     automatica: false,
-    creato: new Date().toISOString()
+    creato: new Date().toISOString(),
+    aggiornato: new Date().toISOString()
   });
   salva();
 }
 
+/* Schede vive: quelle cancellate restano nell'archivio come
+   segnaposto, per propagare la cancellazione agli altri dispositivi */
+const contattiVivi = () => DB.contatti.filter(c => !c.eliminato);
+const attivitaVive = () => DB.attivita.filter(a => !a.eliminato);
+
 function attivitaDi(contattoId){
-  return DB.attivita
+  return attivitaVive()
     .filter(a => a.contattoId === contattoId)
     .sort((x,y) => new Date(y.svoltaIl || y.scadenza || y.creato) - new Date(x.svoltaIl || x.scadenza || x.creato));
 }
-function contatto(id){ return DB.contatti.find(c => c.id === id); }
+function contatto(id){ return DB.contatti.find(c => c.id === id && !c.eliminato); }
 
 /* ============================================================
-   INGRESSO LEAD DAL LINK DELL'EMAIL DI RIEPILOGO
-   La landing page mette nell'email un link con i dati della lead
-   codificati: aprendolo si crea contatto + attività fissa.
+   APERTURA DI UNA LEAD DAL LINK DELL'EMAIL
+   La lead è già entrata nella piattaforma da sola: il link
+   dell'email di riepilogo serve solo ad aprirne la scheda.
 ============================================================ */
-function b64dec(s){
-  s = String(s).replace(/-/g,"+").replace(/_/g,"/");
-  while(s.length % 4) s += "=";
-  const bin = atob(s);
-  return new TextDecoder().decode(Uint8Array.from(bin, ch => ch.charCodeAt(0)));
-}
-
-function importaDaLink(){
-  const m = location.hash.match(/lead=([^&]+)/);
+function apriDaLink(){
+  const m = location.hash.match(/contatto=([\w-]+)/);
   if(!m) return;
   history.replaceState(null, "", location.pathname + location.search);
 
-  let dati;
-  try{ dati = JSON.parse(b64dec(m[1])); }
-  catch(_){ avviso("Il link della lead non è leggibile.", "err"); return; }
-
-  /* Evita di creare due volte lo stesso contatto */
-  const esistente = trovaDuplicato(dati);
-  if(esistente){
-    avviso("Contatto già presente in archivio: apro la scheda.");
-    apriScheda(esistente.id);
-    return;
+  const c = contatto(m[1]);
+  if(c){
+    apriScheda(c.id);
+  }else{
+    avviso("Contatto non trovato: potrebbe essere stato eliminato.", "err");
   }
-
-  const c = creaContatto(dati);
-  render();
-  apriScheda(c.id);
-  avviso("Lead importata: contatto e attività di richiamo creati.", "ok");
 }
 
 /* ============================================================
@@ -688,12 +774,12 @@ function render(){
   renderAttivita();
   renderContatti();
   renderTutteAttivita();
-  $("#badgeContatti").textContent = DB.contatti.length;
-  $("#badgeAttivita").textContent = DB.attivita.length;
+  $("#badgeContatti").textContent = contattiVivi().length;
+  $("#badgeAttivita").textContent = attivitaVive().length;
 }
 
 function renderAttivita(){
-  const aperte = DB.attivita
+  const aperte = attivitaVive()
     .filter(a => a.stato === "aperta" && contatto(a.contattoId))
     .sort((x,y) => new Date(x.scadenza) - new Date(y.scadenza));
 
@@ -705,7 +791,7 @@ function renderAttivita(){
   $("#kScadute").textContent  = scadute.length;
   $("#kOggi").textContent     = oggi.length;
   $("#kProssime").textContent = prossime.length;
-  $("#kNuovi").textContent    = DB.contatti.filter(c => c.stato === "nuovo").length;
+  $("#kNuovi").textContent    = contattiVivi().filter(c => c.stato === "nuovo").length;
   $("#badgeTodo").textContent = aperte.length;
   $("#oggiLabel").textContent = "Oggi è " + dIT(new Date().toISOString()) + ".";
 
@@ -744,7 +830,7 @@ function renderContatti(){
   const fStato  = $("#filtroStato").value;
   const ordine  = $("#ordina").value;
 
-  let lista = DB.contatti.filter(c => {
+  let lista = contattiVivi().filter(c => {
     if(fStato && c.stato !== fStato) return false;
     if(!q) return true;
     return [c.nome, c.telefono, c.email, c.interesse, c.note].join(" ").toLowerCase().includes(q);
@@ -762,8 +848,8 @@ function renderContatti(){
 
   box.innerHTML = lista.map(c => {
     const s = stato(c.stato);
-    const aperte = DB.attivita.filter(a => a.contattoId === c.id && a.stato === "aperta").length;
-    const svolte = DB.attivita.filter(a => a.contattoId === c.id && a.stato === "completata").length;
+    const aperte = attivitaVive().filter(a => a.contattoId === c.id && a.stato === "aperta").length;
+    const svolte = attivitaVive().filter(a => a.contattoId === c.id && a.stato === "completata").length;
     return `<div class="row-item">
       <div class="row-main">
         <div class="row-title"><span class="dot" style="background:${s.color}"></span>${esc(c.nome)}</div>
@@ -788,7 +874,7 @@ function renderTutteAttivita(){
   const fStato = $("#filtroStatoAtt").value;
   const fTipo  = $("#filtroTipoAtt").value;
 
-  const lista = DB.attivita
+  const lista = attivitaVive()
     .filter(a => contatto(a.contattoId))
     .filter(a => !fStato || a.stato === fStato)
     .filter(a => !fTipo  || a.tipo === fTipo)
@@ -904,7 +990,7 @@ function modalAttivita(attivitaId, contattoIdPredefinito){
 
       if(a) $("#mElimina").addEventListener("click", () => {
         if(!confirm("Eliminare questa attività?")) return;
-        DB.attivita = DB.attivita.filter(x => x.id !== a.id);
+        marca(a).eliminato = true;
         salva(); chiudiModal(); render();
         if(contattoAperto) apriScheda(contattoAperto);
         avviso("Attività eliminata.");
@@ -924,6 +1010,7 @@ function modalAttivita(attivitaId, contattoIdPredefinito){
             scadenza: st === "aperta"     ? quando : null,
             svoltaIl: st === "completata" ? quando : null
           });
+          marca(a);
         }else{
           const cid = $("#a_contatto").value;
           const base = { tipo: tp, titolo, esito: $("#a_esito").value, note: $("#a_note").value.trim() };
@@ -1146,8 +1233,8 @@ function collegaScheda(c){
 
   $("#btnElimina").addEventListener("click", () => {
     if(!confirm(`Eliminare definitivamente ${c.nome} e tutte le sue attività?`)) return;
-    DB.contatti = DB.contatti.filter(x => x.id !== c.id);
-    DB.attivita = DB.attivita.filter(a => a.contattoId !== c.id);
+    marca(c).eliminato = true;
+    DB.attivita.filter(a => a.contattoId === c.id).forEach(a => { marca(a).eliminato = true; });
     salva(); render(); chiudiScheda();
     avviso("Contatto eliminato.");
   });
@@ -1165,7 +1252,7 @@ function collegaScheda(c){
     /* Una lead appena contattata non è più "nuova" */
     if(c.stato === "nuovo" && t !== "nota"){
       c.stato = "contattato";
-      c.aggiornato = new Date().toISOString();
+      marca(c);
       salva();
     }
     render(); apriScheda(c.id);
@@ -1195,8 +1282,9 @@ document.addEventListener("click", e => {
     if(a){
       a.stato = "completata";
       a.svoltaIl = new Date().toISOString();
+      marca(a);
       const c = contatto(a.contattoId);
-      if(c && c.stato === "nuovo"){ c.stato = "contattato"; c.aggiornato = a.svoltaIl; }
+      if(c && c.stato === "nuovo"){ c.stato = "contattato"; marca(c); }
       salva(); render();
       if(contattoAperto) apriScheda(contattoAperto);
       avviso("Attività completata.", "ok");
@@ -1481,7 +1569,7 @@ function esportaJson(){
 function esportaCsv(){
   const col = ["Nome","Telefono","Email","Stato","Fascia di visita","Interesse","Acquisto","Note","Campagna","Arrivata il","Attività svolte","Ultima attività"];
   const righe = DB.contatti.map(c => {
-    const svolte = DB.attivita.filter(a => a.contattoId === c.id && a.stato === "completata");
+    const svolte = attivitaVive().filter(a => a.contattoId === c.id && a.stato === "completata");
     const ultima = svolte.sort((x,y) => new Date(y.svoltaIl) - new Date(x.svoltaIl))[0];
     return [
       c.nome, c.telefono, c.email, stato(c.stato).label, c.slot, c.interesse, c.finanziamento,
@@ -1509,7 +1597,7 @@ function importaJson(file){
       let nuovi = 0;
       d.contatti.forEach(c => {
         if(trovaDuplicato(c)) return;
-        DB.contatti.push(c);
+        DB.contatti.push(marca(c));
         nuovi++;
         (d.attivita || []).filter(a => a.contattoId === c.id).forEach(a => DB.attivita.push(a));
       });
@@ -1531,33 +1619,62 @@ function caricaImpostazioni(){
   $("#afTipo").innerHTML = opzioni(TIPI, af.tipo);
   $("#afOre").value = af.scadenzaOre;
   $("#afChecklist").value = (af.checklist || []).join("\n");
-  $("#setPin").value = DB.pin || "";
+  $("#statoArchivio").textContent =
+    `In archivio: ${contattiVivi().length} contatti e ${attivitaVive().length} attività` +
+    (DB.aggiornato ? ` · ultimo allineamento ${dtIT(DB.aggiornato)}` : "");
 }
 
 /* ============================================================
-   GATE PIN — blocco leggero
+   ACCESSO ALLA PIATTAFORMA
 ============================================================ */
-function verificaGate(){
-  if(!DB.pin){ $("#gate").classList.add("hidden"); return; }
-  if(sessionStorage.getItem(STORAGE_KEY + "_ok") === "1"){ $("#gate").classList.add("hidden"); return; }
-  $("#gate").classList.remove("hidden");
-  setTimeout(() => $("#gatePin").focus(), 100);
-}
-function tentaAccesso(){
-  if($("#gatePin").value === DB.pin){
-    sessionStorage.setItem(STORAGE_KEY + "_ok","1");
+async function tentaAccesso(){
+  const btn = $("#gateBtn");
+  const err = $("#gateErr");
+  btn.disabled = true; btn.textContent = "Verifico…"; err.textContent = "";
+  try{
+    const r = await fetch("/api/accesso", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ password: $("#gatePwd").value })
+    });
+    const corpo = await r.json().catch(() => ({}));
+    if(!r.ok) throw new Error(corpo.errore || "Accesso non riuscito.");
+
+    TOKEN = corpo.token;
+    localStorage.setItem(STORAGE_KEY + "_token", TOKEN);
+    $("#gatePwd").value = "";
     $("#gate").classList.add("hidden");
-    importaDaLink();
-  }else{
-    $("#gateErr").textContent = "PIN errato.";
-    $("#gatePin").value = "";
+    await sincronizza();
+    apriDaLink();
+  }catch(e){
+    err.textContent = e.message === "Failed to fetch"
+      ? "Piattaforma non raggiungibile: controlla la connessione."
+      : e.message;
+    $("#gatePwd").value = "";
+    $("#gatePwd").focus();
+  }finally{
+    btn.disabled = false; btn.textContent = "Entra";
   }
+}
+
+/* All'avvio: con un accesso valido si allinea l'archivio, altrimenti
+   si chiede la password. La copia locale è già a schermo, così la
+   gestione è utilizzabile anche mentre la rete manca. */
+async function avvia(){
+  if(!TOKEN){
+    $("#gate").classList.remove("hidden");
+    $("#gatePwd").focus();
+    return;
+  }
+  $("#gate").classList.add("hidden");
+  await sincronizza(true);
+  apriDaLink();
 }
 
 /* ============================================================
    AVVIO
 ============================================================ */
-carica();
+caricaCopia();
 
 /* Filtri */
 $("#filtroStato").innerHTML   = `<option value="">Tutti gli stati</option>` + opzioni(STATI, "__");
@@ -1614,25 +1731,37 @@ $("#btnSalvaAF").addEventListener("click", () => {
     titolo: $("#afTitolo").value.trim() || ATTIVITA_FISSA_DEFAULT.titolo,
     tipo: $("#afTipo").value,
     scadenzaOre: Math.max(1, Number($("#afOre").value) || 24),
-    checklist: $("#afChecklist").value.split("\n").map(r => r.trim()).filter(Boolean)
+    checklist: $("#afChecklist").value.split("\n").map(r => r.trim()).filter(Boolean),
+    aggiornato: new Date().toISOString()
   };
   salva();
   avviso("Attività fissa aggiornata.", "ok");
 });
 
-$("#btnSalvaPin").addEventListener("click", () => {
-  DB.pin = $("#setPin").value.trim();
-  salva();
-  sessionStorage.setItem(STORAGE_KEY + "_ok","1");
-  avviso(DB.pin ? "PIN impostato." : "PIN rimosso.", "ok");
+$("#btnSincronizza").addEventListener("click", async () => {
+  await sincronizza();
+  caricaImpostazioni();
+});
+
+$("#btnEsci").addEventListener("click", () => {
+  if(DA_INVIARE && !confirm("Ci sono modifiche non ancora inviate alla piattaforma. Uscire lo stesso?")) return;
+  scollega();
+  $("#gatePwd").focus();
 });
 
 $("#gateBtn").addEventListener("click", tentaAccesso);
-$("#gatePin").addEventListener("keydown", e => { if(e.key === "Enter") tentaAccesso(); });
+$("#gatePwd").addEventListener("keydown", e => { if(e.key === "Enter") tentaAccesso(); });
+
+/* Quando la rete torna, le modifiche in attesa partono da sole */
+window.addEventListener("online", () => { if(TOKEN) sincronizza(true); });
+
+/* Il link dell'email deve aprire la scheda anche quando la gestione
+   è già aperta in quella finestra: lì cambia solo il frammento
+   dell'indirizzo e la pagina non viene ricaricata. */
+window.addEventListener("hashchange", () => { if(TOKEN) apriDaLink(); });
 
 render();
-verificaGate();
-if(!DB.pin || sessionStorage.getItem(STORAGE_KEY + "_ok") === "1") importaDaLink();
+avvia();
 </script>
 </body>
 </html>
