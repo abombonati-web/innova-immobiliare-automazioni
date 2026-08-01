@@ -2,63 +2,67 @@
 
 ## Chiusura estiva 2026 (8 – 23 agosto)
 
-Due versioni della stessa comunicazione, stessa gabbia e stessa palette:
+Avviso di chiusura per ferie con il logo Innova, foto reali e il numero da
+chiamare per parlare con Sara, l'assistente digitale.
 
-1. **Versione foto** (`ferie-agosto-2026-foto.html`) — quella da pubblicare:
-   post e story costruiti sulle foto di Innova.
-2. **Versione illustrata** (`ferie-agosto-2026.html`) — alternativa con la
-   baia di Mondello disegnata in SVG, anche in formato quadrato.
+### Da pubblicare
 
-### Versione foto
-
-| File | Formato | Foto |
+| File | Formato | Immagine |
 |---|---|---|
-| `innova-ferie-agosto-2026-foto-post.png` | 2160 × 2700 (4:5) | luna piena sul mare |
-| `innova-ferie-agosto-2026-foto-story.png` | 2160 × 3840 (9:16) | la costa vista dall'aereo |
+| `innova-ferie-agosto-2026-post.png` | 1080 × 1350 (4:5) | baia di Mondello |
+| `innova-ferie-agosto-2026-story.png` | 1080 × 1920 (9:16) | baia di Mondello |
 
-Le foto originali stanno in `foto/`, già raddrizzate secondo l'EXIF e
-ridimensionate. Sopra ciascuna: un riscaldamento ambra in `soft-light`, una
-velatura charcoal che scurisce progressivamente verso il basso per la
-leggibilità del testo, e gli stessi stilemi della landing.
+### Alternative con le foto di Innova (doppia risoluzione)
 
-L'inquadratura si regola nella mappa `PHOTOS` in fondo al file: `pos`
-(`object-position`) e `tr` (zoom/spostamento fine).
+| File | Formato | Immagine |
+|---|---|---|
+| `innova-ferie-agosto-2026-luna-post.png` | 2160 × 2700 | luna piena sul mare |
+| `innova-ferie-agosto-2026-volo-story.png` | 2160 × 3840 | la costa vista dall'aereo |
+| `innova-ferie-agosto-2026-illustrata-post.png` | 2160 × 2700 | Mondello illustrata in SVG |
+| `innova-ferie-agosto-2026-illustrata-story.png` | 2160 × 3840 | idem |
+| `innova-ferie-agosto-2026-illustrata-quadrato.png` | 2160 × 2160 | idem, 1:1 |
 
-### Versione illustrata
+> **Risoluzione.** La foto della baia di Mondello è arrivata a 275 × 183 px:
+> è già portata a 1080 px di larghezza (il formato nativo di Instagram) ma
+> oltre non si può andare senza inventare dettaglio, perciò quei due file
+> sono esportati a 1×. Con un originale più grande basta sostituire
+> `foto/mondello-baia.jpg` e rilanciare l'export a 2×.
 
-Sfondo illustrato della baia di **Mondello** (Monte Pellegrino a destra,
-Monte Gallo a sinistra) al tramonto, realizzato interamente in SVG.
+### Sorgenti
 
-### Palette (comune alle due versioni)
+| File | Cosa contiene |
+|---|---|
+| `ferie-agosto-2026-foto.html` | le quattro grafiche fotografiche |
+| `ferie-agosto-2026.html` | la versione illustrata in SVG |
+| `foto/` | foto e logo |
+| `poppins-embed.css` | Poppins 300–800 in base64 |
+| `render.mjs` | export dei PNG con Playwright |
+
+Il logo è scontornato dal fondo bianco in due varianti: `logo-innova.png`
+(colori originali, per fondi chiari) e `logo-innova-negativo.png`, in cui il
+grigio caldo diventa crema per restare leggibile sui fondi scuri; l'ambra
+resta quella del logo.
+
+### Palette e font
 
 | Colore | HEX | Uso |
 |---|---|---|
-| Ambra | `#E8982A` | accenti, date, riscaldamento delle foto, payoff |
-| Ambra scuro | `#C97E15` | ombre degli ombrelloni |
-| Charcoal | `#2B2A28` | velature e pannello testo |
-| Crema | `#FBF6EE` | testi |
+| Ambra | `#E8982A` | accenti, date, pulsante telefono, payoff |
+| Ambra logo | `#F4AF37` | tetto e lettere "nn" del marchio |
+| Charcoal | `#2B2A28` | pannello testo e velature |
+| Crema | `#FBF6EE` | testi e logo in negativo |
 
 Font: **Poppins** (300–800), lo stesso della landing, incorporato in
 `poppins-embed.css` come woff2 base64 così l'esportazione è identica ovunque
 e non serve connessione.
 
-### File illustrati
+### Modificare testi, date o inquadratura
 
-| File | Formato | Uso |
-|---|---|---|
-| `innova-ferie-agosto-2026-post.png` | 2160 × 2700 (4:5) | post Instagram / Facebook |
-| `innova-ferie-agosto-2026-story.png` | 2160 × 3840 (9:16) | storie e reel cover |
-| `innova-ferie-agosto-2026-quadrato.png` | 2160 × 2160 (1:1) | post quadrato, Google Business, firma email |
-
-I PNG sono esportati a 2× (1080 px di lato base) per restare nitidi anche
-su schermi retina e in stampa piccola.
-
-### Modificare testi o date
-
-Il testo sta in un unico blocco in fondo a ciascun HTML (`CONTENT` nella
-versione foto, `POSTER` in quella illustrata). Le proporzioni dei formati si
-regolano con le variabili CSS `--s` (scala tipografica), `--scene` (altezza
-dell'illustrazione) e `--scrim-start` (dove inizia la velatura sulle foto).
+Testo e numero di telefono stanno nelle costanti `LOCKUP` e `BLOCK` in fondo
+a `ferie-agosto-2026-foto.html`. Nella mappa `POSTERS` si regolano per ogni
+formato: `layout` (`band` = fascia foto in alto, `full` = foto a tutto
+campo), `band` (altezza della fascia), `s` (scala tipografica), `pos` e `tr`
+(inquadratura e zoom sulla foto).
 
 ### Rigenerare i PNG
 
@@ -67,5 +71,5 @@ npm i playwright        # una tantum
 node grafiche/render.mjs
 ```
 
-Senza Node basta aprire `ferie-agosto-2026.html` nel browser e fare uno
-screenshot dei tre riquadri.
+Senza Node basta aprire il file HTML nel browser e fare uno screenshot dei
+riquadri.
