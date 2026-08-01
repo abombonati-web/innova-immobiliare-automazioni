@@ -10,6 +10,7 @@
   --amber:#E8982A;
   --amber-logo:#F4AF37;
   --amber-deep:#C97E15;
+  --charcoal:#4A4A4A;
   --charcoal-deep:#2B2A28;
   --cream:#FBF6EE;
   --white:#FFFFFF;
@@ -55,11 +56,34 @@ body{font-family:'Poppins',sans-serif;background:#141312;color:var(--cream);
   padding:calc(52px * var(--s)) calc(72px * var(--s)) calc(56px * var(--s))}
 .full .content{position:absolute;inset:0;padding:calc(60px * var(--s)) calc(72px * var(--s)) calc(58px * var(--s))}
 
-/* marchio */
+/* marchio — sempre il logo ufficiale, nei suoi colori */
 .logo{display:block;width:calc(300px * var(--s));height:auto}
-.full .logo{filter:drop-shadow(0 2px 20px rgba(0,0,0,.55))}
 .lockup .payoff{display:block;margin-top:calc(12px * var(--s));color:var(--amber);
   font-size:calc(19px * var(--s));font-weight:500;letter-spacing:.05em}
+/* sulle foto scure il logo va su una targhetta crema, così resta leggibile
+   senza toccarne i colori */
+.chip{display:inline-block;background:var(--cream);border-radius:calc(16px * var(--s));
+  padding:calc(18px * var(--s)) calc(26px * var(--s));box-shadow:0 6px 30px rgba(0,0,0,.35)}
+
+/* ---------- pannello chiaro (come il fondo crema del sito) ---------- */
+.poster.light{background:var(--cream)}
+.poster.light .content{background:var(--cream);color:var(--charcoal)}
+.poster.light .band::after{display:none}
+.poster.light .glow{background:radial-gradient(circle, rgba(232,152,42,.16), transparent 65%)}
+.poster.light .lockup .payoff{color:var(--amber-deep)}
+.poster.light .eyebrow{border-color:var(--amber-deep);color:var(--amber-deep);background:transparent}
+.poster.light h1{color:var(--charcoal-deep);text-shadow:none}
+.poster.light h1 em{color:var(--amber-deep)}
+.poster.light .dates{background:var(--white);border-color:rgba(201,126,21,.45)}
+.poster.light .dates .label{color:#8C8579}
+.poster.light .dates .value{color:var(--amber-deep)}
+.poster.light .dates .note{color:var(--charcoal)}
+.poster.light .dates .note b{color:var(--charcoal-deep)}
+.poster.light .sub{color:var(--charcoal);text-shadow:none}
+.poster.light .sub b{color:var(--charcoal-deep)}
+.poster.light .foot{border-top-color:rgba(43,42,40,.16)}
+.poster.light .contacts{color:#8C8579}
+.poster.light .contacts b{color:var(--charcoal-deep)}
 
 .block{display:flex;flex-direction:column;align-items:flex-start}
 
@@ -111,9 +135,12 @@ h1 em{font-style:normal;color:var(--amber)}
 <div class="shell"><div class="poster story" id="story-volo"></div> <div class="caption">Story alternativa — dall'aereo</div></div>
 
 <script>
-const LOCKUP = `
+const LOGO = `<img class="logo" src="foto/logo-innova.png" alt="Innova Immobiliare">`;
+
+/* su pannello chiaro il logo sta da solo, sulle foto scure su targhetta crema */
+const lockup = (chip) => `
   <div class="lockup">
-    <img class="logo" src="foto/logo-innova-negativo.png" alt="Innova Immobiliare">
+    ${chip ? `<span class="chip">${LOGO}</span>` : LOGO}
     <span class="payoff">Progetta il tuo futuro.</span>
   </div>`;
 
@@ -158,14 +185,15 @@ for (const [id, p] of Object.entries(POSTERS)) {
                     style="object-position:${p.pos};transform:${p.tr}">`;
   el.style.setProperty('--s', p.s);
   if (p.layout === 'band') {
+    el.classList.add('light');
     el.style.setProperty('--band', p.band);
     el.innerHTML = `<div class="band">${img}<div class="warm"></div></div>
-                    <div class="content"><div class="glow"></div>${LOCKUP}${BLOCK}</div>`;
+                    <div class="content"><div class="glow"></div>${lockup(false)}${BLOCK}</div>`;
   } else {
     el.classList.add('full');
     el.style.setProperty('--scrim-start', p.scrim);
     el.innerHTML = `${img}<div class="warm"></div><div class="scrim"></div>
-                    <div class="content"><div class="glow"></div>${LOCKUP}${BLOCK}</div>`;
+                    <div class="content"><div class="glow"></div>${lockup(true)}${BLOCK}</div>`;
   }
 }
 </script>

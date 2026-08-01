@@ -38,19 +38,21 @@ chiamare per parlare con Sara, l'assistente digitale.
 | `poppins-embed.css` | Poppins 300–800 in base64 |
 | `render.mjs` | export dei PNG con Playwright |
 
-Il logo è scontornato dal fondo bianco in due varianti: `logo-innova.png`
-(colori originali, per fondi chiari) e `logo-innova-negativo.png`, in cui il
-grigio caldo diventa crema per restare leggibile sui fondi scuri; l'ambra
-resta quella del logo.
+Il logo (`foto/logo-innova.png`) è quello ufficiale, solo scontornato dal
+fondo bianco: i colori non vengono mai alterati. Per questo il pannello di
+post e story è crema come il fondo del sito, e sulle due grafiche a foto
+piena il marchio sta su una targhetta crema.
 
 ### Palette e font
 
 | Colore | HEX | Uso |
 |---|---|---|
-| Ambra | `#E8982A` | accenti, date, pulsante telefono, payoff |
+| Ambra | `#E8982A` | pulsante telefono, accenti sui fondi scuri |
+| Ambra scuro | `#C97E15` | date e accenti sul pannello crema |
 | Ambra logo | `#F4AF37` | tetto e lettere "nn" del marchio |
-| Charcoal | `#2B2A28` | pannello testo e velature |
-| Crema | `#FBF6EE` | testi e logo in negativo |
+| Grigio caldo | `#86776F` | lettere "i…ova" del marchio |
+| Charcoal | `#2B2A28` | titoli e velature |
+| Crema | `#FBF6EE` | pannello di post e story, targhetta del logo |
 
 Font: **Poppins** (300–800), lo stesso della landing, incorporato in
 `poppins-embed.css` come woff2 base64 così l'esportazione è identica ovunque
