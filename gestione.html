@@ -155,6 +155,28 @@ h2{font-size:1.1rem;font-weight:700;color:var(--charcoal-deep);margin-bottom:14p
 .banner.ok{background:#2F6B33}
 .banner.err{background:var(--danger)}
 
+/* ---------- MODALE (creazione contatti e attività) ---------- */
+.modal-bg{position:fixed;inset:0;background:rgba(43,42,40,.6);z-index:60;display:none;
+  align-items:flex-start;justify-content:center;padding:40px 18px;overflow-y:auto}
+.modal-bg.open{display:flex}
+.modal{background:var(--cream);border-radius:18px;width:min(620px,100%);box-shadow:0 20px 60px rgba(0,0,0,.35);
+  overflow:hidden;animation:sali .2s ease}
+@keyframes sali{from{transform:translateY(14px);opacity:0}to{transform:none;opacity:1}}
+.modal-head{background:var(--charcoal-deep);color:var(--cream);padding:18px 24px;
+  display:flex;align-items:center;justify-content:space-between;gap:14px}
+.modal-head h2{color:var(--cream);font-size:1.1rem;margin:0}
+.modal-body{padding:24px}
+.modal-foot{display:flex;gap:10px;flex-wrap:wrap;justify-content:flex-end;padding:0 24px 24px}
+
+/* ---------- AVVISO IN LINEA ---------- */
+.alert{border-radius:10px;padding:12px 16px;font-size:.86rem;font-weight:400;margin-bottom:16px;display:none}
+.alert.show{display:block}
+.alert.warn{background:#FDF3E3;color:#8A5A0B;border:1px solid #F0D6A6}
+.alert.info{background:#F1EEE8;color:#6B6357;border:1px solid var(--line)}
+
+.check{display:flex;gap:10px;align-items:flex-start;font-size:.88rem;font-weight:400;margin-bottom:14px}
+.check input{margin-top:4px;accent-color:var(--amber);width:16px;height:16px}
+
 /* ---------- GATE PIN ---------- */
 .gate{position:fixed;inset:0;background:var(--charcoal-deep);z-index:100;display:flex;align-items:center;justify-content:center;padding:24px}
 .gate.hidden{display:none}
@@ -194,8 +216,10 @@ h2{font-size:1.1rem;font-weight:700;color:var(--charcoal-deep);margin-bottom:14p
     <nav class="tabs">
       <button class="tab active" data-view="dashboard">Da fare <span class="badge" id="badgeTodo">0</span></button>
       <button class="tab" data-view="contatti">Contatti <span class="badge" id="badgeContatti">0</span></button>
+      <button class="tab" data-view="attivita">Attività <span class="badge" id="badgeAttivita">0</span></button>
       <button class="tab" data-view="impostazioni">Impostazioni</button>
     </nav>
+    <button class="btn sm ghost" style="background:transparent;border-color:rgba(251,246,238,.3);color:var(--cream)" id="btnIncolla">Incolla lead</button>
     <button class="btn sm" id="btnNuovo">+ Nuovo contatto</button>
   </div>
 </header>
@@ -247,6 +271,31 @@ h2{font-size:1.1rem;font-weight:700;color:var(--charcoal-deep);margin-bottom:14p
 
     <div class="card">
       <div id="listaContatti"></div>
+    </div>
+  </section>
+
+  <!-- ================= VISTA: ATTIVITÀ ================= -->
+  <section class="view" id="view-attivita">
+    <div class="view-head">
+      <div>
+        <h1>Tutte le attività</h1>
+        <p class="muted">Ogni attività da fare e già svolta, su tutti i contatti.</p>
+      </div>
+      <button class="btn" id="btnNuovaAttivita">+ Nuova attività</button>
+    </div>
+
+    <div class="filters">
+      <input type="search" id="cercaAtt" placeholder="Cerca per contatto, titolo o note…">
+      <select id="filtroStatoAtt">
+        <option value="aperta">Da fare</option>
+        <option value="completata">Svolte</option>
+        <option value="">Tutte</option>
+      </select>
+      <select id="filtroTipoAtt"><option value="">Tutti i tipi</option></select>
+    </div>
+
+    <div class="card">
+      <div id="listaTutteAttivita"></div>
     </div>
   </section>
 
@@ -320,6 +369,18 @@ h2{font-size:1.1rem;font-weight:700;color:var(--charcoal-deep);margin-bottom:14p
   </div>
   <div class="drawer-body" id="drawerBody"></div>
 </aside>
+
+<!-- ================= MODALE ================= -->
+<div class="modal-bg" id="modalBg">
+  <div class="modal" role="dialog" aria-modal="true">
+    <div class="modal-head">
+      <h2 id="modalTitolo">—</h2>
+      <button class="close-x" id="modalChiudi" aria-label="Chiudi">&times;</button>
+    </div>
+    <div class="modal-body" id="modalBody"></div>
+    <div class="modal-foot" id="modalFoot"></div>
+  </div>
+</div>
 
 <div class="banner" id="banner"></div>
 
@@ -473,7 +534,10 @@ function adesso(){ return Date.now(); }
 ============================================================ */
 
 /* Crea il contatto e, con lui, l'ATTIVITÀ FISSA di richiamo.
-   `dati` arriva dalla landing page o dall'inserimento manuale. */
+   `dati` arriva dall'inserimento nella piattaforma, dai dati incollati
+   o dal link dell'email di riepilogo.
+   `opzioni.attivitaFissa === false` crea il contatto senza attività.
+   `opzioni.scadenza` sovrascrive la scadenza dell'attività fissa. */
 function creaContatto(dati, opzioni){
   const ora = new Date().toISOString();
   const c = {
@@ -485,7 +549,7 @@ function creaContatto(dati, opzioni){
     interesse:     dati.interesse || "",
     finanziamento: dati.finanziamento || "",
     note:          dati.note || "",
-    stato:         "nuovo",
+    stato:         dati.stato || "nuovo",
     origine: {
       utm_source:   dati.utm_source   || "",
       utm_medium:   dati.utm_medium   || "",
@@ -497,16 +561,19 @@ function creaContatto(dati, opzioni){
   };
   DB.contatti.unshift(c);
 
-  if(!opzioni || opzioni.attivitaFissa !== false) creaAttivitaFissa(c);
+  const o = opzioni || {};
+  if(o.attivitaFissa !== false) creaAttivitaFissa(c, o.scadenza);
 
   salva();
   return c;
 }
 
 /* L'attività fissa: sempre la stessa, su ogni nuova lead. */
-function creaAttivitaFissa(c){
+function creaAttivitaFissa(c, scadenzaScelta){
   const af = DB.attivitaFissa;
-  const scadenza = new Date(new Date(c.creato).getTime() + (Number(af.scadenzaOre) || 24) * 3600 * 1000);
+  const scadenza = scadenzaScelta
+    ? new Date(scadenzaScelta)
+    : new Date(new Date(c.creato).getTime() + (Number(af.scadenzaOre) || 24) * 3600 * 1000);
   const checklist = (af.checklist || []).filter(Boolean).map(r => "• " + r).join("\n");
 
   DB.attivita.unshift({
@@ -601,8 +668,7 @@ function importaDaLink(){
   catch(_){ avviso("Il link della lead non è leggibile.", "err"); return; }
 
   /* Evita di creare due volte lo stesso contatto */
-  const chiave = (x) => (String(x.email||"").toLowerCase().trim() + "|" + numeroWa(x.telefono));
-  const esistente = DB.contatti.find(c => chiave(c) === chiave(dati) && chiave(dati) !== "|");
+  const esistente = trovaDuplicato(dati);
   if(esistente){
     avviso("Contatto già presente in archivio: apro la scheda.");
     apriScheda(esistente.id);
@@ -621,7 +687,9 @@ function importaDaLink(){
 function render(){
   renderAttivita();
   renderContatti();
+  renderTutteAttivita();
   $("#badgeContatti").textContent = DB.contatti.length;
+  $("#badgeAttivita").textContent = DB.attivita.length;
 }
 
 function renderAttivita(){
@@ -710,6 +778,164 @@ function renderContatti(){
       </div>
     </div>`;
   }).join("");
+}
+
+/* ============================================================
+   RENDER — VISTA "TUTTE LE ATTIVITÀ"
+============================================================ */
+function renderTutteAttivita(){
+  const q      = $("#cercaAtt").value.trim().toLowerCase();
+  const fStato = $("#filtroStatoAtt").value;
+  const fTipo  = $("#filtroTipoAtt").value;
+
+  const lista = DB.attivita
+    .filter(a => contatto(a.contattoId))
+    .filter(a => !fStato || a.stato === fStato)
+    .filter(a => !fTipo  || a.tipo === fTipo)
+    .filter(a => {
+      if(!q) return true;
+      const c = contatto(a.contattoId);
+      return [c.nome, c.telefono, a.titolo, a.note, a.esito].join(" ").toLowerCase().includes(q);
+    })
+    .sort((x,y) => {
+      /* Prima le cose da fare, in ordine di scadenza; poi le svolte, dalla più recente */
+      if(x.stato !== y.stato) return x.stato === "aperta" ? -1 : 1;
+      return x.stato === "aperta"
+        ? new Date(x.scadenza) - new Date(y.scadenza)
+        : new Date(y.svoltaIl) - new Date(x.svoltaIl);
+    });
+
+  const box = $("#listaTutteAttivita");
+  if(!lista.length){
+    box.innerHTML = `<div class="empty"><div class="big">🗂️</div>Nessuna attività con questi filtri.</div>`;
+    return;
+  }
+
+  const ora = adesso(), fine = fineOggi();
+  box.innerHTML = lista.map(a => {
+    const c = contatto(a.contattoId);
+    let pill;
+    if(a.stato === "completata"){
+      pill = `<span class="pill done">Svolta ${dtIT(a.svoltaIl)}</span>`;
+    }else{
+      const t = new Date(a.scadenza).getTime();
+      const cls = t < ora ? "late" : (t <= fine ? "today" : "next");
+      pill = `<span class="pill ${cls}">${t < ora ? "Scaduta" : "Entro"} ${dtIT(a.scadenza)}</span>`;
+    }
+    return `<div class="row-item">
+      <div class="row-main">
+        <div class="row-title">${tipo(a.tipo).icona} ${esc(a.titolo)}</div>
+        <div class="row-sub">${esc(c.nome)}${c.telefono ? " · " + esc(c.telefono) : ""}${a.esito ? " · " + esc(a.esito) : ""}</div>
+        <div style="margin-top:7px">${pill}</div>
+      </div>
+      <div class="row-actions">
+        <button class="btn sm ghost" data-apri="${c.id}">Contatto</button>
+        <button class="btn sm ghost" data-modifica-att="${a.id}">Modifica</button>
+        ${a.stato === "aperta" ? `<button class="btn sm" data-chiudi="${a.id}">Fatta</button>` : ""}
+      </div>
+    </div>`;
+  }).join("");
+}
+
+/* ============================================================
+   MODALE ATTIVITÀ — creazione e modifica
+============================================================ */
+function modalAttivita(attivitaId, contattoIdPredefinito){
+  const a = attivitaId ? DB.attivita.find(x => x.id === attivitaId) : null;
+
+  if(!DB.contatti.length){
+    avviso("Crea prima un contatto.", "err");
+    return;
+  }
+
+  const svolta   = a ? a.stato === "completata" : false;
+  const quando   = a ? (svolta ? a.svoltaIl : a.scadenza) : new Date(Date.now() + 864e5).toISOString();
+  const contatti = DB.contatti.map(c => ({ id:c.id, label:c.nome + (c.telefono ? " · " + c.telefono : "") }));
+
+  apriModal(
+    a ? "Modifica attività" : "Nuova attività",
+    `<form id="formAtt">
+      <div class="field">
+        <label for="a_contatto">Contatto</label>
+        <select id="a_contatto"${a ? " disabled" : ""}>${opzioni(contatti, a ? a.contattoId : (contattoIdPredefinito || contatti[0].id))}</select>
+      </div>
+      <div class="grid2">
+        <div class="field">
+          <label for="a_stato">Stato</label>
+          <select id="a_stato">
+            <option value="aperta"${!svolta ? " selected" : ""}>Da fare</option>
+            <option value="completata"${svolta ? " selected" : ""}>Già svolta</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="a_tipo">Tipo</label>
+          <select id="a_tipo">${opzioni(TIPI, a ? a.tipo : "chiamata")}</select>
+        </div>
+      </div>
+      <div class="field">
+        <label for="a_titolo">Cosa va fatto / cosa è stato fatto</label>
+        <input type="text" id="a_titolo" value="${esc(a ? a.titolo : "")}" placeholder="es. Richiamare per confermare la visita">
+      </div>
+      <div class="grid2">
+        <div class="field">
+          <label for="a_quando" id="a_labelQuando">Entro il</label>
+          <input type="datetime-local" id="a_quando" value="${toInput(quando)}">
+        </div>
+        <div class="field">
+          <label for="a_esito">Esito</label>
+          <select id="a_esito"><option value="">— nessun esito —</option>${opzioni(ESITI, a ? a.esito : "")}</select>
+        </div>
+      </div>
+      <div class="field">
+        <label for="a_note">Note</label>
+        <textarea id="a_note" rows="4" placeholder="Cosa è emerso, cosa serve ricordare…">${esc(a ? a.note : "")}</textarea>
+      </div>
+    </form>`,
+    `${a ? `<button class="btn danger" id="mElimina">Elimina</button>` : ""}
+     <button class="btn ghost" id="mAnnulla">Annulla</button>
+     <button class="btn" id="mSalva">${a ? "Salva" : "Crea attività"}</button>`,
+    () => {
+      const aggiornaLabel = () => {
+        $("#a_labelQuando").textContent = $("#a_stato").value === "completata" ? "Svolta il" : "Entro il";
+      };
+      aggiornaLabel();
+      $("#a_stato").addEventListener("change", aggiornaLabel);
+      $("#mAnnulla").addEventListener("click", chiudiModal);
+
+      if(a) $("#mElimina").addEventListener("click", () => {
+        if(!confirm("Eliminare questa attività?")) return;
+        DB.attivita = DB.attivita.filter(x => x.id !== a.id);
+        salva(); chiudiModal(); render();
+        if(contattoAperto) apriScheda(contattoAperto);
+        avviso("Attività eliminata.");
+      });
+
+      $("#mSalva").addEventListener("click", () => {
+        const st     = $("#a_stato").value;
+        const tp     = $("#a_tipo").value;
+        const quando = fromInput($("#a_quando").value);
+        const titolo = $("#a_titolo").value.trim() || tipo(tp).label;
+
+        if(a){
+          Object.assign(a, {
+            tipo: tp, titolo, stato: st,
+            esito: $("#a_esito").value,
+            note:  $("#a_note").value.trim(),
+            scadenza: st === "aperta"     ? quando : null,
+            svoltaIl: st === "completata" ? quando : null
+          });
+        }else{
+          const cid = $("#a_contatto").value;
+          const base = { tipo: tp, titolo, esito: $("#a_esito").value, note: $("#a_note").value.trim() };
+          if(st === "completata") registraAttivita(cid, { ...base, svoltaIl: quando });
+          else                    programmaAttivita(cid, { ...base, scadenza: quando });
+        }
+        salva(); chiudiModal(); render();
+        if(contattoAperto) apriScheda(contattoAperto);
+        avviso(a ? "Attività aggiornata." : "Attività creata.", "ok");
+      });
+    }
+  );
 }
 
 /* ============================================================
@@ -893,7 +1119,7 @@ function timelineHTML(contattoId){
       ${a.note ? `<div class="tl-note">${esc(a.note)}</div>` : ""}
       <div class="tl-actions">
         ${aperta ? `<button class="btn sm ghost" data-chiudi="${a.id}">Segna come fatta</button>` : ""}
-        <button class="btn sm ghost" data-elimina-att="${a.id}">Elimina</button>
+        <button class="btn sm ghost" data-modifica-att="${a.id}">Modifica</button>
       </div>
     </li>`;
   }).join("");
@@ -978,27 +1204,260 @@ document.addEventListener("click", e => {
     return;
   }
 
-  const elimina = e.target.closest("[data-elimina-att]");
-  if(elimina){
-    DB.attivita = DB.attivita.filter(x => x.id !== elimina.dataset.eliminaAtt);
-    salva(); render();
-    if(contattoAperto) apriScheda(contattoAperto);
-    return;
-  }
+  const modifica = e.target.closest("[data-modifica-att]");
+  if(modifica){ modalAttivita(modifica.dataset.modificaAtt); return; }
 });
 
 /* ============================================================
-   NUOVO CONTATTO A MANO
+   MODALE — usata per creare contatti e gestire le attività
 ============================================================ */
-function nuovoContatto(){
-  const nome = prompt("Nome e cognome del contatto:");
-  if(nome === null) return;
-  const telefono = prompt("Telefono:") || "";
-  const email = prompt("Email:") || "";
-  const c = creaContatto({ nome, telefono, email });
-  render();
-  apriScheda(c.id);
-  avviso("Contatto creato con l'attività di richiamo.", "ok");
+function apriModal(titolo, corpo, pulsanti, alMontaggio){
+  $("#modalTitolo").textContent = titolo;
+  $("#modalBody").innerHTML = corpo;
+  $("#modalFoot").innerHTML = pulsanti;
+  $("#modalBg").classList.add("open");
+  document.body.style.overflow = "hidden";
+  if(alMontaggio) alMontaggio();
+}
+function chiudiModal(){
+  $("#modalBg").classList.remove("open");
+  if(!contattoAperto) document.body.style.overflow = "";
+}
+
+/* ============================================================
+   CREAZIONE DI UN CONTATTO NELLA PIATTAFORMA
+============================================================ */
+
+/* Due schede sono la stessa persona se condividono l'email oppure il
+   telefono: basta uno dei due, perché spesso una lead ricontatta
+   lasciando un recapito diverso dall'altro. */
+function trovaDuplicato(dati, escludiId){
+  const email = String(dati.email || "").toLowerCase().trim();
+  const tel   = numeroWa(dati.telefono);
+  if(!email && !tel) return null;
+  return DB.contatti.find(c =>
+    c.id !== escludiId && (
+      (email && String(c.email || "").toLowerCase().trim() === email) ||
+      (tel   && numeroWa(c.telefono) === tel)
+    )
+  ) || null;
+}
+
+function campiContattoHTML(d){
+  d = d || {};
+  return `
+  <div class="alert warn" id="avvisoDup"></div>
+  <form id="formNuovo">
+    <div class="field">
+      <label for="n_nome">Nome e cognome *</label>
+      <input type="text" id="n_nome" value="${esc(d.nome || "")}" placeholder="Nome completo" required>
+    </div>
+    <div class="grid2">
+      <div class="field">
+        <label for="n_telefono">Telefono</label>
+        <input type="tel" id="n_telefono" value="${esc(d.telefono || "")}" placeholder="+39 …">
+      </div>
+      <div class="field">
+        <label for="n_email">Email</label>
+        <input type="email" id="n_email" value="${esc(d.email || "")}" placeholder="nome@email.it">
+      </div>
+    </div>
+    <div class="grid2">
+      <div class="field">
+        <label for="n_stato">Stato</label>
+        <select id="n_stato">${opzioni(STATI, d.stato || "nuovo")}</select>
+      </div>
+      <div class="field">
+        <label for="n_slot">Fascia di visita</label>
+        <input type="text" id="n_slot" value="${esc(d.slot || "")}" placeholder="es. Mer 22 · mattina">
+      </div>
+    </div>
+    <div class="grid2">
+      <div class="field">
+        <label for="n_interesse">A cosa è interessata</label>
+        <input list="dl_int_n" id="n_interesse" value="${esc(d.interesse || "")}" placeholder="es. Investimento">
+        <datalist id="dl_int_n">${INTERESSI.map(i => `<option value="${esc(i)}">`).join("")}</datalist>
+      </div>
+      <div class="field">
+        <label for="n_finanziamento">Come intende acquistare</label>
+        <input list="dl_fin_n" id="n_finanziamento" value="${esc(d.finanziamento || "")}" placeholder="es. Mutuo">
+        <datalist id="dl_fin_n">${FINANZIAMENTI.map(i => `<option value="${esc(i)}">`).join("")}</datalist>
+      </div>
+    </div>
+    <div class="field">
+      <label for="n_origine">Da dove arriva</label>
+      <input type="text" id="n_origine" value="${esc(d.utm_source || "")}" placeholder="es. Meta Ads, passaparola, telefonata">
+    </div>
+    <div class="field">
+      <label for="n_note">Note</label>
+      <textarea id="n_note" rows="3" placeholder="Cosa cerca, quando richiamare, esigenze particolari…">${esc(d.note || "")}</textarea>
+    </div>
+
+    <hr style="border:none;border-top:1px solid var(--line);margin:20px 0">
+
+    <label class="check">
+      <input type="checkbox" id="n_conAttivita" checked>
+      <span>Crea l'attività fissa di richiamo — <strong id="n_titoloAF"></strong></span>
+    </label>
+    <div class="field" id="n_boxScadenza">
+      <label for="n_scadenza">Da fare entro</label>
+      <input type="datetime-local" id="n_scadenza">
+    </div>
+  </form>`;
+}
+
+/* Riempie i campi che dipendono dalle impostazioni e attiva i controlli */
+function collegaCampiContatto(){
+  const af = DB.attivitaFissa;
+  $("#n_titoloAF").textContent = af.titolo;
+  $("#n_scadenza").value = toInput(new Date(Date.now() + (Number(af.scadenzaOre) || 24) * 3600 * 1000).toISOString());
+
+  $("#n_conAttivita").addEventListener("change", e => {
+    $("#n_boxScadenza").style.display = e.target.checked ? "" : "none";
+  });
+
+  /* Avvisa subito se il contatto sembra già in archivio */
+  const controlla = () => {
+    const dup = trovaDuplicato({ telefono: $("#n_telefono").value, email: $("#n_email").value });
+    const box = $("#avvisoDup");
+    if(dup){
+      box.innerHTML = `In archivio c'è già <strong>${esc(dup.nome)}</strong> con questo recapito. Salvando creerai un secondo contatto.`;
+      box.classList.add("show");
+    }else{
+      box.classList.remove("show");
+    }
+  };
+  $("#n_telefono").addEventListener("blur", controlla);
+  $("#n_email").addEventListener("blur", controlla);
+  /* Il focus va dato subito: differirlo lo strapperebbe al campo in cui si sta già scrivendo */
+  $("#n_nome").focus();
+}
+
+function leggiCampiContatto(){
+  const nome = $("#n_nome").value.trim();
+  if(!nome){ avviso("Il nome è obbligatorio.", "err"); $("#n_nome").focus(); return null; }
+  return {
+    dati: {
+      nome,
+      telefono:      $("#n_telefono").value.trim(),
+      email:         $("#n_email").value.trim(),
+      stato:         $("#n_stato").value,
+      slot:          $("#n_slot").value.trim(),
+      interesse:     $("#n_interesse").value.trim(),
+      finanziamento: $("#n_finanziamento").value.trim(),
+      note:          $("#n_note").value.trim(),
+      utm_source:    $("#n_origine").value.trim()
+    },
+    conAttivita: $("#n_conAttivita").checked,
+    scadenza: fromInput($("#n_scadenza").value)
+  };
+}
+
+function nuovoContatto(precompilato){
+  apriModal(
+    "Nuovo contatto",
+    campiContattoHTML(precompilato),
+    `<button class="btn ghost" id="mAnnulla">Annulla</button>
+     <button class="btn" id="mSalva">Crea contatto</button>`,
+    () => {
+      collegaCampiContatto();
+      $("#mAnnulla").addEventListener("click", chiudiModal);
+      $("#mSalva").addEventListener("click", () => {
+        const letto = leggiCampiContatto();
+        if(!letto) return;
+        const c = creaContatto(letto.dati, { attivitaFissa: letto.conAttivita, scadenza: letto.scadenza });
+        chiudiModal();
+        render();
+        apriScheda(c.id);
+        avviso(letto.conAttivita ? "Contatto creato con l'attività di richiamo." : "Contatto creato.", "ok");
+      });
+    }
+  );
+}
+
+/* ============================================================
+   INSERIMENTO DA TESTO INCOLLATO
+   Si incolla l'email della candidatura (o qualunque testo con i
+   recapiti) e la piattaforma riconosce i campi.
+============================================================ */
+const ETICHETTE = {
+  nome:          [/nome e cognome/i, /nominativo/i, /^nome/i],
+  telefono:      [/telefono/i, /cellulare/i, /^tel\b/i, /recapito/i],
+  email:         [/^e-?mail/i],
+  slot:          [/fascia di visita/i, /fascia/i, /slot/i],
+  interesse:     [/a cosa è interessat/i, /interesse/i],
+  finanziamento: [/come intende acquistare/i, /acquisto/i, /finanziamento/i],
+  note:          [/cosa ha scritto/i, /^note/i, /messaggio/i],
+  utm_source:    [/provenienza/i, /campagna/i, /origine/i]
+};
+
+function leggiLead(testo){
+  const d = {};
+
+  /* 1. Righe con etichetta ("Telefono: +39 …", "Telefono | +39 …") */
+  testo.split(/\r?\n/).forEach(riga => {
+    const m = riga.match(/^\s*\|?\s*([^:|]{2,40})\s*[:|]\s*(.+?)\s*\|?\s*$/);
+    if(!m) return;
+    const etichetta = m[1].trim(), valore = m[2].trim();
+    if(!valore || /^[-—–]$/.test(valore)) return;
+    for(const [campo, regole] of Object.entries(ETICHETTE)){
+      if(d[campo]) continue;
+      if(regole.some(r => r.test(etichetta))){ d[campo] = valore; return; }
+    }
+  });
+
+  /* 2. Email e telefono si riconoscono comunque, anche senza etichetta */
+  if(!d.email){
+    const m = testo.match(/[\w.+-]+@[\w-]+\.[\w.]{2,}/);
+    if(m) d.email = m[0];
+  }
+  if(!d.telefono){
+    const m = testo.match(/(?:\+39[\s.]?)?(?:\d[\s.\-]?){8,13}\d/);
+    if(m) d.telefono = m[0].trim();
+  }
+
+  /* 3. Senza etichetta del nome, si prova la prima riga di solo testo */
+  if(!d.nome){
+    const riga = testo.split(/\r?\n/)
+      .map(r => r.trim())
+      .find(r => r.length > 2 && r.length < 60 && /^[\p{L}'’\s.-]+$/u.test(r) && !/^(gentile|buongiorno|salve|ciao)/i.test(r));
+    if(riga) d.nome = riga;
+  }
+
+  /* Ripulisce valori residui dell'email di riepilogo */
+  if(/non indicat|nessuna preferenza|^—$/i.test(d.interesse || ""))     delete d.interesse;
+  if(/non indicat|^—$/i.test(d.finanziamento || ""))                    delete d.finanziamento;
+  if(/nessuna preferenza|^—$/i.test(d.slot || ""))                      delete d.slot;
+  if(/^—$/.test(d.note || ""))                                          delete d.note;
+  if(/diretta \/ non tracciata/i.test(d.utm_source || ""))              delete d.utm_source;
+
+  return d;
+}
+
+function incollaLead(){
+  apriModal(
+    "Incolla i dati della lead",
+    `<div class="alert info show">Incolla qui l'email della candidatura, un messaggio o qualunque testo con i recapiti: la piattaforma riconosce nome, telefono, email e il resto, e poi ti fa controllare tutto prima di salvare.</div>
+     <div class="field">
+       <textarea id="testoLead" rows="10" placeholder="Nome e cognome: Maria Rossi&#10;Telefono: +39 333 1234567&#10;Email: maria.rossi@email.it&#10;A cosa è interessata: Investimento"></textarea>
+     </div>`,
+    `<button class="btn ghost" id="mAnnulla">Annulla</button>
+     <button class="btn" id="mLeggi">Riconosci i dati</button>`,
+    () => {
+      $("#testoLead").focus();
+      $("#mAnnulla").addEventListener("click", chiudiModal);
+      $("#mLeggi").addEventListener("click", () => {
+        const testo = $("#testoLead").value.trim();
+        if(!testo){ avviso("Incolla prima il testo.", "err"); return; }
+        const d = leggiLead(testo);
+        if(!d.nome && !d.telefono && !d.email){
+          avviso("Non ho riconosciuto nessun recapito: compila a mano.", "err");
+        }
+        if(!d.note && !d.nome) d.note = testo.slice(0, 500);
+        nuovoContatto(d);
+      });
+    }
+  );
 }
 
 /* ============================================================
@@ -1047,13 +1506,10 @@ function importaJson(file){
       if(!Array.isArray(d.contatti)) throw new Error("formato");
       if(!confirm(`Il backup contiene ${d.contatti.length} contatti. Unirlo all'archivio attuale? I contatti già presenti verranno saltati.`)) return;
 
-      const chiave = x => (String(x.email||"").toLowerCase().trim() + "|" + numeroWa(x.telefono));
-      const presenti = new Set(DB.contatti.map(chiave));
       let nuovi = 0;
       d.contatti.forEach(c => {
-        if(presenti.has(chiave(c)) && chiave(c) !== "|") return;
+        if(trovaDuplicato(c)) return;
         DB.contatti.push(c);
-        presenti.add(chiave(c));
         nuovi++;
         (d.attivita || []).filter(a => a.contattoId === c.id).forEach(a => DB.attivita.push(a));
       });
@@ -1103,8 +1559,9 @@ function tentaAccesso(){
 ============================================================ */
 carica();
 
-/* Filtro stati */
-$("#filtroStato").innerHTML = `<option value="">Tutti gli stati</option>` + opzioni(STATI, "__");
+/* Filtri */
+$("#filtroStato").innerHTML   = `<option value="">Tutti gli stati</option>` + opzioni(STATI, "__");
+$("#filtroTipoAtt").innerHTML = `<option value="">Tutti i tipi</option>` + opzioni(TIPI, "__");
 
 /* Navigazione tra le viste */
 $$(".tab").forEach(t => t.addEventListener("click", () => {
@@ -1116,16 +1573,28 @@ $$(".tab").forEach(t => t.addEventListener("click", () => {
   window.scrollTo({ top:0, behavior:"smooth" });
 }));
 
-/* Filtri contatti */
+/* Filtri contatti e attività */
 ["#cerca","#filtroStato","#ordina"].forEach(s => $(s).addEventListener("input", renderContatti));
+["#cercaAtt","#filtroStatoAtt","#filtroTipoAtt"].forEach(s => $(s).addEventListener("input", renderTutteAttivita));
 
 /* Drawer */
 $("#btnChiudi").addEventListener("click", chiudiScheda);
 $("#overlay").addEventListener("click", chiudiScheda);
-document.addEventListener("keydown", e => { if(e.key === "Escape" && contattoAperto) chiudiScheda(); });
+
+/* Modale */
+$("#modalChiudi").addEventListener("click", chiudiModal);
+$("#modalBg").addEventListener("click", e => { if(e.target === $("#modalBg")) chiudiModal(); });
+
+document.addEventListener("keydown", e => {
+  if(e.key !== "Escape") return;
+  if($("#modalBg").classList.contains("open")) chiudiModal();
+  else if(contattoAperto) chiudiScheda();
+});
 
 /* Pulsanti generali */
-$("#btnNuovo").addEventListener("click", nuovoContatto);
+$("#btnNuovo").addEventListener("click", () => nuovoContatto());
+$("#btnIncolla").addEventListener("click", incollaLead);
+$("#btnNuovaAttivita").addEventListener("click", () => modalAttivita(null, contattoAperto));
 $("#btnEsporta").addEventListener("click", esportaJson);
 $("#btnEsporta2").addEventListener("click", esportaJson);
 $("#btnEsportaCsv").addEventListener("click", esportaCsv);

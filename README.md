@@ -39,7 +39,15 @@ Entrambe le pagine vengono pubblicate su GitHub Pages dal workflow `.github/work
 
 ## La Gestione Lead
 
-Si apre all'indirizzo della landing page seguito da `/gestione.html`.
+Si apre all'indirizzo della landing page seguito da `/gestione.html`. Tutto quello che serve per gestire contatti e attività si fa qui dentro: la landing page è solo una delle sorgenti da cui possono arrivare le lead, non è necessaria al funzionamento del CRM.
+
+### Creare un contatto
+
+Tre strade, tutte dentro la piattaforma:
+
+- **+ Nuovo contatto** — la scheda di inserimento completa: nome, recapiti, stato, fascia di visita, interesse, modalità d'acquisto, provenienza e note. Se il telefono o l'email risultano già in archivio compare un avviso con il nome del contatto esistente, prima di salvare. L'attività fissa di richiamo viene creata insieme al contatto, con la scadenza modificabile al momento, e si può escludere togliendo la spunta.
+- **Incolla lead** — si incolla l'e-mail della candidatura, un messaggio o qualunque testo con i recapiti: la piattaforma riconosce nome, telefono, email, interesse, modalità d'acquisto, fascia, note e provenienza, e apre la scheda già compilata per il controllo finale. Funziona sia con il testo etichettato dell'e-mail di riepilogo, sia con testo libero.
+- **Dal link dell'e-mail di riepilogo**, per le candidature che arrivano dalla landing page.
 
 ### Da fare
 La prima schermata: quante attività sono scadute, quante scadono oggi, quante sono in arrivo e quante lead non sono mai state contattate. Sotto, l'elenco delle attività aperte in ordine di scadenza, con i pulsanti per chiamare, aprire la scheda o segnare l'attività come fatta.
@@ -51,11 +59,16 @@ L'elenco completo, con ricerca per nome, telefono, email o interesse, filtro per
 
 Lo stato passa da solo a *Contattato* quando si registra la prima attività su quel contatto.
 
+### Attività
+Tutte le attività di tutti i contatti in un unico elenco: prima le cose da fare in ordine di scadenza, poi quelle già svolte dalla più recente. Si cerca per contatto, titolo o note e si filtra per stato e per tipo.
+
+Da qui si crea un'**attività nuova su qualunque contatto**, scegliendo se è una cosa da fare o una già svolta, e si **modifica** qualsiasi attività esistente: tipo, titolo, data, esito, note, e il passaggio da *da fare* a *svolta* e viceversa. L'eliminazione è nella stessa finestra di modifica.
+
 ### Scheda contatto
 - **Dati del contatto** — nome, telefono, email, stato, fascia di visita, interesse, modalità di acquisto e note: tutto modificabile e salvabile.
 - **Registra un'attività svolta** — tipo (chiamata, WhatsApp, email, visita, nota), quando è avvenuta, esito e cosa è emerso.
 - **Programma una prossima attività** — cosa va fatto ed entro quando: finisce nell'elenco *Da fare*.
-- **Storico attività** — la cronologia completa del contatto, attività automatiche comprese.
+- **Storico attività** — la cronologia completa del contatto, attività automatiche comprese, ognuna modificabile.
 
 ### Impostazioni
 - **Attività fissa** — titolo, tipo, scadenza in ore e traccia della chiamata. Le modifiche valgono per le lead successive.
