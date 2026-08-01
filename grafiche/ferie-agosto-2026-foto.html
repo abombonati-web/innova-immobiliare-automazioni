@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Innova Immobiliare — Chiusura estiva 8/8 – 23/8 2026 (versione foto)</title>
+<link rel="stylesheet" href="poppins-embed.css">
+<style>
+:root{
+  --amber:#E8982A;
+  --amber-logo:#F4AF37;
+  --amber-deep:#C97E15;
+  --charcoal:#4A4A4A;
+  --charcoal-deep:#2B2A28;
+  --cream:#FBF6EE;
+  --white:#FFFFFF;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Poppins',sans-serif;background:#141312;color:var(--cream);
+  display:flex;flex-wrap:wrap;gap:48px;justify-content:center;align-items:flex-start;padding:48px}
+.shell{display:flex;flex-direction:column;gap:14px;align-items:center}
+.shell .caption{font-size:13px;letter-spacing:.18em;text-transform:uppercase;color:#8C8579;font-weight:600}
+
+/* ---------- POSTER ---------- */
+.poster{
+  --s:1;                    /* scala tipografica */
+  --band:700px;             /* altezza della fascia foto (layout "band") */
+  --scrim-start:36%;        /* dove inizia la velatura (layout "full")   */
+  position:relative;overflow:hidden;background:var(--charcoal-deep);flex:none;
+  display:flex;flex-direction:column;
+}
+.poster.post {width:1080px;height:1350px}
+.poster.story{width:1080px;height:1920px}
+
+/* --- layout con fascia fotografica in alto --- */
+.band{position:relative;height:var(--band);flex:none;overflow:hidden;
+  border-bottom:5px solid var(--amber)}
+.band .photo{width:100%;height:100%;object-fit:cover;display:block}
+.band::after{content:"";position:absolute;inset:auto 0 0 0;height:38%;
+  background:linear-gradient(to bottom, rgba(43,42,40,0), rgba(43,42,40,.55))}
+
+/* --- layout a tutto campo --- */
+.full .photo{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block}
+.full .scrim{position:absolute;inset:0;pointer-events:none;
+  background:
+    linear-gradient(to bottom, rgba(43,42,40,.7) 0%, rgba(43,42,40,.1) 18%, rgba(43,42,40,0) 30%),
+    linear-gradient(to bottom, rgba(43,42,40,0) var(--scrim-start), rgba(43,42,40,.8) 62%, rgba(43,42,40,.95) 82%, #2B2A28 100%)}
+
+/* riscaldamento sulla palette Innova */
+.warm{position:absolute;inset:0;background:#E8982A;mix-blend-mode:soft-light;opacity:.16;pointer-events:none}
+/* alone ambra come nella hero del sito */
+.glow{position:absolute;right:-200px;bottom:100px;width:640px;height:640px;border-radius:50%;
+  background:radial-gradient(circle, rgba(232,152,42,.18), transparent 65%);pointer-events:none}
+
+.content{position:relative;flex:1;display:flex;flex-direction:column;justify-content:space-between;
+  padding:calc(52px * var(--s)) calc(72px * var(--s)) calc(56px * var(--s))}
+.full .content{position:absolute;inset:0;padding:calc(60px * var(--s)) calc(72px * var(--s)) calc(58px * var(--s))}
+
+/* marchio — sempre il logo ufficiale, nei suoi colori */
+.logo{display:block;width:calc(300px * var(--s));height:auto}
+.lockup .payoff{display:block;margin-top:calc(12px * var(--s));color:var(--amber);
+  font-size:calc(19px * var(--s));font-weight:500;letter-spacing:.05em}
+/* sulle foto scure il logo va su una targhetta crema, così resta leggibile
+   senza toccarne i colori */
+.chip{display:inline-block;background:var(--cream);border-radius:calc(16px * var(--s));
+  padding:calc(18px * var(--s)) calc(26px * var(--s));box-shadow:0 6px 30px rgba(0,0,0,.35)}
+
+/* ---------- pannello chiaro (come il fondo crema del sito) ---------- */
+.poster.light{background:var(--cream)}
+.poster.light .content{background:var(--cream);color:var(--charcoal)}
+.poster.light .band::after{display:none}
+.poster.light .glow{background:radial-gradient(circle, rgba(232,152,42,.16), transparent 65%)}
+.poster.light .lockup .payoff{color:var(--amber-deep)}
+.poster.light .eyebrow{border-color:var(--amber-deep);color:var(--amber-deep);background:transparent}
+.poster.light h1{color:var(--charcoal-deep);text-shadow:none}
+.poster.light h1 em{color:var(--amber-deep)}
+.poster.light .dates{background:var(--white);border-color:rgba(201,126,21,.45)}
+.poster.light .dates .label{color:#8C8579}
+.poster.light .dates .value{color:var(--amber-deep)}
+.poster.light .dates .note{color:var(--charcoal)}
+.poster.light .dates .note b{color:var(--charcoal-deep)}
+.poster.light .sub{color:var(--charcoal);text-shadow:none}
+.poster.light .sub b{color:var(--charcoal-deep)}
+.poster.light .foot{border-top-color:rgba(43,42,40,.16)}
+.poster.light .contacts{color:#8C8579}
+.poster.light .contacts b{color:var(--charcoal-deep)}
+
+.block{display:flex;flex-direction:column;align-items:flex-start}
+
+.eyebrow{display:inline-block;border:1px solid var(--amber);color:var(--amber);
+  font-size:calc(15px * var(--s));letter-spacing:.22em;text-transform:uppercase;font-weight:600;
+  padding:calc(9px * var(--s)) calc(22px * var(--s));border-radius:999px;margin-bottom:calc(22px * var(--s));
+  background:rgba(43,42,40,.35)}
+
+h1{font-size:calc(70px * var(--s));font-weight:700;line-height:1.1;letter-spacing:-.01em;
+  text-shadow:0 4px 30px rgba(0,0,0,.4)}
+h1 em{font-style:normal;color:var(--amber)}
+
+.dates{margin-top:calc(26px * var(--s));display:inline-flex;flex-direction:column;gap:calc(6px * var(--s));
+  background:rgba(43,42,40,.5);border:1px dashed rgba(232,152,42,.6);border-radius:calc(18px * var(--s));
+  padding:calc(20px * var(--s)) calc(38px * var(--s)) calc(22px * var(--s))}
+.dates .label{font-size:calc(15px * var(--s));letter-spacing:.2em;text-transform:uppercase;color:#C9C1B4;font-weight:500}
+.dates .value{font-size:calc(58px * var(--s));font-weight:800;color:var(--amber);letter-spacing:.01em;line-height:1.15}
+.dates .value i{font-style:normal;font-weight:400;opacity:.7;margin:0 calc(4px * var(--s))}
+.dates .note{margin-top:calc(4px * var(--s));font-size:calc(20px * var(--s));font-weight:300;color:#E4D9C6}
+.dates .note b{font-weight:600;color:var(--white)}
+
+.sub{margin-top:calc(24px * var(--s));font-size:calc(21px * var(--s));font-weight:300;line-height:1.5;
+  color:#E4D9C6;max-width:calc(780px * var(--s));text-shadow:0 2px 16px rgba(0,0,0,.5)}
+.sub b{font-weight:600;color:var(--white)}
+
+.foot{display:flex;align-items:center;justify-content:space-between;gap:calc(24px * var(--s));
+  border-top:1px solid rgba(251,246,238,.2);padding-top:calc(24px * var(--s));margin-top:calc(28px * var(--s));width:100%}
+.phone{display:inline-block;background:var(--amber);color:var(--charcoal-deep);
+  font-size:calc(26px * var(--s));font-weight:700;letter-spacing:.01em;
+  padding:calc(13px * var(--s)) calc(30px * var(--s));border-radius:999px;white-space:nowrap}
+.contacts{text-align:right;font-size:calc(16px * var(--s));font-weight:300;color:#CFC7B9;line-height:1.6}
+.contacts b{display:block;font-weight:500;color:var(--cream)}
+</style>
+</head>
+<body>
+
+<!-- =================================================================
+  Grafica "Chiusura estiva" — Innova Immobiliare, versione fotografica.
+  Due layout:
+   • band : fascia fotografica in alto + pannello testo (foto a bassa
+            risoluzione, così resta alla sua dimensione naturale)
+   • full : foto a tutto campo con velatura per la leggibilità
+  Logo reale scontornato, in versione negativa per i fondi scuri.
+================================================================== -->
+
+<div class="shell"><div class="poster post"  id="post"></div>       <div class="caption">Post 1080 × 1350 — baia di Mondello</div></div>
+<div class="shell"><div class="poster story" id="story"></div>      <div class="caption">Story 1080 × 1920 — baia di Mondello</div></div>
+<div class="shell"><div class="poster post"  id="post-luna"></div>  <div class="caption">Post alternativo — luna sul mare</div></div>
+<div class="shell"><div class="poster story" id="story-volo"></div> <div class="caption">Story alternativa — dall'aereo</div></div>
+
+<script>
+const LOGO = `<img class="logo" src="foto/logo-innova.png" alt="Innova Immobiliare">`;
+
+/* su pannello chiaro il logo sta da solo, sulle foto scure su targhetta crema */
+const lockup = (chip) => `
+  <div class="lockup">
+    ${chip ? `<span class="chip">${LOGO}</span>` : LOGO}
+    <span class="payoff">Progetta il tuo futuro.</span>
+  </div>`;
+
+const BLOCK = `
+  <div class="block">
+    <span class="eyebrow">Avviso ai clienti</span>
+    <h1>Chiusi per <em>ferie</em>.</h1>
+
+    <div class="dates">
+      <span class="label">Periodo di chiusura</span>
+      <span class="value">8 <i>—</i> 23 agosto</span>
+      <span class="note">Riapriamo <b>lunedì 24 agosto 2026</b></span>
+    </div>
+
+    <p class="sub">Chiama tranquillamente: ti risponderà <b>Sara</b>, la nostra
+    assistente digitale, per darti tutte le informazioni e i dettagli sugli immobili.</p>
+
+    <div class="foot">
+      <span class="phone">+39 339 418 5631</span>
+      <span class="contacts">
+        <b>info@innovaimmobiliare.it</b>
+        innovaimmobiliare.it
+      </span>
+    </div>
+  </div>`;
+
+/* pos = inquadratura (object-position), tr = zoom/spostamento fine sulla foto */
+const POSTERS = {
+  'post': {layout:'band', band:'620px', s:.86, photo:'foto/mondello-baia.jpg',
+           pos:'50% 52%', tr:'none', alt:'La baia di Mondello'},
+  'story': {layout:'band', band:'780px', s:1.3, photo:'foto/mondello-baia.jpg',
+           pos:'50% 50%', tr:'none', alt:'La baia di Mondello'},
+  'post-luna': {layout:'full', s:.9, scrim:'34%', photo:'foto/mondello-tramonto.jpg',
+           pos:'50% 22%', tr:'none', alt:'Luna piena sul mare di Palermo'},
+  'story-volo': {layout:'full', s:1.14, scrim:'40%', photo:'foto/costa-dallaereo.jpg',
+           pos:'45% 50%', tr:'scale(1.3) translate(-2%, -7%)', alt:'La costa palermitana vista dall’aereo'},
+};
+
+for (const [id, p] of Object.entries(POSTERS)) {
+  const el = document.getElementById(id);
+  const img = `<img class="photo" src="${p.photo}" alt="${p.alt}"
+                    style="object-position:${p.pos};transform:${p.tr}">`;
+  el.style.setProperty('--s', p.s);
+  if (p.layout === 'band') {
+    el.classList.add('light');
+    el.style.setProperty('--band', p.band);
+    el.innerHTML = `<div class="band">${img}<div class="warm"></div></div>
+                    <div class="content"><div class="glow"></div>${lockup(false)}${BLOCK}</div>`;
+  } else {
+    el.classList.add('full');
+    el.style.setProperty('--scrim-start', p.scrim);
+    el.innerHTML = `${img}<div class="warm"></div><div class="scrim"></div>
+                    <div class="content"><div class="glow"></div>${lockup(true)}${BLOCK}</div>`;
+  }
+}
+</script>
+
+</body>
+</html>

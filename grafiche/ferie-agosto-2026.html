@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Innova Immobiliare — Chiusura estiva 8/8 – 23/8 2026</title>
+<link rel="stylesheet" href="poppins-embed.css">
+<style>
+:root{
+  --amber:#E8982A;
+  --amber-deep:#C97E15;
+  --amber-light:#F7C871;
+  --charcoal:#4A4A4A;
+  --charcoal-deep:#2B2A28;
+  --cream:#FBF6EE;
+  --white:#FFFFFF;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Poppins',sans-serif;background:#141312;color:var(--cream);
+  display:flex;flex-wrap:wrap;gap:48px;justify-content:center;align-items:flex-start;padding:48px}
+.shell{display:flex;flex-direction:column;gap:14px;align-items:center}
+.shell .caption{font-size:13px;letter-spacing:.18em;text-transform:uppercase;color:#8C8579;font-weight:600}
+
+/* ---------- POSTER ---------- */
+.poster{
+  --s:1;                 /* scala tipografica */
+  --scene:700px;         /* altezza della scena Mondello */
+  position:relative;overflow:hidden;background:var(--charcoal-deep);flex:none;
+  display:flex;flex-direction:column;
+}
+.poster.post  {--s:.95; --scene:700px; width:1080px;height:1350px}
+.poster.story {--s:1.2; --scene:820px; width:1080px;height:1920px}
+.poster.square{--s:.76; --scene:560px; width:1080px;height:1080px}
+/* nella story il blocco testo respira al centro del pannello */
+.poster.story .content{justify-content:center}
+
+.scene-wrap{position:relative;height:var(--scene);flex:none}
+.scene{position:absolute;inset:0;width:100%;height:100%;display:block}
+
+/* marchio, sopra la scena */
+.brand{position:absolute;top:calc(58px * var(--s));left:calc(72px * var(--s));z-index:2;
+  font-size:calc(25px * var(--s));font-weight:600;letter-spacing:.16em;text-transform:uppercase;
+  color:var(--cream);text-shadow:0 2px 24px rgba(0,0,0,.55)}
+.brand span{color:var(--amber)}
+.brand small{display:block;margin-top:calc(9px * var(--s));font-size:calc(13px * var(--s));
+  font-weight:400;letter-spacing:.32em;color:#EFE6D6;opacity:.9}
+
+/* didascalia del luogo, in alto a destra */
+.place{position:absolute;right:calc(72px * var(--s));top:calc(62px * var(--s));z-index:2;
+  font-size:calc(13px * var(--s));font-weight:600;letter-spacing:.28em;text-transform:uppercase;
+  color:rgba(251,246,238,.5)}
+
+/* ---------- PANNELLO TESTO ---------- */
+.content{position:relative;flex:1;display:flex;flex-direction:column;justify-content:flex-end;
+  padding:calc(46px * var(--s)) calc(72px * var(--s)) calc(56px * var(--s));overflow:hidden}
+.glow{position:absolute;right:-220px;top:-160px;width:660px;height:660px;border-radius:50%;
+  background:radial-gradient(circle, rgba(232,152,42,.20), transparent 65%);pointer-events:none}
+.block{position:relative;display:flex;flex-direction:column;align-items:flex-start}
+
+.eyebrow{display:inline-block;border:1px solid var(--amber);color:var(--amber);
+  font-size:calc(15px * var(--s));letter-spacing:.22em;text-transform:uppercase;font-weight:600;
+  padding:calc(9px * var(--s)) calc(22px * var(--s));border-radius:999px;margin-bottom:calc(24px * var(--s))}
+
+h1{font-size:calc(70px * var(--s));font-weight:700;line-height:1.1;letter-spacing:-.01em}
+h1 em{font-style:normal;color:var(--amber)}
+
+.dates{margin-top:calc(28px * var(--s));display:inline-flex;flex-direction:column;gap:calc(6px * var(--s));
+  background:rgba(255,255,255,.05);border:1px dashed rgba(232,152,42,.55);border-radius:calc(18px * var(--s));
+  padding:calc(22px * var(--s)) calc(40px * var(--s)) calc(24px * var(--s))}
+.dates .label{font-size:calc(15px * var(--s));letter-spacing:.2em;text-transform:uppercase;color:#BFB7AA;font-weight:500}
+.dates .value{font-size:calc(60px * var(--s));font-weight:800;color:var(--amber);letter-spacing:.01em;line-height:1.15}
+.dates .value i{font-style:normal;font-weight:400;opacity:.7;margin:0 calc(4px * var(--s))}
+.dates .note{margin-top:calc(4px * var(--s));font-size:calc(21px * var(--s));font-weight:300;color:#E4D9C6}
+.dates .note b{font-weight:600;color:var(--white)}
+
+.sub{margin-top:calc(26px * var(--s));font-size:calc(21px * var(--s));font-weight:300;line-height:1.5;
+  color:#E4D9C6;max-width:calc(760px * var(--s))}
+
+.foot{display:flex;align-items:flex-end;justify-content:space-between;gap:calc(30px * var(--s));
+  border-top:1px solid rgba(251,246,238,.16);padding-top:calc(22px * var(--s));margin-top:calc(34px * var(--s));width:100%}
+.payoff{color:var(--amber);font-size:calc(21px * var(--s));font-weight:500;letter-spacing:.04em}
+.contacts{text-align:right;font-size:calc(16px * var(--s));font-weight:300;color:#BFB7AA;line-height:1.7}
+.contacts b{display:block;font-weight:500;color:var(--cream)}
+</style>
+</head>
+<body>
+
+<!-- =================================================================
+  Grafica "Chiusura estiva" — Innova Immobiliare
+  Scena: la baia di Mondello al tramonto (Monte Pellegrino a destra,
+  Monte Gallo a sinistra), disegnata in SVG con la palette del brand:
+  ambra #E8982A, ambra scuro #C97E15, charcoal #2B2A28, crema #FBF6EE.
+  I tre formati condividono scena, contenuti e scala tipografica --s.
+================================================================== -->
+
+<template id="scene-tpl">
+<svg class="scene" viewBox="0 0 1080 700" preserveAspectRatio="xMidYMax slice" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+  <defs>
+    <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0"   stop-color="#2B2A28"/>
+      <stop offset=".24" stop-color="#59391B"/>
+      <stop offset=".50" stop-color="#A76816"/>
+      <stop offset=".74" stop-color="#E8982A"/>
+      <stop offset=".91" stop-color="#F7C871"/>
+      <stop offset="1"   stop-color="#FCEFD6"/>
+    </linearGradient>
+    <radialGradient id="sunGlow" cx=".5" cy=".5" r=".5">
+      <stop offset="0"   stop-color="#FFE3B2" stop-opacity=".55"/>
+      <stop offset=".40" stop-color="#F5B45A" stop-opacity=".25"/>
+      <stop offset="1"   stop-color="#E8982A" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="sea" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0"   stop-color="#3E8582"/>
+      <stop offset=".30" stop-color="#256064"/>
+      <stop offset="1"   stop-color="#143740"/>
+    </linearGradient>
+    <linearGradient id="sand" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0"   stop-color="#FBF6EE"/>
+      <stop offset=".45" stop-color="#F0E3CB"/>
+      <stop offset="1"   stop-color="#D6BC93"/>
+    </linearGradient>
+    <linearGradient id="ridgeFar" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#5A4738"/>
+      <stop offset="1" stop-color="#836C53"/>
+    </linearGradient>
+    <linearGradient id="ridgeNear" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#2B2A28"/>
+      <stop offset="1" stop-color="#453B2F"/>
+    </linearGradient>
+    <clipPath id="seaClip"><rect x="0" y="388" width="1080" height="204"/></clipPath>
+  </defs>
+
+  <!-- cielo -->
+  <rect x="0" y="0" width="1080" height="392" fill="url(#sky)"/>
+
+  <!-- velature -->
+  <g fill="#FBF6EE" opacity=".12">
+    <rect x="140" y="164" width="250" height="7" rx="3.5"/>
+    <rect x="220" y="190" width="150" height="6" rx="3"/>
+    <rect x="640" y="140" width="210" height="7" rx="3.5"/>
+    <rect x="726" y="166" width="130" height="5" rx="2.5"/>
+  </g>
+
+  <!-- sole sulla baia -->
+  <circle cx="486" cy="292" r="230" fill="url(#sunGlow)"/>
+  <circle cx="486" cy="292" r="58"  fill="#FFE9C2"/>
+  <circle cx="486" cy="292" r="58"  fill="#E8982A" opacity=".28"/>
+
+  <!-- gabbiani -->
+  <g stroke="#2B2A28" stroke-width="4" fill="none" stroke-linecap="round" opacity=".45">
+    <path d="M232 208c11-13 21-13 31 0 10-13 20-13 31 0"/>
+    <path d="M318 172c8-10 16-10 24 0 8-10 16-10 24 0"/>
+    <path d="M810 196c9-11 18-11 26 0 8-11 17-11 26 0"/>
+  </g>
+
+  <!-- Monte Gallo (a sinistra, più lontano) -->
+  <path fill="url(#ridgeFar)" opacity=".92"
+        d="M0 392V286c44-12 88-32 128-52 42-20 80-8 106 26l58 76c22 28 44 48 72 60 10 4 20 6 28 6z"/>
+
+  <!-- Monte Pellegrino (a destra, in primo piano) -->
+  <path fill="url(#ridgeNear)"
+        d="M1080 392V226c-38-34-90-58-144-60-56-2-100 22-124 64l-52 90c-26 44-58 84-98 110-22 14-46 22-68 24z"/>
+  <!-- costone acceso dal tramonto -->
+  <path fill="#E8982A" opacity=".15"
+        d="M1080 392V226c-38-34-90-58-144-60l-4 22c60 16 112 50 140 102z"/>
+
+  <!-- mare -->
+  <rect x="0" y="388" width="1080" height="204" fill="url(#sea)"/>
+  <g clip-path="url(#seaClip)">
+    <!-- scia dorata del sole: bagliori irregolari che si allargano verso riva -->
+    <g fill="#F7C871">
+      <rect x="470" y="392" width="34"  height="4" rx="2"   opacity=".5"/>
+      <rect x="492" y="406" width="42"  height="4" rx="2"   opacity=".4"/>
+      <rect x="438" y="422" width="60"  height="5" rx="2.5" opacity=".34"/>
+      <rect x="482" y="444" width="84"  height="5" rx="2.5" opacity=".3"/>
+      <rect x="416" y="446" width="40"  height="4" rx="2"   opacity=".22"/>
+      <rect x="398" y="470" width="112" height="5" rx="2.5" opacity=".26"/>
+      <rect x="534" y="472" width="46"  height="4" rx="2"   opacity=".18"/>
+      <rect x="466" y="498" width="134" height="5" rx="2.5" opacity=".22"/>
+      <rect x="374" y="500" width="66"  height="5" rx="2.5" opacity=".16"/>
+      <rect x="352" y="528" width="172" height="6" rx="3"   opacity=".16"/>
+      <rect x="444" y="558" width="204" height="6" rx="3"   opacity=".14"/>
+      <rect x="306" y="582" width="360" height="6" rx="3"   opacity=".1"/>
+    </g>
+    <!-- increspature -->
+    <g fill="#8FCFC6" opacity=".13">
+      <rect x="92"  y="418" width="112" height="3" rx="1.5"/>
+      <rect x="176" y="442" width="62"  height="3" rx="1.5"/>
+      <rect x="60"  y="472" width="146" height="4" rx="2"/>
+      <rect x="140" y="506" width="88"  height="4" rx="2"/>
+      <rect x="46"  y="544" width="170" height="4" rx="2"/>
+      <rect x="782" y="430" width="126" height="3" rx="1.5"/>
+      <rect x="884" y="458" width="70"  height="3" rx="1.5"/>
+      <rect x="738" y="492" width="162" height="4" rx="2"/>
+      <rect x="850" y="530" width="112" height="4" rx="2"/>
+      <rect x="764" y="568" width="190" height="4" rx="2"/>
+    </g>
+  </g>
+
+  <!-- barchetta a vela -->
+  <g fill="#2B2A28" opacity=".8" transform="translate(846,438)">
+    <path d="M-2-42 22-2H-2z"/>
+    <path d="M-6-32-26-2h20z"/>
+    <path d="M-34 2h64c-6 10-16 15-32 15S-28 12-34 2z"/>
+  </g>
+
+  <!-- battigia e spiaggia -->
+  <path fill="url(#sand)" d="M0 592c170-16 338-6 506 2 190 9 380 2 574-16v122H0z"/>
+  <path fill="#FFFFFF" opacity=".5"
+        d="M0 592c170-16 338-6 506 2 190 9 380 2 574-16v14c-194 18-384 25-574 16-168-8-336-18-506-2z"/>
+  <path fill="#FFFFFF" opacity=".3"
+        d="M64 616c134-9 268-1 402 5 128 6 262 2 402-7l-2 10c-140 9-276 13-402 7-134-6-266-14-400-5z"/>
+
+  <!-- ombrelloni e lettini -->
+  <g>
+    <g transform="translate(186,672) scale(1.05)">
+      <rect x="-3" y="-54" width="6" height="58" fill="#2B2A28" opacity=".8"/>
+      <path d="M-62-54c6-34 30-52 62-52s56 18 62 52z" fill="#E8982A"/>
+      <path d="M-62-54c6-34 30-52 62-52v52z" fill="#C97E15"/>
+    </g>
+    <g transform="translate(344,656) scale(.82)">
+      <rect x="-3" y="-52" width="6" height="56" fill="#2B2A28" opacity=".8"/>
+      <path d="M-60-52c6-33 29-51 60-51s54 18 60 51z" fill="#FBF6EE"/>
+      <path d="M-60-52c6-33 29-51 60-51v51z" fill="#E2D3B9"/>
+    </g>
+    <g transform="translate(662,646) scale(.68)">
+      <rect x="-3" y="-50" width="6" height="54" fill="#2B2A28" opacity=".8"/>
+      <path d="M-58-50c6-32 28-50 58-50s52 18 58 50z" fill="#E8982A"/>
+      <path d="M-58-50c6-32 28-50 58-50v50z" fill="#C97E15"/>
+    </g>
+    <g fill="#2B2A28" opacity=".3">
+      <rect x="440" y="674" width="76" height="6" rx="3"/>
+      <rect x="748" y="654" width="62" height="5" rx="2.5"/>
+    </g>
+  </g>
+
+  <!-- palma in silhouette -->
+  <g fill="#2B2A28" transform="translate(972,700)">
+    <path d="M-9 0c-2-60 0-112 6-168l16 2c-6 54-8 106-6 166z"/>
+    <g transform="translate(10,-168)">
+      <path d="M0 0C-30-32-78-46-128-38c34-24 92-20 128 16z"/>
+      <path d="M0 0C-18-44-56-76-104-88c42-8 90 18 110 68z"/>
+      <path d="M0 0C4-48 30-88 74-108c-22 36-40 68-56 104z"/>
+      <path d="M0 0c34-26 82-34 126-20-40 4-84 14-114 34z"/>
+      <path d="M0 0c-10-42-6-84 14-120 6 44 4 82-4 118z"/>
+      <path d="M0 0c26-34 66-56 112-60-38 16-72 34-98 62z"/>
+    </g>
+  </g>
+</svg>
+</template>
+
+<div class="shell">
+  <div class="poster post" id="post"></div>
+  <div class="caption">Post 1080 × 1350</div>
+</div>
+
+<div class="shell">
+  <div class="poster story" id="story"></div>
+  <div class="caption">Story 1080 × 1920</div>
+</div>
+
+<div class="shell">
+  <div class="poster square" id="square"></div>
+  <div class="caption">Quadrato 1080 × 1080</div>
+</div>
+
+<script>
+const sceneHTML = document.getElementById('scene-tpl').innerHTML;
+
+const POSTER = `
+  <div class="scene-wrap">
+    ${sceneHTML}
+    <div class="brand">Innova <span>Immobiliare</span>
+      <small>Palermo</small>
+    </div>
+    <div class="place">Mondello · Palermo</div>
+  </div>
+
+  <div class="content">
+    <div class="glow"></div>
+    <div class="block">
+      <span class="eyebrow">Avviso ai clienti</span>
+      <h1>Chiusi per <em>ferie</em>.</h1>
+
+      <div class="dates">
+        <span class="label">Periodo di chiusura</span>
+        <span class="value">8 <i>—</i> 23 agosto</span>
+        <span class="note">Riapriamo <b>lunedì 24 agosto 2026</b></span>
+      </div>
+
+      <p class="sub">Scrivici pure in questi giorni: leggeremo ogni richiesta e ti
+      risponderemo appena rientrati in ufficio. Buona estate!</p>
+
+      <div class="foot">
+        <span class="payoff">Progetta il tuo futuro.</span>
+        <span class="contacts">
+          <b>info@innovaimmobiliare.it</b>
+          innovaimmobiliare.it
+        </span>
+      </div>
+    </div>
+  </div>`;
+
+for (const el of document.querySelectorAll('.poster')) el.innerHTML = POSTER;
+</script>
+
+</body>
+</html>
