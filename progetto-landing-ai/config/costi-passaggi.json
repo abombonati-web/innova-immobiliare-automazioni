@@ -1,0 +1,178 @@
+{
+  "versione": "1.0",
+  "aggiornato": "2026-08-05",
+  "descrizione": "Costi dei tre passaggi dell'acquisto (proposta, preliminare, rogito) e degli importi da versare in caso di affitto. Le percentuali sono parametriche: il calcolo mostrato in landing è una STIMA e va sempre accompagnata dalla nota di verifica notarile.",
+
+  "avvertenza": "Stima indicativa calcolata sui dati catastali dell'immobile e sulla normativa vigente per acquisto da privato. Gli importi definitivi vengono confermati dal notaio incaricato prima del rogito.",
+
+  "vendita": {
+    "passaggi": [
+      {
+        "id": "proposta",
+        "numero": 1,
+        "titolo": "La proposta d'acquisto",
+        "cosa_succede": "Metti per iscritto la tua offerta, allegando un assegno a titolo di deposito. L'assegno non viene incassato: resta vincolato fino all'accettazione della proprietà. Se la proposta non viene accettata, ti viene restituito integralmente.",
+        "voci": [
+          {
+            "id": "deposito",
+            "etichetta": "Deposito a garanzia della proposta",
+            "calcolo": "percentuale_prezzo",
+            "percentuale": 0.02,
+            "nota": "Indicativamente il 2% del prezzo offerto. Diventa parte della caparra se la proposta viene accettata.",
+            "rimborsabile": true
+          }
+        ],
+        "durata_tipica": "Da 7 a 15 giorni di validità dell'offerta."
+      },
+      {
+        "id": "preliminare",
+        "numero": 2,
+        "titolo": "Il contratto preliminare (compromesso)",
+        "cosa_succede": "Le parti si impegnano formalmente. Si versa la caparra confirmatoria, si registra l'atto all'Agenzia delle Entrate ed è il momento in cui matura la provvigione dell'agenzia.",
+        "voci": [
+          {
+            "id": "caparra",
+            "etichetta": "Caparra confirmatoria (al netto del deposito già versato)",
+            "calcolo": "percentuale_prezzo",
+            "percentuale": 0.1,
+            "nota": "Tipicamente il 10% del prezzo. Si scala interamente dal prezzo finale al rogito.",
+            "scalata_dal_prezzo": true
+          },
+          {
+            "id": "registro_fisso",
+            "etichetta": "Imposta di registro sul preliminare",
+            "calcolo": "fisso",
+            "importo": 200
+          },
+          {
+            "id": "registro_caparra",
+            "etichetta": "Imposta di registro sulla caparra (0,50%)",
+            "calcolo": "percentuale_caparra",
+            "percentuale": 0.005,
+            "nota": "Recuperabile: viene detratta dall'imposta dovuta al rogito."
+          },
+          {
+            "id": "bolli",
+            "etichetta": "Imposta di bollo e diritti di registrazione",
+            "calcolo": "fisso",
+            "importo": 155,
+            "nota": "Importo indicativo, varia in base al numero di copie e pagine."
+          },
+          {
+            "id": "provvigione",
+            "etichetta": "Provvigione Innova Immobiliare",
+            "calcolo": "provvigione",
+            "nota": "Calcolata secondo il tariffario in chiaro pubblicato in questa pagina. IVA inclusa nel totale mostrato."
+          }
+        ],
+        "durata_tipica": "Dal preliminare al rogito passano di norma da 30 a 90 giorni."
+      },
+      {
+        "id": "rogito",
+        "numero": 3,
+        "titolo": "Il rogito notarile",
+        "cosa_succede": "Davanti al notaio si firma l'atto definitivo, si salda il prezzo e ricevi le chiavi. La proprietà passa formalmente a te.",
+        "voci": [
+          {
+            "id": "saldo",
+            "etichetta": "Saldo del prezzo",
+            "calcolo": "saldo_prezzo",
+            "nota": "Prezzo meno caparra e deposito già versati. Se c'è un mutuo, la banca eroga contestualmente all'atto."
+          },
+          {
+            "id": "imposta_registro",
+            "etichetta": "Imposta di registro sul valore catastale",
+            "calcolo": "imposta_registro_catastale",
+            "nota": "Acquisto da privato con prezzo-valore: 2% prima casa, 9% seconda casa, calcolato sul valore catastale (non sul prezzo). Minimo 1.000 €."
+          },
+          {
+            "id": "ipotecaria_catastale",
+            "etichetta": "Imposta ipotecaria e catastale",
+            "calcolo": "fisso",
+            "importo": 100,
+            "nota": "50 € + 50 € in misura fissa per acquisto da privato."
+          },
+          {
+            "id": "notaio",
+            "etichetta": "Onorario notarile (stima)",
+            "calcolo": "stima_notaio",
+            "nota": "Compenso e spese del notaio: variabile per studio e complessità dell'atto. Innova ti aiuta a raccogliere più preventivi."
+          }
+        ],
+        "durata_tipica": "Un'unica seduta, di norma di un'ora circa."
+      }
+    ],
+    "moltiplicatori_catastali": {
+      "prima_casa": 115.5,
+      "seconda_casa": 126,
+      "nota": "Valore catastale = rendita catastale rivalutata del 5% moltiplicata per 110 (prima casa) o 120 (seconda casa)."
+    },
+    "aliquote_registro": {
+      "prima_casa": 0.02,
+      "seconda_casa": 0.09,
+      "minimo": 1000
+    },
+    "stima_notaio": {
+      "minimo": 2000,
+      "percentuale_prezzo": 0.012,
+      "massimo": 6000,
+      "nota": "Fascia indicativa: imposte anticipate dal notaio escluse."
+    }
+  },
+
+  "affitto": {
+    "titolo": "Come si arriva alle chiavi, in affitto",
+    "documenti_richiesti": [
+      "Documento d'identità e codice fiscale di tutti gli intestatari del contratto",
+      "Ultime due buste paga (lavoratori dipendenti) oppure ultima dichiarazione dei redditi (autonomi e partite IVA)",
+      "Contratto di lavoro o attestazione del datore di lavoro",
+      "Per pensionati: cedolino della pensione",
+      "Per studenti e giovani al primo contratto: documenti e redditi del garante",
+      "Per cittadini stranieri: permesso di soggiorno in corso di validità"
+    ],
+    "alla_proposta": [
+      {
+        "id": "deposito_proposta",
+        "etichetta": "Deposito a garanzia della proposta",
+        "calcolo": "mensilita",
+        "mensilita": 1,
+        "nota": "Pari a una mensilità. Non viene incassato fino all'accettazione della proprietà e viene restituito se la proposta non va a buon fine."
+      }
+    ],
+    "alla_firma": [
+      {
+        "id": "cauzione",
+        "etichetta": "Deposito cauzionale",
+        "calcolo": "mensilita",
+        "mensilita": 3,
+        "nota": "Di norma da 2 a 3 mensilità, restituito a fine locazione salvo danni."
+      },
+      {
+        "id": "prima_mensilita",
+        "etichetta": "Prima mensilità di canone",
+        "calcolo": "mensilita",
+        "mensilita": 1
+      },
+      {
+        "id": "provvigione",
+        "etichetta": "Provvigione Innova Immobiliare",
+        "calcolo": "provvigione",
+        "nota": "15% + IVA del canone annuale, dovuta alla firma del contratto."
+      },
+      {
+        "id": "registrazione",
+        "etichetta": "Imposta di registro (quota conduttore)",
+        "calcolo": "percentuale_canone_annuo",
+        "percentuale": 0.01,
+        "nota": "2% del canone annuo, per metà a carico del conduttore. Non dovuta se il proprietario opta per la cedolare secca."
+      }
+    ],
+    "come_velocizzare": [
+      "Prepara i documenti in un'unica cartella digitale prima della visita: chi arriva con i documenti pronti passa davanti.",
+      "Se hai un garante, portane subito documento e redditi: è la causa più frequente di rallentamento.",
+      "Comunica da subito quante persone e quali animali vivranno nell'immobile: evita rifiuti tardivi.",
+      "Indica la data di ingresso desiderata: se coincide con la disponibilità, la proposta viene valutata in giornata.",
+      "Firma digitale disponibile: proposta e contratto si possono chiudere senza passare in ufficio."
+    ]
+  }
+}

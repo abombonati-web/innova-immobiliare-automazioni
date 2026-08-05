@@ -1,0 +1,208 @@
+{
+  "versione": "1.0",
+  "aggiornato": "2026-08-05",
+  "descrizione": "Orchestratore delle comunicazioni automatiche: sequenze di follow-up, recupero modulo abbandonato, promemoria appuntamento e gestione del mancato arrivo. Gli orari sono espressi in offset dal momento dell'evento scatenante.",
+
+  "fascia_oraria_invii": {
+    "dalle": "09:00",
+    "alle": "20:30",
+    "giorni": ["lun", "mar", "mer", "gio", "ven", "sab"],
+    "nota": "Un messaggio che maturerebbe fuori fascia viene rimandato alla prima finestra utile. Nessun invio la domenica e nei festivi."
+  },
+
+  "regole_globali": [
+    "Qualsiasi risposta del cliente su qualunque canale interrompe la sequenza automatica e passa la conversazione all'agente.",
+    "Una prenotazione confermata interrompe la sequenza di follow-up e attiva la sequenza appuntamento.",
+    "Ogni messaggio contiene sempre un modo semplice per fermare le comunicazioni (STOP su WhatsApp, link di disiscrizione via email).",
+    "Massimo un messaggio automatico al giorno per contatto, su tutti i canali sommati."
+  ],
+
+  "sequenze": {
+    "follow_up_lead": {
+      "evento_scatenante": "modulo_inviato",
+      "interrompi_se": ["prenotazione_confermata", "risposta_cliente", "opt_out"],
+      "messaggi": [
+        {
+          "id": "fu-1",
+          "offset": "24h",
+          "canale_primario": "whatsapp",
+          "canale_fallback": "email",
+          "oggetto": "La tua visita a {{immobile.titolo}}",
+          "testo": "Ciao {{contatto.nome}}, sono {{agente.nome}} di Innova. Ieri hai chiesto informazioni su {{immobile.titolo}} in {{immobile.zona}}. Hai già dato un'occhiata al tour virtuale? Se preferisci, ti riservo uno slot per vederla di persona: {{link.prenotazione}}"
+        },
+        {
+          "id": "fu-2",
+          "offset": "3g",
+          "canale_primario": "whatsapp",
+          "canale_fallback": "email",
+          "oggetto": "Due cose che di solito non si vedono nelle foto",
+          "testo": "{{contatto.nome}}, di {{immobile.titolo}} ci sono due dettagli che nelle foto non si colgono: {{immobile.punti_di_forza}}. Se vuoi te li mostro dal vivo, bastano venti minuti: {{link.prenotazione}}"
+        },
+        {
+          "id": "fu-3",
+          "offset": "7g",
+          "canale_primario": "email",
+          "canale_fallback": "whatsapp",
+          "oggetto": "Ti tengo aggiornato o preferisci che mi fermi?",
+          "testo": "{{contatto.nome}}, non voglio essere insistente. Se {{immobile.titolo}} non fa per te, dimmelo pure: ho altri immobili in {{immobile.zona}} che escono prima sui nostri canali riservati. Se invece è ancora nei tuoi pensieri, qui puoi prenotare quando vuoi: {{link.prenotazione}}",
+          "azione_finale": "sposta_in_nurturing_mensile"
+        }
+      ]
+    },
+
+    "recupero_modulo_abbandonato": {
+      "evento_scatenante": "modulo_iniziato_non_inviato",
+      "condizione": "Almeno un campo di contatto valido compilato (email o telefono) e consenso privacy già spuntato.",
+      "interrompi_se": ["modulo_inviato", "opt_out"],
+      "messaggi": [
+        {
+          "id": "ab-1",
+          "offset": "15m",
+          "canale_primario": "whatsapp",
+          "canale_fallback": "email",
+          "oggetto": "Ti sei fermato a metà",
+          "testo": "Ciao {{contatto.nome}}, ho visto che stavi richiedendo l'accesso alla scheda riservata di {{immobile.titolo}} ma qualcosa si è interrotto. Riprendi da dove eri: {{link.modulo_precompilato}} — bastano trenta secondi."
+        }
+      ]
+    },
+
+    "appuntamento": {
+      "evento_scatenante": "prenotazione_confermata",
+      "messaggi": [
+        {
+          "id": "ap-conferma",
+          "offset": "immediato",
+          "canale_primario": "whatsapp",
+          "canale_fallback": "email",
+          "oggetto": "Confermato: {{prenotazione.etichetta}}",
+          "testo": "{{contatto.nome}}, è tutto confermato per {{prenotazione.etichetta}} in {{prenotazione.luogo}}. Ti aspetta {{agente.nome}} ({{agente.telefono}}). Aggiungi al calendario: {{link.calendario}}",
+          "allegati": ["invito_calendario_ics"]
+        },
+        {
+          "id": "ap-promemoria",
+          "offset": "-24h",
+          "riferimento": "prenotazione.data_ora",
+          "canale_primario": "whatsapp",
+          "canale_fallback": "sms",
+          "oggetto": "Ci vediamo domani",
+          "testo": "{{contatto.nome}}, ci vediamo domani {{prenotazione.etichetta}} in {{prenotazione.luogo}}. Se qualcosa è cambiato rispondi a questo messaggio e spostiamo senza problemi: {{link.riprogramma}}",
+          "richiede_conferma": true
+        },
+        {
+          "id": "ap-mattina",
+          "offset": "-3h",
+          "riferimento": "prenotazione.data_ora",
+          "canale_primario": "whatsapp",
+          "oggetto": "Tra poche ore",
+          "testo": "A tra poco {{contatto.nome}}! Indirizzo e indicazioni: {{link.mappa}}. Se sei in ritardo nessun problema, avvisami pure."
+        }
+      ]
+    },
+
+    "mancato_arrivo": {
+      "evento_scatenante": "appuntamento_non_onorato",
+      "messaggi": [
+        {
+          "id": "ns-1",
+          "offset": "2h",
+          "canale_primario": "whatsapp",
+          "oggetto": "Ci siamo persi?",
+          "testo": "{{contatto.nome}}, oggi non sei riuscito a passare: capita, non è un problema. Vuoi che riservi un altro slot? {{link.riprogramma}}"
+        },
+        {
+          "id": "ns-2",
+          "offset": "3g",
+          "canale_primario": "email",
+          "oggetto": "L'immobile è ancora disponibile",
+          "testo": "{{contatto.nome}}, {{immobile.titolo}} è ancora disponibile. Se nel frattempo le tue esigenze sono cambiate scrivimi due righe: ho altre soluzioni in {{immobile.zona}}.",
+          "azione_finale": "notifica_agente_per_chiamata"
+        }
+      ]
+    },
+
+    "semaforo_giallo": {
+      "evento_scatenante": "esito_semaforo_giallo",
+      "messaggi": [
+        {
+          "id": "sf-cliente",
+          "offset": "immediato",
+          "destinatario": "cliente",
+          "canale_primario": "whatsapp",
+          "canale_fallback": "email",
+          "oggetto": "Il passo successivo",
+          "testo": "{{contatto.nome}}, per riservarti la visita manca solo una verifica veloce e gratuita con il nostro consulente finanziario: ti contatta entro poche ore. Nel frattempo il tour virtuale è già tuo: {{link.tour}}"
+        },
+        {
+          "id": "sf-consulente",
+          "offset": "immediato",
+          "destinatario": "consulente_finanziario",
+          "canale_primario": "email",
+          "oggetto": "[Semaforo giallo] {{contatto.nome}} — {{immobile.titolo}}",
+          "testo": "Nuovo contatto da prequalificare.\nCliente: {{contatto.nome}} — {{contatto.telefono}}\nImmobile: {{immobile.titolo}} — {{immobile.prezzo}}\nModalità dichiarata: {{risposte.modalita_acquisto}}\nBudget dichiarato: {{risposte.budget_massimo}}\nMotivazione: {{semaforo.motivazione}}\nEsito da registrare qui: {{link.esito_consulente}}",
+          "sla_ore": 4
+        },
+        {
+          "id": "sf-sollecito",
+          "offset": "24h",
+          "destinatario": "consulente_finanziario",
+          "canale_primario": "email",
+          "condizione": "esito_non_ancora_registrato",
+          "oggetto": "[Sollecito] Prequalifica in attesa da 24 ore",
+          "testo": "Il contatto {{contatto.nome}} è ancora in attesa di esito. Il cliente non può prenotare finché non registri la verifica."
+        }
+      ]
+    },
+
+    "venditore": {
+      "evento_scatenante": "modulo_venditore_inviato",
+      "messaggi": [
+        {
+          "id": "vd-1",
+          "offset": "immediato",
+          "canale_primario": "whatsapp",
+          "canale_fallback": "email",
+          "oggetto": "La tua valutazione è in preparazione",
+          "testo": "{{contatto.nome}}, grazie. Sto preparando la valutazione del tuo immobile in {{risposte.zona_immobile}} con i dati reali delle compravendite chiuse in zona negli ultimi dodici mesi. Ti chiamo entro {{sla}} ore."
+        },
+        {
+          "id": "vd-2",
+          "offset": "48h",
+          "canale_primario": "email",
+          "oggetto": "Come vendiamo, in concreto",
+          "testo": "{{contatto.nome}}, ecco come lavoriamo: tour virtuale, video, evento a numero chiuso e offerte trasparenti. Se vuoi vedere un caso reale: {{link.caso_studio}}"
+        },
+        {
+          "id": "vd-3",
+          "offset": "7g",
+          "canale_primario": "whatsapp",
+          "oggetto": "Un pensiero sul prezzo",
+          "testo": "{{contatto.nome}}, il prezzo di partenza decide i primi trenta giorni di visite. Se vuoi ne parliamo dieci minuti, senza impegno: {{link.prenotazione_valutazione}}"
+        }
+      ]
+    }
+  },
+
+  "notifiche_interne": {
+    "nuovo_lead_verde": {
+      "destinatari": ["agente_assegnato"],
+      "canali": ["email", "notifica_app"],
+      "sla_contatto_minuti": 15
+    },
+    "nuovo_lead_giallo": {
+      "destinatari": ["consulente_finanziario", "agente_assegnato"],
+      "canali": ["email", "notifica_app"],
+      "sla_contatto_ore": 4
+    },
+    "nuovo_lead_rosso": {
+      "destinatari": ["agente_assegnato", "responsabile_ufficio"],
+      "canali": ["email"],
+      "sla_contatto_ore": 24,
+      "nota": "Contatto sempre umano. Mai una chiusura automatica."
+    },
+    "prenotazione_visore_ufficio": {
+      "destinatari": ["agente_assegnato", "segreteria"],
+      "canali": ["email", "google_calendar"],
+      "nota": "Solo per clienti con esito verde: la sala visore è una risorsa scarsa."
+    }
+  }
+}

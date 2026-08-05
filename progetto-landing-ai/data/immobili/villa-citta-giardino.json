@@ -1,0 +1,120 @@
+{
+  "id": "villa-citta-giardino",
+  "tipo_operazione": "vendita",
+  "stato": "attivo",
+  "aggiornato": "2026-08-05",
+
+  "_nota_dati": "Immobile reale usato come esempio di riferimento. I campi elencati in 'verifica_dati' sono segnaposto: vanno riallineati al gestionale prima di qualunque pubblicazione.",
+  "verifica_dati": ["anno_costruzione", "categoria_catastale", "rendita_catastale", "planimetria", "tour_virtuale"],
+
+  "pubblico": {
+    "titolo": "Villa su tre livelli con parco privato",
+    "sottotitolo": "Città Giardino, in uno dei complessi residenziali più ricercati di Palermo",
+    "zona": "Città Giardino, Palermo",
+    "indirizzo": "Viale Regione Siciliana 7800, Palermo",
+    "anno_costruzione": 1978,
+    "superficie_mq": 468,
+    "superficie_esterna_mq": 2000,
+    "composizione": "11 camere, 4 bagni, tripla esposizione, terrazze panoramiche, guardaroba su misura, parco privato di circa 2.000 mq",
+    "piani": "Tre livelli",
+    "classe_energetica": "D",
+    "riscaldamento": "Autonomo, con impianto di climatizzazione",
+    "abitabilita": "Presente",
+    "categoria_catastale": "A/7",
+    "rendita_catastale": 2480.55,
+    "prezzo": 720000,
+    "spese_condominiali_annue": 2400,
+    "planimetria": {
+      "disponibile": true,
+      "url": "",
+      "nota": "Planimetria e documentazione completa vengono sbloccate dopo l'accesso al club."
+    },
+
+    "descrizione": "Nel complesso residenziale di Città Giardino, con portineria e piscina condominiale, questa villa si sviluppa su tre livelli per circa 468 mq ed è circondata da un parco privato di circa 2.000 mq: un'oasi verde rara da vivere restando dentro la città.\n\nGli spazi interni raccontano una casa pensata per essere vissuta da una famiglia numerosa o da chi lavora da casa e ha bisogno di ambienti separati: undici camere, quattro bagni, rivestimenti in marmo, guardaroba su misura, terrazze che guardano il verde. Riscaldamento autonomo e climatizzazione, classe energetica D.\n\nLa posizione è uno dei punti di forza meno evidenti nelle foto: a pochi minuti da via Ugo La Malfa, dallo svincolo autostradale, dal Policlinico Cervello, da scuole e servizi. È inoltre già disponibile un progetto di frazionamento in due unità abitative autonome, per chi voglia ricavarne due case o destinarne una a reddito.",
+
+    "punti_di_forza": [
+      "Parco privato di 2.000 mq dentro la città",
+      "Progetto di frazionamento in due unità già pronto",
+      "Complesso con portineria e piscina condominiale",
+      "A pochi minuti dallo svincolo autostradale"
+    ],
+
+    "media": {
+      "foto": [
+        "https://www.innovaimmobiliare.it/wp-content/uploads/2026/03/INNOVA-01-3.jpg",
+        "https://www.innovaimmobiliare.it/wp-content/uploads/2026/03/INNOVA-04-3.jpg",
+        "https://www.innovaimmobiliare.it/wp-content/uploads/2026/03/INNOVA-06-3.jpg",
+        "https://www.innovaimmobiliare.it/wp-content/uploads/2026/03/INNOVA-08-3.jpg",
+        "https://www.innovaimmobiliare.it/wp-content/uploads/2026/03/INNOVA-20-3.jpg",
+        "https://www.innovaimmobiliare.it/wp-content/uploads/2026/03/INNOVA-24-3.jpg",
+        "https://www.innovaimmobiliare.it/wp-content/uploads/2026/03/INNOVA-27-2.jpg",
+        "https://www.innovaimmobiliare.it/wp-content/uploads/2026/03/INNOVA-34.jpg",
+        "https://www.innovaimmobiliare.it/wp-content/uploads/2026/03/INNOVA-39.jpg",
+        "https://www.innovaimmobiliare.it/wp-content/uploads/2026/03/INNOVA-40.jpg",
+        "https://www.innovaimmobiliare.it/wp-content/uploads/2026/03/INNOVA-41.jpg",
+        "https://www.innovaimmobiliare.it/wp-content/uploads/2026/03/INNOVA-43.jpg",
+        "https://www.innovaimmobiliare.it/wp-content/uploads/2026/03/INNOVA-54.jpg",
+        "https://www.innovaimmobiliare.it/wp-content/uploads/2026/03/INNOVA-59.jpg",
+        "https://www.innovaimmobiliare.it/wp-content/uploads/2026/03/INNOVA-60.jpg"
+      ],
+      "video_immobile": [
+        {
+          "titolo": "Tour immersivo della villa",
+          "piattaforma": "youtube",
+          "id": "02Aw3FVjfuk",
+          "url": "https://youtu.be/02Aw3FVjfuk"
+        }
+      ],
+      "tour_virtuale": {
+        "fornitore": "vrexx",
+        "url": "",
+        "disponibile": true,
+        "nota": "Link Vrexx da inserire. Fino ad allora il pulsante resta visibile ma disabilitato."
+      },
+      "visore_in_ufficio": {
+        "disponibile": true,
+        "riservato_a": "clienti_prequalificati",
+        "luogo": "Ufficio Innova, Via Siracusa 46, Palermo",
+        "durata_minuti": 45
+      }
+    },
+
+    "fiscale": {
+      "prima_casa_ammessa": true,
+      "venditore_privato": true
+    },
+
+    "agente": {
+      "nome": "Team Innova Immobiliare",
+      "telefono": "+39 339 418 5631",
+      "email": "info@innovaimmobiliare.it",
+      "foto": ""
+    }
+  },
+
+  "riservato": {
+    "_avvertenza": "NON ESPORRE MAI questo blocco in pagina. Il generatore di landing legge esclusivamente il nodo 'pubblico'; il nodo 'riservato' resta nel gestionale e viaggia solo verso il cruscotto interno, con controllo di ruolo.",
+    "mandato": {
+      "tipo": "esclusiva",
+      "sottoscritto_il": "",
+      "scadenza": "",
+      "rinnovo_automatico": false
+    },
+    "proprieta": {
+      "nome": "",
+      "telefono": "",
+      "email": "",
+      "note": ""
+    },
+    "trattativa": {
+      "prezzo_minimo_accettabile": null,
+      "margine_negoziazione_percentuale": null,
+      "offerte_ricevute": [],
+      "note_interne": ""
+    },
+    "provvigione_lato_venditore": {
+      "concordata": null,
+      "note": ""
+    }
+  }
+}

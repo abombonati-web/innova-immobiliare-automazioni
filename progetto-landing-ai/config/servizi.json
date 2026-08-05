@@ -1,0 +1,47 @@
+{
+  "versione": "1.0",
+  "aggiornato": "2026-08-05",
+  "descrizione": "Ventaglio dei servizi Innova mostrato in fondo a ogni landing. Nessuno di questi servizi apre una pipeline separata: chi clicca genera una nota sul contatto e una notifica all'agente di riferimento.",
+
+  "servizi": [
+    {
+      "id": "vendita",
+      "titolo": "Vendita immobiliare",
+      "testo": "Valutazione con dati reali di zona, servizio fotografico e video, tour virtuale, evento di vendita a numero chiuso e offerte trasparenti fino al rogito.",
+      "icona": "casa"
+    },
+    {
+      "id": "locazione",
+      "titolo": "Locazione",
+      "testo": "Selezione dei conduttori con verifica documentale e reddituale, contratti registrati e assistenza per tutta la durata della locazione.",
+      "icona": "chiavi"
+    },
+    {
+      "id": "consulenza-mutui",
+      "titolo": "Consulenza mutui",
+      "testo": "Pre-fattibilità gratuita, confronto fra istituti e accompagnamento fino alla delibera. È lo stesso consulente che sblocca la prenotazione quando il finanziamento è da definire.",
+      "icona": "banca"
+    },
+    {
+      "id": "tour-virtuale",
+      "titolo": "Tour virtuale e realtà immersiva",
+      "testo": "Ogni immobile è visitabile online con Vrexx e, per i clienti prequalificati, con il visore nella nostra sala dedicata in ufficio.",
+      "icona": "visore"
+    },
+    {
+      "id": "pratiche-tecniche",
+      "titolo": "Pratiche tecniche e documentali",
+      "testo": "Verifica di conformità urbanistica e catastale, sanatorie, APE, provenienze e successioni: i problemi si trovano prima della proposta, non davanti al notaio.",
+      "icona": "documenti"
+    },
+    {
+      "id": "sovraindebitamento",
+      "titolo": "Assistenza nelle crisi da sovraindebitamento",
+      "testo": "Se la casa è a rischio per debiti, un'asta giudiziaria già avviata o la pressione dei creditori, esiste quasi sempre una via d'uscita ordinata. Ti affianchiamo con professionisti specializzati per capire i tempi reali, fermare l'emorragia e valorizzare l'immobile prima che lo faccia il tribunale. Il primo confronto è riservato e senza impegno.",
+      "icona": "scudo",
+      "riservatezza": "alta",
+      "nota_interna": "Nessuna pipeline dedicata: il contatto entra nel flusso ordinario con etichetta 'sovraindebitamento' e notifica diretta al responsabile. Non inserire questi contatti in sequenze automatiche di marketing.",
+      "esclusione_automazioni": ["follow_up_lead", "nurturing_mensile"]
+    }
+  ]
+}

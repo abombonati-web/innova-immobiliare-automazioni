@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Demo — Sistema landing automatica con prequalifica</title>
+<meta name="robots" content="noindex, nofollow">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="./assets/stile.css">
+<style>
+  .scenari{margin-top:30px;display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:18px}
+  .scenario{background:var(--bianco);border:1px solid var(--bordo);border-radius:16px;padding:24px 22px;display:flex;flex-direction:column;gap:10px}
+  .scenario h3{font-size:1rem;font-weight:600;color:var(--grafite-scuro)}
+  .scenario p{font-size:.88rem;font-weight:300;flex:1}
+  .scenario code{font-size:.76rem;word-break:break-all}
+  .scenario a{align-self:flex-start;font-weight:600;color:var(--ambra-scuro)}
+  .tabella{width:100%;border-collapse:collapse;margin-top:22px;font-size:.88rem}
+  .tabella th,.tabella td{text-align:left;padding:10px 12px;border-bottom:1px solid var(--bordo);font-weight:300}
+  .tabella th{font-weight:600;color:var(--grafite-scuro);font-size:.76rem;text-transform:uppercase;letter-spacing:.1em}
+  .tabella td:first-child{font-weight:500;color:var(--grafite-scuro)}
+</style>
+</head>
+<body>
+
+<div class="barra-prototipo">
+  Prototipo non operativo · esterno alla piattaforma Innova Experience · in attesa di approvazione
+</div>
+
+<header class="hero">
+  <div class="container">
+    <span class="eyebrow">Progetto interno</span>
+    <h1>Landing automatica con <em>prequalifica</em> del cliente</h1>
+    <p class="sub">Una sola pagina, generata dai dati dell'immobile, che riconosce chi la sta guardando,
+    mostra tutto in chiaro e lascia prenotare solo chi è davvero pronto a comprare.
+    Qui sotto la puoi provare davvero: i percorsi funzionano, le automazioni sono calcolate e stampate,
+    ma nulla viene ancora inviato a nessuno.</p>
+  </div>
+</header>
+
+<section>
+  <div class="container">
+    <h2 class="titolo-sezione">Provala</h2>
+    <p class="occhiello">Ogni scenario è lo stesso identico codice: cambia solo il file JSON dell'immobile e i parametri del link.</p>
+
+    <div class="scenari">
+      <article class="scenario">
+        <h3>Vendita — Villa Città Giardino</h3>
+        <p>Immobile reale già in portafoglio. Mostra la carta d'identità, i tre passaggi dell'acquisto con i costi
+        calcolati sulla rendita catastale e la provvigione in chiaro.</p>
+        <a href="./landing.html?immobile=villa-citta-giardino">Apri la landing →</a>
+      </article>
+
+      <article class="scenario">
+        <h3>Affitto — Trilocale via Siracusa</h3>
+        <p>Immobile di esempio. Il percorso cambia da solo: documenti richiesti, importi alla proposta e alla firma,
+        come velocizzare la pratica. Il semaforo valuta il canone sul reddito dichiarato.</p>
+        <a href="./landing.html?immobile=trilocale-via-siracusa">Apri la landing →</a>
+      </article>
+
+      <article class="scenario">
+        <h3>Arrivo da una campagna venditori</h3>
+        <p>Stesso immobile, ma il contatto arriva da un annuncio "vendi casa": l'intento viene riconosciuto prima
+        ancora che il modulo venga compilato e il modulo si semplifica.</p>
+        <p><code>?immobile=villa-citta-giardino&amp;utm_campaign=vendere-casa-palermo</code></p>
+        <a href="./landing.html?immobile=villa-citta-giardino&utm_campaign=vendere-casa-palermo">Apri la landing →</a>
+      </article>
+
+      <article class="scenario">
+        <h3>Arrivo da una chat con Sara</h3>
+        <p>Il testo della conversazione viene passato alla landing e l'intento si deduce dalle parole usate dal cliente.</p>
+        <p><code>?chat=cerco un immobile da mettere a reddito</code></p>
+        <a href="./landing.html?immobile=villa-citta-giardino&chat=cerco%20un%20immobile%20da%20mettere%20a%20reddito%20con%20buon%20rendimento">Apri la landing →</a>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="carta">
+  <div class="container">
+    <h2 class="titolo-sezione">Che cosa provare, nell'ordine</h2>
+    <table class="tabella">
+      <thead>
+        <tr><th>Cosa fai</th><th>Cosa deve succedere</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Compili il modulo scegliendo "Con liquidità già disponibile"</td>
+          <td>Semaforo verde, calendario aperto subito con slot reali, conferma e file .ics scaricabile</td>
+        </tr>
+        <tr>
+          <td>Scegli "Dovrò richiedere un mutuo"</td>
+          <td>Semaforo giallo: niente calendario, notifica al consulente finanziario e messaggio al cliente</td>
+        </tr>
+        <tr>
+          <td>Indichi un budget sotto il 60% del prezzo</td>
+          <td>Esito rosso: nessuna porta chiusa, si passa a una persona e ad alternative</td>
+        </tr>
+        <tr>
+          <td>Scegli "Vendere un immobile mio"</td>
+          <td>Il modulo si accorcia, il semaforo non si applica, parte la pipeline valutazione</td>
+        </tr>
+        <tr>
+          <td>Selezioni "Prendere in affitto"</td>
+          <td>Compare il campo reddito e il semaforo valuta l'incidenza del canone</td>
+        </tr>
+        <tr>
+          <td>Apri "Prova con il visore" senza aver compilato il modulo</td>
+          <td>Ti riporta al modulo: la sala visore è riservata ai prequalificati</td>
+        </tr>
+        <tr>
+          <td>Compili metà modulo e chiudi la scheda</td>
+          <td>In console compare la sequenza di recupero programmata a 15 minuti</td>
+        </tr>
+        <tr>
+          <td>Apri la console del browser e scrivi <code>innova.riepilogo()</code></td>
+          <td>Il riepilogo del comportamento tracciato in questa sessione</td>
+        </tr>
+      </tbody>
+    </table>
+    <p class="avvertenza">Le comunicazioni programmate (follow-up 24h / 3 giorni / 7 giorni, promemoria, recupero modulo)
+    vengono calcolate e stampate nella console del browser, con canale e orario esatto di invio. Nessun messaggio parte davvero:
+    l'invio si attiva solo quando colleghi il provider WhatsApp e il servizio email.</p>
+  </div>
+</section>
+
+<section>
+  <div class="container stretto">
+    <h2 class="titolo-sezione">Come si apre in locale</h2>
+    <p class="occhiello">La pagina legge file JSON, quindi va servita da un server: con doppio clic il browser la blocca.</p>
+    <p style="margin-top:18px"><code>cd progetto-landing-ai &amp;&amp; python3 -m http.server 8080</code></p>
+    <p style="margin-top:10px;font-weight:300">Poi apri <code>http://localhost:8080/demo/</code></p>
+  </div>
+</section>
+
+<footer>
+  <div class="container footer-inner">
+    <div>
+      <div class="marchio">Innova <span>Immobiliare</span></div>
+      <div class="payoff">Progetta il tuo futuro.</div>
+    </div>
+    <div>Prototipo interno · non pubblicato · non collegato a Innova Experience</div>
+  </div>
+</footer>
+
+</body>
+</html>

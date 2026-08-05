@@ -1,0 +1,118 @@
+{
+  "versione": "1.0-proposta",
+  "aggiornato": "2026-08-05",
+  "stato": "DA CONFERMARE",
+
+  "punto_aperto": {
+    "descrizione": "Il contenuto esatto del modulo online su https://www.innovaexperience.it/modulo non è stato ancora recuperato: la pagina non è raggiungibile dall'ambiente di sviluppo (403 dalla policy di rete). Questo file è quindi una PROPOSTA di schema, costruita per essere sovrapponibile al modulo reale.",
+    "cosa_serve": "Etichetta, tipo e opzioni esatte di ogni campo del modulo attuale.",
+    "come_si_chiude": "Compilare la mappa 'corrispondenze' qui sotto: per ogni campo del modulo reale si indica il campo canonico corrispondente. Il motore del semaforo continua a leggere solo i campi canonici, quindi nessuna riga di codice cambia."
+  },
+
+  "campi_canonici": {
+    "intento": {
+      "tipo": "scelta",
+      "obbligatorio": true,
+      "usato_dal_semaforo": true,
+      "etichetta": "Cosa stai cercando?",
+      "opzioni": [
+        { "valore": "acquirente", "etichetta": "Comprare casa per viverci" },
+        { "valore": "investitore", "etichetta": "Investire" },
+        { "valore": "affittuario", "etichetta": "Prendere in affitto" },
+        { "valore": "venditore", "etichetta": "Vendere o affittare un immobile mio" }
+      ]
+    },
+    "modalita_acquisto": {
+      "tipo": "scelta",
+      "obbligatorio": true,
+      "usato_dal_semaforo": true,
+      "etichetta": "Come pensi di finanziare l'operazione?",
+      "nota": "È il campo che governa il semaforo. Le prime due opzioni danno via libera immediata.",
+      "opzioni": [
+        { "valore": "contanti", "etichetta": "Con liquidità già disponibile", "esito_atteso": "verde" },
+        { "valore": "mutuo_deliberato", "etichetta": "Con un mutuo già deliberato dalla banca", "esito_atteso": "verde" },
+        { "valore": "mutuo_in_istruttoria", "etichetta": "Ho una pratica di mutuo in corso", "esito_atteso": "giallo" },
+        { "valore": "mutuo_da_richiedere", "etichetta": "Dovrò richiedere un mutuo", "esito_atteso": "giallo" },
+        { "valore": "vendo_prima_casa", "etichetta": "Devo prima vendere un altro immobile", "esito_atteso": "giallo" },
+        { "valore": "non_so", "etichetta": "Non l'ho ancora deciso", "esito_atteso": "giallo" }
+      ]
+    },
+    "budget_massimo": {
+      "tipo": "numero",
+      "unita": "euro",
+      "obbligatorio": false,
+      "usato_dal_semaforo": true,
+      "etichetta": "Budget massimo che hai in mente",
+      "nota": "Confrontato con il prezzo dell'immobile genera il campo derivato 'rapporto_budget_prezzo'."
+    },
+    "anticipo_disponibile": {
+      "tipo": "numero",
+      "unita": "euro",
+      "obbligatorio": false,
+      "usato_dal_semaforo": false,
+      "etichetta": "Quanto puoi versare come anticipo",
+      "nota": "Non usato dalle regole attuali, ma prezioso per il consulente finanziario sui casi gialli."
+    },
+    "reddito_mensile_netto": {
+      "tipo": "numero",
+      "unita": "euro",
+      "obbligatorio": false,
+      "usato_dal_semaforo": true,
+      "solo_per_intento": ["affittuario"],
+      "etichetta": "Reddito mensile netto del nucleo",
+      "nota": "Genera il campo derivato 'incidenza_canone_reddito'."
+    },
+    "tempistica": {
+      "tipo": "scelta",
+      "obbligatorio": true,
+      "usato_dal_semaforo": false,
+      "etichetta": "Entro quando vorresti concludere?",
+      "opzioni": [
+        { "valore": "subito", "etichetta": "Il prima possibile" },
+        { "valore": "3_mesi", "etichetta": "Entro tre mesi" },
+        { "valore": "6_mesi", "etichetta": "Entro sei mesi" },
+        { "valore": "oltre", "etichetta": "Sto solo guardando" }
+      ],
+      "nota": "Non blocca la prenotazione, ma determina la priorità di richiamo dell'agente."
+    },
+    "nome": { "tipo": "testo", "obbligatorio": true, "usato_dal_semaforo": false, "etichetta": "Nome e cognome" },
+    "telefono": { "tipo": "telefono", "obbligatorio": true, "usato_dal_semaforo": false, "etichetta": "Telefono" },
+    "email": { "tipo": "email", "obbligatorio": true, "usato_dal_semaforo": false, "etichetta": "Email" },
+    "consenso_privacy": {
+      "tipo": "consenso",
+      "obbligatorio": true,
+      "usato_dal_semaforo": false,
+      "etichetta": "Ho letto l'informativa e acconsento al trattamento dei dati per essere ricontattato."
+    },
+    "consenso_marketing": {
+      "tipo": "consenso",
+      "obbligatorio": false,
+      "usato_dal_semaforo": false,
+      "etichetta": "Voglio ricevere in anteprima gli immobili prima che finiscano sui portali.",
+      "nota": "Consenso separato e facoltativo: è quello che alimenta le sequenze del club Innova."
+    }
+  },
+
+  "campi_derivati": {
+    "rapporto_budget_prezzo": "budget_massimo / prezzo dell'immobile. Calcolato dal motore, non chiesto al cliente.",
+    "incidenza_canone_reddito": "canone mensile / reddito_mensile_netto. Calcolato dal motore.",
+    "canale_ingresso": "Da dove arriva il contatto (telefono, email, whatsapp, facebook, instagram, tiktok, youtube, linkedin, diretto).",
+    "immobile_id": "Immobile a cui si riferisce il contatto."
+  },
+
+  "campi_pipeline_venditore": {
+    "nota": "Modulo più snello: nessun semaforo finanziario, si punta alla valutazione immediata.",
+    "campi": [
+      { "id": "zona_immobile", "tipo": "testo", "obbligatorio": true, "etichetta": "In che zona si trova l'immobile?" },
+      { "id": "tipologia", "tipo": "scelta", "obbligatorio": true, "etichetta": "Che tipo di immobile è?", "opzioni": ["appartamento", "villa", "villetta", "terreno", "locale commerciale", "altro"] },
+      { "id": "superficie_mq", "tipo": "numero", "obbligatorio": true, "etichetta": "Quanti metri quadri, circa?" },
+      { "id": "motivo_vendita", "tipo": "scelta", "obbligatorio": false, "etichetta": "Perché stai valutando la vendita?", "opzioni": ["cambio casa", "eredità", "trasferimento", "investimento", "difficoltà economica", "altro"], "nota": "L'opzione 'difficoltà economica' attiva la nota interna sovraindebitamento e la notifica al responsabile. Nessun automatismo commerciale su questi contatti." },
+      { "id": "gia_in_vendita", "tipo": "scelta", "obbligatorio": false, "etichetta": "È già in vendita con qualcuno?", "opzioni": ["no", "sì, con un'agenzia", "sì, da privato"] }
+    ]
+  },
+
+  "corrispondenze": {
+    "nota": "Da compilare quando il modulo reale sarà consultabile. Formato: \"nome_campo_del_modulo_reale\": \"campo_canonico\".",
+    "mappa": {}
+  }
+}

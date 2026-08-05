@@ -1,0 +1,80 @@
+{
+  "id": "trilocale-via-siracusa",
+  "tipo_operazione": "affitto",
+  "stato": "attivo",
+  "aggiornato": "2026-08-05",
+
+  "_nota_dati": "Immobile DI ESEMPIO, costruito per collaudare il percorso affitto della landing. Non corrisponde a un immobile reale in portafoglio: va sostituito con un immobile vero prima di qualunque pubblicazione.",
+  "verifica_dati": ["tutti"],
+
+  "pubblico": {
+    "titolo": "Trilocale ristrutturato in palazzina d'epoca",
+    "sottotitolo": "Zona Libertà, a due passi da via Siracusa",
+    "zona": "Zona Libertà, Palermo",
+    "indirizzo": "Via Siracusa, Palermo",
+    "anno_costruzione": 1962,
+    "superficie_mq": 95,
+    "composizione": "Ingresso, soggiorno con angolo cottura, due camere, due bagni, balcone abitabile",
+    "piani": "Terzo piano con ascensore",
+    "classe_energetica": "E",
+    "riscaldamento": "Autonomo a gas, climatizzazione in soggiorno e camera principale",
+    "abitabilita": "Presente",
+    "categoria_catastale": "A/2",
+    "rendita_catastale": 812.4,
+    "canone_mensile": 850,
+    "spese_condominiali_mensili": 65,
+    "arredato": "Parzialmente arredato (cucina e armadiature)",
+    "disponibile_dal": "2026-09-15",
+    "tipo_contratto": "4+4 con cedolare secca",
+    "planimetria": {
+      "disponibile": true,
+      "url": "",
+      "nota": "Planimetria disponibile dopo l'accesso al club."
+    },
+
+    "descrizione": "Un trilocale che ha il pregio raro di essere insieme centrale e silenzioso: la palazzina è degli anni Sessanta, con l'ascensore e la scala pulita che si trovano ormai di rado in zona, e l'appartamento affaccia sul lato interno.\n\nNovantacinque metri quadri ben distribuiti: soggiorno con angolo cottura, due camere vere (non una camera e uno sgabuzzino), due bagni, un balcone abitabile dove ci sta un tavolo da quattro. Cucina e armadiature restano, il resto lo porti tu.\n\nZona Libertà significa avere sotto casa mezzi, scuole, negozi e la passeggiata serale. Contratto 4+4 con cedolare secca: il canone non si rivaluta e l'imposta di registro non è dovuta.",
+
+    "punti_di_forza": [
+      "Due bagni veri in un trilocale",
+      "Affaccio interno silenzioso in zona centrale",
+      "Cedolare secca: nessuna imposta di registro a carico dell'inquilino",
+      "Ascensore e riscaldamento autonomo"
+    ],
+
+    "media": {
+      "foto": [],
+      "video_immobile": [],
+      "tour_virtuale": {
+        "fornitore": "vrexx",
+        "url": "",
+        "disponibile": false,
+        "nota": "Tour da produrre."
+      },
+      "visore_in_ufficio": {
+        "disponibile": false,
+        "riservato_a": "clienti_prequalificati",
+        "luogo": "Ufficio Innova, Via Siracusa 46, Palermo",
+        "durata_minuti": 30
+      }
+    },
+
+    "agente": {
+      "nome": "Team Innova Immobiliare",
+      "telefono": "+39 339 418 5631",
+      "email": "info@innovaimmobiliare.it",
+      "foto": ""
+    }
+  },
+
+  "riservato": {
+    "_avvertenza": "NON ESPORRE MAI questo blocco in pagina.",
+    "mandato": { "tipo": "", "sottoscritto_il": "", "scadenza": "", "rinnovo_automatico": false },
+    "proprieta": { "nome": "", "telefono": "", "email": "", "note": "" },
+    "trattativa": {
+      "canone_minimo_accettabile": null,
+      "margine_negoziazione_percentuale": null,
+      "note_interne": ""
+    },
+    "provvigione_lato_proprieta": { "concordata": null, "note": "" }
+  }
+}

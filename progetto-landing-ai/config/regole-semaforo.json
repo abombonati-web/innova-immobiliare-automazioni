@@ -1,0 +1,254 @@
+{
+  "versione": "1.0",
+  "aggiornato": "2026-08-05",
+  "descrizione": "Motore di regole configurabile per il semaforo finanziario. Le regole vengono valutate nell'ordine in cui compaiono: vince la prima che corrisponde. Modificando questo file si cambia il comportamento del sistema senza toccare il codice.",
+  "esiti": {
+    "verde": {
+      "etichetta": "Via libera",
+      "colore": "#2F6B33",
+      "prenotazione_sbloccata": true,
+      "messaggio_cliente": "Perfetto: puoi scegliere subito il giorno e l'ora della tua visita.",
+      "messaggio_interno": "Cliente prequalificato in autonomia. Nessun passaggio dal consulente finanziario."
+    },
+    "giallo": {
+      "etichetta": "In verifica",
+      "colore": "#C97E15",
+      "prenotazione_sbloccata": false,
+      "messaggio_cliente": "Ci siamo quasi. Un nostro consulente finanziario ti ricontatta entro poche ore per una verifica gratuita e senza impegno: appena confermata, potrai prenotare la visita.",
+      "messaggio_interno": "Notificare il consulente finanziario. La prenotazione resta bloccata fino all'esito positivo della verifica."
+    },
+    "rosso": {
+      "etichetta": "Da riesaminare",
+      "colore": "#9B3A2C",
+      "prenotazione_sbloccata": false,
+      "messaggio_cliente": "Grazie: le informazioni che ci hai dato meritano un approfondimento con una persona del team. Ti richiamiamo noi per capire insieme le soluzioni possibili.",
+      "messaggio_interno": "Distanza rilevante fra budget dichiarato e prezzo. Non chiudere il contatto: valutare immobili alternativi, il servizio mutui o l'assistenza sovraindebitamento."
+    }
+  },
+  "revisione_umana": {
+    "sempre_disponibile": true,
+    "nota": "GDPR art. 22. Nessun esito diverso da 'verde' può negare il servizio in via definitiva e automatica: ogni cliente deve poter chiedere il riesame da parte di una persona. Il pulsante 'Parla con una persona' è sempre presente in pagina, qualunque sia l'esito.",
+    "canali": [
+      "telefono",
+      "whatsapp",
+      "email",
+      "richiamata_programmata"
+    ]
+  },
+  "campi_richiesti": [
+    "intento",
+    "modalita_acquisto",
+    "tempistica",
+    "budget_massimo"
+  ],
+  "regole": [
+    {
+      "id": "venditore",
+      "descrizione": "Pipeline venditore: nessun semaforo finanziario, si va diretti alla valutazione.",
+      "quando": {
+        "campo": "intento",
+        "operatore": "uguale",
+        "valore": "venditore"
+      },
+      "esito": "verde",
+      "motivazione": "Contatto venditore: il semaforo finanziario non si applica.",
+      "azioni": [
+        "sblocca_prenotazione",
+        "avvia_pipeline_valutazione",
+        "notifica_agente"
+      ]
+    },
+    {
+      "id": "affitto-reddito-mancante",
+      "descrizione": "Affitto senza reddito dichiarato: non si può valutare la sostenibilità del canone.",
+      "quando": {
+        "operatore": "e",
+        "condizioni": [
+          {
+            "campo": "intento",
+            "operatore": "uguale",
+            "valore": "affittuario"
+          },
+          {
+            "campo": "reddito_mensile_netto",
+            "operatore": "vuoto"
+          }
+        ]
+      },
+      "esito": "giallo",
+      "motivazione": "Reddito non dichiarato: sostenibilità del canone da verificare.",
+      "azioni": [
+        "notifica_consulente_finanziario",
+        "richiedi_completamento_dati"
+      ]
+    },
+    {
+      "id": "affitto-reddito-dichiarato",
+      "descrizione": "Affitto: si valuta la sostenibilità del canone rispetto al reddito mensile netto dichiarato.",
+      "quando": {
+        "operatore": "e",
+        "condizioni": [
+          {
+            "campo": "intento",
+            "operatore": "uguale",
+            "valore": "affittuario"
+          },
+          {
+            "campo": "incidenza_canone_reddito",
+            "operatore": "minore_uguale",
+            "valore": 0.4
+          }
+        ]
+      },
+      "esito": "verde",
+      "motivazione": "Canone sostenibile rispetto al reddito dichiarato (entro il 40%).",
+      "azioni": [
+        "sblocca_prenotazione",
+        "notifica_agente",
+        "invia_documenti_richiesti_affitto"
+      ]
+    },
+    {
+      "id": "affitto-da-verificare",
+      "descrizione": "Affitto con incidenza del canone alta o reddito non dichiarato.",
+      "quando": {
+        "campo": "intento",
+        "operatore": "uguale",
+        "valore": "affittuario"
+      },
+      "esito": "giallo",
+      "motivazione": "Sostenibilità del canone da verificare (reddito mancante o incidenza oltre il 40%).",
+      "azioni": [
+        "notifica_consulente_finanziario",
+        "valuta_garante"
+      ]
+    },
+    {
+      "id": "dati-incompleti",
+      "descrizione": "Il modulo non contiene ancora le informazioni minime per decidere.",
+      "quando": {
+        "operatore": "campi_mancanti",
+        "campi": [
+          "modalita_acquisto"
+        ]
+      },
+      "esito": "giallo",
+      "motivazione": "Modalità di acquisto non dichiarata.",
+      "azioni": [
+        "notifica_consulente_finanziario",
+        "richiedi_completamento_dati"
+      ]
+    },
+    {
+      "id": "budget-molto-distante",
+      "descrizione": "Il budget dichiarato è sotto la soglia minima rispetto al prezzo richiesto: serve una persona, non un automatismo.",
+      "quando": {
+        "operatore": "e",
+        "condizioni": [
+          {
+            "campo": "budget_massimo",
+            "operatore": "non_vuoto"
+          },
+          {
+            "campo": "rapporto_budget_prezzo",
+            "operatore": "minore",
+            "valore": 0.6
+          }
+        ]
+      },
+      "esito": "rosso",
+      "motivazione": "Budget dichiarato inferiore al 60% del prezzo richiesto.",
+      "azioni": [
+        "notifica_agente",
+        "proponi_immobili_alternativi",
+        "offri_consulenza_finanziaria"
+      ]
+    },
+    {
+      "id": "contanti",
+      "descrizione": "Acquisto con liquidità propria: nessuna verifica bancaria necessaria.",
+      "quando": {
+        "campo": "modalita_acquisto",
+        "operatore": "uguale",
+        "valore": "contanti"
+      },
+      "esito": "verde",
+      "motivazione": "Acquisto dichiarato in contanti / liquidità propria.",
+      "azioni": [
+        "sblocca_prenotazione",
+        "notifica_agente"
+      ]
+    },
+    {
+      "id": "mutuo-deliberato",
+      "descrizione": "Il mutuo è già stato deliberato dalla banca: equivale a liquidità disponibile.",
+      "quando": {
+        "campo": "modalita_acquisto",
+        "operatore": "uguale",
+        "valore": "mutuo_deliberato"
+      },
+      "esito": "verde",
+      "motivazione": "Mutuo già deliberato dalla banca.",
+      "azioni": [
+        "sblocca_prenotazione",
+        "notifica_agente",
+        "richiedi_copia_delibera"
+      ]
+    },
+    {
+      "id": "mutuo-da-richiedere",
+      "descrizione": "Mutuo non ancora richiesto o istruttoria in corso: passa dal consulente finanziario.",
+      "quando": {
+        "campo": "modalita_acquisto",
+        "operatore": "in",
+        "valore": [
+          "mutuo_da_richiedere",
+          "mutuo_in_istruttoria"
+        ]
+      },
+      "esito": "giallo",
+      "motivazione": "Mutuo da richiedere o istruttoria non ancora conclusa.",
+      "azioni": [
+        "notifica_consulente_finanziario",
+        "invia_checklist_documenti_mutuo"
+      ]
+    },
+    {
+      "id": "situazione-non-chiara",
+      "descrizione": "Il cliente non sa ancora come finanzierà l'acquisto.",
+      "quando": {
+        "campo": "modalita_acquisto",
+        "operatore": "in",
+        "valore": [
+          "non_so",
+          "altro",
+          "vendo_prima_casa"
+        ]
+      },
+      "esito": "giallo",
+      "motivazione": "Modalità di acquisto da chiarire con il consulente.",
+      "azioni": [
+        "notifica_consulente_finanziario",
+        "offri_consulenza_finanziaria"
+      ]
+    },
+    {
+      "id": "fallback",
+      "descrizione": "Rete di sicurezza: qualunque caso non previsto passa da una persona.",
+      "quando": {
+        "operatore": "sempre"
+      },
+      "esito": "giallo",
+      "motivazione": "Caso non coperto dalle regole configurate.",
+      "azioni": [
+        "notifica_consulente_finanziario"
+      ]
+    }
+  ],
+  "soglie": {
+    "rapporto_budget_prezzo_verde": 0.9,
+    "rapporto_budget_prezzo_rosso": 0.6,
+    "incidenza_massima_canone_reddito": 0.4
+  },
+  "nota_ordine": "L'ordine delle regole È la logica: vince la prima che corrisponde. Spostare una regola cambia il comportamento del sistema. In particolare: i casi venditore e affitto vanno risolti prima di quelli d'acquisto, e il divario di budget precede il via libera per contanti."
+}

@@ -1,0 +1,30 @@
+{
+  "versione": "1.0",
+  "aggiornato": "2026-08-05",
+  "descrizione": "Provvigioni Innova Immobiliare, mostrate in chiaro al cliente sulla landing. Importi IVA esclusa; l'IVA viene calcolata e mostrata a parte.",
+  "iva": 0.22,
+
+  "vendita": {
+    "soglia": 100000,
+    "sotto_soglia": {
+      "tipo": "fisso",
+      "importo": 5000,
+      "testo": "5.000 € + IVA per immobili fino a 100.000 €"
+    },
+    "sopra_soglia": {
+      "tipo": "percentuale",
+      "percentuale": 0.05,
+      "testo": "5% + IVA del prezzo, per immobili oltre 100.000 €"
+    },
+    "quando_e_dovuta": "Alla firma della proposta accettata dalla proprietà."
+  },
+
+  "affitto": {
+    "tipo": "percentuale_canone_annuale",
+    "percentuale": 0.15,
+    "testo": "15% + IVA del canone annuale",
+    "quando_e_dovuta": "Alla firma del contratto di locazione."
+  },
+
+  "nota_trasparenza": "Innova mostra la provvigione prima della visita, non dopo. Nessun costo nascosto, nessuna sorpresa al momento della proposta."
+}

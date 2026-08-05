@@ -1,0 +1,60 @@
+{
+  "nome": "Innova Immobiliare S.r.l.",
+  "payoff": "Progetta il tuo futuro.",
+  "indirizzo": "Via Siracusa 46, Palermo",
+  "telefono": "+39 339 418 5631",
+  "email": "info@innovaimmobiliare.it",
+  "sito": "https://www.innovaimmobiliare.it",
+  "piattaforma": "https://www.innovaexperience.it",
+
+  "video_istituzionali": [
+    {
+      "titolo": "Chi siamo e come lavoriamo",
+      "piattaforma": "youtube",
+      "id": "",
+      "url": "",
+      "nota": "Da collegare al video istituzionale del canale YouTube Innova."
+    },
+    {
+      "titolo": "Il Metodo Innova, in tre minuti",
+      "piattaforma": "youtube",
+      "id": "",
+      "url": "",
+      "nota": "Da collegare."
+    }
+  ],
+
+  "canali_social": {
+    "facebook": "",
+    "instagram": "",
+    "tiktok": "",
+    "youtube": "",
+    "linkedin": ""
+  },
+
+  "club": {
+    "nome": "Club Innova",
+    "promessa": "Gli immobili del club escono qui prima di finire sui portali pubblici.",
+    "vantaggi": [
+      "Anteprima sugli immobili prima della pubblicazione sui portali",
+      "Scheda tecnica completa con planimetria e documentazione",
+      "Tour virtuale immersivo sempre disponibile",
+      "Prova con il visore in ufficio, riservata ai clienti prequalificati"
+    ]
+  },
+
+  "prenotazione": {
+    "calendario": "google_calendar",
+    "durata_slot_minuti": 45,
+    "anticipo_minimo_ore": 24,
+    "giorni_disponibili": ["lun", "mar", "mer", "gio", "ven", "sab"],
+    "fasce": [
+      { "dalle": "09:30", "alle": "13:00" },
+      { "dalle": "15:30", "alle": "18:30" }
+    ],
+    "luoghi": [
+      { "id": "immobile", "etichetta": "Visita all'immobile" },
+      { "id": "ufficio_visore", "etichetta": "Prova con il visore in ufficio", "riservato_a": "clienti_prequalificati" }
+    ]
+  }
+}

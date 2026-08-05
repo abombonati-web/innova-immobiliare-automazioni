@@ -1,0 +1,220 @@
+/* ============================================================
+   Stile della landing generata.
+   Stessa palette della landing Innova Experience già online, così
+   il prototipo si legge come parte della stessa famiglia.
+   ============================================================ */
+
+:root{
+  --ambra:#E8982A;
+  --ambra-scuro:#C97E15;
+  --grafite:#4A4A4A;
+  --grafite-scuro:#2B2A28;
+  --crema:#FBF6EE;
+  --bianco:#FFFFFF;
+  --bordo:#E3DACB;
+}
+
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:'Poppins',sans-serif;color:var(--grafite);background:var(--crema);line-height:1.6}
+img{max-width:100%;display:block}
+a{color:inherit}
+button{font-family:inherit}
+
+.container{max-width:1080px;margin:0 auto;padding:0 24px}
+.container.stretto{max-width:760px}
+section{padding:72px 0}
+.caricamento{padding:80px 0;text-align:center;font-weight:300}
+
+/* ---------- barra prototipo ---------- */
+.barra-prototipo{
+  background:repeating-linear-gradient(45deg,#2B2A28,#2B2A28 12px,#332F29 12px,#332F29 24px);
+  color:var(--crema);font-size:.8rem;font-weight:500;letter-spacing:.04em;
+  padding:10px 24px;display:flex;flex-wrap:wrap;gap:8px 20px;justify-content:center;align-items:center;text-align:center}
+.barra-prototipo a{color:var(--ambra);font-weight:600}
+
+/* ---------- titoli ---------- */
+.titolo-sezione{font-size:clamp(1.45rem,3vw,2.1rem);font-weight:700;color:var(--grafite-scuro);max-width:24ch;line-height:1.2}
+.titolo-sezione.chiaro{color:var(--crema)}
+.occhiello{margin-top:12px;font-weight:300;max-width:62ch}
+.occhiello.chiaro{color:#D8D0C2}
+.sotto-titolo{margin:38px 0 14px;font-size:1.05rem;font-weight:600;color:var(--grafite-scuro)}
+
+/* ---------- hero ---------- */
+.hero{background:var(--grafite-scuro);color:var(--crema);padding:68px 0 82px;position:relative;overflow:hidden}
+.hero::after{content:"";position:absolute;right:-180px;top:-180px;width:520px;height:520px;border-radius:50%;
+  background:radial-gradient(circle,rgba(232,152,42,.22),transparent 65%);pointer-events:none}
+.eyebrow{display:inline-block;border:1px solid var(--ambra);color:var(--ambra);font-size:.74rem;letter-spacing:.2em;
+  text-transform:uppercase;font-weight:600;padding:7px 16px;border-radius:999px;margin-bottom:24px}
+.hero h1{font-size:clamp(1.8rem,4.4vw,3rem);font-weight:700;line-height:1.16;max-width:22ch}
+.hero h1 em{font-style:normal;color:var(--ambra)}
+.hero .sub{margin-top:16px;font-weight:300;max-width:56ch;color:#EDE6DA}
+.hero-prezzo{margin-top:28px;display:flex;align-items:baseline;gap:14px;flex-wrap:wrap}
+.hero-prezzo .etichetta{font-size:.74rem;letter-spacing:.16em;text-transform:uppercase;color:#BFB7AA;font-weight:500}
+.hero-prezzo .valore{font-size:clamp(1.7rem,3.6vw,2.4rem);font-weight:800;color:var(--ambra)}
+.hero-prezzo .al-mese{font-size:1rem;font-weight:400;color:#D8D0C2}
+.hero-sintesi{margin-top:18px;display:flex;flex-wrap:wrap;gap:10px 26px;font-size:.9rem;font-weight:300;color:#D8D0C2}
+.hero-sintesi strong{color:var(--crema);font-weight:600}
+
+.cta-row{margin-top:30px;display:flex;flex-wrap:wrap;gap:14px;align-items:center}
+.cta-row .hint{font-size:.85rem;color:#BFB7AA;font-weight:300;max-width:36ch}
+
+.btn{display:inline-block;background:var(--ambra);color:var(--grafite-scuro);font-weight:700;font-size:1rem;
+  padding:15px 32px;border-radius:999px;text-decoration:none;border:none;cursor:pointer;
+  transition:transform .15s ease,background .15s ease}
+.btn:hover:not(:disabled){background:var(--ambra-scuro);transform:translateY(-2px)}
+.btn:disabled{opacity:.45;cursor:not-allowed}
+.btn:focus-visible{outline:3px solid var(--ambra);outline-offset:3px}
+.btn-secondario{background:transparent;border:1.5px solid var(--ambra);color:var(--ambra);font-size:.92rem;padding:12px 24px}
+.btn-secondario:hover:not(:disabled){background:var(--ambra);color:var(--grafite-scuro)}
+
+/* ---------- carta d'identità ---------- */
+.carta{background:var(--bianco)}
+.griglia-dati{margin-top:34px;display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:2px;
+  background:var(--bordo);border:1px solid var(--bordo);border-radius:14px;overflow:hidden}
+.dato{background:var(--bianco);padding:18px 20px}
+.dato dt{font-size:.7rem;letter-spacing:.14em;text-transform:uppercase;color:var(--ambra-scuro);font-weight:600}
+.dato dd{margin-top:5px;font-size:.96rem;font-weight:400;color:var(--grafite-scuro)}
+.nota-planimetria{margin-top:18px;font-size:.88rem;font-weight:300}
+
+/* ---------- descrizione ---------- */
+.testo-lungo{margin-top:20px}
+.testo-lungo p{margin-bottom:16px;font-weight:300}
+.punti-forza{margin-top:22px;list-style:none;display:grid;gap:10px}
+.punti-forza li{padding-left:26px;position:relative;font-weight:300}
+.punti-forza li::before{content:"—";position:absolute;left:0;color:var(--ambra);font-weight:800}
+
+/* ---------- galleria ---------- */
+.galleria-sezione{background:var(--bianco)}
+.galleria{margin-top:32px;display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px}
+.galleria a{display:block;border-radius:12px;overflow:hidden;aspect-ratio:4/3}
+.galleria img{width:100%;height:100%;object-fit:cover;transition:transform .3s ease}
+.galleria a:hover img{transform:scale(1.05)}
+
+/* ---------- video ---------- */
+.video-griglia{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:20px}
+.video{border-radius:14px;overflow:hidden;background:var(--grafite-scuro);box-shadow:0 6px 20px rgba(74,74,74,.12)}
+.video iframe{width:100%;aspect-ratio:16/9;border:0;display:block}
+.video figcaption{padding:12px 16px;font-size:.88rem;font-weight:500;color:var(--crema)}
+.video-mancante{display:block;padding:38px 18px;text-align:center;color:#D8D0C2;font-size:.9rem;font-weight:300}
+
+/* ---------- due percorsi ---------- */
+.esperienze{background:var(--bianco)}
+.due-percorsi{margin-top:34px;display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:22px}
+.percorso{background:var(--crema);border:1px solid var(--bordo);border-radius:18px;padding:30px 26px;display:flex;flex-direction:column;gap:12px}
+.percorso.spento{opacity:.62}
+.percorso .numero{font-size:.72rem;font-weight:800;letter-spacing:.2em;color:var(--ambra)}
+.percorso h3{font-size:1.1rem;font-weight:600;color:var(--grafite-scuro)}
+.percorso p{font-size:.93rem;font-weight:300}
+.percorso .btn{align-self:flex-start;margin-top:4px}
+.percorso .nota{font-size:.8rem;font-weight:300;color:var(--grafite)}
+
+/* ---------- modulo / club ---------- */
+.accesso{background:var(--grafite-scuro);color:var(--crema)}
+.accesso-griglia{margin-top:36px;display:grid;grid-template-columns:minmax(240px,1fr) minmax(320px,1.4fr);gap:34px;align-items:start}
+.vantaggi{list-style:none;display:grid;gap:14px}
+.vantaggi li{padding-left:28px;position:relative;font-weight:300;color:#EDE6DA}
+.vantaggi li::before{content:"✦";position:absolute;left:0;color:var(--ambra)}
+
+.modulo{background:var(--bianco);color:var(--grafite);border-radius:20px;padding:34px;box-shadow:0 12px 40px rgba(0,0,0,.28)}
+.modulo h3{font-size:1.12rem;font-weight:700;color:var(--grafite-scuro)}
+.modulo-sub{font-size:.86rem;font-weight:300;margin:6px 0 22px}
+.campo{margin-bottom:16px}
+.campo.nascosto{display:none}
+.campo label{display:block;font-size:.78rem;font-weight:600;letter-spacing:.03em;margin-bottom:6px;color:var(--grafite-scuro)}
+.campo input,.campo select{width:100%;padding:12px 14px;border:1.5px solid var(--bordo);border-radius:10px;
+  font-family:inherit;font-size:.94rem;color:var(--grafite);background:var(--crema)}
+.campo input:focus,.campo select:focus{outline:2px solid var(--ambra);border-color:var(--ambra)}
+.consenso{display:flex;gap:10px;align-items:flex-start;font-size:.78rem;font-weight:300;margin:14px 0}
+.consenso input{margin-top:3px;accent-color:var(--ambra)}
+.modulo .btn{width:100%;text-align:center;margin-top:8px}
+.errore{margin-top:14px;padding:12px 14px;border-radius:10px;background:#FBEDEA;color:#9B3A2C;border:1px solid #ECC3BA;font-size:.88rem}
+.micro{margin-top:14px;font-size:.76rem;font-weight:300;color:#7A736A}
+.lampeggia{animation:lampeggia 1.2s ease}
+@keyframes lampeggia{0%,100%{box-shadow:0 12px 40px rgba(0,0,0,.28)}50%{box-shadow:0 0 0 5px var(--ambra)}}
+
+/* ---------- esito semaforo ---------- */
+.esito{background:var(--bianco);border-top:6px solid var(--colore-esito,var(--ambra))}
+.esito .pallino{display:inline-block;width:16px;height:16px;border-radius:50%;background:var(--colore-esito,var(--ambra));margin-bottom:14px}
+.esito .messaggio{margin-top:12px;font-weight:300;font-size:1.02rem;max-width:60ch}
+.in-attesa{margin-top:26px;background:var(--crema);border:1px dashed var(--bordo);border-radius:14px;padding:22px 24px}
+.revisione-umana{margin-top:30px;padding-top:22px;border-top:1px solid var(--bordo);display:flex;flex-wrap:wrap;gap:16px;align-items:center;justify-content:space-between}
+.revisione-umana p{font-size:.92rem;font-weight:300;max-width:48ch}
+.dietro-le-quinte{margin-top:26px;background:var(--crema);border-radius:12px;padding:16px 18px;font-size:.84rem}
+.dietro-le-quinte summary{cursor:pointer;font-weight:600;color:var(--grafite-scuro)}
+.dietro-le-quinte p,.dietro-le-quinte li{margin-top:8px;font-weight:300}
+.dietro-le-quinte ul{margin-left:20px}
+
+/* ---------- prenotazione ---------- */
+.prenotazione{margin-top:28px}
+.prenotazione h3{font-size:1.05rem;font-weight:600;color:var(--grafite-scuro);margin-bottom:14px}
+.slot-griglia{margin-top:16px;display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:10px}
+.slot{padding:13px 16px;border:1.5px solid var(--bordo);border-radius:10px;background:var(--bianco);
+  font-size:.9rem;font-weight:500;color:var(--grafite-scuro);cursor:pointer;text-align:left;transition:.15s}
+.slot:hover:not(:disabled){border-color:var(--ambra);background:#FFF8ED}
+.slot:disabled{opacity:.4;cursor:not-allowed}
+.slot.scelto{background:var(--ambra);border-color:var(--ambra);color:var(--grafite-scuro);opacity:1}
+.confermato{margin-top:22px;background:#EFF7EC;border:1px solid #BCDCB9;border-radius:14px;padding:22px 24px}
+.confermato h4{font-size:1.02rem;font-weight:700;color:#2F6B33;margin-bottom:8px}
+.confermato p{font-size:.9rem;font-weight:300;margin-bottom:8px}
+
+/* ---------- passaggi / affitto ---------- */
+.passaggi-griglia{margin-top:34px;display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:20px}
+.passaggio{background:var(--bianco);border-radius:16px;padding:26px 24px;border-top:4px solid var(--ambra);
+  box-shadow:0 4px 18px rgba(74,74,74,.07)}
+.passaggio .numero{font-size:.72rem;font-weight:700;letter-spacing:.18em;color:var(--ambra);text-transform:uppercase}
+.passaggio h3{margin:8px 0 10px;font-size:1.05rem;font-weight:600;color:var(--grafite-scuro)}
+.cosa-succede{font-size:.9rem;font-weight:300;margin-bottom:16px}
+.voci{list-style:none;display:grid;gap:12px}
+.voci li{display:grid;grid-template-columns:1fr auto;gap:4px 12px;padding-bottom:11px;border-bottom:1px solid var(--bordo)}
+.voci li:last-child{border-bottom:none}
+.voce-etichetta{font-size:.88rem;font-weight:500;color:var(--grafite-scuro)}
+.voce-importo{font-size:.94rem;font-weight:700;color:var(--ambra-scuro);text-align:right;white-space:nowrap}
+.voce-nota{grid-column:1/-1;font-size:.76rem;font-weight:300;color:#7A736A}
+.elenco-semplice{list-style:none;display:grid;gap:9px}
+.elenco-semplice li{font-size:.88rem;font-weight:300;padding-left:20px;position:relative}
+.elenco-semplice li::before{content:"›";position:absolute;left:0;color:var(--ambra);font-weight:800}
+.durata{margin-top:14px;font-size:.82rem;font-weight:300;color:#7A736A}
+.totale-spese{margin-top:26px;font-size:1.02rem}
+.avvertenza{margin-top:12px;font-size:.78rem;font-weight:300;color:#7A736A;max-width:70ch}
+
+/* ---------- provvigioni ---------- */
+.provvigioni{background:var(--bianco)}
+.riquadro-provvigione{margin-top:26px;border:1px solid var(--bordo);border-radius:16px;padding:24px 26px;background:var(--crema)}
+.riquadro-provvigione .riga{display:flex;justify-content:space-between;gap:16px;padding:9px 0;border-bottom:1px solid var(--bordo);font-size:.92rem;font-weight:300}
+.riquadro-provvigione .riga:last-of-type{border-bottom:none}
+.riquadro-provvigione .totale{font-size:1.05rem;font-weight:600;color:var(--grafite-scuro)}
+.riquadro-provvigione .totale strong{color:var(--ambra-scuro)}
+.riquadro-provvigione .quando{margin-top:12px;font-size:.8rem;font-weight:300;color:#7A736A}
+.tariffario{margin-top:20px;list-style:none;display:grid;gap:8px;font-size:.88rem;font-weight:300}
+.tariffario li{padding-left:22px;position:relative}
+.tariffario li::before{content:"•";position:absolute;left:6px;color:var(--ambra);font-weight:800}
+
+/* ---------- servizi ---------- */
+.servizi-griglia{margin-top:32px;display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:20px}
+.servizio{background:var(--bianco);border:1px solid var(--bordo);border-radius:16px;padding:24px 22px;display:flex;flex-direction:column;gap:10px}
+.servizio h3{font-size:1rem;font-weight:600;color:var(--grafite-scuro)}
+.servizio h3::before{content:"—";color:var(--ambra);margin-right:9px;font-weight:800}
+.servizio p{font-size:.89rem;font-weight:300;flex:1}
+.link-servizio{align-self:flex-start;background:none;border:none;color:var(--ambra-scuro);font-weight:600;font-size:.85rem;cursor:pointer;padding:0;text-decoration:underline}
+.link-servizio:disabled{color:#2F6B33;text-decoration:none;cursor:default}
+
+/* ---------- footer ---------- */
+footer{background:#1F1E1C;color:#BFB7AA;padding:44px 0;font-size:.85rem;font-weight:300}
+.footer-inner{display:flex;flex-wrap:wrap;gap:22px 50px;justify-content:space-between}
+.marchio{color:var(--crema);font-weight:600;font-size:1rem}
+.marchio span{color:var(--ambra)}
+.payoff{color:var(--ambra);font-weight:500;letter-spacing:.03em}
+.agente strong{color:var(--crema)}
+
+.avviso-errore{padding:70px 0}
+.avviso-errore h1{font-size:1.6rem;color:var(--grafite-scuro);margin-bottom:12px}
+.avviso-errore p{margin-bottom:10px;font-weight:300}
+code{background:var(--bianco);border:1px solid var(--bordo);border-radius:5px;padding:2px 6px;font-size:.86em}
+
+@media (max-width:760px){
+  .accesso-griglia{grid-template-columns:1fr}
+  section{padding:54px 0}
+  .hero{padding:52px 0 62px}
+  .modulo{padding:26px 22px}
+}
