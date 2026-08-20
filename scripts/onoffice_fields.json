@@ -1,0 +1,35 @@
+{
+  "_nota": "Mappatura colonna CSV -> campo onOffice (createAddress). I nomi dei campi onOffice sono in tedesco. VERIFICARE questi nomi contro apidoc.onoffice.de/actions/adress/create-address/ prima del primo invio reale: se un nome e' sbagliato onOffice ignora il campo o restituisce errore. Per correggere basta modificare questo file, non il codice.",
+
+  "campi_base": {
+    "Nome": "Vorname",
+    "Cognome": "Name",
+    "Telefono": "Telefon1",
+    "Email": "Email"
+  },
+
+  "campi_estesi": {
+    "Comune": "Ort",
+    "Note complete": "Bemerkung"
+  },
+
+  "campi_da_verificare": {
+    "_nota": "Questi non hanno un campo standard garantito: su onOffice sono tipicamente campi liberi configurati per agenzia. Finche' non sono confermati vengono accorpati nella nota (Bemerkung) invece di essere persi.",
+    "Zone ricercate": null,
+    "Budget min": null,
+    "Budget max": null,
+    "Tipologia": null,
+    "Superficie": null,
+    "Fonte": null,
+    "Immobile di interesse": null,
+    "Tempistiche": null,
+    "Modalità": null,
+    "Stato lead": null,
+    "Data modulo": null
+  },
+
+  "valori_fissi": {
+    "_nota": "Applicati a ogni contatto creato. Adattare a come sono configurate le vostre anagrafiche.",
+    "Art": "Interessent"
+  }
+}

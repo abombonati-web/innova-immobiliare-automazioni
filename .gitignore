@@ -1,0 +1,4 @@
+# Dati personali dei lead: mai nel repository (informativa GDPR Innova)
+*.csv
+contatti-*.md
+leads.json
