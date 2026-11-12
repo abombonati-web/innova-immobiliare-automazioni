@@ -1,0 +1,307 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Report Property Innova</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<!--
+  REPORT PROPERTY — MODELLO DI ESEMPIO
+  Profilo cliente: DIMOSTRATIVO (nessun dato di clienti reali).
+  Sezione 1: immobili REALI del catalogo Innova (dati e foto da innovaexperience.it, 12/11/2026).
+  Sezione 2 e 3: segnaposto. Li compila l'agente Property Finder al click; qui non c'è nessun dato inventato.
+-->
+<style>
+  :root{
+    --ambra:#E8982A; --ambra-scura:#C97E15; --antracite:#4A4A4A; --profonda:#2B2A28;
+    --crema:#FBF6EE; --bianco:#FFFFFF; --linea:#EADFCC; --testo:#2B2A28; --tenue:#6B6A66;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:Poppins,system-ui,sans-serif;background:var(--crema);color:var(--testo);line-height:1.6;font-size:15px}
+  img{display:block;max-width:100%}
+  .wrap{max-width:920px;margin:0 auto;padding:0 16px}
+
+  /* Copertina */
+  .cover{background:var(--profonda);color:var(--bianco);padding:40px 0 48px}
+  .cover .logo{height:72px;width:auto;margin-bottom:36px}
+  .eyebrow{font-size:12px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--ambra)}
+  .cover h1{font-size:clamp(28px,5vw,42px);font-weight:700;line-height:1.15;margin:10px 0 14px}
+  .cover p.lead{font-weight:300;font-size:17px;max-width:640px;color:#E9E4DA}
+  .profilo{margin-top:28px;display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px}
+  .profilo div{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);border-radius:10px;padding:12px 14px}
+  .profilo span{display:block;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:#BDB6A8}
+  .profilo strong{font-weight:600;font-size:15px}
+  .meta{margin-top:22px;font-size:13px;color:#BDB6A8}
+
+  section{padding:44px 0 8px}
+  h2{font-size:clamp(22px,3.6vw,28px);font-weight:700;margin:6px 0 8px}
+  .intro{color:var(--tenue);max-width:680px;margin-bottom:24px}
+
+  /* Card immobile */
+  .card{background:var(--bianco);border:1px solid var(--linea);border-radius:16px;overflow:hidden;margin-bottom:26px}
+  .gal{display:grid;grid-template-columns:2fr 1fr;grid-template-rows:168px 168px;gap:4px;overflow:hidden}
+  .gal img{width:100%;height:100%;min-height:0;object-fit:cover}
+  .gal img:first-child{grid-row:1 / span 2}
+  .badge{display:inline-block;background:var(--ambra);color:var(--bianco);font-size:11px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;border-radius:999px;padding:4px 10px}
+  .badge.grigio{background:var(--antracite)}
+  .body{padding:22px 24px 24px}
+  .top{display:flex;justify-content:space-between;align-items:flex-start;gap:16px;flex-wrap:wrap}
+  .card h3{font-size:19px;font-weight:600;line-height:1.3;margin:10px 0 2px}
+  .zona{color:var(--tenue);font-size:14px}
+  .prezzo{font-size:26px;font-weight:700;color:var(--ambra-scura);white-space:nowrap}
+  .prezzo small{display:block;font-size:12px;font-weight:400;color:var(--tenue);text-align:right}
+  .dati{display:grid;grid-template-columns:repeat(auto-fit,minmax(110px,1fr));gap:8px;margin:18px 0}
+  .dati div{background:var(--crema);border-radius:10px;padding:10px 12px}
+  .dati span{display:block;font-size:11px;color:var(--tenue);text-transform:uppercase;letter-spacing:.06em}
+  .dati strong{font-size:16px;font-weight:600}
+  .desc{font-size:14.5px;color:#3d3c39}
+  .perche{margin-top:16px;border-left:3px solid var(--ambra);padding:4px 0 4px 14px;font-size:14px}
+  .perche b{color:var(--ambra-scura)}
+  .azioni{margin-top:18px;display:flex;gap:10px;flex-wrap:wrap}
+  .btn{display:inline-block;text-decoration:none;font-weight:600;font-size:14px;border-radius:10px;padding:11px 18px}
+  .btn.pieno{background:var(--ambra);color:var(--bianco)}
+  .btn.vuoto{border:1.5px solid var(--ambra);color:var(--ambra-scura)}
+
+  /* Segnaposto agente */
+  .placeholder{border:2px dashed var(--ambra);background:#FFF9F0;border-radius:16px;padding:22px 24px;margin-bottom:22px}
+  .placeholder h4{font-size:15px;font-weight:600;margin-bottom:6px}
+  .placeholder ul{margin:8px 0 0 18px;font-size:14px;color:var(--tenue)}
+  .nofoto{display:flex;align-items:center;justify-content:center;height:200px;background:var(--crema);color:var(--tenue);font-size:13px;text-align:center;padding:16px}
+
+  /* Incarico */
+  .incarico{background:var(--profonda);color:var(--bianco);border-radius:18px;padding:32px 28px;margin:10px 0 30px}
+  .incarico h2{color:var(--bianco)}
+  .incarico p{color:#E9E4DA;max-width:680px}
+  .vantaggi{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px;margin:22px 0}
+  .vantaggi div{background:rgba(255,255,255,.06);border-radius:12px;padding:14px 16px;font-size:14px}
+  .vantaggi b{display:block;color:var(--ambra);font-weight:600;margin-bottom:2px}
+
+  footer{background:var(--profonda);color:#BDB6A8;padding:30px 0;font-size:13px;margin-top:30px}
+  footer strong{color:var(--bianco)}
+  footer .payoff{color:var(--ambra);font-weight:600;margin-top:10px}
+
+  @media (max-width:640px){
+    .gal{height:auto;grid-template-columns:1fr 1fr;grid-template-rows:200px 110px}
+    .gal img:first-child{grid-column:1 / span 2;grid-row:1}
+    .gal img:nth-child(4){display:none}
+    .body{padding:18px}
+    .prezzo small{text-align:left}
+  }
+  @media print{
+    body{background:var(--bianco)}
+    .card,.placeholder{break-inside:avoid}
+    .btn{border:1px solid var(--ambra)}
+  }
+</style>
+</head>
+<body>
+
+<header class="cover">
+  <div class="wrap">
+    <img class="logo" src="https://www.innovaexperience.it/innova-logo-bianco.png" alt="Innova Immobiliare">
+    <div class="eyebrow">Report Property · Servizio esclusivo Innova</div>
+    <h1>La tua selezione riservata,<br>Cliente di prova</h1>
+    <p class="lead">Abbiamo analizzato le tue risposte al questionario Innova Experience e il mercato di Palermo. Qui trovi i nostri immobili in linea con quello che cerchi e quello che c'è sul mercato per te, letto e verificato dal nostro team.</p>
+    <div class="profilo">
+      <div><span>Cerchi</span><strong>Appartamento</strong></div>
+      <div><span>Zone</span><strong>Politeama, Libertà</strong></div>
+      <div><span>Budget</span><strong>fino a € 250.000</strong></div>
+      <div><span>Modalità</span><strong>Contanti</strong></div>
+      <div><span>Tempistiche</span><strong>Entro 3 mesi</strong></div>
+    </div>
+    <div class="meta">Report preparato il 12 novembre 2026 dal tuo consulente Innova</div>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <!-- SEZIONE 1: IMMOBILI INNOVA (dati reali dal catalogo) -->
+  <section>
+    <div class="eyebrow">1 · I nostri immobili per te</div>
+    <h2>Immobili Innova in linea con la tua ricerca</h2>
+    <p class="intro">Immobili seguiti direttamente da Innova: documenti già verificati dal nostro team tecnico, foto e video professionali, visita in agenzia anche in Realtà Virtuale.</p>
+
+    <article class="card">
+      <div class="gal">
+        <img src="https://prrumfdyzpnebwyvbqws.supabase.co/storage/v1/object/public/immobili/piazza-sturzo-14-palermo/6121c538-c9bb-44d1-adfb-bbf52472f45f.jpg" alt="Piazza Sturzo 14, foto 1">
+        <img src="https://prrumfdyzpnebwyvbqws.supabase.co/storage/v1/object/public/immobili/piazza-sturzo-14-palermo/7f0cf967-fe3a-4adb-9a6a-04724851490c.jpg" alt="Piazza Sturzo 14, foto 2">
+        <img src="https://prrumfdyzpnebwyvbqws.supabase.co/storage/v1/object/public/immobili/piazza-sturzo-14-palermo/cfa3d5ee-16b0-4cc8-a62a-e7bed50f8ebc.jpg" alt="Piazza Sturzo 14, foto 3">
+      </div>
+      <div class="body">
+        <div class="top">
+          <div>
+            <span class="badge">Immobile Innova</span>
+            <h3>Piazza Sturzo 14 – Porzione da 70 mq</h3>
+            <div class="zona">Politeama · Palermo</div>
+          </div>
+          <div class="prezzo">€ 130.000<small>€ 1.857/mq</small></div>
+        </div>
+        <div class="dati">
+          <div><span>Superficie</span><strong>70 mq</strong></div>
+          <div><span>Locali</span><strong>2</strong></div>
+          <div><span>Bagni</span><strong>1</strong></div>
+          <div><span>Piano</span><strong>4°</strong></div>
+          <div><span>Classe energetica</span><strong>E</strong></div>
+        </div>
+        <p class="desc">Al 4° piano di un edificio del 1974 con affaccio su Piazza Sturzo, un bilocale di circa 70 mq ricavato dal frazionamento di un appartamento più ampio: camera da letto di 14,52 mq con armadiatura, bagno, ampia cucina-soggiorno, veranda e lavanderia. L'immobile originario, di 198 mq commerciali, è in vendita anche per intero a € 415.000. Il frazionamento è da verificare con il nostro team tecnico (pratica urbanistica e catastale).</p>
+        <p class="perche"><b>Perché è in linea con te:</b> è al Politeama, è un appartamento ed è ampiamente nel tuo budget.</p>
+        <div class="azioni">
+          <a class="btn pieno" href="https://www.innovaexperience.it/immobili/piazza-sturzo-14-palermo">Vedi la scheda completa</a>
+        </div>
+      </div>
+    </article>
+
+    <article class="card">
+      <div class="gal">
+        <img src="https://www.innovaimmobiliare.it/wp-content/uploads/2026/10/innova-via-garzilli-47-01-1024x683.jpg" alt="Via Garzilli 47, foto 1">
+        <img src="https://www.innovaimmobiliare.it/wp-content/uploads/2026/10/innova-via-garzilli-47-02-1024x683.jpg" alt="Via Garzilli 47, foto 2">
+        <img src="https://www.innovaimmobiliare.it/wp-content/uploads/2026/10/innova-via-garzilli-47-03-1024x683.jpg" alt="Via Garzilli 47, foto 3">
+      </div>
+      <div class="body">
+        <div class="top">
+          <div>
+            <span class="badge">Immobile Innova</span>
+            <h3>Via Nicolò Garzilli 47 – Bivani di 45 mq</h3>
+            <div class="zona">Libertà · Palermo</div>
+          </div>
+          <div class="prezzo">€ 95.000<small>€ 2.111/mq</small></div>
+        </div>
+        <div class="dati">
+          <div><span>Superficie</span><strong>45 mq</strong></div>
+          <div><span>Locali</span><strong>2</strong></div>
+          <div><span>Bagni</span><strong>1</strong></div>
+          <div><span>Piano</span><strong>Seminterrato</strong></div>
+          <div><span>Classe energetica</span><strong>G</strong></div>
+        </div>
+        <p class="desc">In una delle vie più prestigiose del centro, un bivani di circa 45 mq al piano seminterrato: ampia zona giorno-notte con angolo cottura a vista, camera da letto e bagno finestrato. In buone condizioni, pronto da abitare o da mettere a reddito, a pochi minuti da Piazza Politeama e dal Teatro Massimo. Alcune foto sono rendering realizzati dal team Innova. Disponibile anche la visita a 360°.</p>
+        <p class="perche"><b>Perché è in linea con te:</b> è in zona Libertà, è un appartamento ed è il più accessibile della selezione, adatto anche come investimento.</p>
+        <div class="azioni">
+          <a class="btn pieno" href="https://www.innovaexperience.it/immobili/monolocale-45-mq-via-nicolo-garzilli-47-liberta-palermo">Vedi la scheda completa</a>
+        </div>
+      </div>
+    </article>
+
+    <article class="card">
+      <div class="gal">
+        <img src="https://prrumfdyzpnebwyvbqws.supabase.co/storage/v1/object/public/immobili/via-giuseppina-turrisi-colonna-78-appartamento-di-170-mq-al-/bccc0f5c-05cc-4c52-84b9-670c7396c5c1.jpg" alt="Via Turrisi Colonna 78, foto 1">
+        <img src="https://prrumfdyzpnebwyvbqws.supabase.co/storage/v1/object/public/immobili/via-giuseppina-turrisi-colonna-78-appartamento-di-170-mq-al-/06fd0f0b-d02b-4742-9169-1f5e63298486.jpg" alt="Via Turrisi Colonna 78, foto 2">
+        <img src="https://prrumfdyzpnebwyvbqws.supabase.co/storage/v1/object/public/immobili/via-giuseppina-turrisi-colonna-78-appartamento-di-170-mq-al-/cb1bfb7a-495a-4792-9a30-4cf0314d677e.jpg" alt="Via Turrisi Colonna 78, foto 3">
+      </div>
+      <div class="body">
+        <div class="top">
+          <div>
+            <span class="badge">Esclusiva Innova</span>
+            <h3>Via Giuseppina Turrisi Colonna 78 – 170 mq al primo piano</h3>
+            <div class="zona">Politeama · Palermo</div>
+          </div>
+          <div class="prezzo">€ 250.000<small>€ 1.471/mq</small></div>
+        </div>
+        <div class="dati">
+          <div><span>Superficie</span><strong>170 mq</strong></div>
+          <div><span>Locali</span><strong>8</strong></div>
+          <div><span>Bagni</span><strong>2</strong></div>
+          <div><span>Piano</span><strong>1°</strong></div>
+          <div><span>Classe energetica</span><strong>G</strong></div>
+        </div>
+        <p class="desc">170 mq catastali (160 mq escluse le aree scoperte) al primo piano. Otto vani e mezzo di superfici generose: ingresso, ampio soggiorno con doppia vista, zona pranzo e cucina abitabile con accesso all'area esterna, camere luminose e servizi. Balconi e un grande spazio esterno completano l'immobile.</p>
+        <p class="perche"><b>Perché è in linea con te:</b> è al Politeama, rientra nel tuo budget massimo e ha il prezzo al metro quadro più basso della selezione, per chi cerca spazio.</p>
+        <div class="azioni">
+          <a class="btn pieno" href="https://www.innovaexperience.it/immobili/via-giuseppina-turrisi-colonna-78-appartamento-di-170-mq-al-primo-piano">Vedi la scheda completa</a>
+        </div>
+      </div>
+    </article>
+  </section>
+
+  <!-- SEZIONE 2: MERCATO (compilata dall'agente) -->
+  <section>
+    <div class="eyebrow">2 · Il mercato per te</div>
+    <h2>Gli altri immobili sul mercato in linea con la tua ricerca</h2>
+    <p class="intro">Abbiamo cercato per te sui portali, sui siti delle agenzie e tra gli annunci dei privati. Per ogni immobile ti diamo le informazioni che servono a capire di cosa si tratta. Per vederlo, approfondire i documenti o fare un'offerta, ti accompagniamo noi: chiamaci ai numeri qui sotto.</p>
+
+    <div class="placeholder">
+      <h4>Spazio compilato dall'agente Property Finder al click su «Report Property»</h4>
+      In questo modello non ci sono annunci di terzi: l'agente li cerca al momento, sul web pubblico. Per ogni immobile trovato inserisce:
+      <ul>
+        <li>tipologia, zona o via (senza numero civico), superficie, locali, bagni, piano, ascensore, classe energetica, stato e spese condominiali se dichiarate;</li>
+        <li>prezzo richiesto ed €/mq, confrontati con gli immobili Innova della stessa zona;</li>
+        <li>una descrizione scritta da Innova (mai copiata dall'annuncio) con punti di forza e cose da verificare;</li>
+        <li>il perché è in linea con il cliente;</li>
+        <li>nessun link, nessun nome di agenzia, nessun contatto di terzi; foto solo con l'interruttore acceso.</li>
+      </ul>
+    </div>
+
+    <article class="card">
+      <div class="nofoto">Foto e planimetria disponibili su richiesta: chiamaci e te le mostriamo in agenzia</div>
+      <div class="body">
+        <div class="top">
+          <div>
+            <span class="badge grigio">Sul mercato · formato esempio</span>
+            <h3>[Tipologia] – [mq] mq, [piano]</h3>
+            <div class="zona">[Zona / via senza civico] · Palermo</div>
+          </div>
+          <div class="prezzo">€ [prezzo]<small>€ [x]/mq</small></div>
+        </div>
+        <div class="dati">
+          <div><span>Superficie</span><strong>[mq]</strong></div>
+          <div><span>Locali</span><strong>[n]</strong></div>
+          <div><span>Bagni</span><strong>[n]</strong></div>
+          <div><span>Piano</span><strong>[piano]</strong></div>
+          <div><span>Classe energetica</span><strong>[classe]</strong></div>
+        </div>
+        <p class="desc">[Descrizione scritta da Innova, con i dati dichiarati nell'annuncio.]</p>
+        <p class="perche"><b>Da verificare con noi:</b> [es. conformità urbanistica e catastale, APE, spese condominiali].</p>
+        <div class="azioni"><a class="btn vuoto" href="tel:+393394185631">Voglio vederlo con Innova</a></div>
+      </div>
+    </article>
+  </section>
+
+  <!-- SEZIONE 3: LETTURA DEL MERCATO -->
+  <section>
+    <div class="eyebrow">3 · Cosa dice il mercato</div>
+    <h2>Quanto si paga davvero nelle tue zone</h2>
+    <div class="placeholder">
+      <h4>Compilata dall'agente con dati verificati</h4>
+      <ul>
+        <li>prezzi delle compravendite reali nelle zone del cliente: dati dell'Agenzia delle Entrate e atti presenti sul Drive Innova (mai quotazioni OMI);</li>
+        <li>confronto tra prezzi richiesti sul mercato e prezzi reali di chiusura;</li>
+        <li>se il cliente usa un mutuo: rata indicativa con il calcolatore della piattaforma e invito alla prequalifica WeUnit;</li>
+        <li>costi d'acquisto stimati (imposte, notaio, mediazione) con il calcolatore della piattaforma.</li>
+      </ul>
+      Se un dato non c'è, il report lo dice: non viene stimato a sentimento.
+    </div>
+  </section>
+
+  <!-- SEZIONE 4: INCARICO DI RICERCA -->
+  <section>
+    <div class="incarico">
+      <div class="eyebrow">4 · Ti accompagniamo noi</div>
+      <h2>Vuoi che Innova cerchi e tratti l'immobile per te?</h2>
+      <p>Con l'incarico di ricerca, Innova lavora dalla tua parte, anche per immobili non seguiti da noi: li cerchiamo, li visitiamo, verifichiamo i documenti e trattiamo il prezzo per te fino al rogito.</p>
+      <div class="vantaggi">
+        <div><b>Tutela</b>Verifica documentale prima di ogni proposta: visure, planimetria, APE, conformità.</div>
+        <div><b>Trattativa</b>Il prezzo lo trattiamo noi, con i dati delle compravendite reali in mano.</div>
+        <div><b>Mutuo</b>Prequalifica reddituale e mutuo con i consulenti WeUnit, il nostro partner.</div>
+        <div><b>Un solo riferimento</b>Un consulente Innova dalla ricerca al rogito, anche se compri da un'altra agenzia o da un privato.</div>
+      </div>
+      <p>Per attivare l'incarico di ricerca rispondi a questo messaggio o chiamaci: ti spieghiamo condizioni e compenso prima di firmare.</p>
+      <div class="azioni">
+        <a class="btn pieno" href="tel:+393394185631">Attiva l'incarico: 339 418 5631</a>
+        <a class="btn vuoto" href="tel:+390917934524" style="color:var(--ambra)">Fisso 091 793 4524</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <strong>Innova Immobiliare S.a.s. di Bombonati Andrea</strong><br>
+    Via Enzo ed Elvira Sellerio 44/46 (ex Via Siracusa), 90141 Palermo<br>
+    +39 339 418 5631 · 091 793 4524 · info@innovaimmobiliare.it<br>
+    P.IVA 06881030826
+    <div class="payoff">Progetta il tuo futuro</div>
+    <p style="margin-top:12px;font-size:11.5px">I dati degli immobili non seguiti da Innova sono quelli dichiarati negli annunci pubblici alla data del report e vanno verificati prima di ogni proposta. Dati personali trattati secondo l'informativa privacy di Innova Immobiliare.</p>
+  </div>
+</footer>
+</body>
+</html>
